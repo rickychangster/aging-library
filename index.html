@@ -380,15 +380,106 @@ body {
   font-size: 14px;
 }
 
+/* ── Suggestion box ──────────────────────────────── */
+.suggest-section {
+  margin-top: 72px;
+  padding: 36px 40px;
+  background: var(--surface);
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+}
+
+.suggest-heading {
+  font-family: 'Newsreader', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.suggest-sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+
+.suggest-form { display: flex; flex-direction: column; gap: 12px; }
+
+.suggest-textarea, .suggest-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.suggest-textarea:focus, .suggest-name:focus { border-color: var(--amber); }
+.suggest-textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
+
+.suggest-row { display: flex; gap: 12px; align-items: center; }
+
+.suggest-btn {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.7px;
+  padding: 11px 22px;
+  background: var(--amber);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.suggest-btn:hover { background: var(--amber-deep); }
+
+.suggest-thanks {
+  display: none;
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.5px;
+  color: var(--green);
+  margin-top: 10px;
+}
+.suggest-thanks.visible { display: block; }
+
 /* ── Footer ──────────────────────────────────────── */
 .footer {
-  margin-top: 80px;
+  margin-top: 48px;
   padding-top: 28px;
   border-top: 1px solid var(--rule-light);
+}
+
+.footer-top {
   font-family: 'Fragment Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.8px;
   color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.footer-legal {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  max-width: 740px;
+}
+
+.footer-legal strong {
+  color: var(--ink-mid);
+  font-weight: 600;
 }
 
 /* ── Responsive ──────────────────────────────────── */
@@ -397,6 +488,10 @@ body {
   .filter-row { flex-direction: column; gap: 8px; }
   .filter-label { width: auto; padding-top: 0; }
   .grid { grid-template-columns: 1fr; }
+  .suggest-section { padding: 28px 20px; }
+  .suggest-row { flex-direction: column; align-items: stretch; }
+  .suggest-btn { text-align: center; }
+  .footer-top { flex-direction: column; gap: 4px; }
 }
 </style>
 </head>
@@ -456,8 +551,28 @@ body {
     <div class="empty-sub">Try different filters or a shorter search term.</div>
   </div>
 
+  <section class="suggest-section">
+    <div class="suggest-heading">Suggest a Topic</div>
+    <p class="suggest-sub">Is there an aging science topic you'd like covered? We read every suggestion and use them to guide what we write next.</p>
+    <form class="suggest-form" id="suggest-form">
+      <textarea class="suggest-textarea" id="suggest-topic" placeholder="Describe the topic — e.g. "the role of autophagy in aging" or "how sauna affects longevity"" required></textarea>
+      <div class="suggest-row">
+        <input class="suggest-name" id="suggest-name" type="text" placeholder="Your name (optional)">
+        <button class="suggest-btn" type="submit">Send suggestion →</button>
+      </div>
+    </form>
+    <div class="suggest-thanks" id="suggest-thanks">Your email client should open with the suggestion ready to send — thank you.</div>
+  </section>
+
   <footer class="footer">
-    Longevity &amp; Wellness Lecture Series &nbsp;·&nbsp; Updated weekly
+    <div class="footer-top">
+      <span><span id="footer-year"></span> Longevity &amp; Wellness Lecture Series</span>
+      <span>Updated weekly</span>
+    </div>
+    <div class="footer-legal">
+      <strong>AI-assisted content.</strong> Lectures are researched and drafted with the assistance of AI language models and reviewed for scientific accuracy. References are provided at the end of each lecture. &nbsp;
+      <strong>Not medical advice.</strong> This library is for educational and informational purposes only. Nothing here constitutes medical advice, diagnosis, or treatment recommendation. Always consult a qualified healthcare provider before making any health-related decisions.
+    </div>
   </footer>
 
 </div>
@@ -1792,6 +1907,31 @@ body {
 
   loadFromURL();
   render();
+
+  // ── Footer year ─────────────────────────────────────
+  document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear();
+
+  // ── Suggestion form ──────────────────────────────────
+  document.getElementById('suggest-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const topic = document.getElementById('suggest-topic').value.trim();
+    const name  = document.getElementById('suggest-name').value.trim();
+
+    const subject = 'Topic Suggestion: ' + topic.slice(0, 60) + (topic.length > 60 ? '…' : '');
+    const body    = (name ? 'From: ' + name + '\n\n' : '') +
+                    'Suggested topic:\n' + topic + '\n\n' +
+                    '— Sent from Longevity & Wellness Lecture Library';
+
+    window.location.href =
+      'mailto:rickychangster@hotmail.com' +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body='    + encodeURIComponent(body);
+
+    this.reset();
+    const thanks = document.getElementById('suggest-thanks');
+    thanks.classList.add('visible');
+    setTimeout(() => thanks.classList.remove('visible'), 6000);
+  });
 })();
 </script>
 </body>

@@ -31,7 +31,7 @@ SOURCE_DIR   = os.path.expanduser(
 
 # ── Set your live site URL here after deploying ──────────────────────────────
 # e.g. "https://yourname.github.io/aging-library"
-SITE_URL = 'https://YOUR_USERNAME.github.io/aging-library'
+SITE_URL = 'https://rickychangster.github.io/aging-library'
 
 # ── Plausible domain — set after creating your Plausible account ─────────────
 # e.g. "yourname.github.io"  (leave empty to omit the analytics tag)
