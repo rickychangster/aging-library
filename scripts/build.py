@@ -19,7 +19,7 @@ Run this after adding new entries to catalog.json.
 import json
 import os
 import re
-from datetime import date
+from datetime import date, datetime
 
 ROOT         = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CATALOG_PATH = os.path.join(ROOT, 'catalog.json')
@@ -44,7 +44,7 @@ def load_catalog():
 
 
 def build_og_block(lecture):
-    """Return <meta> tags to inject into a lecture's <head>."""
+    """Return <meta> + font + icon tags to inject into a lecture's <head>."""
     title = lecture['title'] + ' — Longevity & Wellness'
     desc  = lecture.get('description', '')
     url   = f'{SITE_URL}/lectures/{os.path.basename(lecture["filename"])}'
@@ -58,6 +58,7 @@ def build_og_block(lecture):
         f'<meta name="twitter:title" content="{title}">',
         f'<meta name="twitter:description" content="{desc}">',
         f'<link rel="icon" type="image/svg+xml" href="../favicon.svg">',
+        f'<link rel="stylesheet" href="../fonts.css">',
     ]
     if PLAUSIBLE_DOMAIN:
         lines.append(
@@ -65,6 +66,29 @@ def build_og_block(lecture):
             f'src="https://plausible.io/js/script.js"></script>'
         )
     return '\n'.join(lines)
+
+
+def build_pub_date_block(lecture):
+    """Return a publication-date notice to inject after the lecture <h1>."""
+    added = lecture.get('added', '')
+    if not added:
+        return ''
+    try:
+        formatted = datetime.strptime(added, '%Y-%m-%d').strftime('%B %Y')
+    except ValueError:
+        return ''
+    return (
+        '\n<p class="lw-pub-date" style="'
+        'font-family:\'Fragment Mono\',monospace;font-size:10px;letter-spacing:.9px;'
+        'text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;'
+        'border-top:1px solid #e8e4db;">'
+        f'Published {formatted}'
+        ' &nbsp;·&nbsp; '
+        'Science in this area continues to evolve — this lecture reflects research '
+        'available at the time of writing. Consult a qualified clinician before '
+        'making health decisions.'
+        '</p>\n'
+    )
 
 
 def build_related_block(lecture, catalog_lectures):
@@ -115,14 +139,30 @@ def process_lecture(lecture, catalog_lectures):
         '', html, flags=re.DOTALL
     )
     html = re.sub(
+        r'\n?<p class="lw-pub-date"[^>]*>.*?</p>\n?',
+        '', html, flags=re.DOTALL
+    )
+    html = re.sub(
         r'\n?<script id="related-data"[^>]*>.*?</script>\s*'
         r'<script src="../related-widget\.js"></script>\s*',
         '', html, flags=re.DOTALL
     )
 
-    # Inject OG tags into <head>
+    # Replace Google Fonts link with local fonts.css
+    html = re.sub(
+        r'<link[^>]+fonts\.googleapis\.com[^>]*>',
+        '',
+        html
+    )
+
+    # Inject meta tags + local font link into <head>
     og_block = f'<!-- LW:META:BEGIN -->\n{build_og_block(lecture)}\n<!-- LW:META:END -->'
     html = html.replace('</head>', og_block + '\n</head>', 1)
+
+    # Inject publication date after first </h1>
+    pub_block = build_pub_date_block(lecture)
+    if pub_block:
+        html = re.sub(r'</h1>', '</h1>' + pub_block, html, count=1)
 
     # Inject related widget before </body>
     html = html.replace('</body>', build_related_block(lecture, catalog_lectures) + '</body>', 1)
