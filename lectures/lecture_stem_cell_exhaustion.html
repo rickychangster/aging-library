@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Stem Cell Exhaustion &amp; the Regeneration Deficit</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#faf9f7; --surface:#f0eeea; --card:#ffffff; --card-b:#ddd9d0;
+    --ink:#1a1a1a; --ink-mid:#3d3d3d; --ink-soft:#71717a;
+    --blue:#1d4ed8; --blue-deep:#1e3a8a; --blue-dim:rgba(29,78,216,0.05);
+    --red:#b91c1c; --red-dim:rgba(185,28,28,0.04);
+    --green:#15803d; --green-dim:rgba(21,128,61,0.04);
+    --amber:#b45309; --amber-dim:rgba(180,83,9,0.04);
+    --rule:#d4d0c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Work Sans',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+
+  .top-bar{height:3px;margin-bottom:40px;display:flex;gap:4px;}
+  .top-bar span{border-radius:1.5px;}
+  .tb1{flex:4;background:var(--green);} .tb2{flex:3;background:var(--blue);} .tb3{flex:2;background:var(--amber);} .tb4{flex:1;background:var(--red);}
+
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:1px solid var(--ink);position:relative;}
+  .stag{font-family:'Fira Code',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:20px;}
+  .ln{font-family:'Newsreader',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Newsreader',serif;font-size:40px;font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:8px;}
+  h1 .a{color:var(--green);}
+  .sub{font-family:'Newsreader',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Fira Code',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}
+  .meta .hl{color:var(--green);font-weight:600;}
+
+  .sn{font-family:'Fira Code',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Newsreader',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--green);font-weight:700;} .def{color:var(--ink-soft);font-style:italic;} em{font-style:italic;color:var(--ink);}
+
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}
+  .sep .l{flex:1;height:1px;background:var(--rule);} .sep .d{width:6px;height:2px;background:var(--green);border-radius:1px;}
+
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--green);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}
+  .fig-tag{font-family:'Fira Code',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .note .nl{font-family:'Fira Code',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .warn .wl{font-family:'Fira Code',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .caut .cl{font-family:'Fira Code',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .corr .cl{font-family:'Fira Code',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}
+  .gc:hover{border-color:var(--green);}
+  .gc .tag{font-family:'Fira Code',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+  .tag.bio{color:var(--amber);} .tag.eng{color:var(--blue-deep);}
+  .gc h4{font-family:'Newsreader',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}
+  .gc strong{color:var(--green);font-weight:700;}
+
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}
+  .res .rt{font-family:'Fira Code',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:18px;}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}
+  .ri .rc{font-family:'Fira Code',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+  .rc.read{color:var(--amber);} .rc.act{color:var(--blue-deep);} .rc.tool{color:var(--green);} .rc.meas{color:var(--red);}
+  .ri h5{font-family:'Newsreader',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}
+  .cite .ct{font-family:'Fira Code',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .cite table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .cite th{font-family:'Fira Code',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}
+  .cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}
+  .cite .ok{font-family:'Fira Code',monospace;font-size:10px;font-weight:600;color:var(--green);}
+  .cite .cv{font-family:'Fira Code',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}
+  .fn strong{color:var(--ink-mid);font-weight:700;}
+
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar"><span class="tb1"></span><span class="tb2"></span><span class="tb3"></span><span class="tb4"></span></div>
+
+  <header class="hdr">
+    <div class="ln">26</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 26</div>
+    <h1>Stem Cell Exhaustion <span class="a">&amp; the Regeneration Deficit</span></h1>
+    <div class="sub">Every Tissue in Your Body Depends on a Reserve Pool of Undifferentiated Cells That Can Replace Damaged Components — and by Fifty, That Reserve Is Depleted, the Warehouses That Store Them Are Crumbling, and the Supply Chain That Delivers Replacements Has Collapsed</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Regenerative Biology / Stem Cell Biology (Rando 2006; López-Otín 2013)</div>
+      <div><span class="hl">Bridge:</span> Supply Chain Logistics / Just-in-Time Manufacturing</div>
+      <div><span class="hl">Window:</span> Ages 40–70</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why — The Regeneration Puzzle</div>
+  <h2>Why Tissues Stop Replacing What They Lose</h2>
+
+  <p>A cut on a five-year-old's skin heals in days. The same cut on a sixty-year-old's skin takes weeks and leaves a thicker scar. A fracture in a young femur remodels to full strength; the same fracture in an aging femur may never fully consolidate. A bout of influenza that a thirty-year-old clears in a week can hospitalize a seventy-year-old for a month — not because the virus is different, but because the immune system cannot regenerate its lymphocyte population quickly enough to mount a vigorous adaptive response. The puzzle: the genome encodes the same repair programs at every age. The differentiated cells that perform tissue functions (muscle fibers, immune cells, intestinal epithelium, skin keratinocytes) turn over constantly and must be replaced. What changes?</p>
+
+  <p>The answer, formalized as a hallmark of aging by López-Otín et al. (2013) and refined through two decades of stem cell biology, is <span class="k">stem cell exhaustion</span> <span class="def">(the progressive decline in the number and functional capacity of tissue-resident adult stem cells — the undifferentiated reserve populations that generate replacement cells throughout life)</span>. But the modern understanding goes beyond simple depletion. Stem cells don't merely run out — they are simultaneously <em>damaged internally</em> (by accumulated DNA damage, epigenetic drift, mitochondrial dysfunction, and telomere attrition) and <em>failed externally</em> by the deterioration of their <span class="k">niche</span> <span class="def">(the specialized microenvironment of extracellular matrix, supporting cells, and soluble signals that maintains stem cells in quiescence, protects them from stress, and activates them when regeneration is needed)</span>. The most provocative finding: when aged stem cells are transplanted into a young niche, or when aged animals are exposed to young blood via parabiosis, stem cell function is substantially restored — suggesting that the cells themselves retain latent regenerative capacity that the aged environment suppresses.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge — The Warehouse and the Supply Chain</div>
+  <h2>Analogy: Just-in-Time Manufacturing Under Siege</h2>
+
+  <p>Consider a global manufacturer operating a just-in-time (JIT) supply chain. Raw components are not stockpiled in massive quantities — instead, a reserve of critical parts is maintained in strategically located warehouses, and when the production line needs replacements, the warehouse ships them on demand. Three elements must function: the <em>reserve inventory</em> (stem cell pool), the <em>warehouse infrastructure</em> (the niche), and the <em>logistics network</em> (systemic signals that activate and direct stem cells to injury sites). When the system is young and well-funded, replacement parts arrive within hours. A machine breaks, a replacement ships, and the line barely notices the interruption.</p>
+
+  <p>Now degrade all three simultaneously. The reserve inventory has been drawn down over decades of routine replacement and hasn't been adequately replenished — the warehouse holds 40% of its original stock. The warehouse itself is deteriorating — the climate control fails (the niche becomes inflamed, Lecture 12), the racks corrode (extracellular matrix stiffens with AGEs, Lecture 13), and the inventory management system sends faulty signals (epigenetic drift in niche cells, Lecture 10). And the logistics network is compromised — delivery trucks break down (vascular decline reduces stem cell mobilization), and the addressing system mislabels shipments (myeloid-skewed hematopoietic output sends immune precursors down the wrong lineage). The result: when the production line breaks, the replacement part either doesn't arrive, arrives too late, or is the wrong part. Production slows. Quality drops. The factory doesn't shut down — it enters a state of <em>chronic underperformance</em> where every repair is slower, every product is lower quality, and the backlog of unrepaired damage grows relentlessly.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept — Three Compartments, Three Failures</div>
+  <h2>How Regeneration Fails — Stem Cells, Niches, and Systemic Signals</h2>
+
+  <p><em>Compartment 1: The Stem Cell (Inventory Damage).</em> Adult stem cells across tissues — <span class="k">hematopoietic stem cells (HSCs)</span> in bone marrow, <span class="k">satellite cells (MuSCs)</span> in skeletal muscle, <span class="k">neural stem cells (NSCs)</span> in the hippocampus, mesenchymal stem cells (MSCs) in bone and cartilage — accumulate intrinsic damage with age. DNA damage accrues and repair fidelity declines. Telomeres shorten despite telomerase expression (stem cells express telomerase, but not enough to fully compensate for replicative attrition over decades — Lecture 20). Epigenetic marks drift, silencing genes required for self-renewal and multipotency while derepressing lineage-inappropriate programs (Lecture 10). Mitochondria within stem cells become dysfunctional, shifting metabolism from protective glycolysis toward ROS-generating oxidative phosphorylation (Lecture 25). And autophagy — the stem cell's primary quality-control mechanism for clearing damaged organelles — declines, particularly in HSCs, where impaired autophagy leads to accumulation of dysfunctional mitochondria that further drive ROS and metabolic stress.</p>
+
+  <p><em>Compartment 2: The Niche (Warehouse Degradation).</em> Stem cells do not exist in isolation — they reside in niches that regulate every aspect of their behavior: quiescence vs. activation, self-renewal vs. differentiation, and lineage commitment. The niche is a <em>physical, cellular, and biochemical</em> microenvironment. With age, niche-forming cells (stromal cells, endothelial cells, Schwann cells) senesce and begin secreting SASP factors (Lecture 19) — creating an inflammatory milieu that pushes stem cells toward premature activation and exhaustion rather than protective quiescence. The extracellular matrix stiffens (collagen cross-linking, AGE accumulation), mechanically activating YAP/TAZ signaling in MSCs (Lecture 13) and disrupting the biomechanical cues that maintain stem cell identity. Vasculature in the niche declines, reducing oxygen and nutrient delivery. In muscle, increased FGF2 in the aged satellite cell niche impairs self-renewal. In bone marrow, TLR4-driven inflammation in endothelial and stromal cells creates a network that forces HSCs toward myeloid differentiation at the expense of lymphoid output — directly connecting to the immunosenescence and CHIP expansion covered in Lectures 12 and 23.</p>
+
+  <p><em>Compartment 3: Systemic Signals (Logistics Failure).</em> Heterochronic parabiosis experiments — in which old and young mice share a circulatory system — demonstrated that aged satellite cells, NSCs, and HSCs show dramatic functional improvement when exposed to young blood. Conversely, young stem cells decline when exposed to old blood. This proves that circulating systemic factors regulate stem cell function across tissues. What are these factors? The young blood contains higher levels of GDF11 (growth differentiation factor 11), oxytocin, and lower levels of CCL11 (an inflammatory chemokine that impairs neurogenesis). The old blood contains elevated inflammatory cytokines (IL-6, TNF-α — the inflammaging milieu of Lecture 12), reduced myokine signaling from sarcopenic muscle (Lecture 22 — the shrinking antenna), and altered metabolic signals from insulin-resistant tissue. The logistics network runs on the quality of the systemic environment — and by the fifties, the delivery system is flooded with inflammatory noise and starved of regenerative signals.</p>
+
+  <div class="warn">
+    <div class="wl">The Myeloid Skew — When the Factory Ships the Wrong Parts</div>
+    <p>One of the most clinically consequential manifestations of HSC exhaustion is <em>myeloid skewing</em>: aged HSCs increasingly produce myeloid cells (monocytes, neutrophils, platelets) at the expense of lymphoid cells (T cells, B cells, NK cells). This isn't random — it reflects clonal selection for myeloid-biased HSC clones that have a proliferative advantage in the inflammatory aged niche. The result: the innate immune system remains functional (sometimes hyperactive — driving inflammaging), while the adaptive immune system atrophies. This explains why elderly individuals can still mount inflammatory responses (often excessively) but fail to generate effective antibody responses to new pathogens or vaccines. It also connects directly to CHIP (Lecture 23): the clonally expanded mutant HSCs that drive cardiovascular inflammation are themselves a product of the same age-dependent clonal selection process that produces myeloid skewing.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Stem Cell Exhaustion &amp; Supply Chain Parallel</div>
+    <svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- LEFT: Biology -->
+      <text x="185" y="18" text-anchor="middle" font-family="Fira Code,monospace" font-size="10" fill="#15803d" font-weight="600" letter-spacing="1.5">STEM CELL EXHAUSTION CASCADE</text>
+
+      <!-- Three compartments -->
+      <rect x="30" y="36" width="310" height="50" rx="3" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="185" y="54" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="700" fill="#1a1a1a">1. Stem Cell Damage (Intrinsic)</text>
+      <text x="185" y="72" text-anchor="middle" font-family="Fira Code,monospace" font-size="8.5" fill="#71717a">DNA damage • telomere↓ • epigenetic drift • mito dysfunction</text>
+      <text x="185" y="84" text-anchor="middle" font-family="Fira Code,monospace" font-size="8.5" fill="#71717a">autophagy↓ • metabolic shift glycolysis → OXPHOS</text>
+
+      <line x1="185" y1="88" x2="185" y2="104" stroke="#b45309" stroke-width="1"/>
+      <polygon points="180,104 185,111 190,104" fill="#b45309"/>
+
+      <rect x="30" y="114" width="310" height="50" rx="3" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="185" y="132" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="700" fill="#1a1a1a">2. Niche Deterioration (Extrinsic)</text>
+      <text x="185" y="150" text-anchor="middle" font-family="Fira Code,monospace" font-size="8.5" fill="#71717a">SASP from senescent niche cells • ECM stiffening (AGEs)</text>
+      <text x="185" y="162" text-anchor="middle" font-family="Fira Code,monospace" font-size="8.5" fill="#71717a">vascular decline • inflammatory signaling (TLR4, NF-κB)</text>
+
+      <line x1="185" y1="166" x2="185" y2="182" stroke="#1d4ed8" stroke-width="1"/>
+      <polygon points="180,182 185,189 190,182" fill="#1d4ed8"/>
+
+      <rect x="30" y="192" width="310" height="50" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="185" y="210" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="700" fill="#1a1a1a">3. Systemic Signal Degradation</text>
+      <text x="185" y="228" text-anchor="middle" font-family="Fira Code,monospace" font-size="8.5" fill="#71717a">inflammaging milieu (IL-6↑, TNF-α↑) • myokines↓</text>
+      <text x="185" y="240" text-anchor="middle" font-family="Fira Code,monospace" font-size="8.5" fill="#71717a">GDF11↓ • oxytocin↓ • CCL11↑ (anti-neurogenic)</text>
+
+      <line x1="185" y1="244" x2="185" y2="262" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,262 185,269 190,262" fill="#b91c1c"/>
+
+      <!-- Consequences -->
+      <rect x="20" y="272" width="330" height="68" rx="3" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="185" y="290" text-anchor="middle" font-family="Newsreader,serif" font-size="15" font-weight="800" fill="#b91c1c">Regeneration Deficit</text>
+      <text x="60" y="308" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="600">Muscle:</tspan> satellite cell depletion → sarcopenia</text>
+      <text x="60" y="322" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="600">Blood:</tspan> myeloid skewing → immunosenescence + CHIP</text>
+      <text x="60" y="336" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="600">Brain:</tspan> NSC decline → reduced hippocampal neurogenesis</text>
+
+      <!-- Interventions -->
+      <rect x="30" y="362" width="310" height="56" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="378" text-anchor="middle" font-family="Fira Code,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">SUPPLY CHAIN RESTORATION</text>
+      <text x="185" y="394" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Exercise → satellite cell activation + niche repair</text>
+      <text x="185" y="408" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Senolytics → clear senescent niche cells (restore warehouse)</text>
+      <text x="185" y="422" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Fasting → autophagy in stem cells + mTOR inhibition</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="490" stroke="#d4d0c8" stroke-width="1"/>
+
+      <!-- RIGHT: Supply Chain -->
+      <text x="564" y="18" text-anchor="middle" font-family="Fira Code,monospace" font-size="10" fill="#1e3a8a" font-weight="600" letter-spacing="1.5">SUPPLY CHAIN PARALLEL</text>
+
+      <rect x="402" y="36" width="320" height="200" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="562" y="58" text-anchor="middle" font-family="Fira Code,monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="412" y1="66" x2="712" y2="66" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="84" text-anchor="middle" font-family="Fira Code,monospace" font-size="9" fill="#15803d" font-weight="600">BIOLOGY</text>
+      <text x="638" y="84" text-anchor="middle" font-family="Fira Code,monospace" font-size="9" fill="#1e3a8a" font-weight="600">SUPPLY CHAIN</text>
+      <line x1="562" y1="66" x2="562" y2="228" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="412" y1="92" x2="712" y2="92" stroke="#d4d0c8" stroke-width=".5"/>
+
+      <text x="486" y="110" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Adult stem cells</text>
+      <text x="638" y="110" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Reserve inventory (spare parts)</text>
+      <line x1="412" y1="118" x2="712" y2="118" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="136" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Stem cell niche</text>
+      <text x="638" y="136" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Warehouse infrastructure</text>
+      <line x1="412" y1="144" x2="712" y2="144" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="162" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Circulating factors (GDF11)</text>
+      <text x="638" y="162" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Logistics network / delivery</text>
+      <line x1="412" y1="170" x2="712" y2="170" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="188" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#b91c1c">Myeloid skewing</text>
+      <text x="638" y="188" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#b91c1c">Wrong parts shipped</text>
+      <line x1="412" y1="196" x2="712" y2="196" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="214" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#15803d" font-weight="600">Senolytic niche clearance</text>
+      <text x="638" y="214" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#1e3a8a" font-weight="600">Warehouse renovation</text>
+
+      <!-- JIT concept -->
+      <rect x="402" y="252" width="320" height="76" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="562" y="272" text-anchor="middle" font-family="Fira Code,monospace" font-size="10" fill="#15803d" font-weight="700" letter-spacing="1">THE JIT VULNERABILITY</text>
+      <text x="420" y="292" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Just-in-time manufacturing has no buffer stock.</text>
+      <text x="420" y="308" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d">Any disruption — supplier, warehouse, logistics —</text>
+      <text x="420" y="324" font-family="Work Sans,sans-serif" font-size="10.5" fill="#15803d" font-weight="600">immediately halts the production line.</text>
+
+      <!-- Parabiosis -->
+      <rect x="402" y="344" width="320" height="50" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="562" y="362" text-anchor="middle" font-family="Fira Code,monospace" font-size="9" fill="#b45309" font-weight="600" letter-spacing="1">KEY INSIGHT: PARABIOSIS (Conboy 2005)</text>
+      <text x="562" y="378" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="11" fill="#3d3d3d">Aged stem cells in a young environment</text>
+      <text x="562" y="392" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="11" fill="#b45309" font-weight="700">recover much of their regenerative capacity</text>
+
+      <!-- Solution -->
+      <rect x="402" y="410" width="320" height="70" rx="4" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="562" y="428" text-anchor="middle" font-family="Fira Code,monospace" font-size="9" fill="#1d4ed8" font-weight="600" letter-spacing="1">LOGISTICS PRESCRIPTION</text>
+      <text x="562" y="448" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">1. Replenish inventory (exercise activates stem cells)</text>
+      <text x="562" y="464" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">2. Renovate warehouses (senolytics clear niche SASP)</text>
+      <text x="562" y="480" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">3. Fix logistics (reduce inflammaging, boost myokines)</text>
+    </svg>
+    <div class="fig-cap">Left: the three-compartment stem cell exhaustion cascade — intrinsic stem cell damage, niche deterioration, and systemic signal degradation — converging into a regeneration deficit affecting muscle, blood, and brain. Right: the JIT supply chain parallel — inventory depletion, warehouse decay, and logistics failure, governed by the vulnerability principle that just-in-time systems have no buffer against simultaneous multi-point disruption.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination — Supply Chain: Just-in-Time Fragility</div>
+  <h2>Why the Most Efficient Systems Are the Most Vulnerable to Aging</h2>
+
+  <p>Just-in-time manufacturing, pioneered by Toyota in the 1970s, revolutionized industry by eliminating waste — no excess inventory, no warehousing costs, parts arrive precisely when needed. But JIT's greatest strength is its greatest vulnerability: <em>zero buffer stock</em>. Any disruption — a supplier delay, a logistics failure, a warehouse fire — immediately halts the production line. The COVID-19 pandemic exposed this globally: companies with lean JIT supply chains experienced catastrophic production stoppages from single-point failures in their logistics networks.</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Regenerative Biology</div>
+      <h4>Quiescence: The Stem Cell's Warehouse Mode</h4>
+      <p>Adult stem cells spend most of their lives in <strong>quiescence</strong> — a metabolically dormant state protected within the niche, analogous to inventory held in climate-controlled storage. Quiescence preserves the stem cell by minimizing DNA damage (low replication), ROS exposure (glycolytic metabolism), and proteotoxic stress. When the niche detects tissue damage, it releases activation signals (Notch, Wnt, growth factors) that wake the stem cell, triggering asymmetric division: one daughter remains a stem cell (restocking inventory), one differentiates into the needed replacement cell (shipping the part).</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Logistics</div>
+      <h4>The Bullwhip Effect of Inflammaging</h4>
+      <p>In supply chain theory, the <strong>bullwhip effect</strong> describes how small demand fluctuations at the retail level amplify into massive swings upstream. Inflammaging creates the biological bullwhip: modest tissue damage generates an outsized inflammatory signal (via SASP, CHIP-amplified IL-1β) that reaches the bone marrow and forces HSCs into emergency myeloid production — depleting the stem cell pool for a minor demand signal. Each overreaction depletes more inventory, sensitizes the system further, and produces more inflammatory cells that generate more inflammatory signals — a self-amplifying supply chain oscillation.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">The Satellite Cell Deficit</div>
+      <h4>Why Muscles Stop Growing Back</h4>
+      <p>Skeletal muscle satellite cells (MuSCs) are the spare parts for muscle fiber repair. In youth, injury activates MuSCs via Notch signaling; they proliferate, differentiate, and fuse with damaged fibers. With age, <strong>increased FGF2 in the niche impairs self-renewal</strong> — activating satellite cells prematurely and exhausting the pool. Senescent cells in the niche secrete SASP factors that further compromise MuSC function. The result: by the sixties, the satellite cell pool in some muscles is reduced 30–50%, and the remaining cells show impaired differentiation — directly driving the sarcopenia that reduces myokine output (Lecture 22) and VO<sub>2</sub> max (Lecture 16).</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Single-Source Vulnerability</div>
+      <h4>When One Warehouse Serves Everything</h4>
+      <p>HSCs in the bone marrow are the <strong>single source</strong> for the entire blood and immune system — every red cell, white cell, and platelet originates from this one stem cell pool. When this single warehouse degrades (myeloid skewing, CHIP expansion, niche inflammation), every downstream system — innate immunity, adaptive immunity, oxygen transport, coagulation — simultaneously deteriorates. In supply chain management, single-source dependency is the highest-risk configuration. Biology has no alternative supplier.</p>
+    </div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+
+  <div class="caut">
+    <div class="cl">Risks of Over-Application</div>
+    <p><em>Forced stem cell activation accelerates exhaustion.</em> The greatest risk of well-intentioned intervention is pushing stem cells out of protective quiescence prematurely. Chronic excessive exercise (overtraining) can deplete the satellite cell pool faster than it can self-renew — the biological equivalent of drawing down warehouse inventory faster than it can be restocked. Growth hormone supplementation and mTOR hyperactivation (high-dose leucine, constant feeding) promote stem cell proliferation but suppress autophagy — the quality-control mechanism that keeps the stem cell's own organelles healthy. The irony: the very signals that activate stem cells for tissue repair (proliferation, metabolic activation) are also the signals that expose them to the damage they're protected from during quiescence. The prescription, as in all prior lectures, is <em>intermittent</em> activation: exercise followed by recovery, feeding followed by fasting, stress followed by rest. The stem cell needs cycles of activation and return-to-quiescence — not continuous mobilization.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> The stem cell preservation protocol has three arms: (1) <em>Resistance training</em> (2–3×/week, progressive overload) is the single most direct activator of satellite cells in skeletal muscle. Each session activates the satellite cell pool via Notch signaling, and the recovery period allows asymmetric division — producing both replacement myonuclei and self-renewed satellite cells. This is the "cycle of activation and restocking" that prevents both exhaustion and atrophy. (2) <em>Periodic fasting</em> (24–36 hours, 1–2×/month) activates stem cell autophagy and transiently inhibits mTOR — a combination shown in mice to enhance HSC self-renewal and reverse age-associated myeloid bias. Longo et al. (<em>Cell Stem Cell</em>, 2014) demonstrated that prolonged fasting cycles promote HSC regeneration by reducing PKA signaling and activating stress resistance pathways. (3) <em>Reduce chronic inflammation</em> — every intervention that lowers the inflammaging burden (Lectures 12, 18, 19) also protects the stem cell niche from SASP-mediated deterioration.<br><br><strong>Metric:</strong> No direct stem cell count is clinically accessible. The best functional proxies: <em>complete blood count with differential</em> (CBC w/ diff) — tracking the lymphocyte-to-monocyte ratio over time. A declining ratio (fewer lymphocytes, more monocytes) signals myeloid skewing and HSC exhaustion. <em>Wound healing time</em> — how quickly minor cuts and bruises resolve is a practical, zero-cost readout of regenerative capacity. <em>Grip strength</em> (Lectures 13, 22, 24) — declining grip reflects satellite cell depletion in forearm muscles.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Stem Cell Exhaustion Connects to the Lecture Series</h2>
+
+  <p>Stem cell exhaustion is the <em>convergence point</em> where virtually every prior hallmark translates into tissue-level functional decline. Telomere attrition (Lecture 20) limits replicative capacity. Epigenetic drift (Lecture 10) erodes stem cell identity and multipotency. Mitochondrial dysfunction (Lecture 25) shifts stem cell metabolism from protective glycolysis to damaging OXPHOS. Autophagy decline (Lecture 9) allows damaged organelles to accumulate within the stem cell itself. Cellular senescence (Lecture 19) poisons the niche with SASP. Inflammaging (Lecture 12) and CHIP (Lecture 23) flood the systemic environment with myeloid-skewing inflammatory signals. Mechanotransduction changes (Lecture 13) from ECM stiffening alter the biomechanical signals that maintain stem cell quiescence. And the declining myokine output from sarcopenic muscle (Lecture 22) — itself a consequence of satellite cell exhaustion — reduces the systemic regenerative signals that support stem cells in other tissues. The cycle is circular: stem cells fail → tissues degenerate → systemic signals worsen → remaining stem cells fail faster. Breaking this cycle requires simultaneous action at multiple levels — which is why the Tier 1 interventions (exercise, sleep, inflammation reduction) dominate: they address the niche, the systemic environment, and the stem cell simultaneously.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII -->
+  <div class="sn">VIII. Common Misconception</div>
+
+  <div class="corr">
+    <div class="cl">Peer Review — Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Stem cells simply run out — aging is caused by depletion of the stem cell pool."<br><br><strong>Correction:</strong> Depletion is only part of the story, and in many tissues not even the primary driver. The parabiosis experiments (Conboy et al., 2005; Villeda et al., 2011) demonstrated that aged stem cells retain substantial latent regenerative capacity that is <em>suppressed by the aged environment</em>. When exposed to young systemic factors, aged satellite cells, neural stem cells, and hepatic progenitors recover much of their function. Similarly, rapamycin treatment (mTOR inhibition) restores self-renewal and hematopoietic potential of aged HSCs — not by creating new stem cells, but by <em>reactivating existing ones</em>. The aged stem cell is less like an empty warehouse and more like a warehouse whose inventory management system has been corrupted — the parts are still there, but the signals that locate, activate, and deploy them are broken. This reframing matters enormously for intervention: the goal is not to "add stem cells" (exogenous stem cell therapy has largely disappointed) but to <em>repair the environment</em> — clear senescent niche cells, reduce inflammatory signaling, restore the systemic regenerative milieu — and let the existing stem cells do what they were built to do.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>López-Otín et al. (2023, updated)</h5>
+        <p>"Hallmarks of aging: An expanding universe." <em>Cell</em>, 186(2):243–278. The definitive framework paper — stem cell exhaustion is one of the integrative hallmarks that arises when homeostatic mechanisms fail to compensate for the primary and antagonistic hallmarks.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Conboy et al. (2005)</h5>
+        <p>"Rejuvenation of aged progenitor cells by exposure to a young systemic environment." <em>Nature</em>, 433:760–764. The parabiosis landmark: old muscle satellite cells and hepatic progenitors regain function when exposed to young blood, proving the niche/systemic environment dominates over intrinsic stem cell aging.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Resistance Training Protocol</h5>
+        <p>2–3×/week, compound movements (squat, deadlift, press, row), progressive overload. Each session activates the satellite cell pool; the 48–72 hour recovery period allows asymmetric division — the alternating cycle of activation and restocking that maintains muscle regenerative capacity into the seventies and beyond.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Monthly Extended Fast (24–36 hrs)</h5>
+        <p>Once or twice per month. Activates stem cell autophagy, inhibits mTOR, reduces PKA signaling, and promotes HSC self-renewal (Longo 2014). This complements the shorter daily time-restricted eating window (Lectures 24–25) with a deeper periodic reset. Ensure adequate refeeding with protein and micronutrients afterward.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Senolytic Strategy (Emerging)</h5>
+        <p>Dasatinib + quercetin (D+Q, Lecture 19) selectively clears senescent cells — including senescent niche cells whose SASP impairs stem cell function. Kirkland trials show reduced SASP markers within 11 days. By clearing senescent cells from the niche, D+Q may restore the warehouse infrastructure that maintains stem cell quiescence and function.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Integrate Anti-Inflammatory Stack</h5>
+        <p>Every intervention reducing inflammaging (Lec 12) simultaneously protects the stem cell niche: omega-3 fatty acids (SPMs resolve inflammation), gut barrier maintenance (Lec 18, reducing LPS translocation), exercise (myokines are anti-inflammatory, Lec 22), and sleep (cortisol regulation, Lec 14/17). The niche is only as healthy as the systemic environment surrounding it.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Metric</div>
+        <h5>CBC with Differential + Grip Strength</h5>
+        <p>Track lymphocyte-to-monocyte ratio over time (declining = myeloid skewing). Absolute lymphocyte count <1.0 × 10⁹/L signals significant adaptive immune decline. Grip strength (every 6 months) tracks satellite cell–dependent muscle quality. Wound healing speed is a free, qualitative readout of regenerative capacity.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>Lecture Integration Map</h5>
+        <p>Telomeres (Lec 20) → replicative limit. Epigenetics (Lec 10) → identity loss. Mitochondria (Lec 25) → metabolic shift. Autophagy (Lec 9) → organelle QC. Senescence (Lec 19) → SASP poisons niche. Inflammaging (Lec 12) + CHIP (Lec 23) → myeloid skewing. Mechanotransduction (Lec 13) → ECM stiffening. Myokines (Lec 22) → systemic signal decline. Stem cells are where all hallmarks converge into tissue failure.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>Stem cell exhaustion is a hallmark of aging; refers to progressive functional decline of tissue-resident adult stem cells</td>
+        <td>López-Otín et al., <em>Cell</em>, 2013;153(6):1194–1217 (updated 2023)</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Parabiosis: aged stem cells regain function when exposed to young systemic environment</td>
+        <td>Conboy et al., <em>Nature</em>, 2005;433:760–764; Villeda et al., <em>Nature</em>, 2011;477:90–94</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Aged HSCs show myeloid-skewed differentiation at the expense of lymphoid output</td>
+        <td>Beerman et al., <em>PNAS</em>, 2010;107:5465–5470; Dykstra et al., <em>Cell Stem Cell</em>, 2007</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Increased FGF2 in the aged satellite cell niche impairs self-renewal</td>
+        <td>Chakkalakal et al., <em>Nature</em>, 2012;490:355–360</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Impaired autophagy in aged HSCs leads to accumulation of mitochondria and metabolic stress</td>
+        <td>Ho et al., <em>Nature</em>, 2017;543:205–210</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Rapamycin (mTOR inhibition) restores self-renewal and hematopoietic potential of aged HSCs</td>
+        <td>Chen et al., <em>Sci. Signal.</em>, 2009;2(98):ra75</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Prolonged fasting promotes HSC regeneration by reducing PKA signaling</td>
+        <td>Cheng et al., <em>Cell Stem Cell</em>, 2014;14(6):810–823</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Senescent cells in the muscle niche impair aged MuSC function</td>
+        <td>Sousa-Victor et al., <em>Nature</em>, 2014;506:316–321; Cell Stem Cell review 2025</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> López-Otín, C. et al. (2023). "Hallmarks of aging: An expanding universe." <em>Cell</em>, 186(2):243–278. &nbsp;|&nbsp; Conboy, I.M. et al. (2005). "Rejuvenation of aged progenitor cells by exposure to a young systemic environment." <em>Nature</em>, 433:760–764. &nbsp;|&nbsp; Cheng, C.-W. et al. (2014). "Prolonged fasting reduces IGF-1/PKA to promote hematopoietic stem cell–based regeneration." <em>Cell Stem Cell</em>, 14(6):810–823. &nbsp;|&nbsp; Chakkalakal, J.V. et al. (2012). "The aged niche disrupts muscle stem cell quiescence." <em>Nature</em>, 490:355–360. &nbsp;|&nbsp; Beerman, I. et al. (2010). "Functionally distinct hematopoietic stem cells modulate hematopoietic lineage potential during aging." <em>PNAS</em>, 107:5465–5470. &nbsp;|&nbsp; Ho, T.T. et al. (2017). "Autophagy maintains the metabolism and function of young and old stem cells." <em>Nature</em>, 543:205–210.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_stem_cell_exhaustion",
+  "related": [
+    {
+      "id": "lecture_cellular_senescence_senolytics",
+      "title": "Cellular Senescence & Senolytics",
+      "filename": "lecture_cellular_senescence_senolytics.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_proteostasis_collapse",
+      "title": "Proteostasis Collapse & the Protein Quality Crisis",
+      "filename": "lecture_proteostasis_collapse.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_nad_sirtuin_decline",
+      "title": "NAD+ Decline & Sirtuin Dysfunction",
+      "filename": "lecture_nad_sirtuin_decline.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_mechanotransduction",
+      "title": "Mechanotransduction & Sarcopenia",
+      "filename": "lecture_mechanotransduction.html",
+      "tags": [
+        "Structural Integrity",
+        "Mind-Body Axes"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

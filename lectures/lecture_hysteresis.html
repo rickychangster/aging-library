@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Hysteresis</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #f5f0e8;
+    --accent: #8b2500;
+    --accent-light: #c4694a;
+    --muted: #6b6557;
+    --rule: #c9c0ad;
+    --highlight: #fff8e7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  .lecture-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 32px 100px;
+  }
+
+  .lecture-header {
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 28px;
+    margin-bottom: 48px;
+  }
+
+  .lecture-series {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .lecture-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .lecture-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .lecture-meta {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  .section-marker {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    margin-top: 48px;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  p {
+    margin-bottom: 16px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .term {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .parenthetical {
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rule);
+    margin: 40px 0;
+  }
+
+  /* Diagram Styles */
+  .diagram-container {
+    background: var(--highlight);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 36px 28px 28px;
+    margin: 36px 0;
+    position: relative;
+  }
+
+  .diagram-label {
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: var(--paper);
+    padding: 0 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .diagram-svg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .diagram-caption {
+    font-size: 13.5px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 18px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Structural breakdown */
+  .breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 30px 0;
+  }
+
+  .breakdown-card {
+    border-left: 3px solid var(--accent-light);
+    padding: 16px 20px;
+    background: rgba(139, 37, 0, 0.03);
+  }
+
+  .breakdown-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .breakdown-card p {
+    font-size: 14.5px;
+    margin-bottom: 0;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  .footnote {
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+    margin-top: 50px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .lecture-title { font-size: 32px; }
+    .breakdown { grid-template-columns: 1fr; }
+    .lecture-container { padding: 36px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="lecture-container">
+
+  <header class="lecture-header">
+    <div class="lecture-series">Interdisciplinary Lecture Series — No. 7</div>
+    <h1 class="lecture-title">Hysteresis</h1>
+    <div class="lecture-subtitle">When Systems Remember: Path-Dependence Across Materials Science, Ecology, and Economics</div>
+    <div class="lecture-meta">Field of Origin: Materials Science &amp; Thermodynamics &nbsp;|&nbsp; Cross-Pollination: Ecological Economics &nbsp;|&nbsp; ~1,100 words</div>
+  </header>
+
+  <!-- SECTION 1 -->
+  <div class="section-marker">I. The Why</div>
+  <h2 class="section-heading">The Problem of Irreversibility</h2>
+
+  <p>In the mid-nineteenth century, physicists studying ferromagnetic materials encountered a puzzle that classical mechanics could not resolve. When an iron specimen was magnetized by an external field and that field was subsequently removed, the iron did not return to its original unmagnetized state. It retained a "memory" of the field it had experienced. James Alfred Ewing coined the term <span class="term">hysteresis</span> <span class="parenthetical">(from the Greek ὑστέρησις, "a lagging behind")</span> in 1881 to name this phenomenon: the output of a system depends not merely on its current input but on the <em>history</em> of inputs it has received.</p>
+
+  <p>This was conceptually threatening. Newtonian mechanics is time-reversible; given a state and forces, you can run the clock forward or backward. Hysteresis broke that symmetry. It demanded a new language for systems in which the path taken through state-space permanently reshapes the landscape of possible futures. The concept has since migrated far beyond physics, becoming one of the most productive theoretical exports of the twentieth century.</p>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2 -->
+  <div class="section-marker">II. Foundational Bridge</div>
+  <h2 class="section-heading">Prerequisites via Analogy</h2>
+
+  <p>Consider a common experience: pressing a foam mattress with your hand. Push down, and it deforms. Release, and it mostly springs back—but not entirely. A faint impression remains. If you pressed harder or longer, the impression deepens. The mattress "remembers" the pressure. Now imagine that the shape of the impression changes <em>which future pressures</em> the mattress can absorb. That is hysteresis in miniature.</p>
+
+  <p>Two undergraduate-level concepts are essential here. First, <span class="term">state variables versus path variables</span>: in thermodynamics, temperature is a state variable (it depends only on where you are), while heat is a path variable (it depends on <em>how you got there</em>). Hysteresis is fundamentally about systems where quantities you expected to be state variables turn out to be path variables. Second, <span class="term">nonlinearity</span>: in a linear system, doubling the input doubles the output, and removing the input restores the original state. Hysteresis requires nonlinearity—the system's response curve on the way "up" differs from the curve on the way "down."</p>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3 -->
+  <div class="section-marker">III. The Core Concept</div>
+  <h2 class="section-heading">Mechanism of the Hysteresis Loop</h2>
+
+  <p>In ferromagnetic materials, the canonical domain is the <span class="term">B–H curve</span> <span class="parenthetical">(the relationship between magnetic flux density B and the applied magnetic field intensity H)</span>. As H increases from zero, B rises nonlinearly until it reaches <span class="term">saturation</span> <span class="parenthetical">(the point at which all magnetic domains are aligned and further increases in H produce negligible gains in B)</span>. When H is then decreased, B does not retrace its ascending path. Instead, it follows a higher curve, and when H returns to zero, a residual magnetization called <span class="term">remanence</span> (B<sub>r</sub>) persists. To drive B back to zero requires a negative field called the <span class="term">coercivity</span> (H<sub>c</sub>). The complete cycle traces a closed loop—the <span class="term">hysteresis loop</span>—whose enclosed area represents energy dissipated as heat during each cycle.</p>
+
+  <!-- DIAGRAM -->
+  <div class="diagram-container">
+    <span class="diagram-label">Figure 1 — Conceptual Diagram</span>
+    <svg class="diagram-svg" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="80" y1="190" x2="520" y2="190" stroke="#1a1a2e" stroke-width="1.5"/>
+      <line x1="300" y1="40" x2="300" y2="340" stroke="#1a1a2e" stroke-width="1.5"/>
+      <!-- Axis labels -->
+      <text x="530" y="194" font-family="Cormorant Garamond, serif" font-size="18" fill="#1a1a2e" font-style="italic">H</text>
+      <text x="306" y="36" font-family="Cormorant Garamond, serif" font-size="18" fill="#1a1a2e" font-style="italic">B</text>
+      <!-- Hysteresis loop -->
+      <path d="M 300 190 C 340 170, 400 110, 460 80 C 480 72, 490 68, 500 65" stroke="#8b2500" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M 500 65 C 480 75, 420 100, 360 140 C 320 162, 300 178, 280 190 C 240 215, 180 270, 100 315" stroke="#8b2500" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M 100 315 C 120 305, 180 280, 240 240 C 280 218, 300 200, 320 190 C 360 168, 420 110, 500 65" stroke="#c4694a" stroke-width="2.5" fill="none" stroke-dasharray="8,5" stroke-linecap="round"/>
+      <!-- Fill for loop area (simplified) -->
+      <path d="M 500 65 C 480 75, 420 100, 360 140 C 320 162, 300 178, 280 190 C 240 215, 180 270, 100 315 C 120 305, 180 280, 240 240 C 280 218, 300 200, 320 190 C 360 168, 420 110, 500 65 Z" fill="rgba(139,37,0,0.08)"/>
+      <!-- Annotations -->
+      <text x="302" y="130" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#8b2500" font-weight="600">B<tspan font-size="9" dy="3">r</tspan><tspan dy="-3"> (remanence)</tspan></text>
+      <line x1="300" y1="135" x2="300" y2="145" stroke="#8b2500" stroke-width="1" stroke-dasharray="3,2"/>
+      <circle cx="300" cy="148" r="3.5" fill="#8b2500"/>
+      <text x="170" y="206" font-family="Source Sans Pro, sans-serif" font-size="12" fill="#8b2500" font-weight="600">−H<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"> (coercivity)</tspan></text>
+      <circle cx="218" cy="190" r="3.5" fill="#8b2500"/>
+      <!-- Arrow for direction -->
+      <text x="430" y="58" font-family="Source Sans Pro, sans-serif" font-size="11" fill="#6b6557">saturation →</text>
+      <!-- Legend -->
+      <line x1="100" y1="360" x2="130" y2="360" stroke="#8b2500" stroke-width="2.5"/>
+      <text x="136" y="364" font-family="Source Sans Pro, sans-serif" font-size="11.5" fill="#6b6557">ascending path</text>
+      <line x1="270" y1="360" x2="300" y2="360" stroke="#c4694a" stroke-width="2.5" stroke-dasharray="8,5"/>
+      <text x="306" y="364" font-family="Source Sans Pro, sans-serif" font-size="11.5" fill="#6b6557">descending path (differs)</text>
+    </svg>
+    <div class="diagram-caption">The hysteresis loop: the ascending and descending paths do not coincide.<br>The shaded area represents energy irreversibly dissipated per cycle.</div>
+  </div>
+
+  <p>The physical mechanism lies in <span class="term">domain wall pinning</span>. Ferromagnetic materials consist of microscopic regions (domains) of uniform magnetization. Under an applied field, domain walls shift to enlarge favorably oriented domains. But walls snag on crystalline defects, grain boundaries, and impurities. Energy must be supplied to overcome these barriers—and once overcome, the wall jumps irreversibly to a new position. This <span class="term">Barkhausen effect</span> <span class="parenthetical">(the discontinuous, stochastic jumps in magnetization)</span> means the system cannot simply retrace its steps when the field reverses. The microstructural disorder of the material encodes a history.</p>
+
+  <p>Formally, hysteresis arises whenever a system possesses <span class="term">multiple metastable states</span> <span class="parenthetical">(local energy minima separated by barriers)</span> and the transitions between them are thermodynamically irreversible at the timescale of observation. This abstract formulation is what makes the concept portable across disciplines.</p>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4 -->
+  <div class="section-marker">IV. Cross-Pollination</div>
+  <h2 class="section-heading">Hysteresis in Ecological and Economic Systems</h2>
+
+  <p>In ecology, the concept of hysteresis transformed how we understand <span class="term">regime shifts</span> <span class="parenthetical">(abrupt, large-scale transitions between alternative stable states of an ecosystem)</span>. The work of C.S. Holling (1973) and later Marten Scheffer (2001) demonstrated that shallow lakes, coral reefs, and arid grasslands exhibit hysteretic dynamics. A clear lake, for example, can be pushed by nutrient loading (phosphorus runoff) into a turbid, algae-dominated state. But reducing phosphorus back to the level at which the transition occurred does <em>not</em> restore clarity. The system has reorganized: sediment now releases stored phosphorus, fish populations have shifted to favor turbidity, and submerged vegetation has died. Recovery requires pushing phosphorus concentrations far <em>below</em> the original tipping point—a phenomenon ecologists call the <span class="term">recovery debt</span>.</p>
+
+  <p>The structural parallel to the B–H curve is precise. Nutrient loading maps onto H; water clarity maps onto B. The ascending and descending paths do not coincide. The "coercivity" is the additional remediation effort required beyond merely reversing the original stressor. The "remanence" is the degraded state that persists even after the stressor is nominally removed. And the enclosed area of the loop represents the cumulative cost—economic, ecological, temporal—of the round trip.</p>
+
+  <div class="breakdown">
+    <div class="breakdown-card">
+      <h4>Materials Science</h4>
+      <p><strong>Input:</strong> Magnetic field (H)<br><strong>Output:</strong> Flux density (B)<br><strong>Memory mechanism:</strong> Domain wall pinning at defects<br><strong>Loop area ≈</strong> energy lost as heat</p>
+    </div>
+    <div class="breakdown-card">
+      <h4>Ecology</h4>
+      <p><strong>Input:</strong> Nutrient loading<br><strong>Output:</strong> Ecosystem state (e.g., clarity)<br><strong>Memory mechanism:</strong> Internal feedbacks (sediment P, biotic shifts)<br><strong>Loop area ≈</strong> remediation cost</p>
+    </div>
+    <div class="breakdown-card">
+      <h4>Economics</h4>
+      <p><strong>Input:</strong> Aggregate demand / policy<br><strong>Output:</strong> Unemployment rate<br><strong>Memory mechanism:</strong> Skill atrophy, firm exit, network decay<br><strong>Loop area ≈</strong> lost output (GDP gap)</p>
+    </div>
+    <div class="breakdown-card">
+      <h4>General Form</h4>
+      <p><strong>Input:</strong> External forcing<br><strong>Output:</strong> System state<br><strong>Memory mechanism:</strong> Multiple metastable states + irreversible transitions<br><strong>Loop area ≈</strong> cost of path-dependence</p>
+    </div>
+  </div>
+
+  <p>Economics absorbed the concept through the work of Blanchard and Summers (1986) on <span class="term">unemployment hysteresis</span>: prolonged recessions do not merely suppress employment temporarily but permanently raise the "natural" rate of unemployment. Workers lose skills, firms dissolve supplier networks, and labor-market institutions adapt to the new equilibrium. The policy implication is severe—austerity applied too aggressively creates structural damage that subsequent stimulus cannot cheaply reverse, precisely because the descending path lies above the ascending one. The loop area, here, is measured in years of lost human capital and output.</p>
+
+  <p>What unifies these applications is the formal structure: a system with internal degrees of freedom that reorganize under stress, creating barriers to reversal. Whether those internal degrees of freedom are magnetic domains, phosphorus-cycling microbes, or long-term unemployed workers, the mathematics of path-dependent switching between metastable attractors is remarkably conserved. Hysteresis thus serves as one of the most powerful examples of how a concept born in the physics of iron can illuminate why ecosystems collapse, why recessions scar, and why the naive assumption that "removing the cause removes the effect" is, in complex systems, almost always wrong.</p>
+
+  <div class="footnote">
+    <strong>Key References:</strong> Ewing, J.A. (1881). "On the Production of Transient Electric Currents in Iron and Steel Conductors." <em>Proc. R. Soc. Lond.</em> &nbsp;|&nbsp; Scheffer, M. et al. (2001). "Catastrophic shifts in ecosystems." <em>Nature</em>, 413. &nbsp;|&nbsp; Blanchard, O. & Summers, L. (1986). "Hysteresis and the European Unemployment Problem." <em>NBER Macroeconomics Annual</em>, 1.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_hysteresis",
+  "related": [
+    {
+      "id": "lecture_inflammaging",
+      "title": "Inflammaging",
+      "filename": "lecture_inflammaging.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_cognitive_reserve",
+      "title": "Cognitive Reserve & the Redundancy Dividend",
+      "filename": "lecture_cognitive_reserve.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_compressed_sensing",
+      "title": "Compressed Sensing",
+      "filename": "lecture_compressed_sensing.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_hormesis",
+      "title": "Hormesis",
+      "filename": "lecture_hormesis.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

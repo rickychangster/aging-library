@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Hormesis</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,800;1,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --surface: #f0eeea;
+    --surface-alt: #ffffff;
+    --ink: #1c1c1c;
+    --ink-mid: #3a3a3a;
+    --ink-soft: #636363;
+    --teal: #1a7a6d;
+    --teal-light: #24a08f;
+    --teal-bg: rgba(26,122,109,0.05);
+    --rust: #b44d2d;
+    --rust-bg: rgba(180,77,45,0.06);
+    --rule: #d6d2ca;
+    --rule-light: #e6e3dc;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink-mid);
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    line-height: 1.78;
+    font-size: 16.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 800px; margin: 0 auto; padding: 64px 40px 120px; }
+
+  /* Top accent */
+  .accent-bar {
+    position: fixed; top:0; left:0; right:0; height: 3px; z-index: 99;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light) 40%, var(--rust) 100%);
+  }
+
+  /* Header */
+  .hdr {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    margin-bottom: 50px;
+    padding-bottom: 28px;
+    border-bottom: 2px solid var(--ink);
+    align-items: start;
+  }
+
+  .hdr-num {
+    font-family: 'Bitter', serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+    padding-top: 6px;
+  }
+
+  .hdr-content {}
+
+  .series {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Bitter', serif;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  .sub {
+    font-family: 'Bitter', serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  .meta b { color: var(--teal); font-weight: 500; }
+
+  /* Sections */
+  .sn {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-top: 50px;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Bitter', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.28;
+  }
+
+  p { margin-bottom: 16px; text-align: justify; hyphens: auto; }
+  .t { color: var(--teal); font-weight: 500; }
+  .pa { color: var(--ink-soft); font-style: italic; }
+  em { color: var(--ink); font-style: italic; }
+
+  .sep {
+    display: flex; align-items: center; gap: 12px;
+    margin: 44px 0;
+    color: var(--rule);
+  }
+  .sep::before, .sep::after {
+    content: ''; flex: 1; height: 1px; background: var(--rule);
+  }
+  .sep span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* Diagram */
+  .fig {
+    background: var(--surface-alt);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 28px 22px 22px;
+    margin: 36px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .fig-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .fig svg { display: block; margin: 0 auto; width: 100%; max-width: 680px; }
+
+  .fig-cap {
+    font-size: 13px; color: var(--ink-soft);
+    text-align: center; margin-top: 14px;
+    line-height: 1.6; font-style: italic;
+  }
+
+  /* Callout */
+  .call {
+    background: var(--teal-bg);
+    border-left: 3px solid var(--teal);
+    padding: 18px 22px;
+    margin: 28px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .call .cl {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500; color: var(--teal);
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .call p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.7; }
+
+  /* Danger callout */
+  .call-warn {
+    background: var(--rust-bg);
+    border-left: 3px solid var(--rust);
+    padding: 18px 22px;
+    margin: 28px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .call-warn .cl {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500; color: var(--rust);
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .call-warn p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.7; }
+
+  /* Grid */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 32px 0; }
+
+  .card {
+    background: var(--surface-alt);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 20px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 3px 14px rgba(26,122,109,0.08);
+  }
+
+  .card-lab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 8px; font-weight: 500;
+  }
+  .card-lab.bio { color: var(--teal); }
+  .card-lab.eng { color: var(--rust); }
+
+  .card h4 {
+    font-family: 'Bitter', serif;
+    font-size: 16.5px; font-weight: 700;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .card p {
+    font-size: 13.5px; line-height: 1.6;
+    margin-bottom: 0; text-align: left;
+  }
+  .card strong { color: var(--teal); font-weight: 500; }
+
+  /* Footnote */
+  .fn {
+    font-size: 13px; color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 22px; margin-top: 54px; line-height: 1.7;
+  }
+  .fn strong { color: var(--ink-mid); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 34px; }
+    .grid { grid-template-columns: 1fr; }
+    .page { padding: 40px 18px 80px; }
+    .hdr { grid-template-columns: 1fr; }
+    .hdr-num { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="accent-bar"></div>
+<div class="page">
+
+  <header class="hdr">
+    <div class="hdr-num">11</div>
+    <div class="hdr-content">
+      <div class="series">Interdisciplinary Lecture Series — Longevity &amp; Wellness</div>
+      <h1>Hormesis</h1>
+      <div class="sub">The Paradox That What Stresses Your Cells Extends Your Life — and Its Mirror in Structural Engineering</div>
+      <div class="meta"><b>Origin:</b> Toxicology / Stress Biology &nbsp;·&nbsp; <b>Bridge:</b> Structural &amp; Materials Engineering &nbsp;·&nbsp; ~1,100 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why</div>
+  <h2>The Dose–Response Problem</h2>
+
+  <p>For most of the twentieth century, toxicology was governed by a simple axiom: <em>the dose makes the poison</em>. Paracelsus stated it in the sixteenth century, and modern regulatory science formalized it as the <span class="t">linear no-threshold model (LNT)</span> <span class="pa">(the assumption that if a high dose of a substance is harmful, any dose is proportionally harmful, with no safe threshold)</span>. This model underpinned radiation safety standards, pesticide regulation, and pharmacological risk assessment. It was clean, conservative, and wrong.</p>
+
+  <p>As early as 1943, pharmacologists observed that low doses of certain toxins — heavy metals, radiation, ethanol — did not merely produce less harm; they appeared to produce <em>benefit</em>. Organisms exposed to low-level stress grew faster, lived longer, and resisted subsequent insults more effectively than unexposed controls. The phenomenon was documented repeatedly across species but lacked a name, a mechanism, and institutional legitimacy. In 1980, Thomas Luckey published <em>Hormesis with Ionizing Radiation</em>, and in the 2000s, Edward Calabrese at UMass Amherst assembled a database of over 10,000 dose-response relationships confirming a consistent pattern: the <span class="t">biphasic dose-response curve</span>, now called <span class="t">hormesis</span> <span class="pa">(from Greek hormáein, "to set in motion, excite")</span>. Low doses stimulate; high doses inhibit. The relationship is not linear — it is an inverted U.</p>
+
+  <div class="sep"><span>• • •</span></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge</div>
+  <h2>Prerequisites via Analogy</h2>
+
+  <p>Consider how muscles grow. You do not build strength by resting — you build it by <em>damaging</em> muscle fibers through controlled overload. The body responds by repairing those fibers to a higher baseline than before: <span class="t">supercompensation</span>. Too little load, no growth. Too much load, injury. The optimum lies in a specific range of stress. This is hormesis at the tissue level, and every athlete intuitively understands it.</p>
+
+  <p>Two background concepts are essential. First, <span class="t">homeostasis versus allostasis</span>: homeostasis is the maintenance of fixed setpoints (e.g., body temperature at 37°C); allostasis is the active adjustment of those setpoints in response to anticipated demand. Hormesis is an allostatic process — the organism recalibrates its defense systems upward after sensing mild threat. Second, <span class="t">adaptive stress responses</span>: cells possess inducible defense pathways (antioxidant enzymes, heat shock proteins, DNA repair complexes) that are normally quiescent and only activated when damage is detected. These systems are <em>overbuilt</em> by design — they repair more damage than was inflicted, leaving a net surplus of protection. This overshoot is the mechanistic basis of hormesis.</p>
+
+  <div class="sep"><span>• • •</span></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept</div>
+  <h2>Molecular Mechanisms and the Longevity Connection</h2>
+
+  <p>At the cellular level, hormetic stressors — including caloric restriction, heat, cold, exercise, phytochemicals (e.g., sulforaphane, resveratrol, curcumin), and mild oxidative stress — converge on a master regulatory circuit anchored by <span class="t">Nrf2</span> <span class="pa">(nuclear factor erythroid 2-related factor 2, a transcription factor that is the cell's primary coordinator of antioxidant, detoxification, and proteostasis genes)</span>. Under basal conditions, Nrf2 is bound in the cytoplasm by its inhibitor <span class="t">Keap1</span> <span class="pa">(Kelch-like ECH-associated protein 1, a redox sensor that tags Nrf2 for proteasomal degradation)</span>, maintaining low constitutive expression of defense genes. When mild stress modifies reactive cysteine residues on Keap1, Nrf2 is released, translocates to the nucleus, and binds <span class="t">Antioxidant Response Elements (AREs)</span> <span class="pa">(specific DNA sequences upstream of over 200 cytoprotective genes)</span>, triggering a coordinated upregulation of glutathione synthesis, superoxide dismutases, heat shock proteins, and autophagy machinery.</p>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — The Hormetic Dose-Response &amp; Nrf2 Signaling Circuit</div>
+    <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes for dose-response curve -->
+      <line x1="50" y1="230" x2="340" y2="230" stroke="#1c1c1c" stroke-width="1.2"/>
+      <line x1="50" y1="230" x2="50" y2="50" stroke="#1c1c1c" stroke-width="1.2"/>
+      <text x="195" y="258" text-anchor="middle" font-family="Karla, sans-serif" font-size="12" fill="#636363">Dose / Stress Intensity →</text>
+      <text x="28" y="140" text-anchor="middle" font-family="Karla, sans-serif" font-size="12" fill="#636363" transform="rotate(-90, 28, 140)">Biological Response</text>
+
+      <!-- Baseline -->
+      <line x1="50" y1="170" x2="340" y2="170" stroke="#d6d2ca" stroke-width="1" stroke-dasharray="5,4"/>
+      <text x="345" y="174" font-family="JetBrains Mono, monospace" font-size="9" fill="#636363">baseline</text>
+
+      <!-- Biphasic curve -->
+      <path d="M 50 170 C 80 170, 100 155, 130 110 C 150 80, 170 72, 195 80 C 220 90, 250 170, 270 195 C 290 220, 310 230, 340 240" stroke="#1a7a6d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- Benefit zone -->
+      <rect x="70" y="62" width="160" height="106" rx="3" fill="rgba(26,122,109,0.06)" stroke="none"/>
+      <text x="150" y="78" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#1a7a6d" font-weight="500" letter-spacing="1.5">HORMETIC ZONE</text>
+      <text x="150" y="92" text-anchor="middle" font-family="Karla, sans-serif" font-size="10" fill="#1a7a6d">net benefit above baseline</text>
+
+      <!-- Harm zone -->
+      <rect x="235" y="172" width="105" height="66" rx="3" fill="rgba(180,77,45,0.06)" stroke="none"/>
+      <text x="287" y="188" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#b44d2d" font-weight="500" letter-spacing="1.5">TOXIC ZONE</text>
+      <text x="287" y="202" text-anchor="middle" font-family="Karla, sans-serif" font-size="10" fill="#b44d2d">net harm below baseline</text>
+
+      <!-- Peak annotation -->
+      <circle cx="165" cy="74" r="4" fill="#1a7a6d"/>
+      <line x1="165" y1="78" x2="165" y2="100" stroke="#1a7a6d" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <text x="165" y="115" text-anchor="middle" font-family="Karla, sans-serif" font-size="10" fill="#1a7a6d" font-weight="500">optimal dose</text>
+
+      <!-- Divider between panels -->
+      <line x1="385" y1="40" x2="385" y2="250" stroke="#d6d2ca" stroke-width="1"/>
+
+      <!-- Nrf2 pathway (right panel) -->
+      <text x="532" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#b44d2d" font-weight="500" letter-spacing="1.5">NRF2 SIGNALING CIRCUIT</text>
+
+      <!-- Keap1-Nrf2 resting -->
+      <rect x="455" y="60" width="155" height="40" rx="3" fill="#f0eeea" stroke="#d6d2ca" stroke-width="1"/>
+      <text x="532" y="77" text-anchor="middle" font-family="Karla, sans-serif" font-size="11" fill="#636363">Keap1</text>
+      <text x="532" y="92" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#b44d2d">sequesters Nrf2 → degraded</text>
+
+      <!-- Stress arrow -->
+      <text x="532" y="118" text-anchor="middle" font-family="Karla, sans-serif" font-size="10" fill="#1a7a6d" font-weight="600">↓ mild stress modifies Keap1 cysteines</text>
+
+      <!-- Nrf2 released -->
+      <rect x="455" y="130" width="155" height="36" rx="3" fill="rgba(26,122,109,0.08)" stroke="#1a7a6d" stroke-width="1"/>
+      <text x="532" y="148" text-anchor="middle" font-family="Karla, sans-serif" font-size="11" fill="#1a7a6d" font-weight="500">Nrf2 released → nucleus</text>
+      <text x="532" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#1a7a6d">binds ARE sequences</text>
+
+      <!-- Arrow -->
+      <line x1="532" y1="168" x2="532" y2="182" stroke="#1a7a6d" stroke-width="1"/>
+      <polygon points="527,182 532,190 537,182" fill="#1a7a6d"/>
+
+      <!-- Downstream targets -->
+      <rect x="420" y="194" width="80" height="28" rx="2" fill="#ffffff" stroke="#1a7a6d" stroke-width="1"/>
+      <text x="460" y="212" text-anchor="middle" font-family="Karla, sans-serif" font-size="10" fill="#1a7a6d">Glutathione ↑</text>
+
+      <rect x="506" y="194" width="56" height="28" rx="2" fill="#ffffff" stroke="#1a7a6d" stroke-width="1"/>
+      <text x="534" y="212" text-anchor="middle" font-family="Karla, sans-serif" font-size="10" fill="#1a7a6d">SOD ↑</text>
+
+      <rect x="568" y="194" width="72" height="28" rx="2" fill="#ffffff" stroke="#1a7a6d" stroke-width="1"/>
+      <text x="604" y="212" text-anchor="middle" font-family="Karla, sans-serif" font-size="10" fill="#1a7a6d">Autophagy ↑</text>
+
+      <!-- Net result -->
+      <rect x="430" y="232" width="205" height="28" rx="2" fill="rgba(26,122,109,0.1)" stroke="#1a7a6d" stroke-width="1"/>
+      <text x="532" y="250" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#1a7a6d" font-weight="500">NET: defense > damage = longevity</text>
+
+      <!-- Longevity evidence box -->
+      <rect x="50" y="280" width="580" height="100" rx="3" fill="#ffffff" stroke="#d6d2ca" stroke-width="1"/>
+      <text x="340" y="302" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a7a6d" font-weight="500" letter-spacing="1.5">LONGEVITY EVIDENCE</text>
+      <text x="340" y="322" text-anchor="middle" font-family="Karla, sans-serif" font-size="11.5" fill="#3a3a3a">Exercise (mild ROS stress) → +30–35% reduction in all-cause mortality (Ekelund et al., 2019)</text>
+      <text x="340" y="340" text-anchor="middle" font-family="Karla, sans-serif" font-size="11.5" fill="#3a3a3a">Cold exposure → Nrf2 activation, brown fat thermogenesis, improved insulin sensitivity</text>
+      <text x="340" y="358" text-anchor="middle" font-family="Karla, sans-serif" font-size="11.5" fill="#3a3a3a">Sulforaphane (broccoli) → Keap1 modification, +25% lifespan in C. elegans (Qi et al., 2021)</text>
+      <text x="340" y="374" text-anchor="middle" font-family="Karla, sans-serif" font-size="11.5" fill="#3a3a3a">Caloric restriction → mild metabolic stress → convergent Nrf2/FOXO/autophagy activation</text>
+    </svg>
+    <div class="fig-cap">Left: the biphasic hormetic curve, showing the zone of net benefit between zero-dose baseline and the toxic threshold.<br>Right: the Nrf2-Keap1 signaling axis that converts mild stress into upregulated defense. Every major longevity intervention engages this circuit.</div>
+  </div>
+
+  <p>The critical insight is that the <em>overshoot</em> is what buys lifespan. Nrf2 activation does not merely neutralize the insult — it upregulates defense capacity to a level that exceeds the damage inflicted, creating a net surplus of cellular resilience. This has been quantified: exercise generates reactive oxygen species (ROS) in skeletal muscle; the compensatory antioxidant response exceeds the oxidative burden by a factor of 2–5×, leaving the cell more protected <em>after</em> exercise than before (Ristow & Schmeisser, 2014). Paradoxically, supplementing with high-dose antioxidants (vitamin C, vitamin E) during exercise <em>blocks</em> the hormetic benefit by preventing the mild ROS signal from activating Nrf2 — an observation that overturned decades of supplementation dogma.</p>
+
+  <div class="call-warn">
+    <div class="cl">Critical Nuance</div>
+    <p>Hormesis is not "what doesn't kill you makes you stronger" without qualification. The benefit window is narrow and dose-specific. The curve is biphasic, not monotonic: exceeding the hormetic zone produces accelerated damage. Marathon-level overtraining, extreme fasting, and high-dose phytochemical supplements all land on the toxic side of the curve. The therapeutic lesson: <em>precision of dosing</em> matters as much as the identity of the stressor.</p>
+  </div>
+
+  <div class="sep"><span>• • •</span></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination</div>
+  <h2>Fatigue Loading in Structural Engineering: The Same Curve, Built in Steel</h2>
+
+  <p>Structural and materials engineers discovered the identical biphasic principle — decades before biologists named it — in the phenomenon of <span class="t">fatigue-induced residual compressive stress</span>. When a metallic component (a bridge beam, a turbine blade, an aircraft wing spar) is subjected to controlled low-amplitude cyclic loading below its yield strength, the surface undergoes localized plastic deformation that introduces <span class="t">compressive residual stresses</span> <span class="pa">(internal stresses that oppose crack-opening tensile forces)</span>. This process, industrially formalized as <span class="t">shot peening</span> <span class="pa">(blasting a surface with small steel spheres at controlled velocity to induce a compressive stress layer)</span>, increases fatigue life by 200–1000%.</p>
+
+  <p>The parallel is structurally exact. Too little peening intensity: no benefit. Too much: surface micro-cracking, embrittlement, and <em>reduced</em> fatigue life. The relationship between peening intensity and fatigue life is a biphasic inverted-U — the same curve Calabrese documented for biological stressors.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-lab bio">Biology</div>
+      <h4>Exercise-Induced Hormesis</h4>
+      <p><strong>Stressor:</strong> Mild ROS from muscle contraction<br><strong>Sensor:</strong> Keap1 cysteine modification<br><strong>Response:</strong> Nrf2 → antioxidant gene battery<br><strong>Overshoot:</strong> 2–5× defense surplus<br><strong>Outcome:</strong> Extended healthspan</p>
+    </div>
+    <div class="card">
+      <div class="card-lab eng">Engineering</div>
+      <h4>Shot Peening Fatigue Life</h4>
+      <p><strong>Stressor:</strong> Controlled surface impact<br><strong>Sensor:</strong> Localized plastic deformation<br><strong>Response:</strong> Compressive residual stress layer<br><strong>Overshoot:</strong> Crack resistance exceeds virgin metal<br><strong>Outcome:</strong> 200–1000% longer fatigue life</p>
+    </div>
+    <div class="card">
+      <div class="card-lab bio">Biology</div>
+      <h4>Toxic Overdose</h4>
+      <p><strong>Excess:</strong> Overtraining, extreme fasting, mega-dose supplements bypass Nrf2 regulation, overwhelm repair, cause oxidative damage, chronic inflammation, immunosuppression.</p>
+    </div>
+    <div class="card">
+      <div class="card-lab eng">Engineering</div>
+      <h4>Over-Peening Failure</h4>
+      <p><strong>Excess:</strong> Excessive intensity causes surface micro-cracking, grain boundary damage, and embrittlement — the component fails <em>faster</em> than untreated metal.</p>
+    </div>
+  </div>
+
+  <p>The convergence runs deeper than analogy. In both domains, the system benefits not because the stress is benign but because it is <em>informative</em> — it activates a repair program whose output exceeds the input damage. In biology, Nrf2 is the sensor-effector circuit. In metallurgy, the crystal lattice's plastic deformation response serves the identical function: converting localized damage into a globally distributed defensive state (compressive stress field) that resists future, more severe loading. Both systems exhibit the same failure mode when the stressor is too severe: the repair mechanism saturates, damage accumulates faster than it can be resolved, and the system degrades catastrophically.</p>
+
+  <div class="call">
+    <div class="cl">Unifying Principle</div>
+    <p>Hormesis is not a biological curiosity — it is a <em>design principle for resilient systems</em>. Any system that possesses (1) inducible repair mechanisms, (2) repair capacity that can overshoot the inciting damage, and (3) a saturation threshold beyond which repair fails will exhibit a biphasic dose-response. This applies to cells, steel, ecosystems (fire ecology in grasslands), and even organizations (Nassim Taleb's concept of "antifragility" is hormesis generalized to socioeconomic systems). The therapeutic frontier in longevity science is not the elimination of stress — it is the <em>precise calibration</em> of stress to maximize the hormetic overshoot while remaining below the toxic inflection point.</p>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Calabrese, E.J. &amp; Baldwin, L.A. (2002). "Defining hormesis." <em>Hum. Exp. Toxicol.</em>, 21(2). &nbsp;|&nbsp; Ristow, M. &amp; Schmeisser, K. (2014). "Mitohormesis: promoting health and lifespan by increased levels of reactive oxygen species." <em>Dose-Response</em>, 12(2). &nbsp;|&nbsp; Ekelund, U. et al. (2019). "Dose-response associations between accelerometry measured physical activity and sedentary time and all cause mortality." <em>BMJ</em>, 366. &nbsp;|&nbsp; Torres, M.P. &amp; Ravi, V. (2020). "Effect of shot peening on fatigue life: a mechanistic review." <em>Int. J. Fatigue</em>, 134. &nbsp;|&nbsp; Taleb, N.N. (2012). <em>Antifragile: Things That Gain from Disorder</em>. Random House.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_hormesis",
+  "related": [
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "filename": "lecture_mitochondrial_dysfunction.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_telomere_attrition_stress",
+      "title": "Telomere Attrition & Psychobiological Stress",
+      "filename": "lecture_telomere_attrition_stress.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_vo2max_capacity_margin",
+      "title": "VO₂ Max & the Capacity Margin",
+      "filename": "lecture_vo2max_capacity_margin.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_cellular_senescence_senolytics",
+      "title": "Cellular Senescence & Senolytics",
+      "filename": "lecture_cellular_senescence_senolytics.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

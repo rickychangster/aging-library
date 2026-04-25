@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Mitochondrial Dysfunction &amp; the Bioenergetic Crisis</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#faf9f7; --surface:#f0eeea; --card:#ffffff; --card-b:#ddd9d0;
+    --ink:#1a1a1a; --ink-mid:#3d3d3d; --ink-soft:#71717a;
+    --blue:#1d4ed8; --blue-deep:#1e3a8a; --blue-dim:rgba(29,78,216,0.05);
+    --red:#b91c1c; --red-dim:rgba(185,28,28,0.04);
+    --green:#15803d; --green-dim:rgba(21,128,61,0.04);
+    --amber:#b45309; --amber-dim:rgba(180,83,9,0.04);
+    --rule:#d4d0c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Inter',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+
+  .top-bar{height:4px;margin-bottom:40px;display:flex;gap:2px;}
+  .top-bar span{border-radius:2px;}
+  .tb1{flex:6;background:linear-gradient(90deg,#b45309,#b91c1c);} .tb2{flex:3;background:linear-gradient(90deg,#b91c1c,#1d4ed8);} .tb3{flex:1;background:var(--green);}
+
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--rule);position:relative;}
+  .stag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:20px;}
+  .ln{font-family:'Spectral',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Spectral',serif;font-size:40px;font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:8px;}
+  h1 .a{color:var(--red);}
+  .sub{font-family:'Spectral',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}
+  .meta .hl{color:var(--amber);font-weight:600;}
+
+  .sn{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Spectral',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--red);font-weight:700;} .def{color:var(--ink-soft);font-style:italic;} em{font-style:italic;color:var(--ink);}
+
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}
+  .sep .l{flex:1;height:1px;background:var(--rule);} .sep .d{width:8px;height:8px;background:var(--amber);border-radius:1px;transform:rotate(45deg);}
+
+  .fig{background:var(--card);border:1px solid var(--card-b);border-left:4px solid var(--amber);padding:24px 18px 18px;margin:36px 0;border-radius:0 4px 4px 0;}
+  .fig-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .note .nl{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .warn .wl{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .caut .cl{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .corr .cl{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}
+  .gc:hover{border-color:var(--amber);}
+  .gc .tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+  .tag.bio{color:var(--red);} .tag.eng{color:var(--blue-deep);}
+  .gc h4{font-family:'Spectral',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}
+  .gc strong{color:var(--red);font-weight:700;}
+
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}
+  .res .rt{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:18px;}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}
+  .ri .rc{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+  .rc.read{color:var(--amber);} .rc.act{color:var(--blue-deep);} .rc.tool{color:var(--green);} .rc.meas{color:var(--red);}
+  .ri h5{font-family:'Spectral',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}
+  .cite .ct{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .cite table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .cite th{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}
+  .cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}
+  .cite .ok{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--green);}
+  .cite .cv{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}
+  .fn strong{color:var(--ink-mid);font-weight:700;}
+
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar"><span class="tb1"></span><span class="tb2"></span><span class="tb3"></span></div>
+
+  <header class="hdr">
+    <div class="ln">25</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 25</div>
+    <h1>Mitochondrial Dysfunction <span class="a">&amp; the Bioenergetic Crisis</span></h1>
+    <div class="sub">Your Cells Contain Thousands of Power Plants — and by Fifty, Their Output Has Dropped 40%, Their Exhaust Has Turned Toxic, and the Grid They Feed Is Entering Brownout. The Engineering of Cellular Energy Failure Mirrors the Dynamics of an Aging Power Grid.</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Cell Biology / Bioenergetics (Harman 1972; Jang &amp; Finkel 2018)</div>
+      <div><span class="hl">Bridge:</span> Electrical Power Grid Engineering</div>
+      <div><span class="hl">Window:</span> Ages 40–70</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why — The Energy Paradox of Aging</div>
+  <h2>Why Cells Slow Down When Their Blueprints Are Intact</h2>
+
+  <p>An adult human body produces and consumes approximately 40 kilograms of ATP per day — roughly its own body weight in chemical energy currency. Every cellular function — muscle contraction, synaptic transmission, protein synthesis, ion homeostasis, DNA repair — draws from this pool. More than 90% of that ATP is manufactured by <span class="k">mitochondria</span> <span class="def">(membrane-bound organelles, numbering 1,000–2,000 per cell in energy-demanding tissues like heart, brain, and skeletal muscle, that convert dietary fuel into ATP through oxidative phosphorylation)</span>. The theoretical question that drove mitochondrial aging research was simple: the nuclear genome — which encodes the blueprints for mitochondrial assembly — remains largely intact throughout life. Yet by middle age, mitochondrial ATP output in skeletal muscle has declined approximately 40%, and the electron transport chain (ETC) leaks progressively more electrons as reactive oxygen species (ROS). Why do the power plants fail when the construction plans are intact?</p>
+
+  <p>The answer, emerging from two decades of research since Harman's original free radical theory (1972) through its modern refinement, is that mitochondrial dysfunction is not a simple wear-and-tear process. It is a <em>systems-level failure</em> involving at least four interacting mechanisms: (1) accumulation of somatic mutations in mitochondrial DNA (mtDNA), which encodes 13 critical ETC subunits; (2) declining biogenesis — the production of new, healthy mitochondria — driven by loss of the master regulator <span class="k">PGC-1α</span> <span class="def">(peroxisome proliferator-activated receptor gamma coactivator 1-alpha — the transcriptional co-activator that orchestrates mitochondrial biogenesis by activating nuclear respiratory factors NRF1/2 and TFAM, the mitochondrial transcription factor)</span>; (3) impaired mitophagy — the selective autophagy of damaged mitochondria (via the PINK1/Parkin pathway); and (4) deteriorating ETC supercomplex assembly, which increases electron leak and ROS production. These four failures are not independent — they form a self-reinforcing cycle that accelerates through the fifties.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge — The Aging Power Grid</div>
+  <h2>Analogy: A National Electricity Grid Past Its Service Life</h2>
+
+  <p>Consider the electrical grid serving a major metropolitan area. It was designed and built 50 years ago with substantial overcapacity. For the first two decades, it performs flawlessly: generators run at peak efficiency, transformers step voltage with minimal loss, and the grid delivers more power than the city requires. But after 30 years, the infrastructure degrades. <em>Generator turbines</em> accumulate micro-cracks, reducing conversion efficiency. <em>Transmission lines</em> corrode, increasing resistive losses — energy dissipated as heat rather than delivered as usable power. <em>Substations</em> fail and aren't replaced quickly enough — grid capacity shrinks. And the waste heat from inefficient operation damages adjacent components, accelerating their failure. The city enters <em>brownout</em>: not a total blackout, but a chronic state of reduced power availability where all electrical systems function below capacity. Air conditioning fails during peak demand. Hospitals run on backup. Factories reduce shifts.</p>
+
+  <p>This is the bioenergetic crisis of aging. The generators are <span class="k">mitochondrial ETC complexes</span> (I through V). The turbine micro-cracks are mtDNA mutations that produce defective ETC subunits. The transmission losses are electron leakage from damaged Complexes I and III, producing ROS instead of contributing to the proton gradient. The substations that aren't replaced are damaged mitochondria that should be cleared by mitophagy but aren't — because the PINK1/Parkin quality-control system declines with age. And the failure to build new generation capacity is the decline in PGC-1α-driven biogenesis. The city in brownout is <em>your body at 55</em>: not failed, but operating at reduced capacity in every tissue, with the highest-demand organs — brain, heart, skeletal muscle — feeling the deficit first.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept — The Four-Failure Cascade</div>
+  <h2>How Mitochondria Degrade — and Why It Accelerates After Forty</h2>
+
+  <p><em>Failure 1: mtDNA Mutation Accumulation.</em> Mitochondrial DNA is a 16.5 kb circular chromosome encoding 13 essential ETC subunits plus rRNAs and tRNAs required for mitochondrial translation. Unlike nuclear DNA, mtDNA lacks protective histones and sits adjacent to the respiratory chain — the primary intracellular source of ROS. Its mutation rate is ~15× higher than nuclear DNA, and repair mechanisms are limited. Somatic mtDNA mutations accumulate with age and undergo <span class="k">clonal expansion</span> within individual cells — a single mutant mtDNA molecule can replicate preferentially and come to dominate a cell's mitochondrial population. In skeletal muscle, by age 70, up to 50% of individual fibers can harbor clonally expanded mtDNA deletions, each one a generator producing defective turbine blades.</p>
+
+  <p><em>Failure 2: Biogenesis Decline (PGC-1α Collapse).</em> PGC-1α is the master switch for mitochondrial biogenesis — the process of building new, healthy mitochondria. Its activation requires convergent input from two energy sensors: AMPK (which senses the AMP/ATP ratio — detecting energy deficit) and SIRT1 (the NAD<sup>+</sup>-dependent deacetylase from Lecture 21 — which deacetylates PGC-1α, activating it). As NAD<sup>+</sup> declines with age, SIRT1 activity drops. As sedentary behavior reduces AMPK activation, the second input weakens. PGC-1α expression falls — mitochondrial biogenesis slows — and the cell cannot replace damaged mitochondria with functional ones. The grid cannot build new power stations to replace failing ones.</p>
+
+  <p><em>Failure 3: Mitophagy Impairment.</em> The PINK1/Parkin pathway detects mitochondria with depolarized membranes (a signature of dysfunction) and tags them for autophagic clearance. With age, PINK1 accumulation on the outer mitochondrial membrane slows, Parkin recruitment declines, and the damaged mitochondria persist — consuming resources, generating excess ROS, and competing with healthy mitochondria for fusion partners. This is the grid equivalent of keeping decommissioned power plants connected to the transmission network, where they draw maintenance power but generate nothing.</p>
+
+  <p><em>Failure 4: ETC Supercomplex Disassembly.</em> The respiratory chain complexes (I, III, IV) do not operate in isolation — they assemble into <span class="k">supercomplexes</span> <span class="def">(sometimes called "respirasomes" — organized macromolecular structures that channel electrons efficiently between complexes, minimizing leakage and maximizing ATP output per oxygen consumed)</span>. With age, supercomplex assembly declines — the individual complexes still exist but are no longer structurally integrated. Electron transfer between disassembled complexes is less efficient, and the electrons that leak at the gap between Complex I and CoQ (ubiquinone), or between Complex III and cytochrome c, react with molecular oxygen to produce superoxide (O<sub>2</sub><sup>−</sup>). This is transmission line corrosion: the power is still generated, but an increasing fraction is lost as waste heat (ROS) rather than delivered as useful current (ATP).</p>
+
+  <div class="warn">
+    <div class="wl">The Vicious Cycle in the Fifties</div>
+    <p>These four failures interact: mtDNA mutations produce defective ETC subunits → defective subunits disrupt supercomplex assembly → disassembled complexes leak more ROS → ROS damages more mtDNA → more mutations → more defective subunits. Simultaneously, declining NAD<sup>+</sup> reduces both SIRT1 (silencing PGC-1α, halting biogenesis) and SIRT3 (which normally deacetylates mitochondrial SOD2, the primary mitochondrial antioxidant). The result: less new capacity, more damaged capacity, more ROS, less antioxidant defense. By the fifties, the system crosses a threshold where the vicious cycle becomes self-sustaining — this is the bioenergetic brownout, and it manifests as the fatigue, reduced exercise capacity, cognitive slowing, and metabolic inflexibility that define middle-age decline.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Mitochondrial Dysfunction Cascade &amp; Power Grid Engineering Parallel</div>
+    <svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- LEFT: Biology -->
+      <text x="185" y="18" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#b91c1c" font-weight="600" letter-spacing="1.5">MITOCHONDRIAL FAILURE CASCADE</text>
+
+      <!-- Failure 1 -->
+      <rect x="40" y="36" width="290" height="38" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="185" y="52" text-anchor="middle" font-family="Spectral,serif" font-size="12" font-weight="700" fill="#1a1a1a">1. mtDNA Mutation Accumulation</text>
+      <text x="185" y="68" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#71717a">16.5kb genome • 15× nuclear rate • no histones</text>
+
+      <line x1="185" y1="74" x2="185" y2="90" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,90 185,97 190,90" fill="#b91c1c"/>
+
+      <!-- Failure 2 -->
+      <rect x="40" y="100" width="290" height="38" rx="3" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="185" y="116" text-anchor="middle" font-family="Spectral,serif" font-size="12" font-weight="700" fill="#1a1a1a">2. Biogenesis Decline (PGC-1α↓)</text>
+      <text x="185" y="132" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#71717a">NAD⁺↓ → SIRT1↓ + sedentary → AMPK↓ → PGC-1α↓</text>
+
+      <line x1="185" y1="138" x2="185" y2="154" stroke="#b45309" stroke-width="1"/>
+      <polygon points="180,154 185,161 190,154" fill="#b45309"/>
+
+      <!-- Failure 3 -->
+      <rect x="40" y="164" width="290" height="38" rx="3" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="185" y="180" text-anchor="middle" font-family="Spectral,serif" font-size="12" font-weight="700" fill="#1a1a1a">3. Mitophagy Impairment (PINK1↓)</text>
+      <text x="185" y="196" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#71717a">damaged mito persist • consume resources • produce ROS</text>
+
+      <line x1="185" y1="202" x2="185" y2="218" stroke="#1d4ed8" stroke-width="1"/>
+      <polygon points="180,218 185,225 190,218" fill="#1d4ed8"/>
+
+      <!-- Failure 4 -->
+      <rect x="40" y="228" width="290" height="38" rx="3" fill="rgba(21,128,61,0.04)" stroke="#71717a" stroke-width="1"/>
+      <text x="185" y="244" text-anchor="middle" font-family="Spectral,serif" font-size="12" font-weight="700" fill="#1a1a1a">4. Supercomplex Disassembly</text>
+      <text x="185" y="260" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#71717a">ETC I/III/IV decouple → electron leak → O₂⁻ ↑</text>
+
+      <line x1="185" y1="266" x2="185" y2="284" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,284 185,291 190,284" fill="#b91c1c"/>
+
+      <!-- Bioenergetic Crisis -->
+      <rect x="30" y="294" width="310" height="52" rx="3" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="185" y="314" text-anchor="middle" font-family="Spectral,serif" font-size="15" font-weight="800" fill="#b91c1c">Bioenergetic Brownout</text>
+      <text x="185" y="332" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#3d3d3d">ATP output ↓40% • ROS ↑ • fatigue • cognitive slowing</text>
+      <text x="185" y="344" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#b91c1c">brain, heart, skeletal muscle affected first</text>
+
+      <!-- Feedback arrow -->
+      <path d="M 340 316 Q 362 316 362 180 Q 362 58 340 58" stroke="#b91c1c" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+      <polygon points="340,54 335,58 340,62" fill="#b91c1c"/>
+      <text x="372" y="190" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#b91c1c" transform="rotate(90,372,190)">ROS → more mtDNA damage</text>
+
+      <!-- Interventions -->
+      <rect x="40" y="368" width="290" height="58" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="384" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">RESTORATION STRATEGIES</text>
+      <text x="185" y="400" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">Exercise → AMPK↑ → PGC-1α↑ → new mitochondria</text>
+      <text x="185" y="414" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">NAD⁺ repletion → SIRT1/3↑ • Cold → mitohormesis</text>
+      <text x="185" y="428" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">Fasting → AMPK↑ + mitophagy → clear damaged mito</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="490" stroke="#d4d0c8" stroke-width="1"/>
+
+      <!-- RIGHT: Power Grid Parallel -->
+      <text x="564" y="18" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#1e3a8a" font-weight="600" letter-spacing="1.5">POWER GRID PARALLEL</text>
+
+      <rect x="402" y="36" width="320" height="200" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="562" y="58" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="412" y1="66" x2="712" y2="66" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="84" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#b91c1c" font-weight="600">MITOCHONDRIA</text>
+      <text x="638" y="84" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#1e3a8a" font-weight="600">POWER GRID</text>
+      <line x1="562" y1="66" x2="562" y2="228" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="412" y1="92" x2="712" y2="92" stroke="#d4d0c8" stroke-width=".5"/>
+
+      <text x="486" y="110" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">ETC Complexes I–V</text>
+      <text x="638" y="110" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">Generator turbines</text>
+      <line x1="412" y1="118" x2="712" y2="118" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="136" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">mtDNA mutations</text>
+      <text x="638" y="136" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">Turbine micro-cracks</text>
+      <line x1="412" y1="144" x2="712" y2="144" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="162" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">ROS (electron leak)</text>
+      <text x="638" y="162" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">Transmission line heat loss</text>
+      <line x1="412" y1="170" x2="712" y2="170" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">PGC-1α / biogenesis</text>
+      <text x="638" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">New plant construction</text>
+      <line x1="412" y1="196" x2="712" y2="196" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="214" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#b91c1c">Mitophagy (PINK1/Parkin)</text>
+      <text x="638" y="214" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#1e3a8a">Plant decommissioning</text>
+      <line x1="412" y1="222" x2="712" y2="222" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+
+      <!-- Brownout box -->
+      <rect x="402" y="252" width="320" height="76" rx="4" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="562" y="272" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#b91c1c" font-weight="700" letter-spacing="1">THE BROWNOUT PRINCIPLE</text>
+      <text x="420" y="292" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">An aging grid doesn't black out. It enters brownout:</text>
+      <text x="420" y="308" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d">all loads are served, but at reduced voltage. Every</text>
+      <text x="420" y="324" font-family="Inter,sans-serif" font-size="10.5" fill="#b91c1c" font-weight="600">system underperforms simultaneously.</text>
+
+      <!-- Petersen box -->
+      <rect x="402" y="344" width="320" height="50" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="562" y="362" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#b45309" font-weight="600" letter-spacing="1">KEY FINDING: PETERSEN ET AL., 2003</text>
+      <text x="562" y="380" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#3d3d3d" font-weight="600">NMR study: elderly subjects had ~40% decline in</text>
+      <text x="562" y="392" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#b45309" font-weight="700">mitochondrial oxidative phosphorylation capacity</text>
+
+      <!-- Solution -->
+      <rect x="402" y="410" width="320" height="72" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="562" y="428" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">GRID ENGINEERING PRESCRIPTION</text>
+      <text x="562" y="448" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">1. Build new capacity (exercise → PGC-1α → biogenesis)</text>
+      <text x="562" y="464" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">2. Decommission failing plants (fasting → mitophagy)</text>
+      <text x="562" y="480" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">3. Reduce transmission losses (CoQ10, NAD⁺ → SIRT3)</text>
+    </svg>
+    <div class="fig-cap">Left: the four-failure cascade of mitochondrial dysfunction — mtDNA mutation, biogenesis decline, mitophagy impairment, and supercomplex disassembly — converging into a self-reinforcing bioenergetic brownout. Right: the structural mapping to power grid engineering — turbine degradation, construction halt, decommissioning failure, and transmission line corrosion, governed by the brownout principle where every load underperforms simultaneously.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination — Power Grid Engineering: Brownout Dynamics</div>
+  <h2>Why Grid Collapse Is Not a Blackout — and Neither Is Aging</h2>
+
+  <p>In power engineering, a <span class="k">brownout</span> is distinct from a blackout. A blackout is total failure — zero output. A brownout is <em>chronic underperformance</em>: the grid delivers voltage below specification, and every connected load — motors, computers, lights — operates at reduced efficiency. The brownout is insidious because no single system fails obviously; instead, everything degrades slightly. Lights dim. Motors overheat. Electronics make errors. The power is "on" but insufficient — and the waste heat from inefficient operation accelerates component degradation throughout the connected infrastructure.</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Bioenergetics</div>
+      <h4>The Mitochondrial Brownout</h4>
+      <p>At 55, a person in brownout doesn't collapse. They tire more easily. Cognitive processing slows. Recovery from exercise takes longer. Wound healing decelerates. Sleep becomes less restorative. Each organ functions — but at <strong>reduced capacity</strong>. The waste product (ROS) from inefficient operation damages proteins (connecting directly to proteostasis collapse, Lecture 24), DNA, and lipid membranes, accelerating the decline of every connected system.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Grid Engineering</div>
+      <h4>Capacity Margin &amp; Reserve Ratio</h4>
+      <p>Power engineers maintain a <strong>reserve margin</strong> — generation capacity exceeding peak demand by 15–20%. When the reserve margin falls below ~5%, brownouts begin during peak demand. The VO<sub>2</sub> max concept (Lecture 16) is the biological reserve margin: the gap between resting metabolic rate and maximal oxygen consumption. As mitochondrial capacity shrinks, the reserve margin narrows — and peak demands (acute illness, intense exercise, thermal stress) trigger bioenergetic brownout in the most demanding tissues first.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">Mitohormesis: Controlled Stress</div>
+      <h4>The Paradox of Beneficial ROS</h4>
+      <p>Moderate, transient ROS pulses — generated during exercise — activate the <strong>AMPK/SIRT1/PGC-1α axis</strong>, stimulating mitochondrial biogenesis and upregulating antioxidant defenses (SOD2, catalase, glutathione peroxidase). This is <span class="k">mitohormesis</span> <span class="def">(Lecture 11 — the principle that mild mitochondrial stress triggers adaptive responses that leave the system stronger than baseline)</span>. The grid equivalent: controlled stress-testing that identifies weak components and triggers maintenance before failure.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Predictive Grid Management</div>
+      <h4>Exercise as Grid Renovation</h4>
+      <p>Endurance exercise is the single most potent activator of <strong>mitochondrial biogenesis</strong> in humans. It activates AMPK via energy depletion, increases NAD<sup>+</sup> via NAMPT upregulation, activates PGC-1α through convergent phosphorylation and deacetylation, and triggers mitophagy to clear damaged organelles. This is the biological equivalent of a comprehensive grid modernization program: building new generators, decommissioning old ones, and upgrading transmission infrastructure — simultaneously.</p>
+    </div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+
+  <div class="caut">
+    <div class="cl">Risks of Over-Application</div>
+    <p><em>Excessive antioxidant supplementation blunts the hormetic signal.</em> The critical nuance of modern mitochondrial research is that ROS are not merely toxic waste — they are <em>signaling molecules</em> that trigger adaptive responses. High-dose antioxidant supplements (vitamin C, vitamin E, N-acetylcysteine) can suppress the exercise-induced ROS signal, blunting PGC-1α activation and preventing the biogenesis response that exercise is meant to trigger. Ristow et al. (<em>PNAS</em>, 2009) demonstrated that antioxidant supplementation abolished the health-promoting effects of exercise in humans — including improved insulin sensitivity and upregulation of endogenous antioxidant enzymes. The engineering analogy: disabling the grid's fault sensors prevents the maintenance crew from detecting failures — the grid appears "cleaner" but degradation continues unmonitored. Additionally, chronic extreme exercise (ultramarathons, overtraining) can generate ROS beyond the hormetic zone, shifting from beneficial stress into oxidative damage that accelerates the very dysfunction it was meant to prevent.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Implement a weekly protocol that activates all three arms of mitochondrial renewal: (1) <em>Endurance exercise</em> — 3–4 sessions/week at moderate intensity (Zone 2, 60–75% max HR) for 30–45 minutes. Zone 2 is the specific intensity that maximizes mitochondrial biogenesis via sustained AMPK activation without exceeding the ROS threshold. This is the single most evidence-backed intervention for mitochondrial health. (2) <em>Cold or heat exposure</em> — brief cold exposure (Lecture 24) activates UCP proteins (uncoupling proteins that modulate ROS), while sauna activates mitochondrial stress pathways independently of exercise. (3) <em>Overnight fasting</em> (14–16 hours, 2–3×/week) — activates AMPK, enhances NAD<sup>+</sup> via NAMPT, and promotes mitophagy of damaged mitochondria.<br><br><strong>Metric:</strong> <em>VO<sub>2</sub> max</em> (Lecture 16) is the most accessible clinical proxy for whole-body mitochondrial capacity. Declining VO<sub>2</sub> max directly reflects declining mitochondrial oxidative phosphorylation capacity. Target: maintain above the 75th percentile for your age decade. A secondary metric: <em>lactate threshold</em> — the point at which anaerobic glycolysis supplements mitochondrial ATP production. A declining lactate threshold (earlier anaerobic switch during exercise) indicates reduced mitochondrial oxidative capacity.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Mitochondrial Dysfunction Connects to the Lecture Series</h2>
+
+  <p>Mitochondrial dysfunction is arguably the most interconnected node in the entire aging network. NAD<sup>+</sup> decline (Lecture 21) silences SIRT1 and SIRT3, simultaneously impairing biogenesis (via PGC-1α) and mitochondrial antioxidant defense (via SOD2 deacetylation). This compounds with proteostasis collapse (Lecture 24): as ATP output falls, the energy-intensive chaperone and proteasomal systems lose fuel, accelerating protein misfolding. The ROS produced by dysfunctional mitochondria are a primary source of the epigenetic noise (Lecture 10) that drives DNA methylation drift. Declining mitochondrial capacity in skeletal muscle reduces myokine output (Lecture 22) — particularly irisin, which is cleaved from FNDC5, itself a downstream target of PGC-1α. And the fatigue, exercise intolerance, and metabolic inflexibility that characterize mitochondrial brownout directly erode VO<sub>2</sub> max (Lecture 16) — the single strongest modifiable predictor of mortality. Exercise is the master intervention because it simultaneously activates AMPK (biogenesis), SIRT1 (NAD<sup>+</sup> pathway), autophagy/mitophagy (clearance), and myokine signaling (systemic communication) — addressing all four failures in a single behavioral input.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII -->
+  <div class="sn">VIII. Common Misconception</div>
+
+  <div class="corr">
+    <div class="cl">Peer Review — Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Mitochondrial aging is caused by cumulative oxidative damage from ROS — therefore, taking antioxidant supplements should slow aging."<br><br><strong>Correction:</strong> The free radical theory of aging, as originally formulated by Harman (1972), proposed a simple linear model: ROS damages mitochondria, which produce more ROS, driving aging. This model has been substantially revised. Multiple studies in model organisms found that reducing ROS (via antioxidant overexpression or supplementation) does not extend lifespan — and in some cases shortens it. Conversely, mild increases in mitochondrial ROS (via caloric restriction, exercise, or partial ETC inhibition) activate hormetic pathways that <em>extend</em> lifespan. The modern understanding is that ROS are dual-function molecules: toxic at high chronic levels but essential as signaling molecules at moderate transient levels. Supplementing with high-dose antioxidants suppresses this signaling, blocking the adaptive response. The intervention is not to eliminate ROS but to <em>optimize the balance</em> between ROS production and scavenging — and the most reliable way to do this is through exercise-induced mitohormesis, not supplementation.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Jang &amp; Finkel (2018)</h5>
+        <p>"The role of mitochondria in aging." <em>J. Clin. Invest.</em>, 128(9):3662–3670. Concise, authoritative review of the modern mitochondrial theory of aging — covering the shift from the original free radical model to the current systems-level understanding of bioenergetic decline.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Petersen et al. (2003)</h5>
+        <p>"Mitochondrial dysfunction in the elderly." <em>Science</em>, 300:1140–1142. The seminal NMR study demonstrating a ~40% decline in mitochondrial oxidative phosphorylation capacity in elderly subjects — establishing the quantitative scale of the bioenergetic deficit.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Zone 2 Endurance Training</h5>
+        <p>3–4×/week, 30–45 minutes at 60–75% max HR (can talk in full sentences but not comfortably sing). This intensity maximizes time in the mitochondrial biogenesis activation window: sustained AMPK phosphorylation, PGC-1α deacetylation, and mitophagy induction. The Iñigo San Millán protocol (co-developed with Tadej Pogačar's cycling team) specifically targets Zone 2 for metabolic health.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Avoid High-Dose Antioxidants Around Exercise</h5>
+        <p>Do not take vitamin C (>500 mg), vitamin E, or NAC within 2–3 hours of exercise. These blunt the ROS-mediated AMPK activation that triggers the biogenesis response. Dietary antioxidants from whole foods (berries, dark leafy greens) are fine — the doses are too low to suppress the hormetic signal.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>CoQ10 Supplementation (Targeted)</h5>
+        <p>Ubiquinol (reduced form of CoQ10), 100–200 mg/day, supports electron shuttling between Complex I/II and Complex III — the specific bottleneck where supercomplex disassembly increases leak. CoQ10 levels decline ~40% between ages 25 and 65. Unlike general antioxidants, CoQ10 operates <em>within</em> the ETC and does not suppress the hormetic signal.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Integrate Prior Interventions</h5>
+        <p>NAD<sup>+</sup> repletion (Lecture 21) → SIRT1/SIRT3 activation → PGC-1α deacetylation + SOD2 activation. Time-restricted eating → AMPK activation → biogenesis + mitophagy. Sleep optimization (Lectures 14/17) → circadian regulation of mitochondrial fission/fusion dynamics. All prior interventions converge on the mitochondrion.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Metric</div>
+        <h5>VO₂ Max + Lactate Threshold</h5>
+        <p>VO<sub>2</sub> max is the gold-standard proxy for mitochondrial oxidative capacity. Test annually via lab or validated field test (Cooper 12-minute run, Rockport walk test). Lactate threshold (via wearable lactate monitors or graded exercise test) provides a second measure of the aerobic-anaerobic crossover point — declining threshold = declining mitochondrial function.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>Lecture Integration Map</h5>
+        <p>NAD⁺ (Lec 21) → SIRT1/3 → PGC-1α + SOD2. Proteostasis (Lec 24) → chaperones need ATP. VO₂ max (Lec 16) → mitochondrial capacity proxy. Myokines (Lec 22) → irisin from PGC-1α/FNDC5. Epigenetic noise (Lec 10) → ROS-driven methylation drift. Autophagy (Lec 9) → mitophagy is specialized autophagy. Hormesis (Lec 11) → mitohormesis. Glymphatic (Lec 14) → brain ATP for waste clearance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>Elderly subjects had ~40% decrease in mitochondrial oxidative phosphorylation capacity (NMR study)</td>
+        <td>Petersen et al., <em>Science</em>, 2003;300:1140–1142</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>mtDNA mutation rate ~15× higher than nuclear DNA; lacks protective histones</td>
+        <td>Turnbull &amp; Rustin, 2015 (review); Greaves et al., <em>PLoS Genet</em>, 2014</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>PGC-1α activity regulated by AMPK phosphorylation and SIRT1 deacetylation; both decline with age</td>
+        <td>Jäger et al., <em>PNAS</em>, 2007;104:12017–12022; Cantó et al., <em>Nature</em>, 2009</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>ETC supercomplexes (respirasomes) minimize electron leak; assembly declines with age</td>
+        <td>Warnsmann et al., 2021; Maranzana et al., 2013; Gu et al., 2016</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Complexes I and III are the major sources of mitochondrial ROS</td>
+        <td>Multiple sources including Jia &amp; Sieburth 2021; standard biochemistry textbook consensus</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Antioxidant supplementation abolished health-promoting effects of exercise in humans</td>
+        <td>Ristow et al., <em>PNAS</em>, 2009;106(21):8665–8670</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Up to 50% of skeletal muscle fibers harbor clonally expanded mtDNA deletions by age 70</td>
+        <td>Bua et al., <em>Mutat. Res.</em>, 2006; Taylor &amp; Turnbull, 2005</td>
+        <td><span class="cv">⚠ Figure varies: 50% is the upper estimate for specific muscle fiber populations (e.g., sarcopenic fibers). Population-wide average is lower (~6–30% depending on method and tissue).</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Jang, J.Y. &amp; Finkel, T. (2018). "The role of mitochondria in aging." <em>J. Clin. Invest.</em>, 128(9):3662–3670. &nbsp;|&nbsp; Petersen, K.F. et al. (2003). "Mitochondrial dysfunction in the elderly: possible role in insulin resistance." <em>Science</em>, 300:1140–1142. &nbsp;|&nbsp; Jäger, S. et al. (2007). "AMPK action in skeletal muscle via direct phosphorylation of PGC-1α." <em>PNAS</em>, 104:12017–12022. &nbsp;|&nbsp; Ristow, M. et al. (2009). "Antioxidants prevent health-promoting effects of physical exercise in humans." <em>PNAS</em>, 106(21):8665–8670. &nbsp;|&nbsp; Harman, D. (1972). "The biologic clock: the mitochondria?" <em>J. Am. Geriatr. Soc.</em>, 20:145–147. &nbsp;|&nbsp; López-Otín, C. et al. (2013; updated 2023). "Hallmarks of aging: An expanding universe." <em>Cell</em>, 186(2):243–278.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_mitochondrial_dysfunction",
+  "related": [
+    {
+      "id": "lecture_nad_sirtuin_decline",
+      "title": "NAD+ Decline & Sirtuin Dysfunction",
+      "filename": "lecture_nad_sirtuin_decline.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "filename": "lecture_metabolic_inflexibility.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_hormesis",
+      "title": "Hormesis",
+      "filename": "lecture_hormesis.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_proteostasis_collapse",
+      "title": "Proteostasis Collapse & the Protein Quality Crisis",
+      "filename": "lecture_proteostasis_collapse.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

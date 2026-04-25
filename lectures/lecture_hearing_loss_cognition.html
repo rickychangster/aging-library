@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Hearing Loss &amp; the Auditory-Cognitive Axis</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--violet:#6d28d9;--violet-dim:rgba(109,40,217,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Rubik',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--violet) 0%,var(--blue) 50%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--violet);position:relative;}
+  .stag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--violet);margin-bottom:20px;}
+  .ln{font-family:'Bitter',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Bitter',serif;font-size:39px;font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--violet);}
+  .sub{font-family:'Bitter',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--violet);font-weight:600;}
+  .sn{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Bitter',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--violet);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--violet);border-radius:50%;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--violet);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}
+  .fig-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .note .nl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .warn .wl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .caut .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .corr .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--violet);}
+  .gc .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--violet);}
+  .gc h4{font-family:'Bitter',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--violet);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}
+  .res .rt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:18px;}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}
+  .ri .rc{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+  .rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}
+  .ri h5{font-family:'Bitter',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}
+  .cite .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .cite table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .cite th{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}
+  .cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}
+  .cite .ok{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--green);}
+  .cite .cv{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">35</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 35</div>
+    <h1>Hearing Loss <span class="a">&amp; the Auditory-Cognitive Axis</span></h1>
+    <div class="sub">The 2024 Lancet Commission Identified Hearing Loss as the Single Largest Modifiable Risk Factor for Dementia — Larger Than Physical Inactivity, Hypertension, or Diabetes. The Mechanism Is Not Just Silence: It Is the Brain's Desperate Reallocation of Cognitive Resources to Decode a Degraded Signal, Following the Exact Logic of a Communications Receiver Struggling Against a Rising Noise Floor</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Audiology / Otology (Lancet Commission 2020/2024; ACHIEVE 2023)</div>
+      <div><span class="hl">Bridge:</span> Signal Processing — Noise Floor &amp; Signal-to-Noise Ratio</div>
+      <div><span class="hl">Window:</span> Ages 40–70 (midlife onset most predictive)</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why — The Largest Modifiable Risk Factor You're Not Tracking</div>
+  <h2>Why Hearing Loss Predicts Dementia More Strongly Than Almost Any Other Factor</h2>
+
+  <p>The 2020 Lancet Commission on Dementia Prevention identified 12 modifiable risk factors that collectively account for ~40% of all dementia cases worldwide. Of these twelve, <span class="k">hearing loss in midlife</span> carries the single largest population-attributable fraction — approximately 8% of all dementia cases globally. This exceeds the contribution of physical inactivity (2%), hypertension (2%), diabetes (1%), and depression (4%). Yet hearing remains one of the least monitored and least treated risk factors: only ~20% of adults with hearing loss use hearing aids, and audiometric screening is not part of standard preventive health protocols in most countries.</p>
+
+  <p>The epidemiological data is stark: <span class="k">hearing loss is associated with approximately double the risk of incident dementia</span>, with risk scaling with severity — mild hearing loss carries 1.9× risk, moderate 3×, and severe nearly 5× — in a dose-response relationship that strengthens the causal argument. But the truly remarkable finding came from the ACHIEVE trial (2023, <em>Lancet</em>): in older adults at increased risk for cognitive decline, hearing intervention (hearing aids + audiological counseling) slowed cognitive decline by 48% over 3 years compared to a health education control. This is among the largest treatment effects ever demonstrated for a dementia-prevention intervention — and it involves a device, not a drug.</p>
+
+  <p>Why would degraded hearing destroy cognition? The answer lies not in silence itself but in the <em>computational cost of listening through noise</em> — a cost that consumes the same cognitive resources needed for memory, executive function, and attention. Three mechanisms operate simultaneously, each reinforcing the others.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge — The Rising Noise Floor</div>
+  <h2>Analogy: A Radio Receiver Losing Sensitivity</h2>
+
+  <p>In signal processing, every communication system operates against a <span class="k">noise floor</span> — the baseline level of random electromagnetic energy that exists in any receiver. The usable information in a signal is determined not by the signal's absolute strength but by the <span class="k">signal-to-noise ratio (SNR)</span>: the gap between the signal level and the noise floor. A powerful signal transmitted through a receiver with a low noise floor produces a clear, effortless reception — the listener hears every word without strain. As the noise floor rises (from component aging, thermal drift, interference), the SNR shrinks. The signal is still present — but it is increasingly buried in noise.</p>
+
+  <p>The receiver's response to declining SNR follows a predictable sequence. First, the <span class="k">automatic gain control (AGC)</span> increases amplification — the receiver works harder to extract signal from noise, consuming more power. Second, the receiver activates <span class="k">error-correction algorithms</span> — filling in corrupted data using context, prediction, and redundancy, consuming additional processing bandwidth. Third, when SNR drops below a critical threshold, the receiver begins <em>hallucinating</em> signal that isn't there — tinnitus, in biological terms — as the system's prediction engine generates plausible data to fill gaps that error correction can no longer bridge. And finally, if the signal remains absent long enough, the receiver's front-end circuitry <em>atrophies</em> from disuse — the amplifier stages that processed the missing frequency bands physically degrade, making recovery progressively harder even if the signal is eventually restored.</p>
+
+  <p>The cochlea is the biological receiver. Hair cells are the antenna elements. The auditory nerve is the cable. The auditory cortex is the signal processor. And age-related hearing loss is a progressively rising noise floor — driven by hair cell death (inner ear hair cells do not regenerate in humans), stria vascularis atrophy (the cochlea's internal blood supply and electrochemical battery), and cochlear synaptopathy (loss of synaptic connections between hair cells and auditory nerve fibers — "hidden hearing loss" that pure-tone audiometry cannot detect). As the biological noise floor rises, the brain's signal processor must work progressively harder to extract meaning from degraded input — consuming cognitive resources that were previously available for memory, attention, and executive function.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept — Three Mechanisms Linking Hearing to Cognition</div>
+  <h2>Cognitive Load, Deafferentation Atrophy, and Social Withdrawal</h2>
+
+  <p><em>Mechanism 1: Cognitive load — the signal processing tax.</em> When cochlear output is degraded, the brain must recruit prefrontal cortex resources to decode speech that a healthy cochlea would have delivered pre-processed. Functional neuroimaging shows compensatory recruitment of frontal regions during auditory tasks in hearing-impaired individuals — regions normally reserved for working memory, executive control, and attention. This is the shared-bandwidth problem from Lecture 33 (postural stability): the brain has a limited pool of executive processing resources, and every cycle spent on effortful listening is a cycle unavailable for thinking, remembering, and planning. The subjective experience is exhaustion after social events — not from socializing itself but from the cognitive effort of decoding degraded speech in noisy environments.</p>
+
+  <p><em>Mechanism 2: Deafferentation atrophy — use it or lose it.</em> Chronic reduction in auditory input leads to structural atrophy of the temporal lobe — specifically the superior, middle, and inferior temporal gyri — regions that process not only sound but also semantic memory, language comprehension, and episodic encoding. Longitudinal MRI studies show that greater hearing loss independently predicts accelerated brain volume loss in these regions. The auditory cortex, deprived of input, undergoes cross-modal reorganization — visual processing begins invading auditory cortical territory, further reducing the brain's capacity to process sound even if hearing is later restored. This is the structural consequence of a silent receiver: the amplifier stages atrophy because the front end is no longer delivering signal.</p>
+
+  <p><em>Mechanism 3: Social withdrawal — the isolation cascade.</em> Hearing loss makes conversation effortful, noisy environments intolerable, and group social interactions exhausting. The natural response is withdrawal — declining invitations, avoiding restaurants, reducing phone calls. This feeds directly into the CTRA inflammatory cascade of Lecture 27: social isolation → SNS activation → norepinephrine → β-adrenergic → NF-κB↑ / IRF↓. The hearing-impaired individual enters a triple feedback loop: hearing loss → effortful communication → social withdrawal → loneliness → CTRA-driven inflammation → accelerated neurodegeneration → further cognitive decline → further social withdrawal. Each mechanism reinforces the others, creating a self-amplifying spiral (Theme III) that operates through the auditory system.</p>
+
+  <div class="warn">
+    <div class="wl">The ACHIEVE Trial — Proof That Intervention Works</div>
+    <p>The ACHIEVE study (2023, <em>Lancet</em>) was the first large-scale RCT testing whether hearing intervention could slow cognitive decline. In the at-risk subgroup (238 older adults from a cardiovascular health cohort — older, more comorbidities, faster baseline cognitive decline), <em>hearing intervention slowed cognitive decline by 48% over 3 years</em>. The hearing intervention also improved communication abilities, social functioning, and loneliness in both the at-risk and healthy volunteer groups. The mechanism implied: restoring auditory input (1) freed cognitive resources from effortful listening, (2) provided the neural stimulation that prevents temporal lobe atrophy, and (3) re-enabled social participation that suppresses the CTRA inflammatory cascade. The 48% figure in at-risk individuals represents one of the largest treatment effects in the dementia prevention literature — and it uses a device, not a drug.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Auditory-Cognitive Axis &amp; Signal Processing Parallel</div>
+    <svg viewBox="0 0 740 460" xmlns="http://www.w3.org/2000/svg">
+      <text x="185" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6d28d9" font-weight="600" letter-spacing="1.5">THREE MECHANISMS OF HEARING-COGNITIVE DECLINE</text>
+      <!-- Cochlear degradation -->
+      <rect x="50" y="36" width="260" height="42" rx="3" fill="rgba(109,40,217,0.04)" stroke="#6d28d9" stroke-width="1"/>
+      <text x="180" y="52" text-anchor="middle" font-family="Bitter,serif" font-size="12" font-weight="700" fill="#1a1a1a">Cochlear Degradation</text>
+      <text x="180" y="70" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">hair cell loss • synaptopathy • stria vascularis↓</text>
+      <!-- Three arrows down -->
+      <line x1="100" y1="80" x2="100" y2="108" stroke="#6d28d9" stroke-width=".8"/>
+      <polygon points="96,108 100,115 104,108" fill="#6d28d9"/>
+      <line x1="180" y1="80" x2="180" y2="108" stroke="#b45309" stroke-width=".8"/>
+      <polygon points="176,108 180,115 184,108" fill="#b45309"/>
+      <line x1="260" y1="80" x2="260" y2="108" stroke="#b91c1c" stroke-width=".8"/>
+      <polygon points="256,108 260,115 264,108" fill="#b91c1c"/>
+      <!-- Three mechanisms -->
+      <rect x="25" y="118" width="150" height="70" rx="3" fill="rgba(109,40,217,0.04)" stroke="#6d28d9" stroke-width="1"/>
+      <text x="100" y="136" text-anchor="middle" font-family="Bitter,serif" font-size="11" font-weight="700" fill="#6d28d9">1. Cognitive Load</text>
+      <text x="100" y="152" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#71717a">PFC recruited for</text>
+      <text x="100" y="164" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#71717a">effortful listening</text>
+      <text x="100" y="180" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#6d28d9">→ WM, attention↓</text>
+      <rect x="185" y="118" width="150" height="70" rx="3" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="260" y="136" text-anchor="middle" font-family="Bitter,serif" font-size="11" font-weight="700" fill="#b45309">2. Deafferentation</text>
+      <text x="260" y="152" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#71717a">temporal lobe</text>
+      <text x="260" y="164" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#71717a">atrophy from disuse</text>
+      <text x="260" y="180" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#b45309">→ cross-modal takeover</text>
+      <!-- Mechanism 3 wider -->
+      <rect x="25" y="200" width="310" height="52" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="180" y="218" text-anchor="middle" font-family="Bitter,serif" font-size="11" font-weight="700" fill="#b91c1c">3. Social Withdrawal → CTRA Activation (Lec 27)</text>
+      <text x="180" y="236" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#71717a">effortful listening → avoid social → loneliness → NF-κB↑ → neuroinflammation</text>
+      <!-- Convergence -->
+      <line x1="100" y1="190" x2="180" y2="270" stroke="#6d28d9" stroke-width=".8"/>
+      <line x1="260" y1="190" x2="180" y2="270" stroke="#b45309" stroke-width=".8"/>
+      <line x1="180" y1="254" x2="180" y2="270" stroke="#b91c1c" stroke-width=".8"/>
+      <polygon points="176,270 180,277 184,270" fill="#b91c1c"/>
+      <rect x="60" y="280" width="240" height="36" rx="3" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="180" y="302" text-anchor="middle" font-family="Bitter,serif" font-size="14" font-weight="800" fill="#b91c1c">Accelerated Cognitive Decline</text>
+      <!-- ACHIEVE -->
+      <rect x="40" y="334" width="280" height="52" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="180" y="352" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">ACHIEVE TRIAL (LANCET 2023)</text>
+      <text x="180" y="370" text-anchor="middle" font-family="Rubik,sans-serif" font-size="11" fill="#15803d" font-weight="700">Hearing aids → 48% slower cognitive decline</text>
+      <text x="180" y="384" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10" fill="#3d3d3d">in older adults at increased risk (3-year RCT, n=977)</text>
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="450" stroke="#d4d0c8" stroke-width="1"/>
+      <!-- RIGHT -->
+      <text x="564" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6d28d9" font-weight="600" letter-spacing="1.5">SIGNAL PROCESSING PARALLEL</text>
+      <rect x="402" y="36" width="320" height="150" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="562" y="56" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="412" y1="64" x2="712" y2="64" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6d28d9" font-weight="600">EAR/BRAIN</text>
+      <text x="638" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6d28d9" font-weight="600">RECEIVER</text>
+      <line x1="562" y1="64" x2="562" y2="180" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="412" y1="90" x2="712" y2="90" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="106" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Cochlear hair cells</text>
+      <text x="638" y="106" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Antenna elements</text>
+      <line x1="412" y1="114" x2="712" y2="114" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="130" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Auditory cortex</text>
+      <text x="638" y="130" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">DSP / decoder</text>
+      <line x1="412" y1="138" x2="712" y2="138" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="154" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Age-related hearing loss</text>
+      <text x="638" y="154" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Rising noise floor</text>
+      <line x1="412" y1="162" x2="712" y2="162" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="178" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#b91c1c">PFC effortful listening</text>
+      <text x="638" y="178" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#b91c1c">Error correction → CPU↑</text>
+      <!-- SNR -->
+      <rect x="402" y="200" width="320" height="68" rx="4" fill="rgba(109,40,217,0.04)" stroke="#6d28d9" stroke-width="1"/>
+      <text x="562" y="220" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6d28d9" font-weight="700" letter-spacing="1">SIGNAL-TO-NOISE RATIO</text>
+      <text x="420" y="240" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">As noise floor rises, the receiver must work harder</text>
+      <text x="420" y="256" font-family="Rubik,sans-serif" font-size="10.5" fill="#6d28d9" font-weight="600">to extract signal — consuming processing power</text>
+      <text x="420" y="272" font-family="Rubik,sans-serif" font-size="10.5" fill="#6d28d9" font-weight="600">that was previously available for other tasks.</text>
+      <!-- Lancet -->
+      <rect x="402" y="284" width="320" height="52" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="562" y="302" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b45309" font-weight="600" letter-spacing="1">LANCET COMMISSION 2024</text>
+      <text x="562" y="320" text-anchor="middle" font-family="Rubik,sans-serif" font-size="11" fill="#3d3d3d">Hearing loss = largest modifiable dementia risk factor</text>
+      <text x="562" y="336" text-anchor="middle" font-family="Rubik,sans-serif" font-size="11" fill="#b45309" font-weight="700">~8% population-attributable fraction worldwide</text>
+      <!-- Tinnitus -->
+      <rect x="402" y="352" width="320" height="44" rx="4" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="562" y="370" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b91c1c" font-weight="600" letter-spacing="1">TINNITUS = SIGNAL HALLUCINATION</text>
+      <text x="562" y="388" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">When SNR drops too low, the prediction engine</text>
+      <text x="562" y="404" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#b91c1c" font-weight="600">generates phantom signal to fill uncorrectable gaps</text>
+      <!-- Solution -->
+      <rect x="402" y="410" width="320" height="42" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="562" y="428" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">SOLUTION: RESTORE THE SNR</text>
+      <text x="562" y="446" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#15803d" font-weight="700">Hearing aids = external pre-amplifier with noise filter</text>
+    </svg>
+    <div class="fig-cap">Left: three mechanisms linking cochlear degradation to cognitive decline — cognitive load (PFC diversion), deafferentation atrophy (temporal lobe shrinkage), and social withdrawal (CTRA activation). All three converge on accelerated cognitive decline and are addressable by hearing intervention (ACHIEVE: 48% reduction). Right: the signal processing parallel — rising noise floor, error correction consuming CPU, tinnitus as signal hallucination, and hearing aids as external pre-amplifiers that restore the SNR.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination — Signal Processing: Why SNR Determines System Performance</div>
+  <h2>The Receiver's Sensitivity Is the Bottleneck — Not the Transmitter's Power</h2>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Audiology</div>
+      <h4>Cochlear Synaptopathy: "Hidden Hearing Loss"</h4>
+      <p>Standard audiometric testing (pure-tone audiometry) measures the quietest sound detectable at each frequency — it tests the antenna sensitivity at low signal levels. But <strong>cochlear synaptopathy</strong> — loss of synaptic ribbons connecting inner hair cells to auditory nerve fibers — degrades the system's ability to process complex signals in noise <em>without affecting pure-tone thresholds</em>. This is "hidden hearing loss": the individual passes the standard hearing test but struggles in noisy environments because their receiver's signal-processing bandwidth has been reduced. It's the equivalent of a radio with normal sensitivity but degraded selectivity — it can hear weak signals in silence but cannot separate one signal from adjacent-channel interference.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Signal Processing</div>
+      <h4>Hearing Aids as External Pre-Amplifiers</h4>
+      <p>A hearing aid is functionally an <strong>external pre-amplifier with frequency-selective gain and noise reduction</strong>. It boosts the signal before it reaches the degraded receiver (cochlea), improving the SNR at the input stage. Modern hearing aids also perform real-time spectral shaping (boosting frequencies where hair cell loss is greatest), directional filtering (enhancing signals from the front, attenuating background noise), and feedback cancellation. This offloads the error-correction processing that the brain would otherwise perform — freeing prefrontal resources for their original purpose: thinking, remembering, and planning.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">Neuroplasticity</div>
+      <h4>Cross-Modal Reorganization — and Its Reversal</h4>
+      <p>When auditory input is chronically reduced, the auditory cortex undergoes <strong>cross-modal reorganization</strong> — visual processing invades auditory cortical territory. This is maladaptive: it reduces the brain's capacity to process sound and is associated with worse speech perception outcomes. Remarkably, Glick et al. (2017) showed that <strong>six months of hearing aid use reversed cross-modal reorganization</strong> in auditory cortex, coinciding with improved speech perception and cognitive performance — demonstrating that the deafferentation atrophy mechanism is at least partially reversible if intervention occurs before the reorganization becomes permanent.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Tinnitus as Phantom Signal</div>
+      <h4>When the Prediction Engine Fills the Gaps</h4>
+      <p>Tinnitus — the perception of sound without external stimulus — affects ~15% of adults and increases with age and hearing loss. The signal processing interpretation: when SNR drops below the error-correction threshold, the brain's <strong>predictive coding system generates phantom signal</strong> to fill gaps that the receiver can no longer resolve. The generated signal (ringing, buzzing, hissing) reflects the frequency bands where hair cell loss is greatest. Tinnitus is not a disease of the ear — it is a disease of the brain's signal reconstruction algorithm operating without sufficient input data. Restoring input via hearing aids often reduces tinnitus by providing the real data that the prediction engine was attempting to fabricate.</p>
+    </div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Risks of Over-Application</div>
+    <p><em>The ACHIEVE trial result requires careful interpretation.</em> The 48% cognitive protection was observed in the pre-specified at-risk subgroup (ARIC cohort participants — older, more comorbidities, faster baseline cognitive decline), not in the total study population. Among the healthy community volunteers, hearing intervention showed no significant effect on cognitive decline over 3 years — likely because their rate of decline was too slow to detect a difference in that timeframe. This means hearing aids are most urgently indicated for individuals who already have risk factors for cognitive decline (cardiovascular disease, ApoE4, family history, lower baseline cognitive scores). For healthy individuals with mild hearing loss but no cognitive risk factors, the cognitive benefit of hearing aids may be smaller or slower to manifest — though the social, communication, and quality-of-life benefits are immediate. Additionally, hearing aid benefit depends critically on proper fitting, programming, and consistent use — poorly fitted aids that amplify all frequencies equally (including noise) can worsen the SNR rather than improve it, increasing rather than reducing cognitive load.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> A three-tier hearing preservation and monitoring protocol: (1) <em>Baseline audiometric testing</em> — get a comprehensive audiogram now, in your fifties, as a reference. Most hearing loss is gradual and unnoticed — by the time you perceive difficulty, 30–50% of hair cells in affected frequency ranges may be lost. A baseline audiogram establishes your starting point and allows tracking of change over time. Include speech-in-noise testing (Quick SIN or HINT) to detect hidden hearing loss (cochlear synaptopathy) that pure-tone audiometry misses. (2) <em>Noise protection</em> — cumulative noise exposure is the largest extrinsic accelerator of hair cell loss. Use hearing protection at concerts, sporting events, when using power tools, and during prolonged headphone use. The 80/90 rule: keep headphone volume below 80% and limit continuous exposure above 85 dB to less than 90 minutes. (3) <em>Early intervention if indicated</em> — if audiometry shows mild-to-moderate hearing loss (25–55 dB HL), hearing aids should be considered not merely for communication but as a <em>cognitive protection intervention</em>. The ACHIEVE data suggests that early treatment in at-risk individuals provides the greatest benefit. Every year of untreated hearing loss is a year of effortful listening, temporal lobe deafferentation, and social withdrawal — all feeding the cognitive decline cascade.<br><br><strong>Metric:</strong> <em>Audiogram</em> (pure-tone, every 2–3 years after 50). <em>Speech-in-noise score</em> (Quick SIN — more sensitive to functional hearing than pure-tone alone). <em>Self-reported listening effort</em> — subjective fatigue after social events in noisy environments is often the first signal of declining SNR, preceding measurable audiometric change.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Hearing Loss Connects to the Lecture Series</h2>
+
+  <p>Hearing loss intersects with the lecture series at three critical points. First, the <em>cognitive load mechanism</em> is the same shared-bandwidth constraint identified in Lecture 33 (postural stability): the brain has a finite pool of executive processing resources, and every system that demands more of it (degraded balance sensors, degraded auditory input, degraded visual input) reduces what remains for memory, attention, and executive function. A person with both hearing loss and balance impairment faces a double cognitive tax — each independently consuming bandwidth that the other also needs. Second, the <em>social withdrawal pathway</em> feeds directly into the CTRA inflammatory cascade of Lecture 27: hearing loss → effortful communication → social isolation → loneliness → SNS activation → NF-κB → inflammaging → accelerated neurodegeneration. This makes hearing loss an <em>entry point into Theme III</em> (the self-amplifying inflammatory spiral) that is entirely addressable with existing technology. Third, the <em>vascular health connection</em> is bidirectional: the stria vascularis (the cochlea's vascular supply) is among the most metabolically active tissues in the body, and its microcirculation is vulnerable to the same endothelial dysfunction, arterial stiffening, and ApoB-driven atherosclerosis described in Lecture 30. Your ApoB spike (67→132) doesn't just threaten your coronary arteries and brain — it threatens your cochlear blood supply. Cardiovascular risk factor control protects hearing as well as heart, brain, and kidneys. Hearing preservation is vascular preservation is cognitive preservation — a single intervention axis that connects Lectures 16, 27, 30, 31, 33, and 34 through a common vascular-inflammatory-cognitive pathway.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII -->
+  <div class="sn">VIII. Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Peer Review — Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Hearing loss is a normal part of aging — it's an inconvenience, not a health risk."<br><br><strong>Correction:</strong> Hearing loss in midlife is the single largest modifiable risk factor for dementia, accounting for approximately 8% of all dementia cases worldwide according to the 2024 Lancet Commission. The association follows a dose-response relationship: mild hearing loss carries approximately twice the dementia risk, moderate three times, and severe nearly five times. The ACHIEVE trial demonstrated that hearing intervention slowed cognitive decline by 48% over 3 years in at-risk older adults — an effect size comparable to the best pharmaceutical interventions available. Hearing loss is not a cosmetic inconvenience — it is a treatable medical condition with cascading effects on cognition, brain structure, social engagement, inflammation, and mortality risk. The failure to treat hearing loss is the failure to address the largest modifiable risk factor for the most feared disease of aging.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Lancet Commission (2024)</h5><p>"Dementia prevention, intervention, and care." <em>Lancet</em>, 404:572–628. The definitive commission report identifying 14 modifiable risk factors for dementia, with midlife hearing loss as the single largest. Updates the 2017 and 2020 reports.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>ACHIEVE Trial (2023)</h5><p>Lin et al., "Hearing intervention versus health education control to reduce cognitive decline." <em>Lancet</em>, 402:786–797. The landmark RCT: 977 older adults, 3-year follow-up, 48% reduction in cognitive decline in at-risk subgroup with hearing intervention.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Get a Baseline Audiogram</h5><p>Comprehensive audiometry + speech-in-noise testing (Quick SIN). Establish a reference in your fifties. Repeat every 2–3 years. Most hearing loss is gradual and unrecognized — by the time you notice difficulty, significant hair cell loss has already occurred. A baseline allows detection of change before functional impact.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Noise Protection Protocol</h5><p>Custom or high-fidelity earplugs at concerts, sporting events, noisy restaurants. Headphone volume <80% for extended listening. Limit continuous exposure above 85 dB. Consider noise-canceling headphones for commuting (allows lower volume for the same perceived clarity). Cumulative noise exposure is the largest extrinsic driver of hair cell death — and hair cells do not regenerate.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Cardiovascular Health = Cochlear Health</h5><p>The stria vascularis (cochlea's blood supply) is one of the most metabolically active tissues in the body. Hypertension, diabetes, smoking, and elevated ApoB all independently accelerate hearing loss through microvascular damage. Every intervention from Lecture 30 (vascular aging) simultaneously protects the cochlea — exercise, blood pressure control, ApoB reduction, and endothelial function preservation.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Hearing Aids as Cognitive Intervention</h5><p>If audiometry indicates mild-to-moderate loss (25–55 dB HL), hearing aids should be considered not just for communication but as a cognitive protection strategy. Modern hearing aids include directional microphones, noise reduction algorithms, frequency compression, and Bluetooth connectivity. Proper fitting by an audiologist (not over-the-counter without programming) is essential — poorly fitted aids can worsen SNR and increase cognitive load.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>Audiogram + Quick SIN + Effort</h5><p>Pure-tone audiogram (every 2–3 years after 50). Speech-in-noise score (Quick SIN — detects functional impairment that pure-tone misses). Self-reported listening effort (fatigue after noisy social events = early signal of declining SNR). Track alongside VO₂ max, processing speed, and balance for the full physical-cognitive integration panel.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Lecture Integration Map</h5><p>Shared bandwidth (Lec 33) → same executive resource pool. CTRA/social isolation (Lec 27) → hearing loss drives withdrawal drives inflammation. Vascular aging (Lec 30) → stria vascularis perfusion. White matter (Lec 34) → auditory white matter tracts degrade with hearing loss. Cognitive reserve (Lec 31) → hearing aids restore auditory stimulation that builds/maintains reserve. Brain IR (Lec 32) → cochlear metabolic health. Inflammaging (Lec 12) → CTRA entry point via social withdrawal.</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>Hearing loss is the largest modifiable risk factor for dementia (~8% PAF)</td><td>Lancet Commission on Dementia, 2020 (Livingston et al.); updated 2024</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Hearing loss associated with ~2× dementia risk; dose-response (mild 1.9×, moderate 3×, severe ~5×)</td><td>Loughrey et al., <em>JAMA Otolaryngol.</em>, 2018 (meta-analysis); Lin et al., 2011</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>ACHIEVE trial: hearing intervention slowed cognitive decline 48% in at-risk subgroup over 3 years</td><td>Lin et al., <em>Lancet</em>, 2023;402:786–797</td><td><span class="cv">⚠ 48% figure is from the pre-specified ARIC subgroup (n=238), not the total study population (n=977). Total population showed no significant difference. Effect was strongest in those at higher baseline risk for cognitive decline.</span></td></tr>
+      <tr><td>Globally, 65% of adults over 60 have hearing loss; only ~20% of those with HL use hearing aids</td><td>WHO World Report on Hearing, 2021; Chien &amp; Lin, 2012</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Hearing loss associated with accelerated temporal lobe volume decline on longitudinal MRI</td><td>Lin et al., <em>NeuroImage</em>, 2014; reviewed in multiple sources</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Six months of hearing aid use reversed cross-modal reorganization in auditory cortex</td><td>Glick et al., 2017 (Sharma lab); Pereira-Jorge et al., 2018</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Three proposed mechanisms: cognitive load, deafferentation atrophy, social withdrawal</td><td>Livingston et al., 2020; Griffiths et al., 2020; reviewed in multiple sources</td><td><span class="ok">✓ Confirmed</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Livingston, G. et al. (2020/2024). "Dementia prevention, intervention, and care." <em>Lancet</em>, 396:413–446 / 404:572–628. &nbsp;|&nbsp; Lin, F.R. et al. (2023). "Hearing intervention versus health education control to reduce cognitive decline (ACHIEVE)." <em>Lancet</em>, 402:786–797. &nbsp;|&nbsp; Loughrey, D.G. et al. (2018). "Association of age-related hearing loss with cognitive function, cognitive impairment, and dementia." <em>JAMA Otolaryngol.</em>, 144:115–126. &nbsp;|&nbsp; Lin, F.R. et al. (2011). "Hearing loss and incident dementia." <em>Arch. Neurol.</em>, 68:214–220. &nbsp;|&nbsp; Glick, H. &amp; Sharma, A. (2017). "Cross-modal plasticity in developmental and age-related hearing loss." <em>Hear. Res.</em>, 343:191–201.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_hearing_loss_cognition",
+  "related": [
+    {
+      "id": "lecture_cognitive_reserve",
+      "title": "Cognitive Reserve & the Redundancy Dividend",
+      "filename": "lecture_cognitive_reserve.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_social_integration",
+      "title": "Social Integration & Mortality",
+      "filename": "lecture_social_integration.html",
+      "tags": [
+        "Adaptive Stress",
+        "Social & Meaning"
+      ]
+    },
+    {
+      "id": "lecture_proprioceptive_decay",
+      "title": "Proprioceptive Decay & the Somatosensory-Cognitive Loop",
+      "filename": "lecture_proprioceptive_decay.html",
+      "tags": [
+        "Structural Integrity",
+        "Mind-Body Axes"
+      ]
+    },
+    {
+      "id": "lecture_purpose_meaning_longevity",
+      "title": "Purpose, Meaning & the Eudaimonic Longevity Effect",
+      "filename": "lecture_purpose_meaning_longevity.html",
+      "tags": [
+        "Adaptive Stress",
+        "Social & Meaning"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Longevity & Wellness — Interdisciplinary Lecture Series</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;0,6..72,800;1,6..72,400&family=Manrope:wght@300;400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #f9f7f3;
+  --surface:    #f1eee7;
+  --card:       #ffffff;
+  --ink:        #222222;
+  --ink-mid:    #3d3d3d;
+  --ink-soft:   #737068;
+  --amber:      #c17a1a;
+  --amber-deep: #9a5f0e;
+  --amber-bg:   rgba(193,122,26,0.09);
+  --amber-pill: rgba(193,122,26,0.12);
+  --slate:      #4a5d6e;
+  --slate-bg:   rgba(74,93,110,0.09);
+  --slate-pill: rgba(74,93,110,0.12);
+  --green:      #4a6a52;
+  --green-bg:   rgba(74,106,82,0.09);
+  --green-pill: rgba(74,106,82,0.12);
+  --teal:       #3a686a;
+  --teal-bg:    rgba(58,104,106,0.09);
+  --teal-pill:  rgba(58,104,106,0.12);
+  --rule:       #d8d3c8;
+  --rule-light: #e8e4db;
+  --radius:     6px;
+  --shadow:     0 1px 4px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--ink-mid);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: 15.5px;
+}
+
+.page {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 60px 32px 120px;
+}
+
+/* ── Header ──────────────────────────────────────── */
+.hdr {
+  margin-bottom: 52px;
+  padding-bottom: 36px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.series-label {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hdr h1 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.hdr-tagline {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  max-width: 580px;
+  line-height: 1.65;
+}
+
+.hdr-meta {
+  margin-top: 18px;
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.8px;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ── Search ──────────────────────────────────────── */
+.search-wrap {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.search-wrap svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+
+#search {
+  width: 100%;
+  padding: 13px 16px 13px 42px;
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+#search:focus {
+  border-color: var(--amber);
+}
+
+#search::placeholder { color: var(--ink-soft); }
+
+/* ── Filters ─────────────────────────────────────── */
+.filters {
+  background: var(--surface);
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.filter-label {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  width: 88px;
+  flex-shrink: 0;
+  padding-top: 5px;
+  color: var(--ink-soft);
+}
+
+.filter-label.mech  { color: var(--amber-deep); }
+.filter-label.sys   { color: var(--slate); }
+.filter-label.theme { color: var(--green); }
+.filter-label.inter { color: var(--teal); }
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pill {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.13s;
+  background: var(--card);
+  color: var(--ink-soft);
+  border-color: var(--rule);
+  white-space: nowrap;
+}
+
+.pill:hover { border-color: currentColor; }
+
+.pill.active.mech  { background: var(--amber-pill);  color: var(--amber-deep); border-color: var(--amber); }
+.pill.active.sys   { background: var(--slate-pill);  color: var(--slate);      border-color: var(--slate); }
+.pill.active.theme { background: var(--green-pill);  color: var(--green);      border-color: var(--green); }
+.pill.active.inter { background: var(--teal-pill);   color: var(--teal);       border-color: var(--teal);  }
+
+/* ── Active filter bar ───────────────────────────── */
+.active-bar {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.active-bar.visible { display: flex; }
+
+.active-chip {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10.5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: opacity 0.12s;
+}
+.active-chip:hover { opacity: 0.7; }
+.active-chip .x { font-size: 11px; line-height: 1; }
+
+.active-chip.mech  { background: var(--amber-pill); color: var(--amber-deep); }
+.active-chip.sys   { background: var(--slate-pill);  color: var(--slate); }
+.active-chip.theme { background: var(--green-pill);  color: var(--green); }
+.active-chip.inter { background: var(--teal-pill);   color: var(--teal); }
+
+.clear-all {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px 4px;
+  margin-left: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.clear-all:hover { color: var(--ink); }
+
+/* ── Results header ──────────────────────────────── */
+.results-hdr {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+/* ── Grid ────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ── Card ────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  padding: 22px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  border-color: var(--amber);
+  box-shadow: 0 2px 8px rgba(193,122,26,0.1), 0 8px 28px rgba(0,0,0,0.08);
+}
+
+.card-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.card-tag {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.4px;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.card-tag.mech  { background: var(--amber-pill); color: var(--amber-deep); }
+.card-tag.sys   { background: var(--slate-pill);  color: var(--slate); }
+.card-tag.theme { background: var(--green-pill);  color: var(--green); }
+.card-tag.inter { background: var(--teal-pill);   color: var(--teal); }
+
+.card-title {
+  font-family: 'Newsreader', serif;
+  font-size: 18.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.card-desc {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.card-read {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.6px;
+  color: var(--amber);
+  margin-top: 4px;
+}
+
+/* ── Empty state ─────────────────────────────────── */
+.empty {
+  display: none;
+  text-align: center;
+  padding: 72px 24px;
+  color: var(--ink-soft);
+}
+
+.empty.visible { display: block; }
+
+.empty-title {
+  font-family: 'Newsreader', serif;
+  font-size: 22px;
+  color: var(--ink-mid);
+  margin-bottom: 10px;
+}
+
+.empty-sub {
+  font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.footer {
+  margin-top: 80px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule-light);
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  color: var(--ink-soft);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .page { padding: 40px 20px 80px; }
+  .filter-row { flex-direction: column; gap: 8px; }
+  .filter-label { width: auto; padding-top: 0; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hdr">
+    <div class="series-label">Interdisciplinary Lecture Series</div>
+    <h1>Longevity &amp; Wellness</h1>
+    <p class="hdr-tagline">An ongoing library of lectures on the science of aging — from molecular mechanisms to social biology. New lectures added weekly.</p>
+    <div class="hdr-meta">
+      <span id="total-count">37 lectures</span>
+      <span>Updated weekly</span>
+    </div>
+  </header>
+
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+      <circle cx="6.5" cy="6.5" r="5"/>
+      <path d="M10.5 10.5L14 14"/>
+    </svg>
+    <input type="search" id="search" placeholder="Search lectures, topics, or concepts…" autocomplete="off">
+  </div>
+
+  <nav class="filters" id="filters">
+    <div class="filter-row">
+      <div class="filter-label mech">Mechanism</div>
+      <div class="pills" data-group="mechanism" data-color="mech"></div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-label sys">Body System</div>
+      <div class="pills" data-group="system" data-color="sys"></div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-label theme">Theme</div>
+      <div class="pills" data-group="theme" data-color="theme"></div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-label inter">What to Do</div>
+      <div class="pills" data-group="intervention" data-color="inter"></div>
+    </div>
+  </nav>
+
+  <div class="active-bar" id="active-bar">
+    <button class="clear-all" id="clear-all">Clear all</button>
+  </div>
+
+  <div class="results-hdr" id="results-hdr"></div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="empty" id="empty">
+    <div class="empty-title">No lectures found</div>
+    <div class="empty-sub">Try different filters or a shorter search term.</div>
+  </div>
+
+  <footer class="footer">
+    Longevity &amp; Wellness Lecture Series &nbsp;·&nbsp; Updated weekly
+  </footer>
+
+</div>
+
+<!-- CATALOG:BEGIN -->
+<script id="catalog-data" type="application/json">
+{
+  "generated": "2026-04-24",
+  "taxonomy": {
+    "mechanism": [
+      "Genetic & Epigenetic",
+      "Mitochondrial & Energy",
+      "Cellular Cleanup",
+      "Structural Integrity",
+      "Adaptive Stress"
+    ],
+    "system": [
+      "Brain & Cognition",
+      "Nervous System",
+      "Gut & Digestion",
+      "Musculoskeletal",
+      "Cardiovascular",
+      "Immune System"
+    ],
+    "theme": [
+      "Biological Clocks",
+      "Chronic Inflammation",
+      "Mind-Body Axes",
+      "Sleep & Recovery",
+      "Stress & Resilience",
+      "Social & Meaning",
+      "Systems Thinking"
+    ],
+    "intervention": [
+      "Move & Exercise",
+      "Eat & Fast",
+      "Sleep Better",
+      "Manage Stress",
+      "Connect Socially",
+      "Measure Yourself"
+    ]
+  },
+  "lectures": [
+    {
+      "id": "lecture_age_crosslinking_ecm",
+      "title": "AGE Crosslinking & ECM Stiffening",
+      "description": "When proteins caramelize with age, tissues stiffen and vessels lose elasticity — here's the chemistry behind glycation and what slows it.",
+      "filename": "lectures/lecture_age_crosslinking_ecm.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_metabolic_inflexibility",
+        "lecture_lymphatic_decline",
+        "lecture_mechanotransduction"
+      ]
+    },
+    {
+      "id": "lecture_autonomic_hrv",
+      "title": "Autonomic Nervous System Aging & HRV",
+      "description": "Heart rate variability is a real-time readout of nervous system resilience — why it falls with age and how cardiorespiratory fitness protects it.",
+      "filename": "lectures/lecture_autonomic_hrv.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Nervous System",
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Manage Stress",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_cortisol_hpa_axis",
+        "lecture_vo2max_capacity_margin",
+        "lecture_sleep_architecture_emotion",
+        "lecture_circadian_desynchronization"
+      ]
+    },
+    {
+      "id": "lecture_bone_brain_osteocalcin",
+      "title": "The Bone-Brain Axis & Osteocalcin",
+      "description": "Bone is not just scaffold — it secretes osteocalcin, a hormone that rewires memory, metabolism, and the stress response.",
+      "filename": "lectures/lecture_bone_brain_osteocalcin.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity",
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Musculoskeletal",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_mechanotransduction",
+        "lecture_brain_insulin_resistance",
+        "lecture_postural_stability_cognition",
+        "lecture_metabolic_inflexibility"
+      ]
+    },
+    {
+      "id": "lecture_brain_insulin_resistance",
+      "title": "Brain Insulin Resistance & the Cerebral Energy Crisis",
+      "description": "The brain can become insulin resistant independently of the body, cutting neurons off from fuel and accelerating cognitive decline.",
+      "filename": "lectures/lecture_brain_insulin_resistance.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes",
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_metabolic_inflexibility",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_cognitive_reserve",
+        "lecture_gut_brain_psychobiotics"
+      ]
+    },
+    {
+      "id": "lecture_cellular_senescence_senolytics",
+      "title": "Cellular Senescence & Senolytics",
+      "description": "Zombie cells that refuse to die accumulate across tissues, poisoning neighbors with inflammatory signals — and new drugs can clear them.",
+      "filename": "lectures/lecture_cellular_senescence_senolytics.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_inflammaging",
+        "lecture_stem_cell_exhaustion",
+        "lecture_proteostasis_collapse",
+        "lecture_telomere_attrition_stress"
+      ]
+    },
+    {
+      "id": "lecture_circadian_desynchronization",
+      "title": "Circadian Desynchronization & the Drifting Clock",
+      "description": "When the master body clock loses sync with day and night, the cascade reaches every organ — metabolism, immunity, and memory all fracture.",
+      "filename": "lectures/lecture_circadian_desynchronization.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Nervous System"
+        ],
+        "theme": [
+          "Biological Clocks",
+          "Sleep & Recovery"
+        ],
+        "intervention": [
+          "Sleep Better"
+        ]
+      },
+      "related": [
+        "lecture_peripheral_clock_desynchronization",
+        "lecture_sleep_architecture_emotion",
+        "lecture_cortisol_hpa_axis",
+        "lecture_autonomic_hrv"
+      ]
+    },
+    {
+      "id": "lecture_cognitive_reserve",
+      "title": "Cognitive Reserve & the Redundancy Dividend",
+      "description": "Brains with richer neural architecture absorb more damage before function degrades — and that architecture is still buildable in midlife.",
+      "filename": "lectures/lecture_cognitive_reserve.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Connect Socially"
+        ]
+      },
+      "related": [
+        "lecture_white_matter_fitness",
+        "lecture_glymphatic_system",
+        "lecture_social_integration",
+        "lecture_hearing_loss_cognition"
+      ]
+    },
+    {
+      "id": "lecture_compressed_sensing",
+      "title": "Compressed Sensing",
+      "description": "Information theory explains how an aging brain extracts signal from noise with fewer resources — with surprising implications for diagnosis and intervention.",
+      "filename": "lectures/lecture_compressed_sensing.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_multi_omic_aging_clocks",
+        "lecture_cognitive_reserve",
+        "lecture_hysteresis",
+        "lecture_glymphatic_system"
+      ]
+    },
+    {
+      "id": "lecture_cortisol_hpa_axis",
+      "title": "Cortisol Dysregulation & the HPA Axis",
+      "description": "Chronic stress doesn't just feel bad — it chemically remodels the brain and body, leaving marks on immunity, metabolism, and memory that compound each decade.",
+      "filename": "lectures/lecture_cortisol_hpa_axis.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Nervous System",
+          "Immune System"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Manage Stress",
+          "Sleep Better"
+        ]
+      },
+      "related": [
+        "lecture_telomere_attrition_stress",
+        "lecture_autonomic_hrv",
+        "lecture_inflammaging",
+        "lecture_sleep_architecture_emotion"
+      ]
+    },
+    {
+      "id": "lecture_epigenetic_clocks",
+      "title": "Epigenetic Clocks",
+      "description": "DNA methylation patterns track how fast you're biologically aging — often with striking divergence from the calendar — and some interventions measurably reverse them.",
+      "filename": "lectures/lecture_epigenetic_clocks.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_multi_omic_aging_clocks",
+        "lecture_telomere_attrition_stress",
+        "lecture_nad_sirtuin_decline",
+        "lecture_cellular_senescence_senolytics"
+      ]
+    },
+    {
+      "id": "lecture_glymphatic_system",
+      "title": "The Glymphatic System",
+      "description": "The brain has its own overnight cleaning crew that flushes toxic proteins — but it only runs properly during deep sleep, and it weakens with every decade.",
+      "filename": "lectures/lecture_glymphatic_system.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Sleep & Recovery"
+        ],
+        "intervention": [
+          "Sleep Better"
+        ]
+      },
+      "related": [
+        "lecture_sleep_architecture_emotion",
+        "lecture_proteostasis_collapse",
+        "lecture_lymphatic_decline",
+        "lecture_cognitive_reserve"
+      ]
+    },
+    {
+      "id": "lecture_gut_brain_psychobiotics",
+      "title": "The Gut-Brain Axis & Psychobiotics",
+      "description": "Trillions of gut microbes produce neurotransmitters, regulate mood, and communicate with the brain through nerves, hormones, and immune signals.",
+      "filename": "lectures/lecture_gut_brain_psychobiotics.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Gut & Digestion",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_gut_microbiome_diversity",
+        "lecture_brain_insulin_resistance",
+        "lecture_cortisol_hpa_axis",
+        "lecture_inflammaging"
+      ]
+    },
+    {
+      "id": "lecture_gut_microbiome_diversity",
+      "title": "Gut Microbiome Diversity & the Architecture of Aging",
+      "description": "A diverse gut microbiome is one of the strongest predictors of healthy aging — and the Western diet systematically dismantles it over time.",
+      "filename": "lectures/lecture_gut_microbiome_diversity.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Gut & Digestion",
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Eat & Fast"
+        ]
+      },
+      "related": [
+        "lecture_gut_brain_psychobiotics",
+        "lecture_inflammaging",
+        "lecture_oral_systemic_axis",
+        "lecture_metabolic_inflexibility"
+      ]
+    },
+    {
+      "id": "lecture_hearing_loss_cognition",
+      "title": "Hearing Loss & the Auditory-Cognitive Axis",
+      "description": "Untreated hearing loss accelerates brain atrophy and social withdrawal faster than almost any other single factor — and the connection is direct, not coincidental.",
+      "filename": "lectures/lecture_hearing_loss_cognition.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Nervous System",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes",
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Connect Socially",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_cognitive_reserve",
+        "lecture_social_integration",
+        "lecture_proprioceptive_decay",
+        "lecture_purpose_meaning_longevity"
+      ]
+    },
+    {
+      "id": "lecture_hormesis",
+      "title": "Hormesis",
+      "description": "The dose makes the medicine: low-level stress from exercise, heat, and fasting activates ancient protective pathways that are otherwise dormant.",
+      "filename": "lectures/lecture_hormesis.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast",
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_mitochondrial_dysfunction",
+        "lecture_telomere_attrition_stress",
+        "lecture_vo2max_capacity_margin",
+        "lecture_cellular_senescence_senolytics"
+      ]
+    },
+    {
+      "id": "lecture_hysteresis",
+      "title": "Hysteresis",
+      "description": "Why it's so hard to reverse chronic disease: biological systems remember their history and resist returning to healthier states — with critical implications for when to intervene.",
+      "filename": "lectures/lecture_hysteresis.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking"
+        ],
+        "intervention": []
+      },
+      "related": [
+        "lecture_inflammaging",
+        "lecture_cognitive_reserve",
+        "lecture_compressed_sensing",
+        "lecture_hormesis"
+      ]
+    },
+    {
+      "id": "lecture_inflammaging",
+      "title": "Inflammaging",
+      "description": "The immune system never fully turns off as it ages — that smoldering background inflammation is the common engine beneath most age-related diseases.",
+      "filename": "lectures/lecture_inflammaging.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise",
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_gut_microbiome_diversity",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_nad_sirtuin_decline"
+      ]
+    },
+    {
+      "id": "lecture_lymphatic_decline",
+      "title": "Lymphatic System Decline & Interstitial Fluid Dynamics",
+      "description": "The lymphatic pump weakens with age, causing fluid stagnation in tissues, immune dysfunction, and a hidden driver of systemic inflammation.",
+      "filename": "lectures/lecture_lymphatic_decline.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Immune System",
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_glymphatic_system",
+        "lecture_inflammaging",
+        "lecture_age_crosslinking_ecm",
+        "lecture_mechanotransduction"
+      ]
+    },
+    {
+      "id": "lecture_mechanotransduction",
+      "title": "Mechanotransduction & Sarcopenia",
+      "description": "Cells respond to physical force — and when we stop moving, they receive a continuous signal to shrink, stiffen, and die.",
+      "filename": "lectures/lecture_mechanotransduction.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_bone_brain_osteocalcin",
+        "lecture_postural_stability_cognition",
+        "lecture_age_crosslinking_ecm",
+        "lecture_stem_cell_exhaustion"
+      ]
+    },
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "description": "The ability to switch between burning sugar and fat degrades with age, creating energy crises that drive brain fog, fatigue, and accelerated disease.",
+      "filename": "lectures/lecture_metabolic_inflexibility.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Gut & Digestion"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_brain_insulin_resistance",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_nad_sirtuin_decline",
+        "lecture_peripheral_clock_desynchronization"
+      ]
+    },
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "description": "As mitochondrial networks fragment and lose efficiency with age, energy output drops and oxidative damage rises — the bioenergetic foundation of aging.",
+      "filename": "lectures/lecture_mitochondrial_dysfunction.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast"
+        ]
+      },
+      "related": [
+        "lecture_nad_sirtuin_decline",
+        "lecture_metabolic_inflexibility",
+        "lecture_hormesis",
+        "lecture_proteostasis_collapse"
+      ]
+    },
+    {
+      "id": "lecture_multi_omic_aging_clocks",
+      "title": "Multi-Omic Aging Clocks & Biological Age Divergence",
+      "description": "Combining DNA, protein, and metabolite data creates a far more accurate picture of your biological age than any single biomarker can.",
+      "filename": "lectures/lecture_multi_omic_aging_clocks.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_epigenetic_clocks",
+        "lecture_nad_sirtuin_decline",
+        "lecture_metabolic_inflexibility",
+        "lecture_compressed_sensing"
+      ]
+    },
+    {
+      "id": "lecture_nad_sirtuin_decline",
+      "title": "NAD+ Decline & Sirtuin Dysfunction",
+      "description": "NAD+ is the master fuel molecule for longevity enzymes — it falls by half between 40 and 60, disabling DNA repair, metabolism, and stress response simultaneously.",
+      "filename": "lectures/lecture_nad_sirtuin_decline.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Mitochondrial & Energy",
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Biological Clocks",
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_mitochondrial_dysfunction",
+        "lecture_epigenetic_clocks",
+        "lecture_metabolic_inflexibility",
+        "lecture_cellular_senescence_senolytics"
+      ]
+    },
+    {
+      "id": "lecture_oral_systemic_axis",
+      "title": "The Oral-Systemic Axis & Periodontal Disease",
+      "description": "Gum disease sends a continuous inflammatory signal into the bloodstream that quietly reaches the heart, brain, and joints over years.",
+      "filename": "lectures/lecture_oral_systemic_axis.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Gut & Digestion",
+          "Cardiovascular",
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_inflammaging",
+        "lecture_gut_microbiome_diversity",
+        "lecture_age_crosslinking_ecm",
+        "lecture_cellular_senescence_senolytics"
+      ]
+    },
+    {
+      "id": "lecture_peripheral_clock_desynchronization",
+      "title": "Peripheral Clock Desynchronization & the Chrono-Metabolic Fracture",
+      "description": "Every organ runs its own internal clock — and when they fall out of sync with each other, metabolism and immunity fracture at the cellular level.",
+      "filename": "lectures/lecture_peripheral_clock_desynchronization.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Nervous System",
+          "Gut & Digestion"
+        ],
+        "theme": [
+          "Biological Clocks",
+          "Sleep & Recovery"
+        ],
+        "intervention": [
+          "Sleep Better",
+          "Eat & Fast"
+        ]
+      },
+      "related": [
+        "lecture_circadian_desynchronization",
+        "lecture_metabolic_inflexibility",
+        "lecture_gut_microbiome_diversity",
+        "lecture_cortisol_hpa_axis"
+      ]
+    },
+    {
+      "id": "lecture_postural_stability_cognition",
+      "title": "Postural Stability & the Sensorimotor-Cognitive Axis",
+      "description": "Balance is not just a physical skill — it's a real-time readout of sensorimotor and cognitive integration that predicts falls and cognitive decline years in advance.",
+      "filename": "lectures/lecture_postural_stability_cognition.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Musculoskeletal",
+          "Brain & Cognition",
+          "Nervous System"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_proprioceptive_decay",
+        "lecture_mechanotransduction",
+        "lecture_cognitive_reserve",
+        "lecture_bone_brain_osteocalcin"
+      ]
+    },
+    {
+      "id": "lecture_proprioceptive_decay",
+      "title": "Proprioceptive Decay & the Somatosensory-Cognitive Loop",
+      "description": "The body's position-sensing system quietly deteriorates with age, degrading movement quality and the cognitive circuits that depend on constant sensory feedback.",
+      "filename": "lectures/lecture_proprioceptive_decay.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Nervous System",
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_postural_stability_cognition",
+        "lecture_mechanotransduction",
+        "lecture_hearing_loss_cognition",
+        "lecture_autonomic_hrv"
+      ]
+    },
+    {
+      "id": "lecture_proteostasis_collapse",
+      "title": "Proteostasis Collapse & the Protein Quality Crisis",
+      "description": "The cell's protein quality-control system fails with age, allowing misfolded proteins to aggregate into the deposits found in Alzheimer's, Parkinson's, and most age-related diseases.",
+      "filename": "lectures/lecture_proteostasis_collapse.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_stem_cell_exhaustion",
+        "lecture_glymphatic_system"
+      ]
+    },
+    {
+      "id": "lecture_purpose_meaning_longevity",
+      "title": "Purpose, Meaning & the Eudaimonic Longevity Effect",
+      "description": "Having a clear sense of purpose is not just philosophically important — it measurably lowers cortisol, reduces inflammation, and extends both lifespan and healthspan.",
+      "filename": "lectures/lecture_purpose_meaning_longevity.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Connect Socially"
+        ]
+      },
+      "related": [
+        "lecture_social_integration",
+        "lecture_social_network_topology",
+        "lecture_cognitive_reserve",
+        "lecture_cortisol_hpa_axis"
+      ]
+    },
+    {
+      "id": "lecture_skin_brain_immune_photoaging",
+      "title": "The Skin-Brain-Immune Axis & Photoaging",
+      "description": "Skin is a neuroimmune organ — UV damage doesn't just age the surface, it triggers systemic inflammatory and neurological cascades that affect the whole body.",
+      "filename": "lectures/lecture_skin_brain_immune_photoaging.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Immune System",
+          "Nervous System"
+        ],
+        "theme": [
+          "Mind-Body Axes",
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_inflammaging",
+        "lecture_age_crosslinking_ecm",
+        "lecture_cortisol_hpa_axis",
+        "lecture_cellular_senescence_senolytics"
+      ]
+    },
+    {
+      "id": "lecture_sleep_architecture_emotion",
+      "title": "Sleep Architecture & Emotional Memory Processing",
+      "description": "The stages of sleep don't just rest the brain — they reorganize memory and regulate emotion, and age-related loss of deep and REM sleep is among the most damaging of all aging effects.",
+      "filename": "lectures/lecture_sleep_architecture_emotion.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Nervous System"
+        ],
+        "theme": [
+          "Sleep & Recovery",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Sleep Better"
+        ]
+      },
+      "related": [
+        "lecture_glymphatic_system",
+        "lecture_circadian_desynchronization",
+        "lecture_cortisol_hpa_axis",
+        "lecture_autonomic_hrv"
+      ]
+    },
+    {
+      "id": "lecture_social_integration",
+      "title": "Social Integration & Mortality",
+      "description": "Social connection is as powerful a mortality predictor as smoking — here's the biology of how isolation accelerates aging across every organ system.",
+      "filename": "lectures/lecture_social_integration.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Immune System"
+        ],
+        "theme": [
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Connect Socially"
+        ]
+      },
+      "related": [
+        "lecture_social_network_topology",
+        "lecture_purpose_meaning_longevity",
+        "lecture_cognitive_reserve",
+        "lecture_inflammaging"
+      ]
+    },
+    {
+      "id": "lecture_social_network_topology",
+      "title": "Social Network Topology & the Biology of Connection",
+      "description": "It's not just who you know — the structure of your network (its diversity, density, and bridging ties) has distinct and measurable biological effects on aging.",
+      "filename": "lectures/lecture_social_network_topology.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Social & Meaning",
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Connect Socially"
+        ]
+      },
+      "related": [
+        "lecture_social_integration",
+        "lecture_purpose_meaning_longevity",
+        "lecture_cognitive_reserve",
+        "lecture_cortisol_hpa_axis"
+      ]
+    },
+    {
+      "id": "lecture_stem_cell_exhaustion",
+      "title": "Stem Cell Exhaustion & the Regeneration Deficit",
+      "description": "Stem cell pools deplete across every organ with age, leaving tissues unable to repair damage — and exercise and fasting are among the few interventions that measurably help.",
+      "filename": "lectures/lecture_stem_cell_exhaustion.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast"
+        ]
+      },
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_proteostasis_collapse",
+        "lecture_nad_sirtuin_decline",
+        "lecture_mechanotransduction"
+      ]
+    },
+    {
+      "id": "lecture_telomere_attrition_stress",
+      "title": "Telomere Attrition & Psychobiological Stress",
+      "description": "Psychological stress directly shortens telomeres, linking mental state to the cellular aging clock — and the effect is measurable within years, not decades.",
+      "filename": "lectures/lecture_telomere_attrition_stress.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Manage Stress",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_epigenetic_clocks",
+        "lecture_cellular_senescence_senolytics",
+        "lecture_cortisol_hpa_axis",
+        "lecture_hormesis"
+      ]
+    },
+    {
+      "id": "lecture_vo2max_capacity_margin",
+      "title": "VO₂ Max & the Capacity Margin",
+      "description": "Cardiorespiratory fitness is the single most powerful predictor of all-cause mortality — and it remains one of the most trainable biomarkers at any age.",
+      "filename": "lectures/lecture_vo2max_capacity_margin.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_white_matter_fitness",
+        "lecture_metabolic_inflexibility",
+        "lecture_autonomic_hrv",
+        "lecture_hormesis"
+      ]
+    },
+    {
+      "id": "lecture_white_matter_fitness",
+      "title": "Cardiorespiratory Fitness & White Matter Integrity",
+      "description": "Cardiorespiratory fitness preserves the brain's white matter highways, protecting the processing speed and connectivity that cognitive function runs on.",
+      "filename": "lectures/lecture_white_matter_fitness.html",
+      "added": "2026-04-24",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_vo2max_capacity_margin",
+        "lecture_cognitive_reserve",
+        "lecture_glymphatic_system",
+        "lecture_sleep_architecture_emotion"
+      ]
+    }
+  ]
+}
+</script>
+<!-- CATALOG:END -->
+
+<script>
+(function () {
+  const raw  = document.getElementById('catalog-data').textContent;
+  const data = JSON.parse(raw);
+  const taxonomy = data.taxonomy;
+  const lectures = data.lectures;
+
+  // ── State ──────────────────────────────────────────
+  const active = { mechanism: new Set(), system: new Set(), theme: new Set(), intervention: new Set() };
+  let query = '';
+
+  // ── Build filter pills ──────────────────────────────
+  document.querySelectorAll('.pills').forEach(container => {
+    const group = container.dataset.group;
+    const color = container.dataset.color;
+    taxonomy[group].forEach(tag => {
+      const btn = document.createElement('button');
+      btn.className = 'pill ' + color;
+      btn.textContent = tag;
+      btn.dataset.tag = tag;
+      btn.dataset.group = group;
+      btn.dataset.color = color;
+      btn.addEventListener('click', () => toggleFilter(group, tag, color, btn));
+      container.appendChild(btn);
+    });
+  });
+
+  // ── Filter logic ────────────────────────────────────
+  function toggleFilter(group, tag, color, btn) {
+    if (active[group].has(tag)) {
+      active[group].delete(tag);
+      btn.classList.remove('active', color);
+    } else {
+      active[group].add(tag);
+      btn.classList.add('active', color);
+    }
+    render();
+  }
+
+  function hasActiveFilters() {
+    return Object.values(active).some(s => s.size > 0) || query.length > 0;
+  }
+
+  function filteredLectures() {
+    return lectures.filter(lec => {
+      // search across title + description + all tags
+      if (query) {
+        const q = query.toLowerCase();
+        const blob = [
+          lec.title,
+          lec.description,
+          ...Object.values(lec.tags).flat()
+        ].join(' ').toLowerCase();
+        if (!blob.includes(q)) return false;
+      }
+      // filters: AND across groups, OR within group
+      for (const [group, selected] of Object.entries(active)) {
+        if (selected.size === 0) continue;
+        const lecTags = new Set(lec.tags[group] || []);
+        if (![...selected].some(t => lecTags.has(t))) return false;
+      }
+      return true;
+    });
+  }
+
+  // ── Render ──────────────────────────────────────────
+  function render() {
+    const results = filteredLectures();
+
+    // active chips bar
+    const bar = document.getElementById('active-bar');
+    // clear chips (keep clear-all button)
+    [...bar.querySelectorAll('.active-chip')].forEach(c => c.remove());
+
+    const chipGroups = {mechanism:'mech', system:'sys', theme:'theme', intervention:'inter'};
+    let chipCount = 0;
+    for (const [group, selected] of Object.entries(active)) {
+      selected.forEach(tag => {
+        chipCount++;
+        const chip = document.createElement('span');
+        chip.className = 'active-chip ' + chipGroups[group];
+        chip.innerHTML = tag + ' <span class="x">×</span>';
+        chip.addEventListener('click', () => {
+          active[group].delete(tag);
+          // deactivate matching pill button
+          document.querySelectorAll(`.pill[data-group="${group}"][data-tag="${tag}"]`).forEach(b => {
+            b.classList.remove('active', chipGroups[group]);
+          });
+          render();
+        });
+        bar.insertBefore(chip, document.getElementById('clear-all'));
+      });
+    }
+    if (query) chipCount++;
+    bar.className = 'active-bar' + (chipCount > 0 ? ' visible' : '');
+
+    // results header
+    const hdr = document.getElementById('results-hdr');
+    if (hasActiveFilters()) {
+      hdr.textContent = results.length === 0
+        ? 'No lectures match'
+        : results.length + ' of ' + lectures.length + ' lectures';
+    } else {
+      hdr.textContent = lectures.length + ' lectures';
+    }
+    document.getElementById('total-count').textContent = lectures.length + ' lectures';
+
+    // grid
+    const grid  = document.getElementById('grid');
+    const empty = document.getElementById('empty');
+    grid.innerHTML = '';
+
+    if (results.length === 0) {
+      empty.classList.add('visible');
+      return;
+    }
+    empty.classList.remove('visible');
+
+    const colorMap = {mechanism:'mech', system:'sys', theme:'theme', intervention:'inter'};
+
+    results.forEach(lec => {
+      const card = document.createElement('a');
+      card.className = 'card';
+      card.href = lec.filename;
+
+      // pick one tag per category to display (max 3 tags on card)
+      const displayTags = [];
+      ['mechanism', 'system', 'theme'].forEach(g => {
+        const t = lec.tags[g];
+        if (t && t.length > 0) displayTags.push({tag: t[0], color: colorMap[g]});
+      });
+
+      const tagsHTML = displayTags.map(({tag, color}) =>
+        `<span class="card-tag ${color}">${tag}</span>`
+      ).join('');
+
+      card.innerHTML = `
+        <div class="card-tags">${tagsHTML}</div>
+        <div class="card-title">${lec.title}</div>
+        <div class="card-desc">${lec.description}</div>
+        <div class="card-read">Read lecture →</div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // ── Search ──────────────────────────────────────────
+  document.getElementById('search').addEventListener('input', e => {
+    query = e.target.value.trim();
+    render();
+  });
+
+  // ── Clear all ───────────────────────────────────────
+  document.getElementById('clear-all').addEventListener('click', () => {
+    for (const s of Object.values(active)) s.clear();
+    document.querySelectorAll('.pill.active').forEach(b => {
+      b.classList.remove('active', 'mech', 'sys', 'theme', 'inter');
+    });
+    query = '';
+    document.getElementById('search').value = '';
+    render();
+  });
+
+  // ── URL state ───────────────────────────────────────
+  function loadFromURL() {
+    const p = new URLSearchParams(location.search);
+    const groups = {mechanism:'mech', system:'sys', theme:'theme', intervention:'inter'};
+    for (const [group, color] of Object.entries(groups)) {
+      const val = p.get(group);
+      if (!val) continue;
+      val.split(',').forEach(tag => {
+        const btn = document.querySelector(`.pill[data-group="${group}"][data-tag="${tag}"]`);
+        if (btn) { active[group].add(tag); btn.classList.add('active', color); }
+      });
+    }
+    const q = p.get('q');
+    if (q) { query = q; document.getElementById('search').value = q; }
+  }
+
+  function saveToURL() {
+    const p = new URLSearchParams();
+    if (query) p.set('q', query);
+    for (const [group, selected] of Object.entries(active)) {
+      if (selected.size > 0) p.set(group, [...selected].join(','));
+    }
+    const str = p.toString();
+    history.replaceState(null, '', str ? '?' + str : location.pathname);
+  }
+
+  // wrap render to also save URL
+  const _render = render;
+  window.render = function() { _render(); saveToURL(); };
+  document.getElementById('search').addEventListener('input', saveToURL);
+
+  loadFromURL();
+  render();
+})();
+</script>
+</body>
+</html>

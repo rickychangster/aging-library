@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Peripheral Clock Desynchronization &amp; the Chrono-Metabolic Fracture</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#faf9f7; --surface:#f0eeea; --card:#ffffff; --card-b:#ddd9d0;
+    --ink:#1a1a1a; --ink-mid:#3d3d3d; --ink-soft:#71717a;
+    --blue:#1d4ed8; --blue-deep:#1e3a8a; --blue-dim:rgba(29,78,216,0.05);
+    --red:#b91c1c; --red-dim:rgba(185,28,28,0.04);
+    --green:#15803d; --green-dim:rgba(21,128,61,0.04);
+    --amber:#b45309; --amber-dim:rgba(180,83,9,0.04);
+    --teal:#0f766e; --teal-dim:rgba(15,118,110,0.04);
+    --rule:#d4d0c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:3px;margin-bottom:40px;display:flex;gap:3px;}
+  .top-bar span{border-radius:1.5px;}
+  .tb1{flex:5;background:var(--teal);} .tb2{flex:3;background:var(--blue);} .tb3{flex:2;background:var(--amber);}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--teal);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;}
+  .ln{font-family:'Crimson Pro',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Crimson Pro',serif;font-size:39px;font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:8px;}
+  h1 .a{color:var(--teal);}
+  .sub{font-family:'Crimson Pro',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}
+  .meta .hl{color:var(--teal);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Crimson Pro',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--teal);font-weight:700;} .def{color:var(--ink-soft);font-style:italic;} em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}
+  .sep .l{flex:1;height:1px;background:var(--rule);} .sep .d{width:6px;height:6px;background:var(--teal);border-radius:50%;opacity:.6;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--teal);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}
+  .fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .warn .wl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}
+  .gc:hover{border-color:var(--teal);}
+  .gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+  .tag.bio{color:var(--amber);} .tag.eng{color:var(--blue-deep);}
+  .gc h4{font-family:'Crimson Pro',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}
+  .gc strong{color:var(--teal);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}
+  .res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}
+  .ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+  .rc.read{color:var(--amber);} .rc.act{color:var(--blue-deep);} .rc.tool{color:var(--green);} .rc.meas{color:var(--red);}
+  .ri h5{font-family:'Crimson Pro',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}
+  .cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .cite table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}
+  .cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}
+  .cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}
+  .cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}
+  .fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"><span class="tb1"></span><span class="tb2"></span><span class="tb3"></span></div>
+  <header class="hdr">
+    <div class="ln">29</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 29</div>
+    <h1>Peripheral Clock Desynchronization <span class="a">&amp; the Chrono-Metabolic Fracture</span></h1>
+    <div class="sub">Your Liver, Muscle, Gut, and Immune System Each Run Their Own Molecular Clock — and When These Autonomous Timekeepers Lose Sync With Each Other, the Metabolic Consequences Mirror the Data Corruption That Occurs When Distributed Databases Lose Consistency</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Chrono-Metabolism / Molecular Chronobiology (Stokkan 2001; Panda 2002; Sato 2017)</div>
+      <div><span class="hl">Bridge:</span> Federated Databases / Distributed Consensus Protocols</div>
+      <div><span class="hl">Window:</span> Ages 40–70</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why — Beyond the Master Clock</div>
+  <h2>The Gap Lecture 17 Left Open</h2>
+
+  <p>Lecture 17 established that the SCN master clock degrades with age — AVP neurons decline, melatonin output drops, and the central pacemaker's ability to synchronize the body weakens. But the SCN is not the only clock. Every nucleated cell in the human body contains the same molecular clock machinery: the CLOCK/BMAL1 transcription factor heterodimer driving rhythmic expression of PER, CRY, REV-ERBα/β, and ROR genes through interlocking feedback loops. In the liver, ~10–15% of all genes oscillate with circadian rhythmicity, governing glucose production, lipid metabolism, bile acid synthesis, and drug metabolism. In skeletal muscle, BMAL1 controls exercise-responsive gene expression and mitochondrial biogenesis. In the gut, clock genes regulate epithelial barrier integrity and microbiome interactions. In immune cells, circadian rhythms determine the timing of inflammatory responses and antiviral defense. These are not passive recipients of SCN commands — they are <span class="k">autonomous peripheral clocks</span> <span class="def">(self-sustaining molecular oscillators in each tissue that can maintain ~24-hour rhythms independently but require external synchronizing signals — zeitgebers — to stay aligned with each other and with the SCN)</span>.</p>
+
+  <p>The critical insight that has emerged since 2001, when Stokkan et al. showed that feeding time can entrain liver clocks independently of the SCN, is that peripheral clocks are entrained by <em>different signals</em> than the master clock. The SCN is entrained by light. The liver clock is entrained by <em>food timing</em>. The muscle clock responds to <em>exercise timing</em> and contractile activity. The immune clock responds to cortisol rhythms and body temperature. When these zeitgebers are aligned — eating during the day, sleeping at night, exercising in the morning — all clocks run in phase. When they misalign — late-night eating, irregular sleep, shift work — peripheral clocks <em>desynchronize from each other</em>, even if the SCN remains intact. This inter-organ desynchronization is the deeper circadian problem of aging, and it connects directly to the metabolic inflexibility (Lecture 28), inflammaging (Lecture 12), and NAD⁺ decline (Lecture 21) covered earlier.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge — The Federated Database</div>
+  <h2>Analogy: Distributed Consistency in Federated Systems</h2>
+
+  <p>Consider a global banking system where each regional office (New York, London, Tokyo) maintains its own database of account balances. These are not mirrors — each is an autonomous database that processes local transactions independently. A central coordinator (the clearinghouse) periodically synchronizes all nodes to ensure consistency: every office agrees on every account balance. When synchronization is working, a customer can withdraw in New York and the Tokyo office immediately reflects the change. When synchronization fails — network latency, coordinator downtime, conflicting timestamps — each office begins operating on its own stale data. London debits an account that New York has already closed. Tokyo approves a transfer against a balance that London has already depleted. The databases <em>diverge</em> — each internally consistent but mutually contradictory. In database engineering, this is the <span class="k">CAP theorem</span> problem: in a distributed system, you can guarantee only two of three properties — Consistency, Availability, and Partition tolerance. When the network partitions (loses synchronization), you must choose between consistency (stop operations until resynchronized) and availability (continue operations on stale data, risking conflicts).</p>
+
+  <p>Your body chooses availability: when the synchronization signal from the SCN weakens or peripheral zeitgebers conflict, each organ continues operating on its own clock — but the clocks drift out of phase with each other. The liver runs on food time. The muscle runs on activity time. The immune system runs on cortisol time. Each organ is internally rhythmic but they are no longer coordinated — the liver produces glucose at a time when muscle isn't prepared to take it up, the immune system launches inflammatory responses at times when repair mechanisms are offline, and metabolic enzymes peak when their substrates are absent. This inter-organ desynchrony — not the loss of rhythmicity per se — is the chrono-metabolic fracture of aging.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept — Organ Clocks and Their Metabolic Consequences</div>
+  <h2>How BMAL1 Controls Metabolism — and How NAD⁺ Controls BMAL1</h2>
+
+  <p>The molecular clock is not a passive timekeeping device — it directly regulates metabolic gene expression. <span class="k">BMAL1</span>, the positive arm of the clock, controls transcription of metabolic genes through E-box elements in their promoters. In the liver, BMAL1 rhythmically regulates gluconeogenesis, glycogen synthesis, lipogenesis, cholesterol metabolism, and amino acid catabolism. Sato et al. (2017) showed that in aged mouse livers, 44.8% of genes with rhythmic expression in young tissue showed rhythmic abnormalities — predominantly affecting glycerol and sterol metabolism. In skeletal muscle, muscle-specific BMAL1 knockout causes sarcopenia, impaired exercise capacity, and a 48% reduction in exercise-responsive gene expression. BMAL1-deficient mice display the full spectrum of premature aging: sarcopenia, cataracts, osteoporosis, organ shrinkage, and dramatically shortened lifespan (37 weeks vs. >110 weeks in wild-type).</p>
+
+  <p>Critically, the clock-metabolism relationship is <em>bidirectional</em>. BMAL1 drives NAMPT expression (the rate-limiting enzyme in NAD⁺ biosynthesis), which generates the NAD⁺ that activates SIRT1, which deacetylates PER2 and BMAL1 itself — completing a clock-metabolism feedback loop. When NAD⁺ declines with age (Lecture 21), SIRT1 activity drops, PER2 is retained in the cytoplasm, BMAL1 oscillation amplitude diminishes, and the clock runs with weaker, less precise rhythms. Simultaneously, AMPK — the energy sensor activated by exercise and fasting — phosphorylates and destabilizes CRY1 (a clock repressor), directly modulating clock period. This means that NAD⁺ levels, energy status, and feeding patterns all <em>feed back into the clock itself</em>, either stabilizing or destabilizing its oscillation. A well-fed, sedentary, NAD⁺-depleted individual doesn't just have a weaker SCN — they have metabolically corrupted peripheral clocks in every organ.</p>
+
+  <div class="warn">
+    <div class="wl">The Chrono-Metabolic Fracture After Fifty</div>
+    <p>With age, three desynchronizing forces converge: (1) The SCN coordinator weakens (Lecture 17) — its output amplitude drops, reducing the strength of the central timing signal. (2) NAD⁺ declines (Lecture 21) — destabilizing the BMAL1/SIRT1/NAMPT feedback loop in every peripheral tissue, causing peripheral clocks to lose amplitude and drift. (3) Behavioral zeitgebers become irregular — retirement removes the structured daily schedule that entrained eating, activity, and social interaction times. The result is a progressive phase dispersal: liver, muscle, gut, and immune clocks drift apart by 1–3 hours. This doesn't sound dramatic — but metabolic coordination depends on precise temporal alignment. A 2-hour phase mismatch between liver glucose output and muscle glucose uptake is metabolically equivalent to chronic mild insulin resistance. A phase mismatch between immune cell inflammatory peaks and tissue repair windows means inflammation persists longer and healing is delayed. The fracture is invisible to standard blood tests but manifests as the metabolic inflexibility (Lecture 28), poor sleep quality, impaired fasting glucose, and the "feeling" of aging that patients describe as "things just don't work as smoothly anymore."</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Peripheral Clock Desynchronization &amp; Federated Database Parallel</div>
+    <svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+      <!-- LEFT: Biology -->
+      <text x="185" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#0f766e" font-weight="600" letter-spacing="1.5">PERIPHERAL CLOCK NETWORK</text>
+
+      <!-- SCN -->
+      <rect x="110" y="36" width="150" height="34" rx="16" fill="rgba(15,118,110,0.06)" stroke="#0f766e" stroke-width="1.5"/>
+      <text x="185" y="52" text-anchor="middle" font-family="Crimson Pro,serif" font-size="12" font-weight="700" fill="#0f766e">SCN Master Clock</text>
+      <text x="185" y="66" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">light-entrained coordinator</text>
+
+      <!-- Lines to peripherals -->
+      <line x1="135" y1="70" x2="72" y2="106" stroke="#0f766e" stroke-width="1" stroke-dasharray="4,2"/>
+      <line x1="165" y1="70" x2="135" y2="106" stroke="#0f766e" stroke-width="1" stroke-dasharray="4,2"/>
+      <line x1="205" y1="70" x2="235" y2="106" stroke="#0f766e" stroke-width="1" stroke-dasharray="4,2"/>
+      <line x1="235" y1="70" x2="298" y2="106" stroke="#0f766e" stroke-width="1" stroke-dasharray="4,2"/>
+
+      <!-- Peripheral clocks -->
+      <rect x="22" y="108" width="100" height="50" rx="3" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="72" y="126" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10" font-weight="600" fill="#b45309">Liver Clock</text>
+      <text x="72" y="140" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">zeitgeber: food timing</text>
+      <text x="72" y="152" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">10-15% genes rhythmic</text>
+
+      <rect x="135" y="108" width="100" height="50" rx="3" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="185" y="126" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Muscle Clock</text>
+      <text x="185" y="140" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">zeitgeber: exercise</text>
+      <text x="185" y="152" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">BMAL1→PGC-1α→mito</text>
+
+      <rect x="248" y="108" width="100" height="50" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="298" y="126" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10" font-weight="600" fill="#b91c1c">Immune Clock</text>
+      <text x="298" y="140" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">zeitgeber: cortisol</text>
+      <text x="298" y="152" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">NF-κB timing, T cell</text>
+
+      <!-- BMAL1-NAD loop -->
+      <rect x="30" y="182" width="310" height="52" rx="3" fill="rgba(15,118,110,0.04)" stroke="#0f766e" stroke-width="1"/>
+      <text x="185" y="198" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#0f766e" font-weight="600" letter-spacing="1">BMAL1 ↔ NAD⁺ FEEDBACK LOOP</text>
+      <text x="185" y="214" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10" fill="#3d3d3d">BMAL1 → NAMPT → NAD⁺ → SIRT1 → deacetylates BMAL1/PER2</text>
+      <text x="185" y="228" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#b91c1c">NAD⁺ decline → loop weakens → amplitude↓ → drift↑</text>
+
+      <!-- Desynchronization -->
+      <line x1="185" y1="236" x2="185" y2="254" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,254 185,261 190,254" fill="#b91c1c"/>
+
+      <rect x="20" y="264" width="330" height="52" rx="3" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="185" y="282" text-anchor="middle" font-family="Crimson Pro,serif" font-size="15" font-weight="800" fill="#b91c1c">Chrono-Metabolic Fracture</text>
+      <text x="185" y="298" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10" fill="#3d3d3d">liver, muscle, immune clocks 1-3 hrs out of phase</text>
+      <text x="185" y="310" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#b91c1c">glucose mismatch • inflammation timing • repair lag</text>
+
+      <!-- TRF -->
+      <rect x="30" y="336" width="310" height="48" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="352" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">RESYNCHRONIZATION PROTOCOL</text>
+      <text x="185" y="368" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">TRF (consistent 8-10hr eating window) → aligns liver/gut</text>
+      <text x="185" y="382" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">Morning light + AM exercise → aligns SCN + muscle</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="470" stroke="#d4d0c8" stroke-width="1"/>
+
+      <!-- RIGHT: Database Parallel -->
+      <text x="564" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#1e3a8a" font-weight="600" letter-spacing="1.5">FEDERATED DATABASE PARALLEL</text>
+
+      <rect x="402" y="36" width="320" height="180" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="562" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="412" y1="64" x2="712" y2="64" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="82" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#0f766e" font-weight="600">BIOLOGY</text>
+      <text x="638" y="82" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#1e3a8a" font-weight="600">FEDERATED DB</text>
+      <line x1="562" y1="64" x2="562" y2="208" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="412" y1="90" x2="712" y2="90" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="108" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">SCN master clock</text>
+      <text x="638" y="108" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">Central clearinghouse</text>
+      <line x1="412" y1="116" x2="712" y2="116" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="134" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">Peripheral organ clocks</text>
+      <text x="638" y="134" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">Regional autonomous DBs</text>
+      <line x1="412" y1="142" x2="712" y2="142" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="160" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">Zeitgebers (light, food, exercise)</text>
+      <text x="638" y="160" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">Sync protocols / timestamps</text>
+      <line x1="412" y1="168" x2="712" y2="168" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="186" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#b91c1c">Phase drift (desynchrony)</text>
+      <text x="638" y="186" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#b91c1c">Data inconsistency / stale reads</text>
+      <line x1="412" y1="194" x2="712" y2="194" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+
+      <!-- CAP theorem -->
+      <rect x="402" y="232" width="320" height="76" rx="4" fill="rgba(15,118,110,0.04)" stroke="#0f766e" stroke-width="1"/>
+      <text x="562" y="252" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#0f766e" font-weight="700" letter-spacing="1">THE CAP THEOREM</text>
+      <text x="420" y="272" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">In distributed systems: choose 2 of 3 —</text>
+      <text x="420" y="288" font-family="Barlow,sans-serif" font-size="10.5" fill="#0f766e" font-weight="600">Consistency, Availability, Partition tolerance</text>
+      <text x="420" y="304" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d">Biology chooses availability → organs operate on stale time</text>
+
+      <!-- Key finding -->
+      <rect x="402" y="324" width="320" height="54" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="562" y="342" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b45309" font-weight="600" letter-spacing="1">KEY FINDING: SATO ET AL. 2017</text>
+      <text x="562" y="360" text-anchor="middle" font-family="Barlow,sans-serif" font-size="11" fill="#3d3d3d">In aged mouse liver, 44.8% of rhythmic genes show</text>
+      <text x="562" y="376" text-anchor="middle" font-family="Barlow,sans-serif" font-size="11" fill="#b45309" font-weight="700">rhythmic abnormalities — primarily metabolic pathways</text>
+
+      <!-- TRF -->
+      <rect x="402" y="394" width="320" height="68" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="562" y="412" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">RESYNC PROTOCOL</text>
+      <text x="562" y="432" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">1. TRF: consistent eating window (re-aligns liver/gut)</text>
+      <text x="562" y="448" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">2. Morning light: re-aligns SCN (central coordinator)</text>
+      <text x="562" y="464" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">3. AM exercise: re-aligns muscle + boosts NAD⁺</text>
+    </svg>
+    <div class="fig-cap">Left: the peripheral clock network — SCN coordinator, organ-specific autonomous clocks (liver, muscle, immune) each entrained by different zeitgebers, connected by the BMAL1/NAD⁺/SIRT1 feedback loop that weakens with aging. Right: the federated database parallel — central clearinghouse, regional autonomous databases with different sync protocols, governed by the CAP theorem tradeoff between consistency and availability.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination — Federated Systems: Eventual Consistency</div>
+  <h2>How Distributed Systems Recover From Desynchronization</h2>
+
+  <p>In distributed database engineering, the solution to partition-induced inconsistency is <span class="k">eventual consistency</span> — a protocol where nodes that have drifted are periodically resynchronized through a strong consensus signal that overrides stale local data. The system tolerates brief periods of inconsistency but forces periodic realignment to prevent permanent divergence. The biological equivalent is a portfolio of strong, regularly timed zeitgebers that periodically force all peripheral clocks back into phase alignment — even when the central SCN coordinator has weakened.</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Chrono-Metabolism</div>
+      <h4>Time-Restricted Feeding as Liver Resync</h4>
+      <p>Stokkan et al. (2001) demonstrated that <strong>feeding time entrains the liver clock independently of the SCN</strong>. Hatori et al. (2012) showed that time-restricted feeding (TRF) without caloric reduction prevents metabolic disease in high-fat-fed mice. The mechanism: a consistent 8–10 hour eating window provides a strong, daily zeitgeber that forces the liver clock into alignment with the feeding/fasting cycle — the database equivalent of a daily full-sync operation that overrides accumulated drift.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Database Design</div>
+      <h4>Write-Ahead Logs &amp; Clock Vectors</h4>
+      <p>Distributed databases use <strong>vector clocks</strong> — timestamps that track which node last wrote to which record — to detect and resolve conflicts after partition. The circadian equivalent: SIRT1's deacetylation of PER2 and BMAL1 functions as a "timestamp validation" that checks whether the clock protein's post-translational state matches the expected phase. When NAD⁺ is sufficient, this validation is robust. When NAD⁺ declines, the timestamp check weakens, and phase errors propagate uncorrected — like a database without conflict resolution.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">Caloric Restriction Rescues Clock Genes</div>
+      <h4>CR as a Global Resync Signal</h4>
+      <p>A genome-wide circadian analysis showed that <strong>caloric restriction rescues the age-related decline in circadian metabolic pathways</strong> in mouse liver and epithelial stem cells — suggesting that the aging process has minimal effect on core clock machinery and instead promotes tissue-specific transcriptome reprogramming. CR, especially when temporally aligned with natural feeding windows, provides a metabolic resync signal that restores peripheral clock amplitude. This is the database equivalent of a scheduled maintenance window that reconciles all nodes.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Multi-Zeitgeber Consensus</div>
+      <h4>Stronger Signal &gt; Weaker Coordinator</h4>
+      <p>When a central coordinator weakens, distributed systems compensate by strengthening <strong>peer-to-peer consensus protocols</strong> — nodes synchronize directly with each other through shared signals. The biological equivalent: when the SCN weakens with age, <em>behavioral zeitgebers become the primary synchronization mechanism</em>. Consistent meal timing (liver), regular exercise (muscle), predictable light exposure (SCN residual), and social rhythms (immune/cortisol) collectively provide a multi-channel consensus protocol that can maintain inter-organ alignment even with a weakened central pacemaker.</p>
+    </div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+
+  <div class="caut">
+    <div class="cl">Risks of Over-Application</div>
+    <p><em>Rigid timing without adaptation can itself become a stressor.</em> Excessively narrow eating windows (<6 hours) or extreme chronotherapy protocols can trigger cortisol responses from hunger stress, impair social eating (which provides its own longevity benefit, Lecture 27), and may be unsustainable. The goal is <em>consistent daily rhythms</em>, not rigid chronological precision. A 9-hour eating window that occurs at approximately the same time each day is more resynchronizing than a 6-hour window that varies by 3 hours depending on schedule. Regularity matters more than restriction. Similarly, forced early-morning exercise in a natural night owl can misalign the activity zeitgeber with the individual's chronotype — causing inter-organ desynchrony rather than resolving it. The prescription is to identify your stable chronotype and build consistent zeitgebers around it.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Implement a multi-zeitgeber resynchronization protocol: (1) <em>Morning light</em> — 10–30 minutes of bright outdoor light within 1 hour of waking. This is the strongest SCN entrainment signal and the foundation for all downstream synchronization. (2) <em>Consistent meal timing</em> — eat within an 8–10 hour window, same time daily (±30 min). First meal aligned with morning light (within 1–2 hours of waking); last meal ≥3 hours before sleep. This entrains liver, gut, and pancreatic clocks. (3) <em>Morning or early-afternoon exercise</em> — exercise performed during the first half of the day entrains the muscle clock and provides the AMPK-mediated CRY1 destabilization that sharpens clock period. (4) <em>Consistent sleep/wake timing</em> — ±30 minutes, including weekends. Social jet lag (weekend sleep delay) disrupts SCN entrainment and causes 2–3 days of peripheral clock desynchrony every week. Your TSH of 3.69 (above longevity-optimal 2.5) may partially reflect circadian disruption of the hypothalamic-pituitary-thyroid axis — worth monitoring as you strengthen zeitgeber consistency.<br><br><strong>Metric:</strong> <em>Sleep regularity index (SRI)</em> — measurable via any sleep-tracking wearable. SRI quantifies the consistency of your sleep/wake timing across days. Higher SRI correlates with lower cardiovascular risk, lower inflammation (hs-CRP), and better metabolic markers. A secondary metric: <em>morning cortisol / evening cortisol ratio</em> — a healthy diurnal cortisol slope (high AM, low PM) indicates intact circadian HPA axis function. Flattened slope suggests chrono-disruption.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Peripheral Clock Desynchronization Connects to the Lecture Series</h2>
+
+  <p>The BMAL1/NAD⁺/SIRT1 feedback loop is the molecular bridge between circadian biology and the NAD⁺ decline covered in Lecture 21 — as NAD⁺ falls, SIRT1 cannot properly deacetylate clock proteins, and peripheral clock amplitude weakens across all tissues. This directly compounds the metabolic inflexibility of Lecture 28: BMAL1 and CLOCK control expression of metabolic enzymes governing fuel switching, so a desynchronized liver clock produces glucose at times when muscle isn't prepared to absorb it — the chrono-metabolic equivalent of the fuel controller jamming. The circadian regulation of autophagy (Lecture 9) means that clock disruption impairs the timed clearance of damaged proteins (Lecture 24) and mitochondria (Lecture 25). The immune clock regulates NF-κB activity timing — desynchronized immune clocks allow inflammatory responses to persist beyond their normal temporal window, feeding directly into inflammaging (Lecture 12). And the circadian gating of the glymphatic system (Lecture 14) means that disrupted sleep architecture — a downstream consequence of peripheral clock misalignment — reduces the overnight brain waste clearance that prevents Aβ and tau accumulation. Time-restricted feeding emerges as a uniquely powerful intervention because it simultaneously resynchronizes peripheral clocks (this lecture), activates AMPK for metabolic flexibility (Lecture 28), promotes autophagy (Lecture 9), and supports the NAD⁺/SIRT1 axis (Lecture 21) — four mechanisms from a single behavioral input.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII -->
+  <div class="sn">VIII. Common Misconception</div>
+
+  <div class="corr">
+    <div class="cl">Peer Review — Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Circadian disruption means the body clock breaks — you lose rhythmicity."<br><br><strong>Correction:</strong> The core molecular clock machinery remains largely intact with aging. What changes is not the <em>existence</em> of rhythms but their <em>amplitude, phase relationships, and tissue-specific coordination</em>. Aged peripheral clocks still oscillate — but with reduced amplitude (weaker peaks and troughs), drifted phase (liver and muscle peak at different times), and altered transcriptome output (the genes under clock control shift from metabolic to stress-response programs). The analogy is not a broken clock but a <em>federation of clocks that have lost their synchronization protocol</em>. Each still keeps time, but they no longer agree on what time it is. This distinction matters for intervention: the goal is not to "fix a broken clock" (which would require gene therapy) but to <em>strengthen the synchronization signals</em> — light, food timing, exercise timing, social rhythms — that re-align clocks that are still capable of entrainment. The infrastructure works; the coordination signals need to be restored.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Panda (2016)</h5>
+        <p>"Circadian physiology of metabolism." <em>Science</em>, 354:1008–1015. Comprehensive review of how peripheral clocks regulate metabolic processes — connecting feeding time, clock gene expression, and metabolic disease in a unified framework.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Acosta-Rodríguez et al. (2022)</h5>
+        <p>"Circadian alignment of early onset caloric restriction promotes longevity in mice." <em>Science</em>, 376:1192–1202. Demonstrated that lifespan extension from caloric restriction is further increased when feeding is temporally aligned with the natural active phase — proving that <em>when</em> you eat matters as much as <em>how much</em>.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Multi-Zeitgeber Daily Protocol</h5>
+        <p>Morning bright light within 1 hour of waking. First meal within 1–2 hours of waking. Exercise during the first half of the day. Last meal ≥3 hours before bed. Sleep/wake timing ±30 min daily (including weekends). This 5-element protocol provides redundant synchronization signals to SCN, liver, muscle, gut, and immune clocks simultaneously.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Eliminate Social Jet Lag</h5>
+        <p>Social jet lag — sleeping 1–2+ hours later on weekends — desynchronizes the SCN and all peripheral clocks, requiring 2–3 days to re-entrain. For a person over 50 with reduced SCN amplitude, this weekly disruption may never fully resolve before the next weekend. Maintaining consistent wake time (±30 min) 7 days/week is the single most impactful chronotherapy intervention.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>NAD⁺ as Clock Support (Lec 21)</h5>
+        <p>NMN or NR supplementation taken in the morning may support the BMAL1/NAMPT/SIRT1 feedback loop that stabilizes peripheral clock amplitude. The timing matters: NAD⁺ precursors should align with the natural morning peak of NAD⁺ biosynthesis to reinforce, not counteract, the circadian NAD⁺ rhythm.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Evening Light Hygiene</h5>
+        <p>Blue-light-blocking glasses after sunset, dimming indoor lights, and avoiding screens 1 hour before bed. Evening light suppresses melatonin and delays the SCN phase — the single most common environmental disruptor of circadian alignment in modern life. Pair with consistent bedroom temperature (65–68°F) for an additional sleep-phase zeitgeber.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Metric</div>
+        <h5>Sleep Regularity Index + Cortisol Slope</h5>
+        <p>Track sleep consistency via wearable (Oura SRI, Apple Watch regularity). Morning/evening salivary cortisol ratio (AM cortisol should be 3–5× evening) — a flattened diurnal cortisol slope is one of the earliest biomarkers of circadian desynchronization and correlates with cardiovascular risk, cognitive decline, and inflammaging.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>Lecture Integration Map</h5>
+        <p>SCN degradation (Lec 17) → weakened coordinator. NAD⁺ (Lec 21) → BMAL1/SIRT1 loop. Metabolic inflexibility (Lec 28) → clock-controlled fuel switching. Autophagy (Lec 9) → circadian gating. Glymphatic (Lec 14) → sleep-dependent clearance. Inflammaging (Lec 12) → NF-κB clock timing. TRF is the single intervention that resynchronizes clocks, activates AMPK, promotes autophagy, and supports NAD⁺ — four mechanisms from one behavior.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>Feeding time entrains liver clocks independently of the SCN</td>
+        <td>Stokkan et al., <em>Science</em>, 2001;291:490–493; Damiola et al., <em>Genes Dev.</em>, 2000</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>10–15% of liver genes exhibit circadian rhythmicity; 44.8% show rhythmic abnormalities in aged mice</td>
+        <td>Panda et al., <em>Cell</em>, 2002; Sato et al., 2017</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>BMAL1-deficient mice: sarcopenia, cataracts, organ shrinkage, lifespan ~37 weeks vs. >110 weeks wild-type</td>
+        <td>Kondratov et al., 2006; reviewed in multiple sources</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>BMAL1 drives NAMPT expression; NAD⁺ activates SIRT1 which deacetylates BMAL1/PER2 (bidirectional loop)</td>
+        <td>Nakahata et al., <em>Cell</em>, 2009; Ramsey et al., <em>Science</em>, 2009; Ashimori et al., 2021</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>AMPK phosphorylates and destabilizes CRY1, modulating clock period</td>
+        <td>Lamia et al., <em>Science</em>, 2009;326:437–440</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>CR rescues age-related decline in circadian metabolic pathways; minimal effect on core clock machinery</td>
+        <td>Sato et al., 2017; Patel et al., 2016; reviewed in Acosta-Rodríguez et al., 2022</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Muscle-specific BMAL1 knockout: 48% reduction in exercise-responsive genes</td>
+        <td>Viggars et al., 2024</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>TRF without caloric reduction prevents metabolic disease in high-fat-fed mice</td>
+        <td>Hatori et al., <em>Cell Metab.</em>, 2012;15:848–860</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Stokkan, K.A. et al. (2001). "Entrainment of the circadian clock in the liver by feeding." <em>Science</em>, 291:490–493. &nbsp;|&nbsp; Panda, S. (2016). "Circadian physiology of metabolism." <em>Science</em>, 354:1008–1015. &nbsp;|&nbsp; Acosta-Rodríguez, V.A. et al. (2022). "Circadian alignment of early onset caloric restriction promotes longevity in mice." <em>Science</em>, 376:1192–1202. &nbsp;|&nbsp; Nakahata, Y. et al. (2009). "Circadian control of the NAD⁺ salvage pathway by CLOCK–SIRT1." <em>Science</em>, 324:654–657. &nbsp;|&nbsp; Lamia, K.A. et al. (2009). "AMPK regulates the circadian clock by cryptochrome phosphorylation and degradation." <em>Science</em>, 326:437–440. &nbsp;|&nbsp; Hatori, M. et al. (2012). "Time-restricted feeding without reducing caloric intake prevents metabolic diseases in mice fed a high-fat diet." <em>Cell Metab.</em>, 15:848–860.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_peripheral_clock_desynchronization",
+  "related": [
+    {
+      "id": "lecture_circadian_desynchronization",
+      "title": "Circadian Desynchronization & the Drifting Clock",
+      "filename": "lecture_circadian_desynchronization.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "filename": "lecture_metabolic_inflexibility.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_gut_microbiome_diversity",
+      "title": "Gut Microbiome Diversity & the Architecture of Aging",
+      "filename": "lecture_gut_microbiome_diversity.html",
+      "tags": [
+        "Adaptive Stress",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_cortisol_hpa_axis",
+      "title": "Cortisol Dysregulation & the HPA Axis",
+      "filename": "lecture_cortisol_hpa_axis.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

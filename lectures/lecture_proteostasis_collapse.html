@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Proteostasis Collapse &amp; the Protein Quality Crisis</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#faf9f7; --surface:#f0eeea; --card:#ffffff; --card-b:#ddd9d0;
+    --ink:#1a1a1a; --ink-mid:#3d3d3d; --ink-soft:#71717a;
+    --blue:#1d4ed8; --blue-deep:#1e3a8a; --blue-dim:rgba(29,78,216,0.05);
+    --red:#b91c1c; --red-dim:rgba(185,28,28,0.04);
+    --green:#15803d; --green-dim:rgba(21,128,61,0.04);
+    --amber:#b45309; --amber-dim:rgba(180,83,9,0.04);
+    --rule:#d4d0c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Archivo',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue-deep) 60%,var(--amber) 100%);border-radius:2px;}
+
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--ink);position:relative;}
+  .stag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;}
+  .ln{font-family:'Merriweather',serif;font-size:100px;font-weight:900;color:var(--ink);opacity:.04;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Merriweather',serif;font-size:40px;font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:8px;}
+  h1 .a{color:var(--blue-deep);}
+  .sub{font-family:'Merriweather',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:700px;margin-bottom:18px;}
+  .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}
+  .meta .hl{color:var(--blue);font-weight:600;}
+
+  .sn{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Merriweather',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--blue-deep);font-weight:700;} .def{color:var(--ink-soft);font-style:italic;} em{font-style:italic;color:var(--ink);}
+
+  .sep{display:flex;align-items:center;margin:42px 0;gap:8px;}
+  .sep .l{flex:1;height:1px;background:var(--rule);} .sep .d{width:16px;height:2px;background:var(--blue);border-radius:1px;}
+
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--blue-deep);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}
+  .fig-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .note .nl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .warn .wl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .caut .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .corr .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}
+  .gc:hover{border-color:var(--blue);}
+  .gc .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+  .tag.bio{color:var(--amber);} .tag.eng{color:var(--blue-deep);}
+  .gc h4{font-family:'Merriweather',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}
+  .gc strong{color:var(--blue-deep);font-weight:700;}
+
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}
+  .res .rt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blue-deep);margin-bottom:18px;}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}
+  .ri .rc{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+  .rc.read{color:var(--amber);} .rc.act{color:var(--blue-deep);} .rc.tool{color:var(--green);} .rc.meas{color:var(--red);}
+  .ri h5{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}
+  .cite .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .cite table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .cite th{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}
+  .cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}
+  .cite .ok{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--green);}
+  .cite .cv{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}
+  .fn strong{color:var(--ink-mid);font-weight:700;}
+
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar"></div>
+
+  <header class="hdr">
+    <div class="ln">24</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 24</div>
+    <h1>Proteostasis Collapse <span class="a">&amp; the Protein Quality Crisis</span></h1>
+    <div class="sub">Every Protein in Your Body Must Be Correctly Folded to Function — and the Quality-Control System That Ensures This Fails Catastrophically in Midlife, Following the Same Defect-Rate Dynamics That Shut Down Manufacturing Lines</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Molecular Biology / Biophysics (Morimoto, 2009)</div>
+      <div><span class="hl">Bridge:</span> Manufacturing Quality Control / Six Sigma</div>
+      <div><span class="hl">Window:</span> Ages 40–65</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why — Why Perfectly Good Genes Produce Broken Proteins</div>
+  <h2>The Protein Folding Gap in Aging Theory</h2>
+
+  <p>The genome is remarkably stable. DNA repair mechanisms maintain coding fidelity across decades — your genes at 55 are functionally identical to your genes at 25. Yet the <em>proteome</em> — the functional output of those genes — degrades dramatically with age. Older cells contain more oxidized, carbonylated, cross-linked, and aggregated proteins than young cells. Enzymes lose catalytic efficiency. Structural proteins lose integrity. Signaling proteins misfire. The question that haunted molecular biology through the 2000s was: if the instructions haven't changed, why is the product failing?</p>
+
+  <p>In 2009, Richard Morimoto's laboratory at Northwestern published a landmark study in <em>PNAS</em> demonstrating that the answer was not in the genes but in the <span class="k">proteostasis network (PN)</span> <span class="def">(the integrated system of molecular chaperones, stress response pathways, proteasomal degradation, and autophagy that collectively ensure proteins are correctly folded, maintained, and recycled)</span>. Using <em>C. elegans</em> as a model, they showed that proteostasis does not decline gradually — it <em>collapses</em> at a specific early-adult timepoint, coinciding with a severely reduced activation of the heat shock response (HSR) and the unfolded protein response (UPR). The collapse is not entropy. It appears to be a <em>programmed</em> event linked to reproductive maturity — as if the organism actively downgrades its quality-control system after its reproductive window opens. For a person in their fifties, this means the quality-control machinery that keeps 20,000+ protein species correctly folded has been operating at diminished capacity for decades — and the cumulative deficit is now manifesting as the protein-aggregation diseases of aging: Alzheimer's (Aβ, tau), Parkinson's (α-synuclein), cataracts (crystallin), and sarcopenia (actin/myosin misfolding).</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge — The Factory Assembly Line</div>
+  <h2>Analogy: Quality Control on a Production Floor</h2>
+
+  <p>Consider a factory producing 10,000 complex widgets per day. Each widget must be assembled, inspected, and either shipped (if functional) or recycled (if defective). Three systems ensure quality: <em>assembly guides</em> (workers who help parts fit together correctly), <em>inspectors</em> (quality-control staff who catch defects before shipping), and <em>recycling</em> (a process that breaks down defective widgets for parts reuse). When the factory is young and well-staffed, the defect rate is 0.1% — nearly every widget ships functional. But imagine the company cuts the QC budget by 50%. Inspectors are laid off. Assembly guides are stretched thin. The recycling line backs up. The defect rate climbs to 1%, then 5%, then 10%. Defective widgets don't just pile up — they <em>jam the recycling line</em>, preventing even correctly identified defects from being processed. The factory enters a death spiral: more defects → overwhelmed QC → even more defects → production line shutdown.</p>
+
+  <p>This is proteostasis collapse. The assembly guides are <span class="k">molecular chaperones</span> <span class="def">(HSP70, HSP90, HSP60 and their co-chaperones — proteins that assist other proteins in folding correctly, preventing misfolding and aggregation)</span>. The inspectors are <span class="k">stress response pathways</span> — the HSR, the UPR<sup>ER</sup>, and the UPR<sup>mito</sup> — that detect misfolded proteins and boost chaperone production when problems arise. The recycling system is the <span class="k">ubiquitin-proteasome system (UPS)</span> and <span class="k">autophagy</span> <span class="def">(Lecture 9 — the lysosomal degradation pathway that clears aggregated proteins too large for proteasomal processing)</span>. When chaperone levels fall, stress responses weaken, and degradation systems slow, the proteome enters the same death spiral as the factory: defective proteins accumulate, overwhelm the remaining QC capacity, and jam the clearance machinery.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept — The Three-Stage Collapse</div>
+  <h2>How the Proteostasis Network Fails — and Why It Accelerates at Fifty</h2>
+
+  <p>Proteostasis collapse proceeds through three mechanistically distinct stages. <em>Stage 1: Chaperone Dilution.</em> The core chaperome — a network of approximately 332 chaperones and co-chaperones in humans — declines in expression with age. Brehme et al. (2014) identified a conserved set of 18 chaperone genes (HSP70, HSP90, J-domain, CCT, and TPR co-chaperones) that decline in the aging human brain and are essential for suppressing aggregation of both Huntingtin and Aβ. With fewer chaperones available per protein molecule, the fraction of proteins that misfold during or after synthesis increases — exactly as reducing assembly workers increases the widget defect rate.</p>
+
+  <p><em>Stage 2: Stress Response Attenuation.</em> The HSR is regulated by <span class="k">HSF-1</span> <span class="def">(heat shock factor 1 — the master transcription factor that, when activated by proteotoxic stress, binds heat shock elements in chaperone gene promoters and massively upregulates chaperone production)</span>. In young cells, misfolded proteins titrate chaperones away from HSF-1, releasing HSF-1 to activate the transcriptional response — a negative-feedback amplifier. But HSF-1 is deactivated by acetylation of its DNA-binding domain (by p300/CBP), and this acetylation is opposed by <span class="k">SIRT1</span> — the NAD<sup>+</sup>-dependent deacetylase from Lecture 21. As NAD<sup>+</sup> declines with age, SIRT1 activity drops, HSF-1 acetylation increases, and the HSR becomes increasingly muted. The alarm system still detects the fire but can no longer ring the bell loud enough.</p>
+
+  <p><em>Stage 3: Clearance Overload.</em> Misfolded proteins that escape chaperone-mediated refolding are tagged with ubiquitin and directed to the proteasome for degradation. But proteasomal activity declines ~30–50% between ages 30 and 70 (due to oxidative damage to proteasomal subunits and reduced expression of proteasome assembly factors). Aggregated proteins — which are too large to enter the proteasome's central pore — must be cleared by autophagy, which also declines with age (Lecture 9). The clearance systems are both slowed and overwhelmed — the recycling line is understaffed and backed up simultaneously.</p>
+
+  <div class="warn">
+    <div class="wl">The Tipping Point in the Fifties</div>
+    <p>The proteostasis network has reserve capacity — a margin between the load of misfolded proteins and the capacity to handle them. In youth, this margin is large: chaperones are abundant, stress responses are vigorous, clearance is efficient. But by the fifties, decades of progressive chaperone dilution, HSR attenuation, and clearance decline have eroded the margin to near zero. A single additional stressor — an acute illness, a period of poor sleep, a high-protein meal generating misfolded products, or simply the cumulative ROS burden of normal metabolism — can push the system past its tipping point. Once the threshold is crossed, the positive feedback loop (more misfolded proteins → chaperone sequestration → less folding capacity → even more misfolded proteins) creates a self-amplifying cascade. This is why neurodegenerative diseases appear to "start suddenly" in the late fifties to seventies — the collapse has been building for decades, but the tipping point is crossed within a narrow window.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Proteostasis Collapse &amp; Manufacturing Quality Control Parallel</div>
+    <svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+      <!-- LEFT: Biology -->
+      <text x="185" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b45309" font-weight="600" letter-spacing="1.5">PROTEOSTASIS COLLAPSE CASCADE</text>
+
+      <!-- Stage 1 -->
+      <rect x="45" y="36" width="280" height="42" rx="3" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="185" y="52" text-anchor="middle" font-family="Merriweather,serif" font-size="12" font-weight="700" fill="#1a1a1a">Stage 1: Chaperone Dilution</text>
+      <text x="185" y="70" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#71717a">HSP70/90/CCT expression ↓ → misfolding rate ↑</text>
+
+      <line x1="185" y1="78" x2="185" y2="96" stroke="#1d4ed8" stroke-width="1"/>
+      <polygon points="180,96 185,104 190,96" fill="#1d4ed8"/>
+
+      <!-- Stage 2 -->
+      <rect x="45" y="106" width="280" height="42" rx="3" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="185" y="122" text-anchor="middle" font-family="Merriweather,serif" font-size="12" font-weight="700" fill="#1a1a1a">Stage 2: Stress Response Attenuation</text>
+      <text x="185" y="140" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#71717a">NAD⁺↓ → SIRT1↓ → HSF-1 acetylated → HSR muted</text>
+
+      <line x1="185" y1="148" x2="185" y2="166" stroke="#b45309" stroke-width="1"/>
+      <polygon points="180,166 185,174 190,166" fill="#b45309"/>
+
+      <!-- Stage 3 -->
+      <rect x="45" y="176" width="280" height="42" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="185" y="192" text-anchor="middle" font-family="Merriweather,serif" font-size="12" font-weight="700" fill="#1a1a1a">Stage 3: Clearance Overload</text>
+      <text x="185" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#71717a">Proteasome ↓30-50% + autophagy↓ → aggregation</text>
+
+      <line x1="185" y1="218" x2="185" y2="236" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,236 185,244 190,236" fill="#b91c1c"/>
+
+      <!-- Collapse -->
+      <rect x="35" y="246" width="300" height="48" rx="3" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="185" y="264" text-anchor="middle" font-family="Merriweather,serif" font-size="14" font-weight="900" fill="#b91c1c">Proteostasis Collapse</text>
+      <text x="185" y="282" text-anchor="middle" font-family="Archivo,sans-serif" font-size="10.5" fill="#3d3d3d">Aβ plaques • tau tangles • α-synuclein • crystallin aggregates</text>
+      <text x="185" y="292" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b91c1c">positive feedback: aggregate → chaperone sequestration → more aggregate</text>
+
+      <!-- Feedback -->
+      <path d="M 335 270 Q 355 270 355 170 Q 355 80 335 80" stroke="#b91c1c" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+      <polygon points="335,76 330,80 335,84" fill="#b91c1c"/>
+      <text x="365" y="175" font-family="IBM Plex Mono,monospace" font-size="8" fill="#b91c1c" transform="rotate(90,365,175)">positive feedback</text>
+
+      <!-- Interventions -->
+      <rect x="45" y="316" width="280" height="44" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">INTERVENTIONS (QC RESTORATION)</text>
+      <text x="185" y="350" text-anchor="middle" font-family="Archivo,sans-serif" font-size="10.5" fill="#3d3d3d">Heat/cold exposure → HSR activation • Exercise → autophagy</text>
+      <text x="185" y="362" text-anchor="middle" font-family="Archivo,sans-serif" font-size="10.5" fill="#3d3d3d">NAD⁺ repletion → SIRT1 → HSF-1 deacetylation • Fasting → UPR</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="470" stroke="#d4d0c8" stroke-width="1"/>
+
+      <!-- RIGHT: Manufacturing parallel -->
+      <text x="564" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1e3a8a" font-weight="600" letter-spacing="1.5">MANUFACTURING QC PARALLEL</text>
+
+      <rect x="402" y="36" width="320" height="188" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="562" y="58" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="412" y1="66" x2="712" y2="66" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b45309" font-weight="600">BIOLOGY</text>
+      <text x="638" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1e3a8a" font-weight="600">MANUFACTURING</text>
+      <line x1="562" y1="66" x2="562" y2="216" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="412" y1="92" x2="712" y2="92" stroke="#d4d0c8" stroke-width=".5"/>
+
+      <text x="486" y="110" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">Molecular chaperones</text>
+      <text x="638" y="110" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">Assembly workers / jigs</text>
+      <line x1="412" y1="118" x2="712" y2="118" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="136" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">HSR / UPR (stress responses)</text>
+      <text x="638" y="136" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">QC inspectors / alarm system</text>
+      <line x1="412" y1="144" x2="712" y2="144" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="162" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">Proteasome + autophagy</text>
+      <text x="638" y="162" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">Recycling / scrap line</text>
+      <line x1="412" y1="170" x2="712" y2="170" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="188" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#b91c1c">Protein aggregates (Aβ, tau)</text>
+      <text x="638" y="188" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#b91c1c">Defective product pile-up</text>
+      <line x1="412" y1="196" x2="712" y2="196" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="214" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#15803d" font-weight="600">HSR activation (hormesis)</text>
+      <text x="638" y="214" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#1e3a8a" font-weight="600">QC audit / Kaizen sprint</text>
+
+      <!-- Six Sigma concept -->
+      <rect x="402" y="240" width="320" height="80" rx="4" fill="rgba(29,78,216,0.03)" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="562" y="260" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1e3a8a" font-weight="700" letter-spacing="1">THE SIX SIGMA PRINCIPLE</text>
+      <text x="420" y="280" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">In manufacturing, Six Sigma targets 3.4 defects per million</text>
+      <text x="420" y="296" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d">products. When defect rate exceeds process capability,</text>
+      <text x="420" y="312" font-family="Archivo,sans-serif" font-size="11" fill="#1e3a8a" font-weight="600">the line doesn't slow down — it catastrophically fails.</text>
+
+      <!-- Tipping point -->
+      <rect x="402" y="336" width="320" height="52" rx="4" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="562" y="356" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b91c1c" font-weight="600" letter-spacing="1">THE SHARED TIPPING POINT</text>
+      <text x="562" y="374" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="#b91c1c" font-weight="700">Defect rate > process capability = system collapse</text>
+      <text x="562" y="390" text-anchor="middle" font-family="Archivo,sans-serif" font-size="10" fill="#3d3d3d">Not gradual. Not linear. A phase transition.</text>
+
+      <!-- Solution -->
+      <rect x="402" y="404" width="320" height="60" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="562" y="422" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">ENGINEERING PRESCRIPTION</text>
+      <text x="562" y="442" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d" font-weight="600">1. Upstaff QC before the tipping point (boost chaperones)</text>
+      <text x="562" y="458" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" fill="#3d3d3d" font-weight="600">2. Reduce incoming defect rate (lower oxidative load)</text>
+    </svg>
+    <div class="fig-cap">Left: the three-stage proteostasis collapse — chaperone dilution, stress response attenuation (via NAD⁺/SIRT1 decline), and clearance overload — converging into a positive feedback loop of protein aggregation. Right: the identical logic in manufacturing quality control — workforce reduction, alarm system degradation, and recycling bottleneck, governed by Six Sigma's tipping-point dynamics.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination — Manufacturing: Six Sigma and the Defect Tipping Point</div>
+  <h2>Why Factories Collapse at a Specific Defect Rate — Not Gradually</h2>
+
+  <p>In manufacturing quality engineering, <span class="k">Six Sigma</span> methodology quantifies process capability as the number of standard deviations between the process mean and the nearest specification limit. A Six Sigma process produces 3.4 defects per million opportunities — virtually zero. As process capability degrades (from six sigma to five, four, three sigma), the defect rate increases not linearly but <em>exponentially</em>: 233 defects at five sigma, 6,210 at four, 66,807 at three. The critical insight: at each sigma level, the factory appears to function — until the defect rate crosses the threshold where the quality-control system's capacity to detect and remove defectives is exceeded. At that point, defective products begin shipping, customer complaints overwhelm service, and the factory enters a cascading failure — not a gradual decline but a <em>phase transition</em> from functional to dysfunctional.</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Molecular Biology</div>
+      <h4>The Chaperone Sequestration Trap</h4>
+      <p>Misfolded proteins bind chaperones — consuming quality-control capacity. Aggregated proteins are <strong>even worse</strong>: they present hydrophobic surfaces that recruit multiple chaperone molecules simultaneously, trapping them in non-productive binding. Each aggregate removes several chaperones from the available pool, increasing misfolding of <em>other</em> proteins. This is the molecular equivalent of defective products jamming the inspection station.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Quality Engineering</div>
+      <h4>The Rework Queue Overflow</h4>
+      <p>In manufacturing, defective products that can be reworked enter the rework queue. When this queue overflows (more defects than rework capacity), <strong>defects begin bypassing QC entirely</strong> — shipping to customers without inspection. The proteasome is the rework queue. When it's overwhelmed, misfolded proteins are neither fixed nor destroyed — they accumulate as aggregates in the cytoplasm, the molecular equivalent of defective products piling up on the factory floor.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">The Kaizen of Hormesis</div>
+      <h4>Heat Shock as a QC Audit</h4>
+      <p>Brief heat exposure (sauna, hot bath) activates HSF-1 and upregulates the entire chaperome — a temporary <strong>surge in QC staffing</strong>. Cold exposure activates complementary stress pathways (cold shock proteins). Exercise activates autophagy (Lecture 9). Each hormetic stressor (Lecture 11) is a <em>Kaizen sprint</em> — a short, intense period of quality improvement that clears the defect backlog and retrains the system.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Predictive Maintenance</div>
+      <h4>Don't Wait for the Tipping Point</h4>
+      <p>Smart factories implement <strong>predictive maintenance</strong> — monitoring process parameters in real time and intervening <em>before</em> the defect rate reaches the tipping point. Biologically: maintaining chaperone capacity through hormetic stress, supporting HSF-1 via NAD⁺/SIRT1 (Lecture 21), and sustaining autophagy through fasting and exercise — all before aggregation symptoms appear — is the biological equivalent of predictive QC.</p>
+    </div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+
+  <div class="caut">
+    <div class="cl">Risks of Over-Application</div>
+    <p><em>Chronic HSR activation is itself damaging.</em> The heat shock response is designed to be acute and transient. Sustained HSF-1 activation can promote cancer by protecting tumor cells from apoptosis — the very survival mechanism that makes chaperones beneficial in normal tissue becomes dangerous in transformed cells. Additionally, excessive autophagy (from extreme caloric restriction or prolonged fasting) can degrade healthy organelles and muscle protein — crossing from quality control into quality <em>destruction</em>. The prescription is <em>intermittent</em> hormetic activation (sauna 2–3×/week, not daily; time-restricted eating, not prolonged fasting; exercise with recovery, not overtraining). The Six Sigma analogy is exact: QC audits are periodic events, not continuous inspections — continuous inspection paralyzes the production line.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Implement a weekly hormetic stress schedule that activates the three arms of the proteostasis network: (1) <em>Heat exposure</em> — sauna (80–100°C for 15–20 minutes) or hot bath (40°C for 20 minutes) 2–3×/week to activate HSF-1 and upregulate the chaperome. Laukkanen et al. (<em>JAMA Intern. Med.</em>, 2015) found 4–7 sauna sessions/week reduced all-cause mortality 40% versus 1×/week — likely operating in part through HSR activation. (2) <em>Exercise</em> — per Lectures 16/22, which activates autophagy, upregulates proteasomal activity, and produces myokines that enhance proteostasis across tissues. (3) <em>Time-restricted eating</em> — 14–16 hour overnight fast 2–3×/week to activate UPR and autophagic clearance.<br><br><strong>Metric:</strong> No direct proteostasis biomarker exists in clinical practice. The best available proxy is <em>grip strength</em> (Lecture 13/22) — because skeletal muscle is the largest protein pool in the body, and declining grip strength reflects loss of protein quality (actin/myosin misfolding and aggregation) before it reflects loss of quantity. Track grip strength every 6 months with a dynamometer. A decline >2 kg/year may indicate accelerating proteostasis failure in muscle.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Proteostasis Connects to the Lecture Series</h2>
+
+  <p>Proteostasis collapse is the <em>molecular execution layer</em> of multiple upstream failures covered in prior lectures. NAD⁺ decline (Lecture 21) silences SIRT1, which deactivates HSF-1, which attenuates the HSR — connecting cofactor depletion directly to protein quality control failure. Epigenetic noise (Lecture 10) disrupts chaperone gene expression at the chromatin level — Labbadia and Morimoto (2015) showed that age-related chromatin changes downregulate stress-response activity. Autophagy decline (Lecture 9) removes the backup clearance pathway for aggregates too large for proteasomal processing. And the protein aggregates themselves — Aβ, tau, α-synuclein — are the waste products that the glymphatic system (Lecture 14) evolved to clear during sleep. Proteostasis collapse upstream generates the waste; glymphatic failure downstream fails to remove it. The two systems are coupled: when both fail in the fifties, neurodegenerative disease becomes almost inevitable without intervention.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII -->
+  <div class="sn">VIII. Common Misconception</div>
+
+  <div class="corr">
+    <div class="cl">Peer Review — Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Protein aggregation diseases like Alzheimer's are caused by overproduction of toxic proteins (Aβ, tau)."<br><br><strong>Correction:</strong> Aβ and tau are produced at normal rates throughout life. The pathology arises not from overproduction but from <em>failed clearance and failed quality control</em>. Young brains produce the same Aβ and tau but clear them efficiently via proteostasis + glymphatic drainage. The aggregation diseases of aging are fundamentally <em>quality-control failures</em>, not manufacturing defects — the instructions are correct; the inspection and recycling systems have collapsed. This reframing matters for intervention: the target is not to reduce protein production (which would impair normal cellular function) but to <em>restore the QC system</em> — through chaperone activation, autophagy enhancement, and NAD⁺ repletion.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Ben-Zvi, Miller &amp; Morimoto (2009)</h5>
+        <p>"Collapse of proteostasis represents an early molecular event in <em>C. elegans</em> aging." <em>PNAS</em>, 106(35):14914–14919. The foundational paper demonstrating that proteostasis collapse is a programmed, early-adult event rather than gradual entropy.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Hipp, Kasturi &amp; Hartl (2019)</h5>
+        <p>"The proteostasis network and its decline in ageing." <em>Nat. Rev. Mol. Cell Biol.</em>, 20(7):421–435. Comprehensive review of the proteostasis network, its components, and age-related decline across tissues.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Sauna / Heat Exposure Protocol</h5>
+        <p>Finnish-style sauna: 80–100°C, 15–20 minutes, 2–4×/week. This is the most direct HSF-1 activation available. Laukkanen cohort (n=2,315 middle-aged men): 4–7×/week sauna use = 40% lower all-cause mortality, 63% lower sudden cardiac death vs. 1×/week. Mechanism includes HSR activation, chaperone upregulation, and cardiovascular conditioning.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Cold Exposure (Brief)</h5>
+        <p>Cold shower (final 2 minutes at coldest setting) or cold immersion (10–15°C for 2–5 minutes) activates cold shock proteins (RBM3, CIRBP) that have independent proteostasis-supportive roles — particularly neuroprotective. This complements heat exposure by activating a different arm of the stress response.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Integrate Prior Lecture Interventions</h5>
+        <p>Every prior intervention that supports NAD⁺ (Lec 21), SIRT1, autophagy (Lec 9), exercise (Lec 16/22), and sleep quality (Lec 14/17) directly supports proteostasis. The proteostasis network is the downstream integration point — the QC system that all other longevity pathways feed into.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Dietary Support</h5>
+        <p>Sulforaphane (broccoli sprouts) activates Nrf2 and upregulates proteasomal subunit expression. Spermidine (aged cheese, mushrooms, legumes) induces autophagy. Neither replaces hormetic stress but both provide substrate-level support for the clearance arm of proteostasis.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Metric</div>
+        <h5>Grip Strength + GGT</h5>
+        <p>Grip strength as a muscle proteostasis proxy (declining = protein quality deteriorating). GGT (your current 15 = excellent) as an oxidative stress marker — high GGT signals glutathione depletion, which means reduced capacity to prevent the oxidative protein damage that initiates the proteostasis cascade.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>Lecture Integration Map</h5>
+        <p>NAD⁺/SIRT1 (Lec 21) → HSF-1 deacetylation → HSR activation. Autophagy (Lec 9) → aggregate clearance. Glymphatic (Lec 14) → brain-specific waste removal. Epigenetic clocks (Lec 10) → chaperone gene silencing. Hormesis (Lec 11) → periodic QC boost. Proteostasis is the convergence layer.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>Proteostasis collapses early in adulthood in C. elegans; coincides with severely reduced HSR and UPR activation</td>
+        <td>Ben-Zvi, Miller &amp; Morimoto, <em>PNAS</em>, 2009;106(35):14914–14919</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Conserved chaperome of 18 genes declines in aging human brain; essential for suppressing Aβ and Huntingtin aggregation</td>
+        <td>Brehme et al., <em>Cell Reports</em>, 2014;9(3):1135–1150</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>HSF-1 is deactivated by acetylation; SIRT1 opposes this acetylation (connecting NAD⁺ to HSR)</td>
+        <td>Westerheide et al., <em>Science</em>, 2009;323:1063–1066 (from Morimoto lab)</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Age-related chromatin changes implicated in downregulation of stress-response activity</td>
+        <td>Labbadia &amp; Morimoto, <em>Mol. Cell</em>, 2015;59(4):639–650</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Proteasomal activity declines ~30–50% between ages 30 and 70</td>
+        <td>Chondrogianni et al., <em>J. Biol. Chem.</em>, 2003; Saez &amp; Bhatt, 2020 (reviews)</td>
+        <td><span class="cv">⚠ Magnitude varies by tissue and measurement method. 30–50% is a consensus range for skin fibroblasts and brain tissue; some tissues show less decline.</span></td>
+      </tr>
+      <tr>
+        <td>Sauna 4–7×/week = 40% lower all-cause mortality, 63% lower sudden cardiac death</td>
+        <td>Laukkanen et al., <em>JAMA Intern. Med.</em>, 2015;175(4):542–548</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Proteostasis collapse is a driver of cell aging and death (quantitative model)</td>
+        <td>Santra et al., <em>PNAS</em>, 2019;116(44):22173–22178</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Ben-Zvi, A., Miller, E.A. &amp; Morimoto, R.I. (2009). "Collapse of proteostasis represents an early molecular event in <em>C. elegans</em> aging." <em>PNAS</em>, 106(35):14914–14919. &nbsp;|&nbsp; Labbadia, J. &amp; Morimoto, R.I. (2015). "Repression of the heat shock response is a programmed event at the onset of reproduction." <em>Mol. Cell</em>, 59(4):639–650. &nbsp;|&nbsp; Westerheide, S.D. et al. (2009). "Stress-inducible regulation of heat shock factor 1 by the deacetylase SIRT1." <em>Science</em>, 323:1063–1066. &nbsp;|&nbsp; Brehme, M. et al. (2014). "A chaperome subnetwork safeguards proteostasis in aging and neurodegenerative disease." <em>Cell Reports</em>, 9(3):1135–1150. &nbsp;|&nbsp; Santra, M. et al. (2019). "Proteostasis collapse is a driver of cell aging and death." <em>PNAS</em>, 116(44):22173–22178. &nbsp;|&nbsp; Laukkanen, T. et al. (2015). "Association between sauna bathing and fatal cardiovascular and all-cause mortality events." <em>JAMA Intern. Med.</em>, 175(4):542–548.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_proteostasis_collapse",
+  "related": [
+    {
+      "id": "lecture_cellular_senescence_senolytics",
+      "title": "Cellular Senescence & Senolytics",
+      "filename": "lecture_cellular_senescence_senolytics.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "filename": "lecture_mitochondrial_dysfunction.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_stem_cell_exhaustion",
+      "title": "Stem Cell Exhaustion & the Regeneration Deficit",
+      "filename": "lecture_stem_cell_exhaustion.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_glymphatic_system",
+      "title": "The Glymphatic System",
+      "filename": "lecture_glymphatic_system.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Sleep & Recovery"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

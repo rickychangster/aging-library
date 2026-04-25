@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Brain Insulin Resistance &amp; the Cerebral Energy Crisis</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#faf9f7; --surface:#f0eeea; --card:#ffffff; --card-b:#ddd9d0;
+    --ink:#1a1a1a; --ink-mid:#3d3d3d; --ink-soft:#71717a;
+    --blue:#1d4ed8; --blue-deep:#1e3a8a; --blue-dim:rgba(29,78,216,0.05);
+    --red:#b91c1c; --red-dim:rgba(185,28,28,0.04);
+    --green:#15803d; --green-dim:rgba(21,128,61,0.04);
+    --amber:#b45309; --amber-dim:rgba(180,83,9,0.04);
+    --rule:#d4d0c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--blue-deep) 0%,var(--red) 50%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--blue-deep);position:relative;}
+  .stag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue-deep);margin-bottom:20px;}
+  .ln{font-family:'Crimson Text',serif;font-size:100px;font-weight:700;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Crimson Text',serif;font-size:40px;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:8px;}
+  h1 .a{color:var(--blue-deep);}
+  .sub{font-family:'Crimson Text',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}
+  .meta .hl{color:var(--blue-deep);font-weight:600;}
+  .sn{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Crimson Text',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--blue-deep);font-weight:700;} .def{color:var(--ink-soft);font-style:italic;} em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}
+  .sep .l{flex:1;height:1px;background:var(--rule);} .sep .d{width:10px;height:3px;background:var(--blue-deep);border-radius:1px;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--blue-deep);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}
+  .fig-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blue-deep);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .note .nl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .warn .wl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .caut .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .corr .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}
+  .gc:hover{border-color:var(--blue-deep);}
+  .gc .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+  .tag.bio{color:var(--amber);} .tag.eng{color:var(--blue-deep);}
+  .gc h4{font-family:'Crimson Text',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}
+  .gc strong{color:var(--blue-deep);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}
+  .res .rt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blue-deep);margin-bottom:18px;}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}
+  .ri .rc{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+  .rc.read{color:var(--amber);} .rc.act{color:var(--blue-deep);} .rc.tool{color:var(--green);} .rc.meas{color:var(--red);}
+  .ri h5{font-family:'Crimson Text',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}
+  .cite .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .cite table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .cite th{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}
+  .cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}
+  .cite .ok{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--green);}
+  .cite .cv{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}
+  .fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">32</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 32</div>
+    <h1>Brain Insulin Resistance <span class="a">&amp; the Cerebral Energy Crisis</span></h1>
+    <div class="sub">The Brain Consumes 20% of Your Body's Glucose Despite Being 2% of Its Mass — and When Neuronal Insulin Signaling Fails, the Most Energy-Hungry Organ in the Body Enters an Energy Crisis That Drives the Full Spectrum of Alzheimer's Pathology, Following the Same Logic as Cache Memory Starvation in Computer Architecture</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Neuro-Metabolic Science (de la Monte 2008; Talbot 2012; Craft 2012)</div>
+      <div><span class="hl">Bridge:</span> Computer Science — Cache Memory Architecture</div>
+      <div><span class="hl">Window:</span> Ages 40–70 (precedes clinical AD by 10–20 years)</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why — The Metabolic Hypothesis of Alzheimer's</div>
+  <h2>Why a Disease of Memory May Actually Be a Disease of Energy</h2>
+
+  <p>For three decades, Alzheimer's disease research was dominated by the amyloid cascade hypothesis — the idea that accumulation of Aβ plaques and tau tangles <em>causes</em> neurodegeneration. Billions of dollars in clinical trials targeting amyloid removal produced, at best, modest results. Meanwhile, a quieter line of research revealed something remarkable: the earliest detectable abnormality in Alzheimer's — preceding plaques, tangles, and clinical symptoms by 10–20 years — is <em>reduced cerebral glucose utilization</em>, visible on FDG-PET scans as regional hypometabolism in the temporal, parietal, and posterior cingulate cortex. The brain is starving for energy before it shows any classical pathology.</p>
+
+  <p>Suzanne de la Monte at Brown University formalized this observation in 2008 with a provocative proposal: Alzheimer's disease is <span class="k">Type 3 Diabetes</span> <span class="def">(a brain-specific form of diabetes characterized by insulin resistance, insulin deficiency, and impaired insulin-like growth factor (IGF) signaling within the central nervous system, independent of — though often compounded by — peripheral type 2 diabetes)</span>. Postmortem analysis of AD brains revealed reduced insulin receptor density, diminished IRS-1 activation, decreased PI3K/Akt signaling, and elevated inhibitory serine phosphorylation of IRS-1 — the identical molecular signature of insulin resistance seen in peripheral muscle and liver, but occurring within neurons. The critical insight: <span class="k">insulin in the brain does not control glucose uptake</span> (neurons use GLUT1 and GLUT3 transporters that are insulin-independent). Instead, brain insulin regulates synaptic plasticity, LTP/LTD balance, dendritic spine formation, tau phosphorylation, Aβ clearance, neuronal survival, and cerebral blood flow. When brain insulin signaling fails, <em>all</em> of these functions degrade simultaneously — producing the full clinical and pathological spectrum of Alzheimer's disease without requiring amyloid as a primary cause.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge — Cache Memory Architecture</div>
+  <h2>Analogy: When the Fastest Memory Layer Starves</h2>
+
+  <p>In computer architecture, the <span class="k">memory hierarchy</span> solves a fundamental problem: the processor (CPU) operates orders of magnitude faster than main memory (RAM). To bridge this speed gap, a series of progressively smaller, faster cache memories (L1, L2, L3) sit between the CPU and RAM, storing recently or frequently accessed data for rapid retrieval. The L1 cache — smallest, fastest, closest to the CPU — holds the data the processor needs <em>right now</em>. The system depends on a <span class="k">cache controller</span> that predicts which data the processor will need next and pre-loads it from RAM into the cache. When the controller works correctly, the CPU almost never has to wait — it finds what it needs in the fast cache (a "cache hit"). When the controller fails or is disabled, the CPU must fetch data directly from slow RAM on every access (a "cache miss"), and the entire system slows to a fraction of its potential speed — not because the CPU is broken, but because it is <em>starving for data</em>.</p>
+
+  <p>The brain's memory hierarchy works identically. The "CPU" is the hippocampus and prefrontal cortex — the processing centers for learning, memory, and executive function. The "L1 cache" is the synaptic network — the rapidly accessible local connections that hold recently encoded information. The "cache controller" is <em>insulin signaling</em>: it regulates LTP (writing data to the synaptic cache), dendritic spine formation (expanding cache capacity), Aβ clearance (garbage collection — removing stale data), and tau organization (maintaining the data bus — microtubules that transport materials along axons). When the cache controller fails (brain insulin resistance), the system doesn't lose its data — it loses the ability to <em>efficiently access and update</em> it. The processor stalls. Memory retrieval slows. New learning falters. Stale data (Aβ) accumulates because garbage collection has stopped. The data bus (tau/microtubules) degrades. And the system enters a progressive performance decline that looks, from the outside, like the processor itself is failing — but the fundamental problem is <em>cache controller dysfunction</em>.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept — The Insulin-Signaling Cascade in Neurons</div>
+  <h2>What Insulin Does in the Brain — and What Breaks When It Can't</h2>
+
+  <p>Brain insulin signaling operates through the same receptor → IRS-1 → PI3K → Akt pathway as peripheral tissues — but the downstream targets are different. In the brain, <span class="k">Akt activation</span> (1) inhibits GSK-3β, which when uninhibited hyperphosphorylates tau, causing microtubule collapse and neurofibrillary tangle formation; (2) promotes Aβ clearance via insulin-degrading enzyme (IDE), which competes with Aβ for insulin binding — meaning that hyperinsulinemia saturates IDE with insulin, leaving Aβ uncleared; (3) activates mTOR for dendritic spine formation and synaptic protein synthesis; (4) modulates AMPA and NMDA receptor trafficking, directly controlling LTP and LTD — the cellular mechanisms of memory formation; and (5) promotes neuronal survival by inhibiting pro-apoptotic pathways.</p>
+
+  <p>When brain insulin resistance develops — through serine phosphorylation of IRS-1 (driven by Aβ-triggered microglial TNF-α release, connecting directly to the inflammaging spiral of Lecture 12) — all five functions degrade simultaneously: GSK-3β hyperactivates → tau hyperphosphorylation → tangles. IDE is diverted → Aβ accumulates → plaques. mTOR is suppressed → dendritic spines retract → synaptic density declines. Receptor trafficking stalls → LTP is impaired → new memories cannot form. Survival signaling weakens → neuronal apoptosis increases. The Alzheimer's pathology that was traditionally attributed to "too much amyloid" may be more accurately understood as "too little insulin signaling" — a metabolic failure that produces amyloid accumulation as a <em>downstream consequence</em>, not a primary cause.</p>
+
+  <div class="warn">
+    <div class="wl">The Bidirectional Trap — and Why the Fifties Matter</div>
+    <p>Brain insulin resistance and Aβ accumulation form a bidirectional positive feedback loop: Aβ oligomers activate microglial TNF-α → TNF-α phosphorylates IRS-1 on inhibitory serine residues → insulin signaling impaired → IDE diverted → less Aβ cleared → more Aβ → more TNF-α → more IRS-1 serine phosphorylation. This loop operates silently for 10–20 years before clinical symptoms appear. FDG-PET studies show cerebral glucose hypometabolism in cognitively normal individuals in their forties and fifties who carry AD risk factors (ApoE4 genotype, family history, peripheral insulin resistance). By the time memory complaints appear, the loop has been self-amplifying for decades. The fifties are the intervention window — the period when the loop is active but not yet self-sustaining, and peripheral metabolic health (your fasting insulin 3.0, HOMA-IR 0.6) is the strongest modifiable determinant of whether the brain enters this trap.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Brain Insulin Resistance &amp; Cache Memory Parallel</div>
+    <svg viewBox="0 0 740 460" xmlns="http://www.w3.org/2000/svg">
+      <text x="185" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1e3a8a" font-weight="600" letter-spacing="1.5">BRAIN INSULIN RESISTANCE CASCADE</text>
+
+      <!-- Normal signaling -->
+      <rect x="30" y="36" width="310" height="50" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="52" text-anchor="middle" font-family="Crimson Text,serif" font-size="12" font-weight="700" fill="#15803d">Healthy: Insulin → IRS-1 → PI3K → Akt</text>
+      <text x="185" y="68" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">GSK-3β inhibited • IDE clears Aβ • LTP active • spines grow</text>
+      <text x="185" y="80" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">neurons survive • tau properly phosphorylated</text>
+
+      <line x1="185" y1="88" x2="185" y2="104" stroke="#b91c1c" stroke-width="1"/>
+      <text x="220" y="98" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#b91c1c">Aβ → microglia → TNF-α</text>
+
+      <!-- IRS-1 serine phosphorylation -->
+      <rect x="30" y="108" width="310" height="38" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="185" y="124" text-anchor="middle" font-family="Crimson Text,serif" font-size="12" font-weight="700" fill="#b91c1c">IRS-1 Serine Phosphorylation (Block)</text>
+      <text x="185" y="140" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">TNF-α → JNK → pSer-IRS-1 → PI3K/Akt pathway silenced</text>
+
+      <line x1="185" y1="148" x2="185" y2="164" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,164 185,171 190,164" fill="#b91c1c"/>
+
+      <!-- Five downstream failures -->
+      <rect x="20" y="174" width="330" height="100" rx="3" fill="rgba(185,28,28,0.05)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="185" y="190" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b91c1c" font-weight="600" letter-spacing="1">FIVE DOWNSTREAM FAILURES</text>
+      <text x="40" y="210" font-family="Atkinson Hyperlegible,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="700">1.</tspan> GSK-3β activated → tau hyperphosphorylation → tangles</text>
+      <text x="40" y="226" font-family="Atkinson Hyperlegible,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="700">2.</tspan> IDE diverted → Aβ clearance fails → plaques accumulate</text>
+      <text x="40" y="242" font-family="Atkinson Hyperlegible,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="700">3.</tspan> mTOR↓ → dendritic spines retract → synaptic loss</text>
+      <text x="40" y="258" font-family="Atkinson Hyperlegible,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="700">4.</tspan> AMPA/NMDA trafficking stalls → LTP impaired → no new memory</text>
+      <text x="40" y="274" font-family="Atkinson Hyperlegible,sans-serif" font-size="10" fill="#3d3d3d"><tspan fill="#b91c1c" font-weight="700">5.</tspan> Survival signaling↓ → neuronal apoptosis ↑</text>
+
+      <!-- Feedback -->
+      <path d="M 350 230 Q 370 230 370 130 Q 370 50 350 50" stroke="#b91c1c" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+      <polygon points="350,46 345,50 350,54" fill="#b91c1c"/>
+      <text x="380" y="140" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#b91c1c" transform="rotate(90,380,140)">more Aβ → more TNF-α → more IR</text>
+
+      <!-- Interventions -->
+      <rect x="30" y="296" width="310" height="50" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="312" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">CACHE CONTROLLER RESTORATION</text>
+      <text x="185" y="328" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">Exercise → peripheral insulin sensitivity → reduces brain IR</text>
+      <text x="185" y="342" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">Mediterranean diet + TRF → reduce neuroinflammation</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="450" stroke="#d4d0c8" stroke-width="1"/>
+
+      <!-- RIGHT: Cache Parallel -->
+      <text x="564" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1e3a8a" font-weight="600" letter-spacing="1.5">CACHE MEMORY PARALLEL</text>
+
+      <rect x="402" y="36" width="320" height="178" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="562" y="56" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="412" y1="64" x2="712" y2="64" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1e3a8a" font-weight="600">BRAIN</text>
+      <text x="638" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1e3a8a" font-weight="600">COMPUTER</text>
+      <line x1="562" y1="64" x2="562" y2="206" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="412" y1="90" x2="712" y2="90" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="108" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">Hippocampus / PFC</text>
+      <text x="638" y="108" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">CPU (processor)</text>
+      <line x1="412" y1="116" x2="712" y2="116" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="134" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">Synaptic network</text>
+      <text x="638" y="134" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">L1/L2 cache</text>
+      <line x1="412" y1="142" x2="712" y2="142" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="160" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">Insulin signaling</text>
+      <text x="638" y="160" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">Cache controller</text>
+      <line x1="412" y1="168" x2="712" y2="168" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="186" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#b91c1c">Aβ accumulation</text>
+      <text x="638" y="186" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#b91c1c">Stale cache data (no GC)</text>
+      <line x1="412" y1="194" x2="712" y2="194" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+
+      <!-- Cache starvation -->
+      <rect x="402" y="230" width="320" height="68" rx="4" fill="rgba(29,78,216,0.04)" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="562" y="250" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1e3a8a" font-weight="700" letter-spacing="1">CACHE STARVATION PRINCIPLE</text>
+      <text x="420" y="270" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d">When the cache controller fails, the CPU doesn't break.</text>
+      <text x="420" y="286" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#1e3a8a" font-weight="700">It starves — running at a fraction of its speed,</text>
+      <text x="420" y="302" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#1e3a8a" font-weight="700">waiting for data that never arrives fast enough.</text>
+
+      <!-- de la Monte -->
+      <rect x="402" y="314" width="320" height="54" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="562" y="332" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b45309" font-weight="600" letter-spacing="1">KEY FINDING: DE LA MONTE 2008</text>
+      <text x="562" y="352" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="11" fill="#3d3d3d">AD brains show insulin receptor density↓, IRS-1↓,</text>
+      <text x="562" y="368" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="11" fill="#b45309" font-weight="700">PI3K/Akt↓ — "Type 3 Diabetes" of the brain</text>
+
+      <!-- Solution -->
+      <rect x="402" y="384" width="320" height="58" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="562" y="402" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">CONTROLLER RESTORATION</text>
+      <text x="562" y="422" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="700">1. Peripheral insulin sensitivity (exercise, TRF, body comp)</text>
+      <text x="562" y="438" text-anchor="middle" font-family="Atkinson Hyperlegible,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="700">2. Reduce neuroinflammation (suppress TNF-α → restore IRS-1)</text>
+    </svg>
+    <div class="fig-cap">Left: the brain insulin resistance cascade — Aβ-triggered TNF-α drives IRS-1 serine phosphorylation, silencing the PI3K/Akt pathway and causing five simultaneous downstream failures (tau hyperphosphorylation, Aβ accumulation, synaptic loss, LTP impairment, neuronal death). A bidirectional positive feedback loop accelerates the process. Right: the cache memory parallel — when the cache controller (insulin signaling) fails, the CPU (hippocampus) starves for data despite having intact processing hardware.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination — Computer Architecture: Why Controller Failure Mimics Hardware Failure</div>
+  <h2>The Most Dangerous Failures Look Like Something Else</h2>
+
+  <p>In computer architecture, cache controller failures are notoriously difficult to diagnose because they <em>mimic</em> hardware problems. When the cache controller fails, the system slows down, makes more errors, and eventually crashes — symptoms identical to a failing CPU, failing RAM, or failing storage. A technician who replaces the CPU (analogous to targeting amyloid) will find the problem persists. Only by measuring <em>cache hit rates and memory access latency</em> — the data-delivery metrics — does the true cause emerge.</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Neuro-Metabolic Science</div>
+      <h4>IDE Competition: The GC Scheduling Conflict</h4>
+      <p>Insulin-degrading enzyme (IDE) clears <em>both</em> insulin and Aβ — it's the same garbage collector for two different data types. <strong>When peripheral hyperinsulinemia floods the brain with excess insulin, IDE is saturated clearing insulin and cannot process Aβ.</strong> This is the cache equivalent of a garbage collector so busy clearing routine temp files that it never reaches the large stale objects that actually threaten system stability. Keeping peripheral insulin low (your 3.0 μIU/mL is optimal) directly protects brain Aβ clearance capacity.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Computer Architecture</div>
+      <h4>Write-Back Policy &amp; LTP</h4>
+      <p>Caches use <strong>write-back policies</strong> — data is written to the fast cache immediately but synced to main memory later. LTP is the brain's write-back: a new memory is rapidly encoded in the synaptic cache (hippocampal LTP) and later consolidated to cortical storage during sleep. Brain insulin resistance impairs the initial write-back (LTP) — the data is never cached locally, so it can never be consolidated. This explains why short-term memory formation fails first in AD while long-term memories (already consolidated) persist longer.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">Tau as the Data Bus</div>
+      <h4>Microtubule Collapse = Bus Failure</h4>
+      <p>Tau protein stabilizes microtubules — the axonal "data bus" that transports mitochondria, vesicles, and signaling molecules between the cell body and synapses. When GSK-3β hyperphosphorylates tau (due to lost Akt inhibition from insulin resistance), tau detaches, microtubules collapse, and <strong>axonal transport halts</strong>. Synapses starve for both energy (mitochondria can't reach them, Lecture 25) and signaling molecules. This is a bus failure: the cache and CPU are intact, but the wires connecting them to the rest of the system have disintegrated.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Predictive Pre-Fetch</div>
+      <h4>Exercise as Cache Warm-Up</h4>
+      <p>High-performance CPUs use <strong>predictive pre-fetching</strong> — loading data into cache before the processor needs it, based on predicted access patterns. Exercise performs an analogous function: it upregulates BDNF (Lecture 31), which promotes dendritic spine formation (expanding cache capacity), enhances LTP (improving write-back speed), and increases cerebral blood flow (widening the data bus bandwidth, Lecture 30). Exercise doesn't just maintain the cache controller — it <em>pre-warms the cache</em> with the structural and molecular infrastructure that future cognitive demands will need.</p>
+    </div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+
+  <div class="caut">
+    <div class="cl">Risks of Over-Application</div>
+    <p><em>Exogenous insulin or insulin-sensitizing drugs require careful dosing in the brain context.</em> Intranasal insulin trials have shown cognitive improvement in early AD, but systemic insulin administration (or excessive insulin-sensitizer use) can cause hypoglycemia — which is acutely neurotoxic, as the brain has almost zero glucose storage capacity. Furthermore, the Aβ-insulin competition at IDE means that transient hyperinsulinemia (from high-glycemic meals or excessive insulin sensitizer dosing) can paradoxically worsen Aβ clearance in the short term. The metabolic flexibility of Lecture 28 is critical: the brain can partially substitute ketone bodies for glucose during fasting, providing an alternative fuel pathway that bypasses the insulin-glucose relationship entirely. This is why ketone supplementation (MCT oil, exogenous ketones) is being investigated as a cognitive support strategy — it provides the brain with fuel that doesn't require insulin signaling to access. But chronic ketosis has its own risks (Lecture 28's antifragility section). The optimum is flexible access to both fuels, not dependence on either.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Protect brain insulin sensitivity through four convergent strategies: (1) <em>Maintain exceptional peripheral insulin sensitivity</em> — your fasting insulin of 3.0 and HOMA-IR of 0.6 are in the longevity-optimal range. Every intervention that preserves these numbers (Zone 2 exercise, resistance training, time-restricted eating, body composition maintenance) directly protects brain insulin signaling by preventing the peripheral hyperinsulinemia that saturates IDE and reduces brain insulin transport. (2) <em>Reduce neuroinflammation</em> — TNF-α is the proximal trigger for brain IRS-1 serine phosphorylation. Every anti-inflammatory intervention in the series (exercise myokines Lec 22, gut barrier Lec 18, social connection Lec 27, sleep Lec 14/17) suppresses the TNF-α that drives brain insulin resistance. (3) <em>Mediterranean/MIND diet</em> — rich in omega-3s, polyphenols, and flavonoids, which reduce neuroinflammation and support cerebrovascular function. The MIND diet specifically has been associated with reduced AD risk in observational studies. (4) <em>Aerobic exercise for BDNF</em> (Lecture 31) — exercise simultaneously improves peripheral insulin sensitivity, reduces neuroinflammation, increases BDNF-mediated synaptic reserve, and enhances cerebral blood flow — four mechanisms that all protect the brain's cache controller.<br><br><strong>Metric:</strong> <em>Fasting insulin</em> (target <5 μIU/mL — you're at 3.0, excellent), <em>HOMA-IR</em> (target <1.0 — you're at 0.6, excellent), and <em>HbA1c</em> (target <5.4%). These track the peripheral metabolic health that determines brain insulin exposure. A more direct brain metric: <em>FDG-PET</em> (if pursuing comprehensive brain health screening) shows regional glucose hypometabolism decades before clinical symptoms — the earliest detectable biomarker of brain insulin resistance.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Brain Insulin Resistance Connects to the Lecture Series</h2>
+
+  <p>Brain insulin resistance is the <em>neuro-specific expression</em> of the metabolic inflexibility covered in Lecture 28. The peripheral fuel-switching failure (DAG/ceramide-mediated IRS-1 serine phosphorylation in muscle) has an exact molecular parallel in neurons (Aβ/TNF-α-mediated IRS-1 serine phosphorylation in hippocampal pyramidal cells). The same cofactor depletion — NAD⁺ decline (Lecture 21) — impairs SIRT1 in both muscle and brain, reducing insulin signaling capacity in both tissues through the same deacetylation deficiency. Mitochondrial dysfunction (Lecture 25) in neurons deprives the brain's "processor" of the energy it needs to run even when the cache controller is working — compounding the insulin-driven energy crisis with a bioenergetic supply crisis. The CHIP-driven IL-1β amplification (Lecture 23) and gut-derived LPS (Lecture 18) both feed into the neuroinflammatory TNF-α cascade that is the proximal trigger for brain IRS-1 phosphorylation. And the vascular aging of Lecture 30 — endothelial dysfunction reducing cerebral blood flow — creates a secondary supply bottleneck: even if the neurons could use glucose, they can't receive it through narrowed, stiffened cerebral vessels. Brain insulin resistance sits at the intersection of metabolism, inflammation, vascular health, and neuroplasticity — making it the ultimate integration point for the entire lecture series' approach to cognitive longevity.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII -->
+  <div class="sn">VIII. Common Misconception</div>
+
+  <div class="corr">
+    <div class="cl">Peer Review — Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Alzheimer's disease is caused by amyloid plaque accumulation — remove the plaques and you cure the disease."<br><br><strong>Correction:</strong> Over $40 billion in amyloid-targeting clinical trials have produced, at best, modest clinical benefit despite successfully reducing amyloid burden. The attractiveness of the metabolic/brain insulin resistance hypothesis is that impairments in brain insulin and IGF signalling could account for nearly all other abnormalities that occur in AD — including amyloid accumulation itself, which may be a downstream consequence of impaired IDE clearance due to insulin resistance. Amyloid plaques are found in cognitively normal elderly individuals (the same pathology-function disconnect that led to the cognitive reserve concept, Lecture 31), and amyloid reduction doesn't reliably restore cognition. The emerging view: AD is fundamentally a metabolic disease in which brain insulin resistance drives a cascade of pathological changes — of which amyloid is one symptom, not the cause. The intervention target is the metabolic infrastructure (insulin sensitivity, inflammation, vascular health, mitochondrial function) rather than the plaque itself.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>de la Monte (2008)</h5>
+        <p>"Alzheimer's Disease Is Type 3 Diabetes — Evidence Reviewed." <em>J. Diabetes Sci. Technol.</em>, 2(6):1101–1113. The foundational paper proposing that AD is a brain-specific form of diabetes, with comprehensive postmortem evidence of insulin receptor, IRS-1, and PI3K/Akt signaling abnormalities worsening with Braak stage.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Arnold et al. (2018)</h5>
+        <p>"Brain insulin resistance in type 2 diabetes and Alzheimer disease." <em>Nat. Rev. Neurol.</em>, 14:168–181. The definitive review connecting peripheral T2D to brain insulin resistance, covering the molecular overlap, neuroimaging evidence, and therapeutic strategies.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Preserve Your Metabolic Edge</h5>
+        <p>Your fasting insulin 3.0 and HOMA-IR 0.6 place you in the top percentile for brain insulin protection. Every point of fasting insulin rise increases IDE competition and brain Aβ burden. The interventions that maintain these numbers (Zone 2 exercise, resistance training for glucose disposal, TRF, body composition) are simultaneously your primary AD-prevention strategy.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>MIND/Mediterranean Diet</h5>
+        <p>MIND diet: green leafy vegetables (daily), berries (2×/week), nuts, olive oil, fish, whole grains, poultry, beans. Specifically limits red meat, butter/margarine, cheese, pastries, fried food. The MIND diet was associated with a 53% reduced risk of AD in the Rush Memory and Aging Project. The mechanism: polyphenols and omega-3s reduce neuroinflammation (suppressing the TNF-α that drives IRS-1 phosphorylation).</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Ketone Supplementation (Optional)</h5>
+        <p>MCT oil (C8 caprylic acid, 1–2 tbsp/day) provides ketone bodies that the brain can use as an alternative fuel pathway — bypassing the insulin-glucose relationship entirely. This is particularly relevant during fasting periods and may provide cognitive support independent of insulin signaling. Not a replacement for metabolic health — a supplement to it.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Integrate Full Neuro-Metabolic Stack</h5>
+        <p>Exercise (BDNF, Lec 31) + peripheral insulin sensitivity (this lecture) + vascular health (eNOS, Lec 30) + sleep (glymphatic Aβ clearance, Lec 14) + anti-inflammation (TNF-α suppression, Lec 12/22/27) + cognitive reserve (redundancy, Lec 31). This six-element stack addresses the brain's cache controller (insulin), data bus (tau/vascular), garbage collection (IDE/glymphatic), and error-correction (reserve) simultaneously.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Metric</div>
+        <h5>Fasting Insulin + HOMA-IR + HbA1c</h5>
+        <p>Fasting insulin (target <5, you're 3.0). HOMA-IR (target <1.0, you're 0.6). HbA1c (target <5.4%). These are the most accessible proxies for brain insulin exposure. Rising fasting insulin — even with normal glucose — is the earliest warning that the brain's cache controller is under pressure.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>Lecture Integration Map</h5>
+        <p>Metabolic inflexibility (Lec 28) → peripheral IR → brain IR. NAD⁺ (Lec 21) → SIRT1 impairment in neurons. Mitochondria (Lec 25) → neuronal energy crisis. Inflammaging (Lec 12) + CHIP (Lec 23) → TNF-α → IRS-1 serine phos. Gut (Lec 18) → LPS → neuroinflammation. Vascular (Lec 30) → cerebral perfusion. Glymphatic (Lec 14) → Aβ clearance during sleep. Cognitive reserve (Lec 31) → resilience to damage. This lecture is the integration point.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>AD brains show reduced insulin receptor density, IRS-1 activation, PI3K/Akt signaling — "Type 3 Diabetes"</td>
+        <td>de la Monte &amp; Wands, <em>J. Diabetes Sci. Technol.</em>, 2008;2(6):1101–1113</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Brain insulin does not control glucose uptake (GLUT1/3 are insulin-independent); insulin regulates LTP, tau, Aβ clearance, survival</td>
+        <td>Arnold et al., <em>Nat. Rev. Neurol.</em>, 2018;14:168–181; Talbot et al., <em>Brain</em>, 2012</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Cerebral glucose hypometabolism on FDG-PET precedes AD symptoms by 10–20 years</td>
+        <td>Mosconi et al., 2008/2009; Caselli et al., 2008; Langbaum et al., 2010</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Aβ oligomers trigger microglial TNF-α → JNK → IRS-1 serine phosphorylation → brain insulin resistance</td>
+        <td>Bomfim et al., <em>J. Clin. Invest.</em>, 2012;122:1339–1353; reviewed in multiple sources</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>IDE clears both insulin and Aβ; hyperinsulinemia competitively inhibits Aβ clearance</td>
+        <td>Farris et al., <em>PNAS</em>, 2003; Craft, 2012; multiple reviews</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Insulin promotes dendritic spine formation via Akt-mTOR and RAC1-CDC42 pathways</td>
+        <td>Lee et al., 2011; reviewed in Arnold et al., 2018</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>MIND diet associated with 53% reduced AD risk in observational study</td>
+        <td>Morris et al., <em>Alzheimer's Dement.</em>, 2015;11(9):1015–1022</td>
+        <td><span class="cv">⚠ Observational data from Rush Memory and Aging Project. Strong association but not causal proof. Effect size varies by adherence level.</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> de la Monte, S.M. &amp; Wands, J.R. (2008). "Alzheimer's Disease Is Type 3 Diabetes — Evidence Reviewed." <em>J. Diabetes Sci. Technol.</em>, 2(6):1101–1113. &nbsp;|&nbsp; Arnold, S.E. et al. (2018). "Brain insulin resistance in type 2 diabetes and Alzheimer disease: concepts and conundrums." <em>Nat. Rev. Neurol.</em>, 14:168–181. &nbsp;|&nbsp; Talbot, K. et al. (2012). "Demonstrated brain insulin resistance in Alzheimer's disease patients." <em>J. Clin. Invest.</em>, 122:1316–1338. &nbsp;|&nbsp; Bomfim, T.R. et al. (2012). "An anti-diabetes agent protects the mouse brain from defective insulin signaling caused by Alzheimer's disease." <em>J. Clin. Invest.</em>, 122:1339–1353. &nbsp;|&nbsp; Craft, S. (2012). "Alzheimer disease: Insulin resistance and AD — extending the translational path." <em>Nat. Rev. Neurol.</em>, 8:360–362. &nbsp;|&nbsp; Morris, M.C. et al. (2015). "MIND diet associated with reduced incidence of Alzheimer's disease." <em>Alzheimer's Dement.</em>, 11(9):1015–1022.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_brain_insulin_resistance",
+  "related": [
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "filename": "lecture_metabolic_inflexibility.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "filename": "lecture_mitochondrial_dysfunction.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_cognitive_reserve",
+      "title": "Cognitive Reserve & the Redundancy Dividend",
+      "filename": "lecture_cognitive_reserve.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_gut_brain_psychobiotics",
+      "title": "The Gut-Brain Axis & Psychobiotics",
+      "filename": "lecture_gut_brain_psychobiotics.html",
+      "tags": [
+        "Adaptive Stress",
+        "Mind-Body Axes"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Cellular Senescence &amp; Senolytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f4f6f9;
+    --card: #f9fafb;
+    --ink: #111827;
+    --ink-mid: #374151;
+    --ink-soft: #6b7280;
+    --navy: #1e3a5f;
+    --navy-deep: #0f2440;
+    --navy-bg: rgba(30,58,95,0.04);
+    --teal: #0891b2;
+    --teal-deep: #0e7490;
+    --teal-bg: rgba(8,145,178,0.05);
+    --steel: #94a3b8;
+    --steel-bg: rgba(148,163,184,0.08);
+    --warn: #b45309;
+    --warn-bg: rgba(180,83,9,0.04);
+    --alert: #be123c;
+    --alert-bg: rgba(190,18,60,0.04);
+    --rule: #e2e8f0;
+    --rule-faint: rgba(226,232,240,0.5);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink-mid);
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.78;
+    font-size: 16.5px;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 56px 42px 120px; }
+
+  /* Clinical top rule */
+  .top-rule {
+    height: 4px; margin-bottom: 40px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--teal) 50%, var(--steel) 100%);
+    border-radius: 2px;
+  }
+
+  /* Header */
+  .hdr {
+    margin-bottom: 48px;
+    padding-bottom: 28px;
+    border-bottom: 2px solid var(--navy-deep);
+    position: relative;
+  }
+
+  .series-tag {
+    font-family: 'Inconsolata', monospace;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 18px;
+  }
+
+  .lec-num {
+    font-family: 'Lora', serif;
+    font-size: 100px; font-weight: 700;
+    color: var(--navy-deep); opacity: 0.04;
+    position: absolute; right: 0; top: -10px;
+    line-height: 1; pointer-events: none;
+  }
+
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: 44px; font-weight: 700;
+    line-height: 1.1; color: var(--ink);
+    margin-bottom: 8px;
+  }
+  h1 .alt { color: var(--teal-deep); }
+
+  .subtitle {
+    font-family: 'Lora', serif;
+    font-size: 18px; font-weight: 400;
+    font-style: italic; color: var(--ink-soft);
+    line-height: 1.5; max-width: 660px;
+    margin-bottom: 18px;
+  }
+
+  .meta {
+    font-family: 'Inconsolata', monospace;
+    font-size: 11px; color: var(--ink-soft);
+    display: flex; gap: 18px; flex-wrap: wrap;
+  }
+  .meta .hl { color: var(--teal-deep); font-weight: 700; }
+
+  /* Sections */
+  .sn {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-top: 48px; margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: 26px; font-weight: 600;
+    color: var(--ink); margin-bottom: 16px; line-height: 1.25;
+  }
+
+  p { margin-bottom: 16px; text-align: justify; hyphens: auto; }
+  .k { color: var(--navy); font-weight: 700; }
+  .def { color: var(--ink-soft); font-style: italic; }
+  em { font-style: italic; color: var(--ink); }
+
+  /* Dividers */
+  .sep {
+    display: flex; align-items: center; margin: 42px 0; gap: 12px;
+  }
+  .sep .l { flex: 1; height: 1px; background: var(--rule); }
+  .sep .d { width: 6px; height: 6px; background: var(--teal); border-radius: 1px; transform: rotate(45deg); }
+
+  /* Figure */
+  .fig {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--navy);
+    padding: 24px 18px 18px; margin: 34px 0;
+    border-radius: 0 0 4px 4px;
+  }
+  .fig-tag {
+    font-family: 'Inconsolata', monospace;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--teal-deep); margin-bottom: 14px;
+  }
+  .fig svg { display: block; margin: 0 auto; width: 100%; max-width: 740px; }
+  .fig-cap {
+    font-size: 13px; color: var(--ink-soft);
+    text-align: center; margin-top: 12px;
+    line-height: 1.6; font-style: italic;
+  }
+
+  /* Callouts */
+  .note {
+    border-left: 3px solid var(--teal);
+    background: var(--teal-bg);
+    padding: 18px 22px; margin: 26px 0; border-radius: 0 4px 4px 0;
+  }
+  .note .nl { font-family: 'Inconsolata', monospace; font-weight: 700; color: var(--teal-deep); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .note p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.72; }
+
+  .warn {
+    border-left: 3px solid var(--alert);
+    background: var(--alert-bg);
+    padding: 18px 22px; margin: 26px 0; border-radius: 0 4px 4px 0;
+  }
+  .warn .wl { font-family: 'Inconsolata', monospace; font-weight: 700; color: var(--alert); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .warn p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.72; }
+
+  /* Grid cards */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 32px 0; }
+  .gc {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px; padding: 20px;
+    transition: border-color 0.25s;
+  }
+  .gc:hover { border-color: var(--teal); }
+  .gc .tag { font-family: 'Inconsolata', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+  .tag.bio { color: var(--teal-deep); }
+  .tag.eng { color: var(--navy); }
+  .gc h4 { font-family: 'Lora', serif; font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .gc p { font-size: 13.5px; line-height: 1.6; margin-bottom: 0; text-align: left; }
+  .gc strong { color: var(--navy); font-weight: 700; }
+
+  /* Resources */
+  .res {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px; padding: 28px 24px; margin: 36px 0;
+  }
+  .res .rt { font-family: 'Inconsolata', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 18px; }
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ri { background: var(--bg); border: 1px solid var(--rule); border-radius: 3px; padding: 14px 16px; }
+  .ri .rc { font-family: 'Inconsolata', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; font-weight: 700; }
+  .rc.read { color: var(--teal-deep); }
+  .rc.act { color: var(--navy); }
+  .rc.tool { color: var(--warn); }
+  .rc.meas { color: var(--alert); }
+  .ri h5 { font-family: 'Lora', serif; font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .ri p { font-size: 12.5px; line-height: 1.55; margin-bottom: 0; text-align: left; color: var(--ink-soft); }
+
+  /* Citation table */
+  .cite {
+    background: var(--steel-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px; padding: 20px 22px; margin: 36px 0;
+  }
+  .cite .ct { font-family: 'Inconsolata', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 12px; }
+  .cite table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .cite th { font-family: 'Inconsolata', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); }
+  .cite td { padding: 6px 8px; border-bottom: 1px solid var(--rule-faint); color: var(--ink-mid); line-height: 1.5; vertical-align: top; }
+  .cite .ok { font-family: 'Inconsolata', monospace; font-size: 10px; font-weight: 700; color: #059669; }
+  .cite .cav { font-family: 'Inconsolata', monospace; font-size: 10px; font-weight: 700; color: var(--warn); }
+
+  .fn { font-size: 13px; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 22px; margin-top: 54px; line-height: 1.7; }
+  .fn strong { color: var(--ink-mid); font-weight: 700; }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 32px; }
+    .grid, .res-grid { grid-template-columns: 1fr; }
+    .page { padding: 32px 18px 80px; }
+    .lec-num { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-rule"></div>
+
+  <header class="hdr">
+    <div class="lec-num">19</div>
+    <div class="series-tag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 19</div>
+    <h1>Cellular Senescence <span class="alt">&amp; Senolytics</span></h1>
+    <div class="subtitle">Zombie Cells That Refuse to Die Are Poisoning Their Neighbors — and Pharmacology Has Found the First Selective Assassins, Using the Same Logic Software Engineers Use to Pay Down Technical Debt</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Gerontology / Pharmacology</div>
+      <div><span class="hl">Bridge:</span> Software Engineering (Technical Debt)</div>
+      <div><span class="hl">Window:</span> Ages 45–65</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why</div>
+  <h2>The Paradox of Cells That Won't Die</h2>
+
+  <p>In 1961, Leonard Hayflick discovered that normal human cells have a finite replicative lifespan — after approximately 50–70 divisions, they permanently exit the cell cycle and enter a state of irreversible growth arrest. This <span class="k">cellular senescence</span> was initially understood as a tumor-suppression mechanism: a damaged cell that might become cancerous instead shuts itself down, preventing malignant proliferation. The mechanism was protective. But by the early 2000s, a disturbing complication emerged. Senescent cells do not simply go quiet. They remain metabolically active — alive, consuming resources, occupying tissue space — and they begin secreting a toxic cocktail of inflammatory cytokines, proteases, and growth factors that damage neighboring healthy cells. Judith Campisi's lab at the Buck Institute formalized this discovery as the <span class="k">senescence-associated secretory phenotype (SASP)</span> around 2008: senescent cells are not inert retirees — they are <em>actively destructive agents</em> that poison their tissue microenvironment.</p>
+
+  <p>The accumulation problem intensifies exponentially after 50. Senescent cells represent less than 1% of total cells in young adults, but their burden increases 2–5× per decade from middle age onward, concentrating in adipose tissue, skin, lungs, kidneys, and vascular endothelium. By the late fifties, the cumulative SASP output from these cells is a primary driver of the inflammaging (Lecture 12) that underlies every age-related chronic disease. The biological question became: what if you could selectively eliminate senescent cells while leaving healthy cells intact?</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge</div>
+  <h2>Prerequisites: The Zombie Employee Analogy</h2>
+
+  <p>Imagine a large corporation where some employees, after suffering burnout or injury, stop producing work but cannot be fired due to contractual protections. They remain on the payroll, consuming salary and office space. Worse, they actively demoralize their colleagues — spreading negativity, disrupting meetings, and creating hostile working conditions that cause <em>additional</em> productive employees to burn out and become zombified themselves. One zombie employee is manageable. But over decades, as the zombie fraction grows from 1% to 5% to 10%, the organization's productivity collapses — not because the working employees became less capable, but because the cumulative toxic output of the zombies overwhelmed the system. Firing the zombies selectively — without harming productive workers — would restore organizational function far more effectively than hiring more productive workers or giving the existing ones better tools.</p>
+
+  <p>Two essential concepts: first, <span class="k">apoptosis</span> <span class="def">(programmed cell death — the orderly self-destruction mechanism that healthy cells use to remove themselves when damaged, broken down into components and recycled by neighbors without inflammation)</span>. Senescent cells have disabled their own apoptotic machinery, making themselves resistant to the normal death signals. Second, <span class="k">pro-survival networks</span> <span class="def">(the molecular pathways — particularly BCL-2/BCL-xL anti-apoptotic proteins, PI3K/AKT signaling, and p53/p21 cell cycle arrest — that senescent cells upregulate to defend against their own toxic SASP environment)</span>. These survival networks are the "contractual protections" that keep zombie cells alive. Senolytics work by disabling these specific protections.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept</div>
+  <h2>The SASP Cascade, the Senolytic Strategy, and the 50s Inflection</h2>
+
+  <p>The SASP is not a single molecule — it is a coordinated secretome of 40–80 factors including pro-inflammatory cytokines (IL-6, IL-1α, IL-1β, TNF-α), chemokines (IL-8, MCP-1), matrix metalloproteinases (MMP-3, MMP-9), and growth factors (VEGF, TGF-β). This output creates a toxic microenvironment through three mechanisms: <em>paracrine senescence</em> (SASP factors induce senescence in neighboring healthy cells, amplifying the burden exponentially), <em>immune evasion</em> (senescent cells upregulate immune-checkpoint ligands that prevent natural killer cells and macrophages from clearing them), and <em>tissue remodeling</em> (MMPs degrade extracellular matrix, destroying tissue architecture). The combined effect is a self-amplifying inflammatory cascade that drives atherosclerosis, osteoarthritis, pulmonary fibrosis, diabetes, sarcopenia, and neurodegeneration.</p>
+
+  <p>In 2015, James Kirkland and Tamar Tchkonia at the Mayo Clinic published the foundational senolytic discovery. Using transcriptomic analysis of senescent versus non-senescent cells, they identified that senescent cells upregulate specific <span class="k">senescent cell anti-apoptotic pathways (SCAPs)</span> — molecular survival networks that healthy cells do not depend upon. By targeting these pathways selectively, they could induce apoptosis in senescent cells while leaving healthy cells unharmed. The first senolytic combination, <span class="k">dasatinib</span> <span class="def">(a tyrosine kinase inhibitor targeting senescent adipocyte progenitors)</span> plus <span class="k">quercetin</span> <span class="def">(a flavonoid that inhibits BCL-xL and other anti-apoptotic proteins in senescent endothelial cells and fibroblasts)</span>, demonstrated selective senescent cell clearance in aged mice — reducing SASP markers, improving physical function, and extending healthspan by approximately 36%.</p>
+
+  <div class="warn">
+    <div class="wl">The First Human Evidence</div>
+    <p>In 2019, Hickson, Kirkland et al. published the first human clinical trial of senolytics. Nine subjects with diabetic kidney disease received a 3-day oral course of dasatinib (100 mg) plus quercetin (1000 mg). Eleven days later, adipose tissue senescent cell markers (p16<sup>INK4a</sup>, p21<sup>CIP1</sup>, SA-β-gal) were significantly reduced. Circulating SASP factors — including IL-1α, IL-6, MMP-9, and MMP-12 — decreased in blood. The critical insight: the drugs have elimination half-lives under 11 hours, yet the senolytic effect persisted for weeks — because once senescent cells are killed, they do not regenerate. This "hit-and-run" pharmacology means intermittent dosing (days per month, not daily) may be sufficient. Multiple clinical trials are now underway for Alzheimer's, idiopathic pulmonary fibrosis, diabetic kidney disease, and osteoarthritis.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Senescence Cascade &amp; Software Technical Debt Parallel</div>
+    <svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- LEFT: Biological cascade -->
+      <text x="185" y="18" text-anchor="middle" font-family="Inconsolata, monospace" font-size="10" fill="#0e7490" font-weight="700" letter-spacing="1.5">CELLULAR SENESCENCE CASCADE</text>
+
+      <rect x="55" y="34" width="260" height="38" rx="3" fill="rgba(8,145,178,0.06)" stroke="#0891b2" stroke-width="1"/>
+      <text x="185" y="50" text-anchor="middle" font-family="Lora, serif" font-size="13" font-weight="600" fill="#111827">Cell Damage (DNA breaks, telomere erosion)</text>
+      <text x="185" y="66" text-anchor="middle" font-family="Inconsolata, monospace" font-size="9" fill="#6b7280">oxidative stress • oncogene activation • replicative exhaustion</text>
+
+      <line x1="185" y1="72" x2="185" y2="90" stroke="#0891b2" stroke-width="1"/>
+      <polygon points="180,90 185,98 190,90" fill="#0891b2"/>
+
+      <rect x="60" y="100" width="250" height="36" rx="3" fill="#f9fafb" stroke="#1e3a5f" stroke-width="1.2"/>
+      <text x="185" y="116" text-anchor="middle" font-family="Lora, serif" font-size="13" font-weight="600" fill="#111827">Senescence (p16/p21 arrest)</text>
+      <text x="185" y="130" text-anchor="middle" font-family="Inconsolata, monospace" font-size="9" fill="#6b7280">cell exits cycle permanently • tumor suppression</text>
+
+      <line x1="185" y1="136" x2="185" y2="154" stroke="#1e3a5f" stroke-width="1"/>
+      <polygon points="180,154 185,162 190,154" fill="#1e3a5f"/>
+
+      <rect x="40" y="164" width="290" height="50" rx="3" fill="rgba(190,18,60,0.04)" stroke="#be123c" stroke-width="1.2"/>
+      <text x="185" y="182" text-anchor="middle" font-family="Lora, serif" font-size="14" font-weight="700" fill="#be123c">SASP Secretion</text>
+      <text x="185" y="198" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="10.5" fill="#374151">IL-6, IL-1α, TNF-α, MMP-9, MCP-1, VEGF</text>
+      <text x="185" y="210" text-anchor="middle" font-family="Inconsolata, monospace" font-size="9" fill="#be123c">40–80 factors • continuous • amplifying</text>
+
+      <!-- Three downstream arrows -->
+      <line x1="110" y1="214" x2="70" y2="248" stroke="#be123c" stroke-width="1"/>
+      <line x1="185" y1="214" x2="185" y2="248" stroke="#be123c" stroke-width="1"/>
+      <line x1="260" y1="214" x2="300" y2="248" stroke="#be123c" stroke-width="1"/>
+
+      <rect x="20" y="250" width="100" height="44" rx="3" fill="#f9fafb" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="70" y="268" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="10" fill="#374151" font-weight="600">Paracrine</text>
+      <text x="70" y="282" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="9" fill="#6b7280">infects neighbors</text>
+
+      <rect x="135" y="250" width="100" height="44" rx="3" fill="#f9fafb" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="185" y="268" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="10" fill="#374151" font-weight="600">Immune evasion</text>
+      <text x="185" y="282" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="9" fill="#6b7280">avoids clearance</text>
+
+      <rect x="250" y="250" width="100" height="44" rx="3" fill="#f9fafb" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="300" y="268" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="10" fill="#374151" font-weight="600">Tissue damage</text>
+      <text x="300" y="282" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="9" fill="#6b7280">MMPs degrade ECM</text>
+
+      <!-- Feedback loop -->
+      <path d="M 20 272 Q 0 272 0 200 Q 0 130 30 130" stroke="#be123c" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+      <polygon points="30,126 24,130 30,134" fill="#be123c"/>
+      <text x="8" y="200" font-family="Inconsolata, monospace" font-size="8" fill="#be123c" transform="rotate(-90,8,200)">paracrine amplification</text>
+
+      <!-- Senolytic intervention -->
+      <rect x="40" y="316" width="290" height="44" rx="3" fill="rgba(8,145,178,0.08)" stroke="#0891b2" stroke-width="1.5"/>
+      <text x="185" y="334" text-anchor="middle" font-family="Lora, serif" font-size="14" font-weight="700" fill="#0e7490">Senolytic Intervention</text>
+      <text x="185" y="350" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="10.5" fill="#374151">D+Q disables SCAPs → apoptosis of senescent cells only</text>
+
+      <line x1="185" y1="360" x2="185" y2="378" stroke="#059669" stroke-width="1.5"/>
+      <polygon points="180,378 185,386 190,378" fill="#059669"/>
+
+      <rect x="55" y="388" width="260" height="36" rx="3" fill="rgba(5,150,105,0.06)" stroke="#059669" stroke-width="1"/>
+      <text x="185" y="404" text-anchor="middle" font-family="Lora, serif" font-size="13" font-weight="600" fill="#059669">SASP Eliminated • Inflammation ↓</text>
+      <text x="185" y="418" text-anchor="middle" font-family="Inconsolata, monospace" font-size="9" fill="#059669">tissue regeneration resumes • function restored</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="470" stroke="#e2e8f0" stroke-width="1"/>
+
+      <!-- RIGHT: Software technical debt -->
+      <text x="564" y="18" text-anchor="middle" font-family="Inconsolata, monospace" font-size="10" fill="#1e3a5f" font-weight="700" letter-spacing="1.5">SOFTWARE TECHNICAL DEBT PARALLEL</text>
+
+      <!-- Mapping table -->
+      <rect x="405" y="34" width="318" height="200" rx="4" fill="#f9fafb" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="564" y="56" text-anchor="middle" font-family="Inconsolata, monospace" font-size="10" fill="#111827" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="415" y1="64" x2="713" y2="64" stroke="#e2e8f0" stroke-width="0.5"/>
+
+      <text x="488" y="82" text-anchor="middle" font-family="Inconsolata, monospace" font-size="9" fill="#0e7490" font-weight="700">BIOLOGY</text>
+      <text x="640" y="82" text-anchor="middle" font-family="Inconsolata, monospace" font-size="9" fill="#1e3a5f" font-weight="700">SOFTWARE</text>
+      <line x1="564" y1="64" x2="564" y2="226" stroke="#e2e8f0" stroke-width="0.5"/>
+      <line x1="415" y1="90" x2="713" y2="90" stroke="#e2e8f0" stroke-width="0.5"/>
+
+      <text x="488" y="108" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">Senescent cell</text>
+      <text x="640" y="108" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">Legacy code / dead module</text>
+      <line x1="415" y1="116" x2="713" y2="116" stroke="rgba(226,232,240,0.5)" stroke-width="0.5"/>
+
+      <text x="488" y="134" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">SASP output</text>
+      <text x="640" y="134" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">Bug propagation / tech debt interest</text>
+      <line x1="415" y1="142" x2="713" y2="142" stroke="rgba(226,232,240,0.5)" stroke-width="0.5"/>
+
+      <text x="488" y="160" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">Paracrine senescence</text>
+      <text x="640" y="160" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">Debt contagion (coupling)</text>
+      <line x1="415" y1="168" x2="713" y2="168" stroke="rgba(226,232,240,0.5)" stroke-width="0.5"/>
+
+      <text x="488" y="186" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">SCAPs (survival networks)</text>
+      <text x="640" y="186" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">Dependency locks (can't delete)</text>
+      <line x1="415" y1="194" x2="713" y2="194" stroke="rgba(226,232,240,0.5)" stroke-width="0.5"/>
+
+      <text x="488" y="212" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#0e7490" font-weight="600">Senolytic (D+Q)</text>
+      <text x="640" y="212" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#1e3a5f" font-weight="600">Targeted refactoring sprint</text>
+
+      <!-- Key insight -->
+      <rect x="405" y="250" width="318" height="64" rx="4" fill="rgba(30,58,95,0.04)" stroke="#1e3a5f" stroke-width="1"/>
+      <text x="564" y="270" text-anchor="middle" font-family="Inconsolata, monospace" font-size="10" fill="#1e3a5f" font-weight="700" letter-spacing="1">SHARED PRINCIPLE</text>
+      <text x="564" y="290" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11.5" fill="#374151">The cost of carrying dead code / zombie cells is not</text>
+      <text x="564" y="306" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11.5" fill="#1e3a5f" font-weight="700">the space they occupy — it's the damage they inflict</text>
+
+      <!-- Tech debt accumulation curve -->
+      <rect x="405" y="330" width="318" height="90" rx="4" fill="#f9fafb" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="564" y="350" text-anchor="middle" font-family="Inconsolata, monospace" font-size="10" fill="#be123c" font-weight="700" letter-spacing="1">THE REFACTORING WINDOW</text>
+      <text x="420" y="372" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">At 5% debt: refactoring is cheap, system recovers fast</text>
+      <text x="420" y="390" font-family="Public Sans, sans-serif" font-size="11" fill="#374151">At 15% debt: every new feature slows; cascading bugs</text>
+      <text x="420" y="408" font-family="Public Sans, sans-serif" font-size="11" fill="#be123c" font-weight="600">At 30% debt: rewrite required — system unredeemable</text>
+
+      <!-- Bio translation -->
+      <rect x="405" y="434" width="318" height="36" rx="4" fill="rgba(8,145,178,0.06)" stroke="#0891b2" stroke-width="1"/>
+      <text x="564" y="456" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11.5" fill="#0e7490" font-weight="700">The 50s = 5–10% senescent burden. Last efficient window.</text>
+    </svg>
+    <div class="fig-cap">Left: the biological cascade from cell damage to senescence, SASP secretion, paracrine amplification, and senolytic intervention. Right: the identical logic in software engineering — technical debt accumulation, bug propagation, dependency locks, and targeted refactoring sprints. Both systems share a critical insight: the damage is not the dead component itself but its toxic output to neighbors.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination</div>
+  <h2>Software Engineering: Technical Debt, Contagion, and the Refactoring Window</h2>
+
+  <p>In software engineering, <span class="k">technical debt</span> is accumulated code that still "works" but degrades system quality — deprecated libraries, dead modules, tangled dependencies, abandoned features that no one maintains. Ward Cunningham coined the term in 1992 as a financial metaphor: debt accrues interest. Every new feature built atop technical debt costs more to implement, test, and debug than it would in a clean codebase. The parallel to cellular senescence is structural, not metaphorical. A senescent cell is a deprecated module: it no longer performs its original function (cell division, tissue repair) but cannot be removed by normal garbage collection (apoptosis) because it has accumulated dependency locks (SCAPs) that prevent deletion. Worse, it actively generates bugs (SASP) that propagate to neighboring modules (paracrine senescence).</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Gerontology</div>
+      <h4>The Senescent Cell Problem</h4>
+      <p>Senescent cells upregulate <strong>anti-apoptotic survival networks</strong> (BCL-2, BCL-xL, PI3K/AKT) that make them resistant to normal clearance. Their SASP output induces senescence in neighbors — a positive feedback loop. The immune system's natural senolytic capacity (NK cells, macrophages) declines with age, allowing accumulation. By age 55, the system's ability to clear senescent cells is outpaced by their rate of generation.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Software Engineering</div>
+      <h4>The Technical Debt Problem</h4>
+      <p>Legacy modules accumulate <strong>dependency locks</strong> — other components rely on their interfaces even though their internals are broken. Removing them breaks downstream systems. Their buggy output corrupts data flowing through dependent modules — <em>debt contagion</em>. Junior developers (new code) working in a debt-heavy codebase produce worse code. Automated test suites (the immune system) degrade as debt invalidates test assumptions.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">Senolytic Strategy</div>
+      <h4>Hit-and-Run Pharmacology</h4>
+      <p>D+Q acts by <strong>transiently disabling</strong> the survival networks that only senescent cells depend on. Healthy cells, which don't rely on these pathways, are unaffected. Three days of treatment → weeks of benefit, because dead senescent cells don't regenerate. This is not continuous medication — it is intermittent targeted clearing.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Refactoring Strategy</div>
+      <h4>Targeted Refactoring Sprint</h4>
+      <p>Engineers don't rewrite the entire codebase — they identify <strong>high-SASP modules</strong> (the legacy components generating the most bugs per dependency) and refactor those selectively. A focused 1-week sprint removing 3 critical legacy modules can improve system stability more than months of feature development. Intermittent, targeted, high-impact — identical logic.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="nl">The Deepest Parallel: The Refactoring Window Closes</div>
+    <p>Software architects know that technical debt has a <em>compounding</em> cost curve — similar to financial debt. At 5% debt burden, refactoring is cheap and the system recovers quickly. At 15%, every new feature is slowed and cascading bugs emerge. At 30%+, the codebase may be unredeemable — a full rewrite (organ failure) is the only option. The biology is identical. At 50, senescent cell burden is perhaps 3–5% — interventions (exercise, fasting, sleep — all of which reduce senescent cell accumulation via autophagy and immune activation) are maximally effective. By 70, the burden may be 10–15%, paracrine amplification is entrenched, and the SASP-driven inflammatory cascade is self-sustaining. This is why the fifties represent the last efficient refactoring window: the debt is real but still manageable, and the cost of intervention is orders of magnitude lower than the cost of deferred maintenance.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Resources &amp; Activities</div>
+  <h2>Reducing Senescent Cell Burden — Now and Next</h2>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Zhu, Tchkonia, Kirkland et al. (2015)</h5>
+        <p>"The Achilles' heel of senescent cells." <em>Aging Cell</em>, 14(4):644–658. The foundational senolytic paper — identified SCAPs and demonstrated selective senescent cell clearance with D+Q.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Hickson, Kirkland et al. (2019)</h5>
+        <p>"Senolytics decrease senescent cells in humans." <em>EBioMedicine</em>, 47:446–456. First human clinical trial demonstrating senolytic efficacy — the paper that moved the field from mice to medicine.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Natural Senolytic Behaviors</h5>
+        <p>Before pharmacology: exercise activates NK cells and macrophages that clear senescent cells naturally. Fasting/caloric restriction triggers autophagy (Lecture 9) which removes pre-senescent cells before they fully commit. These are your "continuous integration" senolytic tools — use them now.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Dietary Senolytic Compounds</h5>
+        <p>Fisetin (found in strawberries, apples, onions) showed senolytic activity in preclinical studies (Yousefzadeh et al., <em>EBioMedicine</em>, 2018). Quercetin (onions, berries, capers) is the "Q" in D+Q. These are food-derived compounds with favorable safety profiles — not proven senolytics in dietary doses, but reasonable dietary priorities.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Biomarker Tracking for SASP</h5>
+        <p>No direct senescent cell blood test exists yet. But SASP output is detectable: IL-6, TNF-α, MMP-9, and p16<sup>INK4a</sup> in circulating T cells are emerging proxies. Your existing hs-CRP (0.3) suggests low SASP burden — consistent with good metabolic health and active lifestyle.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Clinical Trials to Watch</h5>
+        <p>ClinicalTrials.gov: search "senolytic" — 30+ active trials as of 2025. Key ones: D+Q for Alzheimer's (NCT04685590), D+Q for diabetic kidney disease, fisetin for frailty (NCT03675724). These will define the clinical landscape for the next decade.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Measure</div>
+        <h5>Indirect Proxy Panel</h5>
+        <p>IL-6 + TNF-α + hs-CRP together approximate SASP-driven inflammaging burden. If all three are low, senescent cell burden is likely manageable. If IL-6 and TNF-α are elevated while CRP is moderate, SASP may be the specific driver worth investigating.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>Lecture Integration</h5>
+        <p>Senescent cells are the upstream <em>source</em> of the inflammaging cascade (Lec 12), SASP cytokines drive the cortisol/CTRA dysregulation (Lec 15), SASP MMPs degrade muscle extracellular matrix accelerating sarcopenia (Lec 13), and the hormetic response (Lec 11) is the body's primary tool for preventing senescence in the first place.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>SCAPs identified; D+Q selectively clears senescent cells in aged mice; healthspan extension</td>
+        <td>Zhu, Tchkonia et al., <em>Aging Cell</em>, 2015;14(4):644–658</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>First human trial: 3-day D+Q (100mg D / 1000mg Q) reduced p16, p21, SA-β-gal, IL-6, MMP-9 in 9 DKD subjects within 11 days</td>
+        <td>Hickson, Kirkland et al., <em>EBioMedicine</em>, 2019;47:446–456</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>SASP formalized as coordinated secretome; 40–80 factors including IL-6, IL-1α, TNF-α, MMPs</td>
+        <td>Coppé et al., <em>PLoS Biol.</em>, 2008;6(12):e301; Campisi lab</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>D+Q half-lives &lt;11 hours; "hit-and-run" pharmacology</td>
+        <td>Hickson et al., 2019; Kirkland &amp; Tchkonia, 2020</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>D+Q attenuates adipose tissue inflammation, improves metabolic function in aged mice</td>
+        <td>Islam et al., <em>Aging Cell</em>, 2023;22(2):e13767</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Paracrine senescence — SASP induces senescence in neighboring healthy cells</td>
+        <td>Acosta et al., <em>Cell</em>, 2013;155(5):1104–1118</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Senescent cells &lt;1% in young, increasing 2–5× per decade from middle age</td>
+        <td>Multiple reviews; Borghesan et al., <em>Trends Cell Biol.</em>, 2020</td>
+        <td><span class="cav">⚠ Estimates vary by tissue; 2–5× per decade is a consensus range across adipose, skin, and lung — exact percentages depend on measurement method (p16 vs. SA-β-gal)</span></td>
+      </tr>
+      <tr>
+        <td>Hayflick limit: ~50–70 divisions for normal human cells</td>
+        <td>Hayflick &amp; Moorhead, <em>Exp. Cell Res.</em>, 1961;25:585–621</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Hayflick, L. &amp; Moorhead, P.S. (1961). "The serial cultivation of human diploid cell strains." <em>Exp. Cell Res.</em>, 25:585–621. &nbsp;|&nbsp; Coppé, J.-P. et al. (2008). "Senescence-associated secretory phenotypes." <em>PLoS Biol.</em>, 6(12):e301. &nbsp;|&nbsp; Zhu, Y. et al. (2015). "The Achilles' heel of senescent cells." <em>Aging Cell</em>, 14(4):644–658. &nbsp;|&nbsp; Hickson, L.J. et al. (2019). "Senolytics decrease senescent cells in humans." <em>EBioMedicine</em>, 47:446–456. &nbsp;|&nbsp; Islam, M.T. et al. (2023). "Senolytic drugs attenuate adipose tissue inflammation." <em>Aging Cell</em>, 22(2):e13767. &nbsp;|&nbsp; Acosta, J.C. et al. (2013). "A complex secretory program orchestrated by the inflammasome controls paracrine senescence." <em>Cell</em>, 155(5):1104–1118.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_cellular_senescence_senolytics",
+  "related": [
+    {
+      "id": "lecture_inflammaging",
+      "title": "Inflammaging",
+      "filename": "lecture_inflammaging.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_stem_cell_exhaustion",
+      "title": "Stem Cell Exhaustion & the Regeneration Deficit",
+      "filename": "lecture_stem_cell_exhaustion.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_proteostasis_collapse",
+      "title": "Proteostasis Collapse & the Protein Quality Crisis",
+      "filename": "lecture_proteostasis_collapse.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_telomere_attrition_stress",
+      "title": "Telomere Attrition & Psychobiological Stress",
+      "filename": "lecture_telomere_attrition_stress.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Stress & Resilience"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>
