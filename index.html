@@ -4,7 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Longevity & Wellness — Interdisciplinary Lecture Series</title>
+<meta name="description" content="An ongoing library of interdisciplinary lectures on the science of aging — from molecular mechanisms to social biology. New lectures added weekly.">
+<meta property="og:title" content="Longevity & Wellness — Interdisciplinary Lecture Series">
+<meta property="og:description" content="An ongoing library of lectures on the science of aging — from molecular mechanisms to social biology. New lectures added weekly.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Longevity & Wellness — Interdisciplinary Lecture Series">
+<meta name="twitter:description" content="An ongoing library of lectures on the science of aging — from molecular mechanisms to social biology.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;0,6..72,800;1,6..72,400&family=Manrope:wght@300;400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet">
+<!-- Replace YOUR_DOMAIN below with your actual domain after setting up Plausible (plausible.io) -->
+<!-- <script defer data-domain="YOUR_DOMAIN" src="https://plausible.io/js/script.js"></script> -->
 <style>
 :root {
   --bg:         #f9f7f3;
@@ -234,14 +244,50 @@ body {
 }
 .clear-all:hover { color: var(--ink); }
 
-/* ── Results header ──────────────────────────────── */
+/* ── Results row (count + sort toggle) ──────────── */
+.results-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .results-hdr {
   font-family: 'Fragment Mono', monospace;
   font-size: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--ink-soft);
-  margin-bottom: 20px;
+}
+
+.sort-btn {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sort-btn:hover { color: var(--amber); }
+
+/* ── New badge ───────────────────────────────────── */
+.badge-new {
+  font-family: 'Fragment Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 100px;
+  background: var(--amber);
+  color: #fff;
+  margin-left: 2px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
 }
 
 /* ── Grid ────────────────────────────────────────── */
@@ -398,7 +444,10 @@ body {
     <button class="clear-all" id="clear-all">Clear all</button>
   </div>
 
-  <div class="results-hdr" id="results-hdr"></div>
+  <div class="results-row">
+    <div class="results-hdr" id="results-hdr"></div>
+    <button class="sort-btn" id="sort-btn">Newest first ↓</button>
+  </div>
 
   <div class="grid" id="grid"></div>
 
@@ -1523,7 +1572,14 @@ body {
 
   // ── State ──────────────────────────────────────────
   const active = { mechanism: new Set(), system: new Set(), theme: new Set(), intervention: new Set() };
-  let query = '';
+  let query     = '';
+  let sortOrder = 'newest'; // 'newest' | 'az'
+
+  const NEW_DAYS = 14;
+  function isNew(lec) {
+    if (!lec.added) return false;
+    return (Date.now() - new Date(lec.added).getTime()) / 864e5 <= NEW_DAYS;
+  }
 
   // ── Build filter pills ──────────────────────────────
   document.querySelectorAll('.pills').forEach(container => {
@@ -1558,18 +1614,12 @@ body {
   }
 
   function filteredLectures() {
-    return lectures.filter(lec => {
-      // search across title + description + all tags
+    let results = lectures.filter(lec => {
       if (query) {
         const q = query.toLowerCase();
-        const blob = [
-          lec.title,
-          lec.description,
-          ...Object.values(lec.tags).flat()
-        ].join(' ').toLowerCase();
+        const blob = [lec.title, lec.description, ...Object.values(lec.tags).flat()].join(' ').toLowerCase();
         if (!blob.includes(q)) return false;
       }
-      // filters: AND across groups, OR within group
       for (const [group, selected] of Object.entries(active)) {
         if (selected.size === 0) continue;
         const lecTags = new Set(lec.tags[group] || []);
@@ -1577,6 +1627,16 @@ body {
       }
       return true;
     });
+
+    if (sortOrder === 'az') {
+      results = [...results].sort((a, b) => a.title.localeCompare(b.title));
+    } else {
+      results = [...results].sort((a, b) => {
+        const diff = new Date(b.added || 0) - new Date(a.added || 0);
+        return diff !== 0 ? diff : a.title.localeCompare(b.title);
+      });
+    }
+    return results;
   }
 
   // ── Render ──────────────────────────────────────────
@@ -1650,9 +1710,11 @@ body {
         `<span class="card-tag ${color}">${tag}</span>`
       ).join('');
 
+      const newBadge = isNew(lec) ? '<span class="badge-new">New</span>' : '';
+
       card.innerHTML = `
         <div class="card-tags">${tagsHTML}</div>
-        <div class="card-title">${lec.title}</div>
+        <div class="card-title">${lec.title}${newBadge}</div>
         <div class="card-desc">${lec.description}</div>
         <div class="card-read">Read lecture →</div>
       `;
@@ -1702,6 +1764,26 @@ body {
     const str = p.toString();
     history.replaceState(null, '', str ? '?' + str : location.pathname);
   }
+
+  // ── Sort toggle ─────────────────────────────────────
+  document.getElementById('sort-btn').addEventListener('click', function () {
+    sortOrder = sortOrder === 'newest' ? 'az' : 'newest';
+    this.textContent = sortOrder === 'newest' ? 'Newest first ↓' : 'A–Z ↑';
+    render();
+  });
+
+  // ── Keyboard shortcuts ───────────────────────────────
+  document.addEventListener('keydown', e => {
+    const search = document.getElementById('search');
+    if (e.key === '/' && document.activeElement !== search && !e.metaKey && !e.ctrlKey) {
+      e.preventDefault();
+      search.focus();
+    }
+    if (e.key === 'Escape' && document.activeElement === search) {
+      search.blur();
+      if (query) { query = ''; search.value = ''; render(); }
+    }
+  });
 
   // wrap render to also save URL
   const _render = render;
