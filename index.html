@@ -193,10 +193,24 @@ body {
 
 .pill:hover { border-color: currentColor; }
 
-.pill.active.mech  { background: var(--amber-pill);  color: var(--amber-deep); border-color: var(--amber); }
-.pill.active.sys   { background: var(--slate-pill);  color: var(--slate);      border-color: var(--slate); }
-.pill.active.theme { background: var(--green-pill);  color: var(--green);      border-color: var(--green); }
-.pill.active.inter { background: var(--teal-pill);   color: var(--teal);       border-color: var(--teal);  }
+.pill.active.mech  { background: var(--amber);  color: #fff; border-color: var(--amber);  }
+.pill.active.sys   { background: var(--slate);  color: #fff; border-color: var(--slate);  }
+.pill.active.theme { background: var(--green);  color: #fff; border-color: var(--green);  }
+.pill.active.inter { background: var(--teal);   color: #fff; border-color: var(--teal);   }
+
+/* ── Filter results count ────────────────────────── */
+.filter-count {
+  display: none;
+  font-family: 'Fragment Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  color: var(--ink-soft);
+  padding-top: 10px;
+  border-top: 1px solid var(--rule-light);
+  margin-top: 4px;
+}
+.filter-count.visible { display: block; }
+.filter-count strong { color: var(--ink-mid); }
 
 /* ── Active filter bar ───────────────────────────── */
 .active-bar {
@@ -459,6 +473,7 @@ body {
       <div class="filter-label inter">What to Do</div>
       <div class="pills" data-group="intervention" data-color="inter"></div>
     </div>
+    <div class="filter-count" id="filter-count"></div>
   </nav>
 
   <div class="active-bar" id="active-bar">
@@ -1808,6 +1823,17 @@ body {
         : results.length + ' of ' + lectures.length + ' lectures';
     } else {
       hdr.textContent = lectures.length + ' lectures';
+    }
+
+    // filter count badge (inside filter panel)
+    const filterCount = document.getElementById('filter-count');
+    if (hasActiveFilters()) {
+      filterCount.innerHTML = results.length === 0
+        ? 'No lectures match'
+        : '<strong>' + results.length + '</strong> of ' + lectures.length + ' match';
+      filterCount.classList.add('visible');
+    } else {
+      filterCount.classList.remove('visible');
     }
     document.getElementById('total-count').textContent = lectures.length + ' lectures';
 
