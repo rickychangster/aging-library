@@ -1,10 +1,38 @@
 {
-  "generated": "2026-04-24",
+  "generated": "2026-04-28",
   "taxonomy": {
-    "mechanism": ["Genetic & Epigenetic", "Mitochondrial & Energy", "Cellular Cleanup", "Structural Integrity", "Adaptive Stress"],
-    "system":    ["Brain & Cognition", "Nervous System", "Gut & Digestion", "Musculoskeletal", "Cardiovascular", "Immune System"],
-    "theme":     ["Biological Clocks", "Chronic Inflammation", "Mind-Body Axes", "Sleep & Recovery", "Stress & Resilience", "Social & Meaning", "Systems Thinking"],
-    "intervention": ["Move & Exercise", "Eat & Fast", "Sleep Better", "Manage Stress", "Connect Socially", "Measure Yourself"]
+    "mechanism": [
+      "Genetic & Epigenetic",
+      "Mitochondrial & Energy",
+      "Cellular Cleanup",
+      "Structural Integrity",
+      "Adaptive Stress"
+    ],
+    "system": [
+      "Brain & Cognition",
+      "Nervous System",
+      "Gut & Digestion",
+      "Musculoskeletal",
+      "Cardiovascular",
+      "Immune System"
+    ],
+    "theme": [
+      "Biological Clocks",
+      "Chronic Inflammation",
+      "Mind-Body Axes",
+      "Sleep & Recovery",
+      "Stress & Resilience",
+      "Social & Meaning",
+      "Systems Thinking"
+    ],
+    "intervention": [
+      "Move & Exercise",
+      "Eat & Fast",
+      "Sleep Better",
+      "Manage Stress",
+      "Connect Socially",
+      "Measure Yourself"
+    ]
   },
   "lectures": [
     {
@@ -14,12 +42,27 @@
       "filename": "lectures/lecture_age_crosslinking_ecm.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity"],
-        "system":    ["Cardiovascular", "Musculoskeletal"],
-        "theme":     ["Chronic Inflammation"],
-        "intervention": ["Eat & Fast", "Move & Exercise"]
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_cellular_senescence_senolytics", "lecture_metabolic_inflexibility", "lecture_lymphatic_decline", "lecture_mechanotransduction"]
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_metabolic_inflexibility",
+        "lecture_lymphatic_decline",
+        "lecture_mechanotransduction"
+      ]
     },
     {
       "id": "lecture_autonomic_hrv",
@@ -28,12 +71,29 @@
       "filename": "lectures/lecture_autonomic_hrv.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Nervous System", "Cardiovascular"],
-        "theme":     ["Stress & Resilience", "Biological Clocks"],
-        "intervention": ["Move & Exercise", "Manage Stress", "Measure Yourself"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Nervous System",
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Manage Stress",
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_cortisol_hpa_axis", "lecture_vo2max_capacity_margin", "lecture_sleep_architecture_emotion", "lecture_circadian_desynchronization"]
+      "related": [
+        "lecture_cortisol_hpa_axis",
+        "lecture_vo2max_capacity_margin",
+        "lecture_sleep_architecture_emotion",
+        "lecture_circadian_desynchronization"
+      ]
     },
     {
       "id": "lecture_bone_brain_osteocalcin",
@@ -42,12 +102,27 @@
       "filename": "lectures/lecture_bone_brain_osteocalcin.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity", "Adaptive Stress"],
-        "system":    ["Musculoskeletal", "Brain & Cognition"],
-        "theme":     ["Mind-Body Axes"],
-        "intervention": ["Move & Exercise"]
+        "mechanism": [
+          "Structural Integrity",
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Musculoskeletal",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_mechanotransduction", "lecture_brain_insulin_resistance", "lecture_postural_stability_cognition", "lecture_metabolic_inflexibility"]
+      "related": [
+        "lecture_mechanotransduction",
+        "lecture_brain_insulin_resistance",
+        "lecture_postural_stability_cognition",
+        "lecture_metabolic_inflexibility"
+      ]
     },
     {
       "id": "lecture_brain_insulin_resistance",
@@ -56,12 +131,27 @@
       "filename": "lectures/lecture_brain_insulin_resistance.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Mitochondrial & Energy"],
-        "system":    ["Brain & Cognition"],
-        "theme":     ["Mind-Body Axes", "Chronic Inflammation"],
-        "intervention": ["Eat & Fast", "Move & Exercise"]
+        "mechanism": [
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes",
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_metabolic_inflexibility", "lecture_mitochondrial_dysfunction", "lecture_cognitive_reserve", "lecture_gut_brain_psychobiotics"]
+      "related": [
+        "lecture_metabolic_inflexibility",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_cognitive_reserve",
+        "lecture_gut_brain_psychobiotics"
+      ]
     },
     {
       "id": "lecture_cellular_senescence_senolytics",
@@ -70,12 +160,26 @@
       "filename": "lectures/lecture_cellular_senescence_senolytics.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Cellular Cleanup"],
-        "system":    ["Immune System"],
-        "theme":     ["Chronic Inflammation"],
-        "intervention": ["Eat & Fast", "Move & Exercise"]
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_inflammaging", "lecture_stem_cell_exhaustion", "lecture_proteostasis_collapse", "lecture_telomere_attrition_stress"]
+      "related": [
+        "lecture_inflammaging",
+        "lecture_stem_cell_exhaustion",
+        "lecture_proteostasis_collapse",
+        "lecture_telomere_attrition_stress"
+      ]
     },
     {
       "id": "lecture_circadian_desynchronization",
@@ -84,12 +188,26 @@
       "filename": "lectures/lecture_circadian_desynchronization.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Genetic & Epigenetic"],
-        "system":    ["Nervous System"],
-        "theme":     ["Biological Clocks", "Sleep & Recovery"],
-        "intervention": ["Sleep Better"]
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Nervous System"
+        ],
+        "theme": [
+          "Biological Clocks",
+          "Sleep & Recovery"
+        ],
+        "intervention": [
+          "Sleep Better"
+        ]
       },
-      "related": ["lecture_peripheral_clock_desynchronization", "lecture_sleep_architecture_emotion", "lecture_cortisol_hpa_axis", "lecture_autonomic_hrv"]
+      "related": [
+        "lecture_peripheral_clock_desynchronization",
+        "lecture_sleep_architecture_emotion",
+        "lecture_cortisol_hpa_axis",
+        "lecture_autonomic_hrv"
+      ]
     },
     {
       "id": "lecture_cognitive_reserve",
@@ -98,12 +216,27 @@
       "filename": "lectures/lecture_cognitive_reserve.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition"],
-        "theme":     ["Systems Thinking", "Social & Meaning"],
-        "intervention": ["Move & Exercise", "Connect Socially"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Connect Socially"
+        ]
       },
-      "related": ["lecture_white_matter_fitness", "lecture_glymphatic_system", "lecture_social_integration", "lecture_hearing_loss_cognition"]
+      "related": [
+        "lecture_white_matter_fitness",
+        "lecture_glymphatic_system",
+        "lecture_social_integration",
+        "lecture_hearing_loss_cognition"
+      ]
     },
     {
       "id": "lecture_compressed_sensing",
@@ -112,12 +245,25 @@
       "filename": "lectures/lecture_compressed_sensing.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition"],
-        "theme":     ["Systems Thinking"],
-        "intervention": ["Measure Yourself"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_multi_omic_aging_clocks", "lecture_cognitive_reserve", "lecture_hysteresis", "lecture_glymphatic_system"]
+      "related": [
+        "lecture_multi_omic_aging_clocks",
+        "lecture_cognitive_reserve",
+        "lecture_hysteresis",
+        "lecture_glymphatic_system"
+      ]
     },
     {
       "id": "lecture_cortisol_hpa_axis",
@@ -126,12 +272,28 @@
       "filename": "lectures/lecture_cortisol_hpa_axis.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Nervous System", "Immune System"],
-        "theme":     ["Stress & Resilience", "Biological Clocks"],
-        "intervention": ["Manage Stress", "Sleep Better"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Nervous System",
+          "Immune System"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Manage Stress",
+          "Sleep Better"
+        ]
       },
-      "related": ["lecture_telomere_attrition_stress", "lecture_autonomic_hrv", "lecture_inflammaging", "lecture_sleep_architecture_emotion"]
+      "related": [
+        "lecture_telomere_attrition_stress",
+        "lecture_autonomic_hrv",
+        "lecture_inflammaging",
+        "lecture_sleep_architecture_emotion"
+      ]
     },
     {
       "id": "lecture_epigenetic_clocks",
@@ -140,12 +302,25 @@
       "filename": "lectures/lecture_epigenetic_clocks.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Genetic & Epigenetic"],
-        "system":    ["Immune System"],
-        "theme":     ["Biological Clocks"],
-        "intervention": ["Measure Yourself"]
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_multi_omic_aging_clocks", "lecture_telomere_attrition_stress", "lecture_nad_sirtuin_decline", "lecture_cellular_senescence_senolytics"]
+      "related": [
+        "lecture_multi_omic_aging_clocks",
+        "lecture_telomere_attrition_stress",
+        "lecture_nad_sirtuin_decline",
+        "lecture_cellular_senescence_senolytics"
+      ]
     },
     {
       "id": "lecture_glymphatic_system",
@@ -154,12 +329,25 @@
       "filename": "lectures/lecture_glymphatic_system.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Cellular Cleanup"],
-        "system":    ["Brain & Cognition"],
-        "theme":     ["Sleep & Recovery"],
-        "intervention": ["Sleep Better"]
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Sleep & Recovery"
+        ],
+        "intervention": [
+          "Sleep Better"
+        ]
       },
-      "related": ["lecture_sleep_architecture_emotion", "lecture_proteostasis_collapse", "lecture_lymphatic_decline", "lecture_cognitive_reserve"]
+      "related": [
+        "lecture_sleep_architecture_emotion",
+        "lecture_proteostasis_collapse",
+        "lecture_lymphatic_decline",
+        "lecture_cognitive_reserve"
+      ]
     },
     {
       "id": "lecture_gut_brain_psychobiotics",
@@ -168,12 +356,27 @@
       "filename": "lectures/lecture_gut_brain_psychobiotics.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Gut & Digestion", "Brain & Cognition"],
-        "theme":     ["Mind-Body Axes"],
-        "intervention": ["Eat & Fast", "Manage Stress"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Gut & Digestion",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Manage Stress"
+        ]
       },
-      "related": ["lecture_gut_microbiome_diversity", "lecture_brain_insulin_resistance", "lecture_cortisol_hpa_axis", "lecture_inflammaging"]
+      "related": [
+        "lecture_gut_microbiome_diversity",
+        "lecture_brain_insulin_resistance",
+        "lecture_cortisol_hpa_axis",
+        "lecture_inflammaging"
+      ]
     },
     {
       "id": "lecture_gut_microbiome_diversity",
@@ -182,12 +385,27 @@
       "filename": "lectures/lecture_gut_microbiome_diversity.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Gut & Digestion", "Immune System"],
-        "theme":     ["Chronic Inflammation", "Mind-Body Axes"],
-        "intervention": ["Eat & Fast"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Gut & Digestion",
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Eat & Fast"
+        ]
       },
-      "related": ["lecture_gut_brain_psychobiotics", "lecture_inflammaging", "lecture_oral_systemic_axis", "lecture_metabolic_inflexibility"]
+      "related": [
+        "lecture_gut_brain_psychobiotics",
+        "lecture_inflammaging",
+        "lecture_oral_systemic_axis",
+        "lecture_metabolic_inflexibility"
+      ]
     },
     {
       "id": "lecture_hearing_loss_cognition",
@@ -196,12 +414,28 @@
       "filename": "lectures/lecture_hearing_loss_cognition.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity"],
-        "system":    ["Nervous System", "Brain & Cognition"],
-        "theme":     ["Mind-Body Axes", "Social & Meaning"],
-        "intervention": ["Connect Socially", "Measure Yourself"]
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Nervous System",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Mind-Body Axes",
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Connect Socially",
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_cognitive_reserve", "lecture_social_integration", "lecture_proprioceptive_decay", "lecture_purpose_meaning_longevity"]
+      "related": [
+        "lecture_cognitive_reserve",
+        "lecture_social_integration",
+        "lecture_proprioceptive_decay",
+        "lecture_purpose_meaning_longevity"
+      ]
     },
     {
       "id": "lecture_hormesis",
@@ -210,12 +444,27 @@
       "filename": "lectures/lecture_hormesis.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Immune System"],
-        "theme":     ["Stress & Resilience"],
-        "intervention": ["Move & Exercise", "Eat & Fast", "Manage Stress"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast",
+          "Manage Stress"
+        ]
       },
-      "related": ["lecture_mitochondrial_dysfunction", "lecture_telomere_attrition_stress", "lecture_vo2max_capacity_margin", "lecture_cellular_senescence_senolytics"]
+      "related": [
+        "lecture_mitochondrial_dysfunction",
+        "lecture_telomere_attrition_stress",
+        "lecture_vo2max_capacity_margin",
+        "lecture_cellular_senescence_senolytics"
+      ]
     },
     {
       "id": "lecture_hysteresis",
@@ -224,12 +473,23 @@
       "filename": "lectures/lecture_hysteresis.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition"],
-        "theme":     ["Systems Thinking"],
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking"
+        ],
         "intervention": []
       },
-      "related": ["lecture_inflammaging", "lecture_cognitive_reserve", "lecture_compressed_sensing", "lecture_hormesis"]
+      "related": [
+        "lecture_inflammaging",
+        "lecture_cognitive_reserve",
+        "lecture_compressed_sensing",
+        "lecture_hormesis"
+      ]
     },
     {
       "id": "lecture_inflammaging",
@@ -238,12 +498,27 @@
       "filename": "lectures/lecture_inflammaging.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Cellular Cleanup"],
-        "system":    ["Immune System"],
-        "theme":     ["Chronic Inflammation"],
-        "intervention": ["Eat & Fast", "Move & Exercise", "Manage Stress"]
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise",
+          "Manage Stress"
+        ]
       },
-      "related": ["lecture_cellular_senescence_senolytics", "lecture_gut_microbiome_diversity", "lecture_mitochondrial_dysfunction", "lecture_nad_sirtuin_decline"]
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_gut_microbiome_diversity",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_nad_sirtuin_decline"
+      ]
     },
     {
       "id": "lecture_lymphatic_decline",
@@ -252,12 +527,26 @@
       "filename": "lectures/lecture_lymphatic_decline.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity"],
-        "system":    ["Immune System", "Cardiovascular"],
-        "theme":     ["Chronic Inflammation"],
-        "intervention": ["Move & Exercise"]
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Immune System",
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_glymphatic_system", "lecture_inflammaging", "lecture_age_crosslinking_ecm", "lecture_mechanotransduction"]
+      "related": [
+        "lecture_glymphatic_system",
+        "lecture_inflammaging",
+        "lecture_age_crosslinking_ecm",
+        "lecture_mechanotransduction"
+      ]
     },
     {
       "id": "lecture_mechanotransduction",
@@ -266,12 +555,25 @@
       "filename": "lectures/lecture_mechanotransduction.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity"],
-        "system":    ["Musculoskeletal"],
-        "theme":     ["Mind-Body Axes"],
-        "intervention": ["Move & Exercise"]
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_bone_brain_osteocalcin", "lecture_postural_stability_cognition", "lecture_age_crosslinking_ecm", "lecture_stem_cell_exhaustion"]
+      "related": [
+        "lecture_bone_brain_osteocalcin",
+        "lecture_postural_stability_cognition",
+        "lecture_age_crosslinking_ecm",
+        "lecture_stem_cell_exhaustion"
+      ]
     },
     {
       "id": "lecture_metabolic_inflexibility",
@@ -280,12 +582,27 @@
       "filename": "lectures/lecture_metabolic_inflexibility.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Mitochondrial & Energy"],
-        "system":    ["Cardiovascular", "Gut & Digestion"],
-        "theme":     ["Chronic Inflammation"],
-        "intervention": ["Eat & Fast", "Move & Exercise"]
+        "mechanism": [
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Gut & Digestion"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_brain_insulin_resistance", "lecture_mitochondrial_dysfunction", "lecture_nad_sirtuin_decline", "lecture_peripheral_clock_desynchronization"]
+      "related": [
+        "lecture_brain_insulin_resistance",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_nad_sirtuin_decline",
+        "lecture_peripheral_clock_desynchronization"
+      ]
     },
     {
       "id": "lecture_mitochondrial_dysfunction",
@@ -294,12 +611,27 @@
       "filename": "lectures/lecture_mitochondrial_dysfunction.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Mitochondrial & Energy"],
-        "system":    ["Immune System"],
-        "theme":     ["Chronic Inflammation", "Stress & Resilience"],
-        "intervention": ["Move & Exercise", "Eat & Fast"]
+        "mechanism": [
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast"
+        ]
       },
-      "related": ["lecture_nad_sirtuin_decline", "lecture_metabolic_inflexibility", "lecture_hormesis", "lecture_proteostasis_collapse"]
+      "related": [
+        "lecture_nad_sirtuin_decline",
+        "lecture_metabolic_inflexibility",
+        "lecture_hormesis",
+        "lecture_proteostasis_collapse"
+      ]
     },
     {
       "id": "lecture_multi_omic_aging_clocks",
@@ -308,12 +640,25 @@
       "filename": "lectures/lecture_multi_omic_aging_clocks.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Genetic & Epigenetic"],
-        "system":    ["Immune System"],
-        "theme":     ["Biological Clocks"],
-        "intervention": ["Measure Yourself"]
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_epigenetic_clocks", "lecture_nad_sirtuin_decline", "lecture_metabolic_inflexibility", "lecture_compressed_sensing"]
+      "related": [
+        "lecture_epigenetic_clocks",
+        "lecture_nad_sirtuin_decline",
+        "lecture_metabolic_inflexibility",
+        "lecture_compressed_sensing"
+      ]
     },
     {
       "id": "lecture_nad_sirtuin_decline",
@@ -322,12 +667,28 @@
       "filename": "lectures/lecture_nad_sirtuin_decline.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Mitochondrial & Energy", "Genetic & Epigenetic"],
-        "system":    ["Immune System"],
-        "theme":     ["Biological Clocks", "Chronic Inflammation"],
-        "intervention": ["Eat & Fast", "Measure Yourself"]
+        "mechanism": [
+          "Mitochondrial & Energy",
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Biological Clocks",
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_mitochondrial_dysfunction", "lecture_epigenetic_clocks", "lecture_metabolic_inflexibility", "lecture_cellular_senescence_senolytics"]
+      "related": [
+        "lecture_mitochondrial_dysfunction",
+        "lecture_epigenetic_clocks",
+        "lecture_metabolic_inflexibility",
+        "lecture_cellular_senescence_senolytics"
+      ]
     },
     {
       "id": "lecture_oral_systemic_axis",
@@ -336,12 +697,28 @@
       "filename": "lectures/lecture_oral_systemic_axis.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Cellular Cleanup"],
-        "system":    ["Gut & Digestion", "Cardiovascular", "Immune System"],
-        "theme":     ["Chronic Inflammation", "Mind-Body Axes"],
-        "intervention": ["Manage Stress"]
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Gut & Digestion",
+          "Cardiovascular",
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Manage Stress"
+        ]
       },
-      "related": ["lecture_inflammaging", "lecture_gut_microbiome_diversity", "lecture_age_crosslinking_ecm", "lecture_cellular_senescence_senolytics"]
+      "related": [
+        "lecture_inflammaging",
+        "lecture_gut_microbiome_diversity",
+        "lecture_age_crosslinking_ecm",
+        "lecture_cellular_senescence_senolytics"
+      ]
     },
     {
       "id": "lecture_peripheral_clock_desynchronization",
@@ -350,12 +727,28 @@
       "filename": "lectures/lecture_peripheral_clock_desynchronization.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Genetic & Epigenetic"],
-        "system":    ["Nervous System", "Gut & Digestion"],
-        "theme":     ["Biological Clocks", "Sleep & Recovery"],
-        "intervention": ["Sleep Better", "Eat & Fast"]
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Nervous System",
+          "Gut & Digestion"
+        ],
+        "theme": [
+          "Biological Clocks",
+          "Sleep & Recovery"
+        ],
+        "intervention": [
+          "Sleep Better",
+          "Eat & Fast"
+        ]
       },
-      "related": ["lecture_circadian_desynchronization", "lecture_metabolic_inflexibility", "lecture_gut_microbiome_diversity", "lecture_cortisol_hpa_axis"]
+      "related": [
+        "lecture_circadian_desynchronization",
+        "lecture_metabolic_inflexibility",
+        "lecture_gut_microbiome_diversity",
+        "lecture_cortisol_hpa_axis"
+      ]
     },
     {
       "id": "lecture_postural_stability_cognition",
@@ -364,12 +757,27 @@
       "filename": "lectures/lecture_postural_stability_cognition.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity"],
-        "system":    ["Musculoskeletal", "Brain & Cognition", "Nervous System"],
-        "theme":     ["Mind-Body Axes"],
-        "intervention": ["Move & Exercise"]
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Musculoskeletal",
+          "Brain & Cognition",
+          "Nervous System"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_proprioceptive_decay", "lecture_mechanotransduction", "lecture_cognitive_reserve", "lecture_bone_brain_osteocalcin"]
+      "related": [
+        "lecture_proprioceptive_decay",
+        "lecture_mechanotransduction",
+        "lecture_cognitive_reserve",
+        "lecture_bone_brain_osteocalcin"
+      ]
     },
     {
       "id": "lecture_proprioceptive_decay",
@@ -378,12 +786,26 @@
       "filename": "lectures/lecture_proprioceptive_decay.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity"],
-        "system":    ["Nervous System", "Musculoskeletal"],
-        "theme":     ["Mind-Body Axes"],
-        "intervention": ["Move & Exercise"]
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Nervous System",
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Mind-Body Axes"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_postural_stability_cognition", "lecture_mechanotransduction", "lecture_hearing_loss_cognition", "lecture_autonomic_hrv"]
+      "related": [
+        "lecture_postural_stability_cognition",
+        "lecture_mechanotransduction",
+        "lecture_hearing_loss_cognition",
+        "lecture_autonomic_hrv"
+      ]
     },
     {
       "id": "lecture_proteostasis_collapse",
@@ -392,12 +814,27 @@
       "filename": "lectures/lecture_proteostasis_collapse.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Cellular Cleanup"],
-        "system":    ["Brain & Cognition", "Immune System"],
-        "theme":     ["Chronic Inflammation"],
-        "intervention": ["Eat & Fast", "Manage Stress"]
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Manage Stress"
+        ]
       },
-      "related": ["lecture_cellular_senescence_senolytics", "lecture_mitochondrial_dysfunction", "lecture_stem_cell_exhaustion", "lecture_glymphatic_system"]
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_mitochondrial_dysfunction",
+        "lecture_stem_cell_exhaustion",
+        "lecture_glymphatic_system"
+      ]
     },
     {
       "id": "lecture_purpose_meaning_longevity",
@@ -406,12 +843,25 @@
       "filename": "lectures/lecture_purpose_meaning_longevity.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition"],
-        "theme":     ["Social & Meaning"],
-        "intervention": ["Connect Socially"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Connect Socially"
+        ]
       },
-      "related": ["lecture_social_integration", "lecture_social_network_topology", "lecture_cognitive_reserve", "lecture_cortisol_hpa_axis"]
+      "related": [
+        "lecture_social_integration",
+        "lecture_social_network_topology",
+        "lecture_cognitive_reserve",
+        "lecture_cortisol_hpa_axis"
+      ]
     },
     {
       "id": "lecture_skin_brain_immune_photoaging",
@@ -420,12 +870,27 @@
       "filename": "lectures/lecture_skin_brain_immune_photoaging.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Structural Integrity"],
-        "system":    ["Immune System", "Nervous System"],
-        "theme":     ["Mind-Body Axes", "Chronic Inflammation"],
-        "intervention": ["Manage Stress"]
+        "mechanism": [
+          "Structural Integrity"
+        ],
+        "system": [
+          "Immune System",
+          "Nervous System"
+        ],
+        "theme": [
+          "Mind-Body Axes",
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Manage Stress"
+        ]
       },
-      "related": ["lecture_inflammaging", "lecture_age_crosslinking_ecm", "lecture_cortisol_hpa_axis", "lecture_cellular_senescence_senolytics"]
+      "related": [
+        "lecture_inflammaging",
+        "lecture_age_crosslinking_ecm",
+        "lecture_cortisol_hpa_axis",
+        "lecture_cellular_senescence_senolytics"
+      ]
     },
     {
       "id": "lecture_sleep_architecture_emotion",
@@ -434,12 +899,27 @@
       "filename": "lectures/lecture_sleep_architecture_emotion.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition", "Nervous System"],
-        "theme":     ["Sleep & Recovery", "Stress & Resilience"],
-        "intervention": ["Sleep Better"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Nervous System"
+        ],
+        "theme": [
+          "Sleep & Recovery",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Sleep Better"
+        ]
       },
-      "related": ["lecture_glymphatic_system", "lecture_circadian_desynchronization", "lecture_cortisol_hpa_axis", "lecture_autonomic_hrv"]
+      "related": [
+        "lecture_glymphatic_system",
+        "lecture_circadian_desynchronization",
+        "lecture_cortisol_hpa_axis",
+        "lecture_autonomic_hrv"
+      ]
     },
     {
       "id": "lecture_social_integration",
@@ -448,12 +928,26 @@
       "filename": "lectures/lecture_social_integration.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition", "Immune System"],
-        "theme":     ["Social & Meaning"],
-        "intervention": ["Connect Socially"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Immune System"
+        ],
+        "theme": [
+          "Social & Meaning"
+        ],
+        "intervention": [
+          "Connect Socially"
+        ]
       },
-      "related": ["lecture_social_network_topology", "lecture_purpose_meaning_longevity", "lecture_cognitive_reserve", "lecture_inflammaging"]
+      "related": [
+        "lecture_social_network_topology",
+        "lecture_purpose_meaning_longevity",
+        "lecture_cognitive_reserve",
+        "lecture_inflammaging"
+      ]
     },
     {
       "id": "lecture_social_network_topology",
@@ -462,12 +956,26 @@
       "filename": "lectures/lecture_social_network_topology.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition"],
-        "theme":     ["Social & Meaning", "Systems Thinking"],
-        "intervention": ["Connect Socially"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Social & Meaning",
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Connect Socially"
+        ]
       },
-      "related": ["lecture_social_integration", "lecture_purpose_meaning_longevity", "lecture_cognitive_reserve", "lecture_cortisol_hpa_axis"]
+      "related": [
+        "lecture_social_integration",
+        "lecture_purpose_meaning_longevity",
+        "lecture_cognitive_reserve",
+        "lecture_cortisol_hpa_axis"
+      ]
     },
     {
       "id": "lecture_stem_cell_exhaustion",
@@ -476,12 +984,26 @@
       "filename": "lectures/lecture_stem_cell_exhaustion.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Cellular Cleanup"],
-        "system":    ["Immune System"],
-        "theme":     ["Chronic Inflammation"],
-        "intervention": ["Move & Exercise", "Eat & Fast"]
+        "mechanism": [
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast"
+        ]
       },
-      "related": ["lecture_cellular_senescence_senolytics", "lecture_proteostasis_collapse", "lecture_nad_sirtuin_decline", "lecture_mechanotransduction"]
+      "related": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_proteostasis_collapse",
+        "lecture_nad_sirtuin_decline",
+        "lecture_mechanotransduction"
+      ]
     },
     {
       "id": "lecture_telomere_attrition_stress",
@@ -490,12 +1012,27 @@
       "filename": "lectures/lecture_telomere_attrition_stress.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Genetic & Epigenetic"],
-        "system":    ["Immune System"],
-        "theme":     ["Stress & Resilience", "Biological Clocks"],
-        "intervention": ["Manage Stress", "Measure Yourself"]
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Manage Stress",
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_epigenetic_clocks", "lecture_cellular_senescence_senolytics", "lecture_cortisol_hpa_axis", "lecture_hormesis"]
+      "related": [
+        "lecture_epigenetic_clocks",
+        "lecture_cellular_senescence_senolytics",
+        "lecture_cortisol_hpa_axis",
+        "lecture_hormesis"
+      ]
     },
     {
       "id": "lecture_vo2max_capacity_margin",
@@ -504,12 +1041,28 @@
       "filename": "lectures/lecture_vo2max_capacity_margin.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress", "Mitochondrial & Energy"],
-        "system":    ["Cardiovascular", "Brain & Cognition"],
-        "theme":     ["Stress & Resilience"],
-        "intervention": ["Move & Exercise", "Measure Yourself"]
+        "mechanism": [
+          "Adaptive Stress",
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Measure Yourself"
+        ]
       },
-      "related": ["lecture_white_matter_fitness", "lecture_metabolic_inflexibility", "lecture_autonomic_hrv", "lecture_hormesis"]
+      "related": [
+        "lecture_white_matter_fitness",
+        "lecture_metabolic_inflexibility",
+        "lecture_autonomic_hrv",
+        "lecture_hormesis"
+      ]
     },
     {
       "id": "lecture_white_matter_fitness",
@@ -518,12 +1071,115 @@
       "filename": "lectures/lecture_white_matter_fitness.html",
       "added": "2026-04-24",
       "tags": {
-        "mechanism": ["Adaptive Stress"],
-        "system":    ["Brain & Cognition", "Cardiovascular"],
-        "theme":     ["Systems Thinking"],
-        "intervention": ["Move & Exercise"]
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
       },
-      "related": ["lecture_vo2max_capacity_margin", "lecture_cognitive_reserve", "lecture_glymphatic_system", "lecture_sleep_architecture_emotion"]
+      "related": [
+        "lecture_vo2max_capacity_margin",
+        "lecture_cognitive_reserve",
+        "lecture_glymphatic_system",
+        "lecture_sleep_architecture_emotion"
+      ]
+    },
+    {
+      "id": "lecture_immunosenescence",
+      "title": "Immunosenescence & Thymic Involution",
+      "description": "The thymus shrinks ~3% per year after puberty, collapsing naive T-cell output to ~5% by age 65 — leaving the immune system only able to recognize threats it has already seen.",
+      "filename": "lectures/lecture_immunosenescence.html",
+      "added": "2026-04-28",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup",
+          "Structural Integrity"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_inflammaging",
+        "lecture_cellular_senescence_senolytics",
+        "lecture_lymphatic_decline",
+        "lecture_cancer_immunosurveillance"
+      ]
+    },
+    {
+      "id": "lecture_epigenetic_reprogramming",
+      "title": "Epigenetic Reprogramming & Cellular Identity Erosion",
+      "description": "Aging may be fundamentally a reversible software corruption — the progressive loss of epigenetic instructions that tell cells what to be, recoverable via OSK reprogramming factors.",
+      "filename": "lectures/lecture_epigenetic_reprogramming.html",
+      "added": "2026-04-28",
+      "tags": {
+        "mechanism": [
+          "Genetic & Epigenetic"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Biological Clocks",
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Sleep Better",
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_epigenetic_clocks",
+        "lecture_nad_sirtuin_decline",
+        "lecture_multi_omic_aging_clocks",
+        "lecture_mitochondrial_dysfunction"
+      ]
+    },
+    {
+      "id": "lecture_cancer_immunosurveillance",
+      "title": "Cancer Immunosurveillance & the Senescence-to-Malignancy Escape",
+      "description": "Cancer risk rises with age not because mutations increase but because immune surveillance degrades — every aging mechanism this series documents converges to raise the body's tumor false-negative rate.",
+      "filename": "lectures/lecture_cancer_immunosurveillance.html",
+      "added": "2026-04-28",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup",
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Immune System"
+        ],
+        "theme": [
+          "Chronic Inflammation",
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Manage Stress"
+        ]
+      },
+      "related": [
+        "lecture_immunosenescence",
+        "lecture_inflammaging",
+        "lecture_cellular_senescence_senolytics",
+        "lecture_lymphatic_decline"
+      ]
     }
   ]
 }
