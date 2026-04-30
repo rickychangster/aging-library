@@ -205,9 +205,9 @@ body {
   font-size: 10px;
   letter-spacing: 0.8px;
   color: var(--ink-soft);
-  padding-top: 10px;
-  border-top: 1px solid var(--rule-light);
-  margin-top: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule-light);
+  margin-bottom: 4px;
 }
 .filter-count.visible { display: block; }
 .filter-count strong { color: var(--ink-mid); }
@@ -457,6 +457,7 @@ body {
   </div>
 
   <nav class="filters" id="filters">
+    <div class="filter-count" id="filter-count"></div>
     <div class="filter-row">
       <div class="filter-label mech">Mechanism</div>
       <div class="pills" data-group="mechanism" data-color="mech"></div>
@@ -473,7 +474,6 @@ body {
       <div class="filter-label inter">What to Do</div>
       <div class="pills" data-group="intervention" data-color="inter"></div>
     </div>
-    <div class="filter-count" id="filter-count"></div>
   </nav>
 
   <div class="active-bar" id="active-bar">
