@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Metabolic Inflexibility &amp; the Fuel-Switching Failure</title>
+
+<style>
+  :root {
+    --bg:#faf9f7; --surface:#f0eeea; --card:#ffffff; --card-b:#ddd9d0;
+    --ink:#1a1a1a; --ink-mid:#3d3d3d; --ink-soft:#71717a;
+    --blue:#1d4ed8; --blue-deep:#1e3a8a; --blue-dim:rgba(29,78,216,0.05);
+    --red:#b91c1c; --red-dim:rgba(185,28,28,0.04);
+    --green:#15803d; --green-dim:rgba(21,128,61,0.04);
+    --amber:#b45309; --amber-dim:rgba(180,83,9,0.04);
+    --rule:#d4d0c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Rubik',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--amber) 0%,var(--red) 50%,var(--blue) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--amber);position:relative;}
+  .stag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:20px;}
+  .ln{font-family:'Bitter',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Bitter',serif;font-size:39px;font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:8px;}
+  h1 .a{color:var(--amber);}
+  .sub{font-family:'Bitter',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}
+  .meta .hl{color:var(--amber);font-weight:600;}
+  .sn{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Bitter',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--amber);font-weight:700;} .def{color:var(--ink-soft);font-style:italic;} em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}
+  .sep .l{flex:1;height:1px;background:var(--rule);} .sep .d{width:12px;height:3px;background:var(--amber);border-radius:1px;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-left:4px solid var(--amber);padding:24px 18px 18px;margin:36px 0;border-radius:0 4px 4px 0;}
+  .fig-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .note .nl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .warn .wl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .caut .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}
+  .corr .cl{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+  .gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}
+  .gc:hover{border-color:var(--amber);}
+  .gc .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+  .tag.bio{color:var(--red);} .tag.eng{color:var(--blue-deep);}
+  .gc h4{font-family:'Bitter',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}
+  .gc strong{color:var(--amber);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}
+  .res .rt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:18px;}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}
+  .ri .rc{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+  .rc.read{color:var(--amber);} .rc.act{color:var(--blue-deep);} .rc.tool{color:var(--green);} .rc.meas{color:var(--red);}
+  .ri h5{font-family:'Bitter',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}
+  .cite .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+  .cite table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .cite th{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}
+  .cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}
+  .cite .ok{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--green);}
+  .cite .cv{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}
+  .fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="The ability to switch between burning sugar and fat degrades with age, creating energy crises that drive brain fog, fatigue, and accelerated disease.">
+<meta property="og:title" content="Metabolic Inflexibility & the Fuel-Switching Failure — Longevity & Wellness">
+<meta property="og:description" content="The ability to switch between burning sugar and fat degrades with age, creating energy crises that drive brain fog, fatigue, and accelerated disease.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_metabolic_inflexibility.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Metabolic Inflexibility & the Fuel-Switching Failure — Longevity & Wellness">
+<meta name="twitter:description" content="The ability to switch between burning sugar and fat degrades with age, creating energy crises that drive brain fog, fatigue, and accelerated disease.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar"></div>
+
+  <header class="hdr">
+    <div class="ln">28</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 28</div>
+    <h1>Metabolic Inflexibility <span class="a">&amp; the Fuel-Switching Failure</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published April 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">Your Body Is a Hybrid Engine Designed to Switch Seamlessly Between Glucose and Fat — and by Fifty, the Fuel Controller Is Jammed, the Wrong Fuel Burns at the Wrong Time, and the Exhaust Is Destroying the Engine From Within</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Metabolic Physiology (Kelley &amp; Mandarino 1990s; Muoio 2014)</div>
+      <div><span class="hl">Bridge:</span> Hybrid Engine Engineering / Thermodynamics</div>
+      <div><span class="hl">Window:</span> Ages 35–70</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why — The Randle Cycle Revisited</div>
+  <h2>Why a Well-Fed Body Can Starve at the Cellular Level</h2>
+
+  <p>A 55-year-old who eats adequate calories should never lack cellular energy. Yet fatigue, brain fog, exercise intolerance, and the afternoon crash are nearly universal complaints of middle age — even in metabolically "normal" individuals. The paradox was first glimpsed by Philip Randle in 1963, who described a glucose–fatty acid cycle of reciprocal fuel competition, and then sharpened by David Kelley and Lawrence Mandarino in the 1990s, who coined the term <span class="k">metabolic flexibility</span> <span class="def">(the capacity of an organism to switch from predominantly fatty acid oxidation during fasting to glucose oxidation and storage during insulin-stimulated, fed conditions — and back again — in response to changes in nutrient availability and energy demand)</span>.</p>
+
+  <p>A metabolically flexible person burns fat overnight, switches cleanly to glucose after breakfast, and shifts back to fat during an afternoon walk — all seamlessly, with no conscious awareness. A metabolically <em>inflexible</em> person cannot make these transitions efficiently: skeletal muscle burns glucose when it should burn fat (fasting), fails to fully suppress fat oxidation when insulin signals glucose uptake (fed state), and accumulates lipid intermediates (diacylglycerol, ceramides) in muscle cells that directly impair insulin signaling. The result is a metabolic gridlock: glucose and fatty acids compete at the mitochondrial gate (the pyruvate dehydrogenase complex and carnitine palmitoyltransferase 1), neither substrate is oxidized cleanly, incomplete oxidation products accumulate, and the cell exists in a state of simultaneous fuel surplus and energy deficit. This is not diabetes — your fasting glucose may be normal, your HbA1c unremarkable — but it is the preclinical state from which type 2 diabetes, cardiovascular disease, neurodegeneration, and cancer emerge. And it worsens progressively with age, driven by the same mitochondrial dysfunction (Lecture 25), NAD⁺ decline (Lecture 21), and sedentary behavior that degrades every other system in this series.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge — The Hybrid Engine</div>
+  <h2>Analogy: A Dual-Fuel Engine With a Stuck Fuel Controller</h2>
+
+  <p>Consider a modern hybrid vehicle designed to switch between electric (battery) and gasoline (combustion) power. At low speeds and during regenerative braking, the electric motor runs alone — clean, efficient, zero emissions. At highway speeds or under heavy load, the combustion engine engages — higher power but more waste heat and exhaust. A sophisticated <em>fuel controller</em> manages the transitions: it monitors speed, load, battery charge, and engine temperature, and switches seamlessly between power sources multiple times per minute. The driver never notices.</p>
+
+  <p>Now imagine the fuel controller jams. The combustion engine runs when the electric motor should (wasting fuel and generating unnecessary exhaust at low speeds). The electric motor engages under heavy load (draining the battery dangerously and providing insufficient power). Worse: during transitions, both systems run simultaneously at partial power, generating maximum waste heat while delivering minimum useful output. The exhaust from the combustion engine — now running under suboptimal conditions — produces higher levels of incomplete combustion byproducts (the equivalent of ROS and lipotoxic intermediates). The battery never fully charges because it's being depleted inappropriately. And the waste heat damages adjacent components (catalytic converter, wiring insulation), accelerating the degradation of the entire drivetrain.</p>
+
+  <p>This is metabolic inflexibility. The electric motor is <span class="k">fatty acid β-oxidation</span> (the clean, efficient fasting fuel). The combustion engine is <span class="k">glycolysis/glucose oxidation</span> (the high-power fed-state fuel). The fuel controller is the <span class="k">insulin signaling axis</span> working through AMPK, malonyl-CoA, and the pyruvate dehydrogenase complex. When the controller jams — from lipid accumulation, mitochondrial dysfunction, or chronic overnutrition — both fuel systems run at the wrong time, neither operates efficiently, and the metabolic exhaust (ROS, ceramides, diacylglycerol, acylcarnitines) damages the cellular machinery.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept — The Mitochondrial Traffic Jam</div>
+  <h2>How Fuel Competition Becomes Metabolic Gridlock</h2>
+
+  <p>The molecular mechanism of metabolic inflexibility centers on the mitochondrial entrance gates. In the fasting state, low insulin activates adipose tissue lipolysis, flooding the blood with free fatty acids. These enter muscle cells and are transported into mitochondria via <span class="k">CPT-1</span> <span class="def">(carnitine palmitoyltransferase 1 — the outer mitochondrial membrane enzyme that shuttles long-chain fatty acids into the matrix for β-oxidation)</span>. β-oxidation produces acetyl-CoA and NADH, which inhibit pyruvate dehydrogenase (PDH) — the enzyme that connects glycolysis to glucose oxidation — effectively shutting the glucose gate while the fat gate is open. This is the Randle cycle working correctly: fat in, glucose suppressed.</p>
+
+  <p>In the fed state, insulin signals glucose uptake via GLUT4 translocation. Rising malonyl-CoA (from carbohydrate metabolism) inhibits CPT-1, shutting the fat gate while opening the glucose gate through PDH activation. Clean switch. But when mitochondrial capacity is reduced (Lecture 25) or when chronic caloric excess overwhelms the system, the switching mechanism fails. Excess fatty acid metabolites — <span class="k">diacylglycerol (DAG)</span> and <span class="k">ceramides</span> — accumulate in muscle cells. DAG activates protein kinase C (PKC), which phosphorylates the insulin receptor substrate on serine residues (instead of the normal tyrosine residues), directly impairing insulin signaling. Ceramides inhibit Akt/PKB — the kinase downstream of the insulin receptor that drives GLUT4 translocation. The result: insulin arrives but cannot deliver its message. Glucose stays in the blood. Fatty acids continue oxidizing when they shouldn't. The mitochondria receive conflicting fuel signals simultaneously — the metabolic equivalent of both the electric motor and combustion engine running at once, in the wrong modes, producing maximum exhaust and minimum output.</p>
+
+  <div class="warn">
+    <div class="wl">The Gridlock Escalation in the Fifties</div>
+    <p>With age, three converging forces worsen the gridlock. (1) Mitochondrial oxidative capacity declines ~40% (Lecture 25, Petersen 2003) — the engine shrinks, reducing the capacity to burn <em>either</em> fuel efficiently. Substrate now backs up regardless of which fuel is selected. (2) Skeletal muscle mass declines (sarcopenia, Lectures 22/26) — since muscle accounts for 60–80% of insulin-stimulated glucose disposal, losing muscle mass is equivalent to removing cylinders from the engine: less capacity to clear glucose from the blood even when insulin signaling is intact. (3) Physical inactivity reduces AMPK activation — AMPK is the master metabolic switch that promotes fatty acid oxidation during exercise and suppresses malonyl-CoA. Without regular exercise-induced AMPK activation, the switching mechanism rusts in place. These three factors — mitochondrial decline, muscle loss, inactivity — create a metabolic triple-lock that tightens progressively through the fifties, explaining why insulin resistance and metabolic syndrome prevalence rises steeply in this decade even in individuals who are not obese.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Metabolic Inflexibility &amp; Hybrid Engine Parallel</div>
+    <svg viewBox="0 0 740 460" xmlns="http://www.w3.org/2000/svg">
+      <!-- LEFT: Biology -->
+      <text x="185" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b45309" font-weight="600" letter-spacing="1.5">METABOLIC INFLEXIBILITY CASCADE</text>
+
+      <!-- Healthy state -->
+      <rect x="30" y="36" width="310" height="56" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="52" text-anchor="middle" font-family="Bitter,serif" font-size="12" font-weight="700" fill="#15803d">Healthy: Flexible Fuel Switching</text>
+      <text x="185" y="68" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">FASTING: fat → CPT-1 → β-oxidation → PDH inhibited</text>
+      <text x="185" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">FED: insulin → GLUT4 → glucose → malonyl-CoA → CPT-1↓</text>
+
+      <line x1="185" y1="94" x2="185" y2="110" stroke="#b45309" stroke-width="1"/>
+      <text x="205" y="104" font-family="IBM Plex Mono,monospace" font-size="8" fill="#b91c1c">aging + overnutrition + inactivity</text>
+
+      <!-- Three failures -->
+      <rect x="30" y="114" width="310" height="42" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="185" y="130" text-anchor="middle" font-family="Bitter,serif" font-size="12" font-weight="700" fill="#1a1a1a">Lipotoxic Intermediates Accumulate</text>
+      <text x="185" y="148" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">DAG → PKC → IRS serine phosphorylation (insulin block)</text>
+
+      <line x1="185" y1="158" x2="185" y2="172" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,172 185,179 190,172" fill="#b91c1c"/>
+
+      <rect x="30" y="182" width="310" height="42" rx="3" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="185" y="198" text-anchor="middle" font-family="Bitter,serif" font-size="12" font-weight="700" fill="#1a1a1a">Ceramides → Akt Inhibition</text>
+      <text x="185" y="216" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#71717a">GLUT4 stays cytoplasmic → glucose cannot enter cell</text>
+
+      <line x1="185" y1="226" x2="185" y2="240" stroke="#b91c1c" stroke-width="1"/>
+      <polygon points="180,240 185,247 190,240" fill="#b91c1c"/>
+
+      <!-- Gridlock -->
+      <rect x="20" y="250" width="330" height="52" rx="3" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="185" y="270" text-anchor="middle" font-family="Bitter,serif" font-size="15" font-weight="800" fill="#b91c1c">Metabolic Gridlock</text>
+      <text x="185" y="288" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10" fill="#3d3d3d">both fuels present • neither burns cleanly • ROS↑ • ATP↓</text>
+      <text x="185" y="300" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#b91c1c">hyperinsulinemia → β-cell exhaustion → T2D trajectory</text>
+
+      <!-- Interventions -->
+      <rect x="30" y="324" width="310" height="52" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="185" y="340" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">FUEL CONTROLLER RESET</text>
+      <text x="185" y="356" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Exercise → AMPK → restore fuel switching</text>
+      <text x="185" y="370" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Fasting → deplete glycogen → force fat oxidation</text>
+      <text x="185" y="384" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Muscle mass → expand glucose disposal capacity</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="450" stroke="#d4d0c8" stroke-width="1"/>
+
+      <!-- RIGHT: Engine Parallel -->
+      <text x="564" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1e3a8a" font-weight="600" letter-spacing="1.5">HYBRID ENGINE PARALLEL</text>
+
+      <rect x="402" y="36" width="320" height="178" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="562" y="58" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="412" y1="66" x2="712" y2="66" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b45309" font-weight="600">METABOLISM</text>
+      <text x="638" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1e3a8a" font-weight="600">HYBRID ENGINE</text>
+      <line x1="562" y1="66" x2="562" y2="206" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="412" y1="92" x2="712" y2="92" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="486" y="110" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Fatty acid β-oxidation</text>
+      <text x="638" y="110" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Electric motor (clean, efficient)</text>
+      <line x1="412" y1="118" x2="712" y2="118" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="136" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Glycolysis / glucose oxidation</text>
+      <text x="638" y="136" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Combustion engine (high power)</text>
+      <line x1="412" y1="144" x2="712" y2="144" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="162" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Insulin / AMPK / malonyl-CoA</text>
+      <text x="638" y="162" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">Fuel controller / ECU</text>
+      <line x1="412" y1="170" x2="712" y2="170" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="486" y="188" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#b91c1c">DAG / ceramides (lipotoxicity)</text>
+      <text x="638" y="188" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#b91c1c">Incomplete combustion exhaust</text>
+      <line x1="412" y1="196" x2="712" y2="196" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+
+      <!-- Gridlock principle -->
+      <rect x="402" y="230" width="320" height="76" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+      <text x="562" y="250" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b45309" font-weight="700" letter-spacing="1">THE GRIDLOCK PRINCIPLE</text>
+      <text x="420" y="270" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">In engine design, running both power sources</text>
+      <text x="420" y="286" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d">simultaneously at partial load produces maximum</text>
+      <text x="420" y="302" font-family="Rubik,sans-serif" font-size="10.5" fill="#b45309" font-weight="600">waste heat and minimum useful work.</text>
+
+      <!-- RQ concept -->
+      <rect x="402" y="322" width="320" height="54" rx="4" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="562" y="340" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1d4ed8" font-weight="600" letter-spacing="1">MEASURING FUEL SWITCHING</text>
+      <text x="562" y="358" text-anchor="middle" font-family="Rubik,sans-serif" font-size="11" fill="#3d3d3d">Respiratory Quotient (RQ): VCO₂/VO₂</text>
+      <text x="562" y="374" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#1d4ed8" font-weight="600">RQ ~0.7 = fat burning | RQ ~1.0 = glucose burning</text>
+
+      <!-- Solution -->
+      <rect x="402" y="392" width="320" height="52" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+      <text x="562" y="410" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1">ENGINE RECALIBRATION</text>
+      <text x="562" y="428" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">Zone 2 training: teach the engine to prefer fat at low RPM</text>
+      <text x="562" y="444" text-anchor="middle" font-family="Rubik,sans-serif" font-size="10.5" fill="#3d3d3d" font-weight="600">Fasting: deplete glucose tank → force electric mode</text>
+    </svg>
+    <div class="fig-cap">Left: the metabolic inflexibility cascade — from healthy fuel switching through lipotoxic intermediate accumulation, insulin signaling blockade, and metabolic gridlock. Right: the hybrid engine parallel — electric motor (fat), combustion engine (glucose), fuel controller (insulin/AMPK), and the gridlock principle where simultaneous partial-load operation produces maximum waste and minimum output. RQ measurement quantifies the fuel mix in real time.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination — Thermodynamics: The Efficiency–Waste Tradeoff</div>
+  <h2>Why Running Two Engines at Once Destroys Both</h2>
+
+  <p>In thermodynamics, every energy conversion produces waste heat proportional to the inefficiency of the process. A well-tuned engine operating at its designed load point minimizes waste — it converts the maximum fraction of fuel energy into useful work. An engine forced to operate outside its design parameters — wrong fuel, wrong load, wrong temperature — produces disproportionately more waste heat per unit of useful work. This is the <span class="k">second law of thermodynamics</span> applied to metabolism: when mitochondria receive conflicting fuel signals (fatty acids and glucose simultaneously, neither at the correct rate), the fraction of energy lost as waste (ROS, heat, incomplete oxidation products) rises sharply, while ATP output per calorie consumed falls.</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Metabolic Physiology</div>
+      <h4>The Acylcarnitine Bottleneck</h4>
+      <p>Muoio's 2008 work demonstrated that obesity-related insulin resistance is characterized not by <em>reduced</em> β-oxidation but by <strong>excessive, incomplete β-oxidation</strong> — fatty acids enter the mitochondria but are only partially burned, producing short- and medium-chain acylcarnitine species that clog the TCA cycle. This "mitochondrial gridlock" depletes TCA cycle intermediates, reducing both fat and glucose oxidation simultaneously. The engine isn't failing to burn fuel — it's burning it incompletely, producing toxic exhaust faster than it can be cleared.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Engine Design</div>
+      <h4>Load Matching and Efficiency Curves</h4>
+      <p>Every engine has a <strong>brake-specific fuel consumption (BSFC) map</strong> — an optimal operating point where fuel efficiency peaks. Operating above or below this point dramatically increases waste. Zone 2 exercise (60–75% max HR) operates skeletal muscle mitochondria at their BSFC sweet spot: high enough demand to activate AMPK and clear substrates efficiently, low enough to stay aerobic and maximize fat oxidation. This is why Zone 2 is the metabolic flexibility intervention — it calibrates the engine to its most efficient operating point.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">The Athlete's Paradox</div>
+      <h4>High IMTG, High Sensitivity</h4>
+      <p>Endurance athletes store high levels of intramyocellular triglycerides (IMTG) — as much as obese diabetics — yet are exquisitely insulin sensitive. The difference: <strong>athletes store lipids in small, dynamic droplets near mitochondria</strong> (coated with perilipin 5) that are rapidly turned over during exercise, while obese individuals store lipids in large, static droplets in the subsarcolemmal region that generate DAG/ceramide intermediates. Same fuel, different storage architecture — and the architecture determines whether lipid is a resource or a toxin.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Fuel Tank Architecture</div>
+      <h4>Placement Determines Performance</h4>
+      <p>In racing, fuel cells are positioned for <strong>optimal weight distribution and delivery rate</strong> — not just total volume. A car with fuel stored far from the engine, feeding through narrow lines, will starve under load even with a full tank. Similarly, the <em>location and accessibility</em> of intramyocellular lipid droplets — not their total quantity — determines whether they fuel efficient oxidation or generate toxic intermediates. Exercise restructures lipid droplet architecture from pathological to athletic configurations.</p>
+    </div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+
+  <div class="caut">
+    <div class="cl">Risks of Over-Application</div>
+    <p><em>Extreme carbohydrate restriction can impair glucose tolerance.</em> Chronic ketogenic diets force exclusive fat oxidation and can, paradoxically, induce a form of "physiological insulin resistance" — the muscle becomes so adapted to fat that it resists switching back to glucose, causing transient hyperglycemia upon carbohydrate refeeding. This is the engine equivalent of removing the combustion motor entirely: the electric motor works beautifully in its range, but under peak load (acute illness, trauma, high-intensity exercise), the system has no high-power backup. The metabolically flexible individual needs <em>both</em> fuel pathways intact and responsive. Extreme approaches in either direction — constant carbohydrate feeding (never practicing fat oxidation) or permanent keto (never practicing glucose switching) — reduce flexibility. The goal is the hybrid: an engine that switches seamlessly between fuels depending on demand, trained through alternating feeding/fasting and varied exercise intensities.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Train metabolic flexibility through three complementary strategies: (1) <em>Zone 2 endurance training</em> (3–4×/week, 30–45 min) — this is the primary fuel-switching calibration tool. At Zone 2 intensity, muscles rely predominantly on fatty acid oxidation, training the mitochondria to efficiently burn fat and building the IMTG turnover architecture that prevents lipotoxicity. San Millán and Brooks (2018) showed that Zone 2 corresponds to maximal fat oxidation rate (FATmax) and is the intensity that most powerfully improves metabolic flexibility. (2) <em>Time-restricted eating</em> (14–16 hour overnight fast, most days) — extends the overnight fasting period long enough to deplete liver glycogen stores and force the metabolic switch to fat oxidation, training the Randle cycle in the correct direction. (3) <em>Resistance training</em> (2–3×/week) — expands the skeletal muscle glucose disposal sink, directly counteracting the sarcopenia-driven shrinkage of the engine that is the primary non-dietary driver of insulin resistance after 50.<br><br><strong>Metric:</strong> Your existing biomarkers are the best tracking panel available: <em>fasting insulin</em> (your 3.0 μIU/mL is exceptional — target <5), <em>HOMA-IR</em> (your 0.6 is exceptional — target <1.0), <em>TG/HDL ratio</em> (your 0.84 is excellent — target <1.5, ideally <1.0), and <em>fasting glucose</em>. These four together map your position on the metabolic flexibility spectrum. A secondary metric: <em>respiratory exchange ratio (RER)</em> during graded exercise testing — if available, the difference in RER between fasting and fed states quantifies your fuel-switching capacity directly.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Metabolic Inflexibility Connects to the Lecture Series</h2>
+
+  <p>Metabolic inflexibility is the <em>metabolic execution layer</em> of mitochondrial dysfunction (Lecture 25) — when mitochondrial oxidative capacity declines 40%, the engine physically cannot burn either fuel cleanly, and substrate competition intensifies at the reduced-capacity gate. NAD⁺ decline (Lecture 21) feeds in directly: a high NADH/NAD⁺ ratio from incomplete oxidation inactivates SIRT deacetylases, reducing mitochondrial biogenesis (PGC-1α) and further shrinking the engine. Sarcopenia (Lectures 22/26) shrinks the primary glucose disposal organ, forcing the pancreas to compensate with hyperinsulinemia — which itself drives lipogenesis, fat storage, and further metabolic gridlock. Circadian desynchronization (Lecture 17) disrupts the molecular clock's regulation of metabolic switching — the clock genes BMAL1 and CLOCK directly control expression of metabolic enzymes in liver and muscle, and desynchronized peripheral clocks can lock metabolism into the wrong fuel profile for the time of day. And the chronic low-grade inflammation from inflammaging (Lecture 12), CHIP (Lecture 23), and CTRA activation (Lecture 27) directly impairs insulin signaling through TNF-α and IL-6-mediated serine phosphorylation of IRS-1 — the same mechanism as DAG/ceramide lipotoxicity, but driven by inflammatory rather than lipid signals. Metabolic flexibility is the functional readout of whether the entire system — mitochondria, muscle, circadian clocks, NAD⁺ cofactors, inflammation — is working in coordination or in conflict.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII -->
+  <div class="sn">VIII. Common Misconception</div>
+
+  <div class="corr">
+    <div class="cl">Peer Review — Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Insulin resistance is caused by eating too much sugar — just cut carbohydrates and the problem resolves."<br><br><strong>Correction:</strong> Insulin resistance is not a carbohydrate problem — it is a <em>fuel-switching problem</em> rooted in mitochondrial capacity, intramyocellular lipid metabolism, and skeletal muscle mass. The primary driver in most individuals is not dietary sugar but the combination of caloric surplus (from any macronutrient), sedentary behavior (reducing AMPK activation and mitochondrial biogenesis), and age-related mitochondrial decline. Cutting carbohydrates may lower blood glucose and insulin acutely, but if mitochondrial capacity and muscle mass continue to decline, the underlying inflexibility worsens — the engine is still jammed, just receiving less of one fuel. The most potent interventions are those that expand mitochondrial capacity (Zone 2 exercise), enlarge the glucose disposal sink (resistance training), and restore the switching mechanism (alternating feeding/fasting). Diet composition matters, but it is secondary to the physical infrastructure that processes whatever fuel is provided.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Goodpaster &amp; Kelley (2008)</h5>
+        <p>"Metabolic Flexibility in Health and Disease." Review in <em>Cell Metab.</em> The foundational framework defining metabolic flexibility and its impairment in obesity, insulin resistance, and type 2 diabetes — connecting fuel switching to mitochondrial capacity.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Muoio (2014)</h5>
+        <p>"Metabolic Inflexibility: When Mitochondrial Indecision Leads to Metabolic Gridlock." <em>Cell</em>, 159(6):1253–1262. The "gridlock" paper: excessive incomplete β-oxidation, acylcarnitine accumulation, and the concept that mitochondrial substrate competition — not simple fuel excess — drives insulin resistance.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Fasted Zone 2 Training</h5>
+        <p>Perform 1–2 Zone 2 sessions/week in a fasted state (before first meal). This combines the glycogen-depleting effect of the overnight fast with the AMPK-activating effect of exercise, maximally training the fat oxidation pathway and the Randle cycle switching mechanism. Eat within 1 hour post-session to restore glycogen and support recovery.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Varied-Intensity Training</h5>
+        <p>Alternate between Zone 2 (fat-dominant) and high-intensity intervals (glucose-dominant) across the training week. This practices <em>both</em> fuel pathways and the transitions between them — building the hybrid flexibility that pure Zone 2 or pure HIIT alone cannot achieve. The engine needs to practice switching, not just operating in one mode.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Your Metabolic Panel Is Already Excellent</h5>
+        <p>fasting insulin in the optimal range (<5 µU/mL), HOMA-IR in the optimal range (<1.0), TG/HDL 0.84 — these indicate exceptional metabolic flexibility. The goal is <em>preservation</em>: maintaining Zone 2 training, time-restricted eating, and resistance training to prevent the age-related drift toward inflexibility that these markers would detect early (rising fasting insulin is the earliest signal).</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Continuous Glucose Monitor (CGM)</h5>
+        <p>A 2-week CGM trial (Libre, Dexcom) provides direct visibility into your glucose responses to meals, exercise, sleep, and stress — revealing whether your fuel-switching is working in real time. Target: glucose variability <25 mg/dL SD, post-meal peak <140 mg/dL, rapid return to baseline (<2 hrs). This data is more informative than any single fasting glucose measurement.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Metric</div>
+        <h5>Fasting Insulin + HOMA-IR + TG/HDL</h5>
+        <p>Track every 6–12 months. Rising fasting insulin (even while glucose stays normal) is the earliest sign of metabolic inflexibility — the pancreas compensates for insulin resistance with hyperinsulinemia years before glucose rises. Your current numbers are in the longevity-optimal range; the goal is to keep them there through the sixties and seventies.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>Lecture Integration Map</h5>
+        <p>Mitochondria (Lec 25) → engine capacity. NAD⁺ (Lec 21) → NADH/NAD⁺ ratio blocks sirtuins. Sarcopenia (Lec 22/26) → glucose sink shrinks. Circadian (Lec 17) → clock genes control metabolic enzymes. Inflammaging (Lec 12) + CHIP (Lec 23) → inflammatory insulin resistance. VO₂ max (Lec 16) → aerobic capacity = metabolic capacity. Exercise is the universal fuel controller reset.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>Metabolic flexibility defined as capacity to switch from fat to glucose oxidation; impaired in obesity/T2D</td>
+        <td>Kelley &amp; Mandarino, 1990s (series); Goodpaster &amp; Kelley, <em>Cell Metab.</em>, 2008</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>DAG activates PKC → serine phosphorylation of IRS → impaired insulin signaling; ceramides inhibit Akt</td>
+        <td>Shulman, <em>J. Clin. Invest.</em>, 2000; Holland &amp; Summers, 2008</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Obesity-related IR characterized by excessive incomplete β-oxidation and acylcarnitine accumulation ("gridlock")</td>
+        <td>Muoio et al., <em>Cell Metab.</em>, 2008;7(1):45–56; Muoio, <em>Cell</em>, 2014</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Skeletal muscle accounts for 60–80% of insulin-stimulated glucose disposal</td>
+        <td>DeFronzo &amp; Tripathy, 2009; Ng et al., 2012</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Athletes store high IMTG yet are insulin-sensitive; lipid droplet architecture differs from obese phenotype</td>
+        <td>Dubé et al., 2014; Phielix et al., 2012; perilipin 5 studies</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Mitochondrial oxidative capacity linearly correlated to insulin sensitivity in skeletal muscle</td>
+        <td>Multiple sources including Petersen et al., 2003/2004; reviewed in Goodpaster &amp; Sparks, 2017</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>High NADH/NAD⁺ ratio inactivates sirtuin deacetylases, reducing mitochondrial biogenesis</td>
+        <td>Reviewed in Smith et al., <em>Endocrine Reviews</em>, 2018;39(4):489–517</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Kelley, D.E. &amp; Mandarino, L.J. (2000). "Fuel selection in human skeletal muscle in insulin resistance." <em>Diabetes</em>, 49:677–683. &nbsp;|&nbsp; Muoio, D.M. (2014). "Metabolic Inflexibility: When Mitochondrial Indecision Leads to Metabolic Gridlock." <em>Cell</em>, 159(6):1253–1262. &nbsp;|&nbsp; Goodpaster, B.H. &amp; Sparks, L.M. (2017). "Metabolic Flexibility in Health and Disease." <em>Cell Metab.</em>, 25(5):1027–1036. &nbsp;|&nbsp; Petersen, K.F. et al. (2004). "Impaired mitochondrial activity in the insulin-resistant offspring of patients with T2D." <em>NEJM</em>, 350:664–671. &nbsp;|&nbsp; Randle, P.J. et al. (1963). "The glucose fatty-acid cycle: its role in insulin sensitivity." <em>Lancet</em>, 281:785–789. &nbsp;|&nbsp; San Millán, I. &amp; Brooks, G.A. (2018). "Assessment of metabolic flexibility by means of measuring blood lactate, fat, and carbohydrate oxidation responses to exercise." <em>Sports Med.</em>, 48:467–479.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_metabolic_inflexibility",
+  "related": [
+    {
+      "id": "lecture_brain_insulin_resistance",
+      "title": "Brain Insulin Resistance & the Cerebral Energy Crisis",
+      "filename": "lecture_brain_insulin_resistance.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Mind-Body Axes"
+      ]
+    },
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "filename": "lecture_mitochondrial_dysfunction.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_nad_sirtuin_decline",
+      "title": "NAD+ Decline & Sirtuin Dysfunction",
+      "filename": "lecture_nad_sirtuin_decline.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_peripheral_clock_desynchronization",
+      "title": "Peripheral Clock Desynchronization & the Chrono-Metabolic Fracture",
+      "filename": "lecture_peripheral_clock_desynchronization.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Biological Clocks"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

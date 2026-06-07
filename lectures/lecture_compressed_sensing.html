@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: Compressed Sensing</title>
+
+<style>
+  :root {
+    --bg: #0c0f14;
+    --surface: #141821;
+    --surface-raised: #1a1f2b;
+    --text: #cdd4e0;
+    --text-bright: #e8ecf4;
+    --text-dim: #6b7a94;
+    --accent: #4fc3f7;
+    --accent-warm: #f7a44c;
+    --accent-green: #66bb6a;
+    --rule: #252d3d;
+    --glow: rgba(79, 195, 247, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 16.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 72px 36px 120px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 56px;
+    position: relative;
+  }
+
+  .header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm), transparent);
+    margin-top: 32px;
+  }
+
+  .series-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .series-tag::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text-bright);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+  }
+
+  .meta span {
+    color: var(--accent);
+  }
+
+  /* Sections */
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    margin-bottom: 10px;
+    margin-top: 52px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--text-bright);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  p {
+    margin-bottom: 16px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .term {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .paren {
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  em { color: var(--text-bright); font-style: italic; }
+
+  .sep {
+    width: 48px;
+    height: 1px;
+    background: var(--rule);
+    margin: 44px 0;
+  }
+
+  /* Diagram */
+  .diagram-wrap {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 32px 24px 24px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .diagram-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  }
+
+  .diagram-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .diagram-svg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 680px;
+  }
+
+  .diagram-caption {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: 18px;
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* Comparison grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 22px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+  }
+
+  .card-icon {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--text-bright);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .card p {
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin-bottom: 0;
+    text-align: left;
+    color: var(--text);
+  }
+
+  .card strong { color: var(--accent); font-weight: 500; }
+
+  /* Equation block */
+  .eq-block {
+    background: var(--surface-raised);
+    border-left: 3px solid var(--accent);
+    padding: 18px 24px;
+    margin: 24px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    color: var(--text-bright);
+    letter-spacing: 0.5px;
+    overflow-x: auto;
+  }
+
+  .eq-block .annotation {
+    color: var(--text-dim);
+    font-size: 12.5px;
+    margin-top: 8px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: italic;
+    letter-spacing: 0;
+  }
+
+  /* Footnote */
+  .footnote {
+    font-size: 13px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+    margin-top: 56px;
+    line-height: 1.7;
+  }
+
+  .footnote strong { color: var(--text); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .title { font-size: 36px; }
+    .grid { grid-template-columns: 1fr; }
+    .page { padding: 40px 18px 80px; }
+  }
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Information theory explains how an aging brain extracts signal from noise with fewer resources — with surprising implications for diagnosis and intervention.">
+<meta property="og:title" content="Compressed Sensing — Longevity & Wellness">
+<meta property="og:description" content="Information theory explains how an aging brain extracts signal from noise with fewer resources — with surprising implications for diagnosis and intervention.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_compressed_sensing.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Compressed Sensing — Longevity & Wellness">
+<meta name="twitter:description" content="Information theory explains how an aging brain extracts signal from noise with fewer resources — with surprising implications for diagnosis and intervention.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="series-tag">Interdisciplinary Lecture Series — No. 8</div>
+    <h1 class="title">Compressed Sensing</h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published April 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="subtitle">How Mathematics Proved You Can Reconstruct What You Never Fully Measured — and What That Means for the Brain</div>
+    <div class="meta"><span>Origin:</span> Applied Mathematics &amp; Signal Processing (2006) &nbsp;&middot;&nbsp; <span>Bridge:</span> Computational Neuroscience &nbsp;&middot;&nbsp; ~1,100 words</div>
+  </header>
+
+  <!-- SECTION I -->
+  <div class="section-label">I. The Why</div>
+  <h2 class="section-title">The Nyquist Bottleneck</h2>
+
+  <p>For nearly seventy years, signal processing was governed by the <span class="term">Nyquist–Shannon sampling theorem</span> <span class="paren">(1949)</span>: to perfectly reconstruct a continuous signal, you must sample it at least twice per cycle of its highest frequency component. This was treated as a physical law — a hard floor beneath which information is irrecoverably lost. MRI machines, radio telescopes, seismic arrays, and digital cameras all designed their hardware around this constraint, often requiring enormous volumes of raw data only to immediately compress most of it away during storage.</p>
+
+  <p>The absurdity was hiding in plain sight. If a megapixel image ultimately compresses to a fraction of its original size via JPEG, then the vast majority of measurements were, in some information-theoretic sense, <em>redundant from the start</em>. In 2006, Emmanuel Candès, Justin Romberg, Terence Tao, and independently David Donoho, proved something that overturned the Nyquist orthodoxy: if a signal is <span class="term">sparse</span> <span class="paren">(expressible with far fewer non-zero coefficients than its total dimensionality)</span>, you can reconstruct it exactly from far fewer measurements than Nyquist demands — provided you measure cleverly. This was <span class="term">compressed sensing</span>.</p>
+
+  <div class="sep"></div>
+
+  <!-- SECTION II -->
+  <div class="section-label">II. Foundational Bridge</div>
+  <h2 class="section-title">Prerequisites via Analogy</h2>
+
+  <p>Imagine a darkened room with 1,000 light switches, of which only 5 are actually connected to anything. You want to discover which five. The brute-force approach: flip each switch individually — 1,000 trials. But if you instead flip random <em>combinations</em> of switches simultaneously and observe the aggregate light output each time, you can deduce the 5 active switches from surprisingly few combination-tests. This is the intuition behind compressed sensing: random, mixed measurements are exponentially more informative than one-at-a-time sampling when the underlying signal is sparse.</p>
+
+  <p>Two prerequisite ideas matter. First, <span class="term">sparsity</span>: most natural signals — images, audio, neural firing patterns — are not dense with information at every point. They admit compact representations in some basis (wavelet, Fourier, or otherwise). A photograph of a face has millions of pixels, but its essential structure can be captured by a few thousand coefficients. Second, <span class="term">incoherence</span>: the measurement system must be "maximally unlike" the sparsity basis. Random measurement matrices satisfy this naturally, because a random projection is overwhelmingly unlikely to align with any single sparse direction. Together, sparsity and incoherence make the impossible possible.</p>
+
+  <div class="sep"></div>
+
+  <!-- SECTION III -->
+  <div class="section-label">III. The Core Concept</div>
+  <h2 class="section-title">Exact Recovery from Incomplete Data</h2>
+
+  <p>Formally, compressed sensing solves the following problem. Let <strong>x</strong> ∈ ℝ<sup>N</sup> be a signal that is <em>k</em>-sparse <span class="paren">(has at most k non-zero entries in some basis Ψ, where k ≪ N)</span>. Instead of acquiring all N samples, we collect <strong>y</strong> = <strong>Φx</strong>, where <strong>Φ</strong> is an M × N measurement matrix with M ≪ N. This is an <span class="term">underdetermined system</span> — fewer equations than unknowns — which classically has infinitely many solutions.</p>
+
+  <div class="eq-block">
+    minimize ‖z‖₁ &nbsp; subject to &nbsp; Φ·Ψ·z = y
+    <div class="annotation">ℓ₁-minimization: find the sparsest representation consistent with the measurements</div>
+  </div>
+
+  <p>The breakthrough: Candès and Tao proved that if <strong>Φ</strong> satisfies the <span class="term">Restricted Isometry Property (RIP)</span> <span class="paren">(roughly: the measurement matrix preserves the distances between all sufficiently sparse vectors, neither expanding nor collapsing them beyond controlled bounds)</span>, then the <em>unique</em> sparsest solution can be recovered exactly by solving an <span class="term">ℓ₁-minimization</span> <span class="paren">(a convex optimization that penalizes the sum of absolute values of coefficients, promoting solutions with many zeros)</span>. This is computationally tractable — solvable via linear programming — unlike the combinatorially explosive ℓ₀ problem it replaces.</p>
+
+  <!-- DIAGRAM -->
+  <div class="diagram-wrap">
+    <div class="diagram-tag">Figure 1 — The Compressed Sensing Pipeline</div>
+    <svg class="diagram-svg" viewBox="0 0 680 310" xmlns="http://www.w3.org/2000/svg">
+      <!-- Signal block -->
+      <rect x="10" y="80" width="120" height="70" rx="4" fill="#1a1f2b" stroke="#4fc3f7" stroke-width="1.5"/>
+      <text x="70" y="108" text-anchor="middle" font-family="DM Serif Display, serif" font-size="14" fill="#e8ecf4">Signal x</text>
+      <text x="70" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6b7a94">N-dimensional</text>
+      <text x="70" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6b7a94">k-sparse (k ≪ N)</text>
+
+      <!-- Arrow 1 -->
+      <line x1="130" y1="115" x2="185" y2="115" stroke="#4fc3f7" stroke-width="1.2"/>
+      <polygon points="185,110 195,115 185,120" fill="#4fc3f7"/>
+      <text x="160" y="105" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#f7a44c">× Φ</text>
+
+      <!-- Measurement block -->
+      <rect x="195" y="80" width="130" height="70" rx="4" fill="#1a1f2b" stroke="#f7a44c" stroke-width="1.5"/>
+      <text x="260" y="108" text-anchor="middle" font-family="DM Serif Display, serif" font-size="14" fill="#e8ecf4">Measurements y</text>
+      <text x="260" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6b7a94">M-dimensional</text>
+      <text x="260" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#f7a44c">M ≪ N</text>
+
+      <!-- Arrow 2 -->
+      <line x1="325" y1="115" x2="385" y2="115" stroke="#66bb6a" stroke-width="1.2"/>
+      <polygon points="385,110 395,115 385,120" fill="#66bb6a"/>
+      <text x="355" y="105" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#66bb6a">ℓ₁-min</text>
+
+      <!-- Recovery block -->
+      <rect x="395" y="80" width="130" height="70" rx="4" fill="#1a1f2b" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="460" y="108" text-anchor="middle" font-family="DM Serif Display, serif" font-size="14" fill="#e8ecf4">Recovered x̂</text>
+      <text x="460" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6b7a94">N-dimensional</text>
+      <text x="460" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#66bb6a">x̂ = x (exact)</text>
+
+      <!-- Key insight callout -->
+      <rect x="195" y="185" width="330" height="55" rx="3" fill="rgba(79,195,247,0.06)" stroke="#252d3d" stroke-width="1"/>
+      <text x="360" y="207" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" fill="#4fc3f7" font-weight="500">KEY INSIGHT</text>
+      <text x="360" y="227" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#cdd4e0">If Φ satisfies RIP and x is k-sparse, then M ≈ k · log(N/k) measurements suffice.</text>
+
+      <!-- Dimension comparison -->
+      <text x="70" y="200" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a94">e.g. N = 1,000,000</text>
+      <text x="70" y="215" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a94">k = 5,000</text>
+      <text x="70" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#f7a44c">M ≈ 26,500</text>
+      <text x="70" y="245" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6b7a94">(~2.7% of N)</text>
+
+      <!-- Nyquist comparison bar -->
+      <text x="340" y="278" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a94">NYQUIST REQUIRES</text>
+      <rect x="170" y="286" width="340" height="10" rx="2" fill="#252d3d"/>
+      <rect x="170" y="286" width="340" height="10" rx="2" fill="rgba(255,100,100,0.25)" stroke="#ff6b6b" stroke-width="0.5"/>
+      <text x="520" y="296" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#ff6b6b">N samples</text>
+
+      <text x="340" y="264" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4fc3f7">COMPRESSED SENSING REQUIRES</text>
+      <rect x="170" y="272" width="9" height="6" rx="1" fill="var(--accent)"/>
+      <text x="186" y="278" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#4fc3f7">M samples</text>
+    </svg>
+    <div class="diagram-caption">Compressed sensing bypasses Nyquist by exploiting sparsity: M ≈ k·log(N/k) random measurements<br>suffice for exact recovery, a logarithmic fraction of the classical requirement.</div>
+  </div>
+
+  <p>The required number of measurements scales as M ≈ C · k · log(N/k), where C is a small constant. For a one-megapixel image that is 5,000-sparse in a wavelet basis, this means roughly 26,000 measurements — about 2.7% of the Nyquist requirement — are sufficient for <em>exact</em> reconstruction. The implications were immediate: MRI scan times could be reduced by a factor of 4–8, single-pixel cameras became feasible, and radio astronomy could image the sky with far fewer antenna elements than previously thought necessary.</p>
+
+  <div class="sep"></div>
+
+  <!-- SECTION IV -->
+  <div class="section-label">IV. Cross-Pollination</div>
+  <h2 class="section-title">The Brain as a Compressed Sensing Device</h2>
+
+  <p>Within a decade of its mathematical formulation, compressed sensing reshaped how neuroscientists think about sensory encoding. The retina, for example, projects roughly 100 million photoreceptors onto approximately 1 million retinal ganglion cells — a 100:1 compression <em>before</em> any signal reaches the cortex. For decades, this bottleneck was interpreted as a lossy, information-destroying step. Compressed sensing offered an alternative: if natural visual scenes are sparse in some representational basis (and they are — natural images are famously sparse in wavelet and Gabor-like bases), then 100:1 compression with random-like projections can be <em>information-preserving</em>, provided downstream cortical circuits perform something functionally analogous to ℓ₁-recovery.</p>
+
+  <p>Ganguli and Sompolinsky (2012) formalized this. They showed that random connectivity matrices in neural circuits — long considered a sign of developmental imprecision — naturally satisfy compressed-sensing-like conditions. The "noise" in wiring is not a bug; it is the incoherence condition that <em>enables</em> sparse reconstruction. Subsequent work by Isely, Bhatt, and others demonstrated that recurrent cortical networks with lateral inhibition implement dynamics closely approximating iterative ℓ₁-minimization algorithms (specifically, ISTA — the Iterative Shrinkage-Thresholding Algorithm).</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">Signal Processing</div>
+      <h4>MRI Acceleration</h4>
+      <p><strong>Signal:</strong> Tissue magnetization (sparse in wavelet basis)<br><strong>Measurement:</strong> Random k-space undersampling<br><strong>Recovery:</strong> ℓ₁-minimization<br><strong>Impact:</strong> 4–8× faster scan times (Lustig et al., 2007)</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">Neuroscience</div>
+      <h4>Retinal Encoding</h4>
+      <p><strong>Signal:</strong> Visual scene (sparse in Gabor basis)<br><strong>Measurement:</strong> Random-like ganglion cell projections<br><strong>Recovery:</strong> Cortical recurrent inhibition ≈ ISTA<br><strong>Impact:</strong> Reframes neural "noise" as optimal encoding</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">Astronomy</div>
+      <h4>Radio Interferometry</h4>
+      <p><strong>Signal:</strong> Sky brightness distribution (sparse in pixel basis)<br><strong>Measurement:</strong> Incomplete baseline coverage<br><strong>Recovery:</strong> Sparse image reconstruction (CLEAN → CS)<br><strong>Impact:</strong> Enabled Event Horizon Telescope imaging</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">General Form</div>
+      <h4>Abstract Structure</h4>
+      <p><strong>Signal:</strong> k-sparse vector in ℝᴺ<br><strong>Measurement:</strong> M random projections (M ≪ N)<br><strong>Recovery:</strong> Convex ℓ₁-minimization<br><strong>Condition:</strong> RIP + incoherence</p>
+    </div>
+  </div>
+
+  <p>The implications cut deep. If the brain genuinely operates as a compressed sensing system, then many long-standing puzzles in sensory neuroscience — how olfaction reconstructs thousands of odorant dimensions from a few hundred receptor types, how the auditory cortex decomposes complex soundscapes from cochlear projections — are instances of the same mathematical principle. Sparsity is not merely a convenient modeling assumption; it may be a <em>design constraint</em> that evolution discovered long before Candès and Tao proved its optimality. The theory predicts, counterintuitively, that adding noise or randomness to neural connectivity should <em>improve</em> representational fidelity, a prediction now supported by optogenetic experiments in mouse visual cortex (Yoshida & Bhatt, 2020).</p>
+
+  <p>Compressed sensing thus stands as one of the twenty-first century's most vivid illustrations of mathematical cross-pollination: a theorem born from the frustrations of MRI engineers became, within a decade, a unifying lens for understanding how biological nervous systems solve the oldest information-processing problem in nature — reconstructing a high-dimensional world from devastatingly incomplete observations.</p>
+
+  <div class="footnote">
+    <strong>Key References:</strong> Candès, E., Romberg, J. & Tao, T. (2006). "Robust uncertainty principles." <em>IEEE Trans. Inform. Theory</em>, 52(2). &nbsp;|&nbsp; Donoho, D. (2006). "Compressed sensing." <em>IEEE Trans. Inform. Theory</em>, 52(4). &nbsp;|&nbsp; Ganguli, S. & Sompolinsky, H. (2012). "Compressed sensing, sparsity, and dimensionality in neuronal information processing and data analysis." <em>Annu. Rev. Neurosci.</em>, 35. &nbsp;|&nbsp; Lustig, M. et al. (2007). "Sparse MRI." <em>Magn. Reson. Med.</em>, 58(6).
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_compressed_sensing",
+  "related": [
+    {
+      "id": "lecture_multi_omic_aging_clocks",
+      "title": "Multi-Omic Aging Clocks & Biological Age Divergence",
+      "filename": "lecture_multi_omic_aging_clocks.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_cognitive_reserve",
+      "title": "Cognitive Reserve & the Redundancy Dividend",
+      "filename": "lecture_cognitive_reserve.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_hysteresis",
+      "title": "Hysteresis",
+      "filename": "lecture_hysteresis.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_glymphatic_system",
+      "title": "The Glymphatic System",
+      "filename": "lecture_glymphatic_system.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Sleep & Recovery"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

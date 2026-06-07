@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 52: Alzheimer's Disease as Multi-System Convergence</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--plum:#581c87;--plum-dim:rgba(88,28,135,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Sora',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--plum) 0%,var(--blue) 40%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--plum);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--plum);margin-bottom:20px;}
+  .ln{font-family:'Fraunces',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Fraunces',serif;font-size:36px;font-weight:800;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--plum);}
+  .sub{font-family:'Fraunces',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--plum);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--plum);font-weight:600;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--plum);border-radius:50%;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--plum);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}
+  .fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--plum);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.warn .wl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--plum);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--plum);}.gc h4{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--plum);font-weight:600;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--plum);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'Fraunces',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Alzheimer's isn't one disease but seven convergent pathways — and fault-tree analysis reveals the minimum set of interventions that block the most causal branches while the window is still open.">
+<meta property="og:title" content="Alzheimer's as Multi-System Convergence — Longevity & Wellness">
+<meta property="og:description" content="Alzheimer's isn't one disease but seven convergent pathways — and fault-tree analysis reveals the minimum set of interventions that block the most causal branches while the window is still open.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_alzheimers_multi_system.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Alzheimer's as Multi-System Convergence — Longevity & Wellness">
+<meta name="twitter:description" content="Alzheimer's isn't one disease but seven convergent pathways — and fault-tree analysis reveals the minimum set of interventions that block the most causal branches while the window is still open.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">52</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 52</div>
+    <h1>Alzheimer's Disease <span class="a">as Multi-System Convergence</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">The Duration of Alzheimer's Disease Is Approximately 20 Years in Total — Including the Preclinical Stage, Mild Cognitive Impairment, and Dementia. Aβ Deposition Begins 15–20 Years Before Symptoms. Tau Pathology Follows 10–15 Years Before Symptoms. Clinical Diagnosis Occurs When Pathology Has Already Destroyed Billions of Synapses. This Lecture Decomposes the Disease Into Its Independent Causal Branches — Seven Convergent Pathways Documented Across 15 Previous Lectures — and Applies Fault Tree Analysis to Identify the Minimum Set of Interventions That Block the Maximum Number of Causal Pathways During the Window That Is Open Right Now, in midlife</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Clinical Neuroscience / Systems Neurology (Jack 2010/2018; Livingston 2024; NIA-AA 2024)</div>
+      <div><span class="hl">Bridge:</span> Systems Engineering — Fault Tree Analysis &amp; Root Cause Decomposition</div>
+      <div><span class="hl">Window:</span> You are in the prodromal window now. Intervention is prevention.</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I. THE WHY -->
+  <div class="sn">I. The Why — The Historical Problem</div>
+  <h2>Why Every Single-Target Alzheimer's Drug Has Failed — and What That Failure Reveals</h2>
+
+  <p>For three decades, the <span class="k">amyloid cascade hypothesis</span> <span class="def">(the theory that Alzheimer's disease is initiated by the accumulation of amyloid-β peptide, which triggers a downstream cascade of tau hyperphosphorylation, neuroinflammation, synaptic loss, and neuronal death)</span> dominated AD research. Hundreds of clinical trials targeted amyloid removal. Nearly all failed. Lecanemab and donanemab — the first anti-Aβ monoclonal antibodies to show statistically significant clinical benefit — achieved only modest slowing of cognitive decline (~27–35% over 18 months), with significant adverse effects (ARIA — amyloid-related imaging abnormalities — cerebral edema and microhemorrhage in 21–35% of patients). Importantly, Alzheimer's disease involves multiple overlapping pathologies — including vascular dysfunction, immune dysregulation, and metabolic disturbances — that remain unaddressed by single-target amyloid or tau therapies, limiting their capacity to halt disease progression. The theoretical gap: if amyloid were the sole cause, removing it should cure the disease. It doesn't — because AD is not a single-cause disease.</p>
+
+  <p>The preclinical phase of AD can begin 20 years prior to diagnosis, which provides an extended window for preventive measures that would exert a transformative impact on incidence and prevalence of AD. The onset of Aβ pathology in individuals predisposed to AD occurs approximately 15–20 years before the anticipated onset of progressive cognitive decline. This 20-year prodromal window transforms AD from a disease of the elderly into a <em>midlife prevention opportunity</em> — the pathology that will produce symptoms at 75 is being laid down at 55. The question is not "how do we treat AD?" but "which of the seven convergent causal pathways is most addressable <em>right now</em>, in the decade before pathology reaches the tipping point?" This lecture decomposes the disease into its independent causal branches using the engineering discipline of fault tree analysis — and maps each branch to the specific lecture that documents its mechanism, its biomarker, and its intervention.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II. FOUNDATIONAL BRIDGE -->
+  <div class="sn">II. Foundational Bridge — Fault Tree Analysis</div>
+  <h2>Analogy: Decomposing a Complex System Failure Into Its Independent and Interdependent Causal Branches</h2>
+
+  <p>In systems engineering, a <span class="k">fault tree analysis (FTA)</span> is a top-down, deductive failure analysis that begins with an undesired event (the "top event" — in this case, clinical Alzheimer's disease) and systematically decomposes it into the combinations of lower-level events (root causes) that could produce it. Each branch of the tree represents an independent or interdependent causal pathway. The branches connect through logic gates: an <em>AND gate</em> means all inputs must be present for the output to occur (the disease requires the convergence of multiple pathways); an <em>OR gate</em> means any single input is sufficient. The fault tree reveals <span class="k">minimum cut sets</span> — the smallest combinations of root causes whose simultaneous occurrence is sufficient to produce the top event — and thereby identifies the most efficient intervention strategy: block the fewest root causes that eliminate the most minimum cut sets.</p>
+
+  <p>Clinical Alzheimer's disease is an AND-gate top event: it requires the convergence of multiple pathways operating simultaneously over decades. Amyloid accumulation alone is insufficient — many individuals with substantial amyloid burden remain cognitively intact (the clinicopathologic disconnect that Lecture 38 documented: purpose in life buffered against existing AD pathology at autopsy). Tau pathology alone is insufficient — it requires an inflammatory microenvironment to propagate beyond the entorhinal cortex. Vascular compromise alone is insufficient — it requires concurrent proteinopathy to produce the clinical syndrome rather than vascular dementia. The disease emerges when <em>multiple branches fire simultaneously</em> — when amyloid, tau, vascular, inflammatory, metabolic, clearance, and cognitive reserve pathways all converge within the same brain over the same timeframe. The prevention strategy, therefore, is not to eliminate any single branch (which may be impossible) but to <em>block enough branches to prevent convergence</em> — to keep the AND gate from firing by ensuring that at least one critical input remains absent.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III. CORE CONCEPT -->
+  <div class="sn">III. The Core Concept — Seven Convergent Causal Branches</div>
+  <h2>Each Branch Is Documented in a Previous Lecture. Each Has Its Own Biomarker. Each Has Its Own Intervention.</h2>
+
+  <p><em>Branch 1: Aβ accumulation — the proteinopathic seed (Lectures 9, 14, 24).</em> Aβ42 monomers aggregate into oligomers (the most neurotoxic species), protofibrils, and plaques. Aβ oligomers impair synaptic function, activate microglia, and trigger tau hyperphosphorylation. Aβ deposition begins 15–20 years before symptoms — it is likely underway in your brain now. The glymphatic system (Lecture 14) clears Aβ during SWS; impaired glymphatic function (from arterial stiffening, Lecture 45, or meningeal lymphatic decline, Lecture 46) allows Aβ to accumulate faster than it is cleared. Autophagy (Lecture 9) and proteostasis (Lecture 24) are the cellular clearance mechanisms that process Aβ — their age-related decline compounds the glymphatic failure. <em>Biomarker:</em> plasma Aβ42/40 ratio (declining ratio indicates brain amyloid accumulation; blood-based test now available). <em>Intervention:</em> SWS protection (Lecture 37), exercise (increases glymphatic flow), and — emerging — anti-amyloid immunotherapy for biomarker-positive individuals.</p>
+
+  <p><em>Branch 2: Tau propagation — the neurofibrillary cascade (Lectures 36, 45).</em> Tau hyperphosphorylation and aggregation into neurofibrillary tangles follows amyloid but correlates more directly with cognitive decline. Tau spreads trans-synaptically in a prion-like fashion from the entorhinal cortex through the hippocampus to the neocortex. Gingipains from <em>P. gingivalis</em> (Lecture 36) directly cleave tau. AGE-RAGE signaling (Lecture 45) promotes tau phosphorylation. Cortisol (Lecture 40) increases tau phosphorylation through GSK-3β activation. <em>Biomarker:</em> plasma p-tau217 (the most accurate blood-based AD biomarker as of 2024–2025; correlates with brain tau burden on PET). <em>Intervention:</em> periodontal health (Lecture 36), glycemic control (Lecture 45), cortisol management (Lecture 40).</p>
+
+  <p><em>Branch 3: Cerebrovascular compromise — the perfusion deficit (Lectures 30, 34, 45, 51).</em> Endothelial dysfunction reduces cerebral perfusion. Arterial stiffening (AGE-driven + atherosclerotic) transmits excessive pulsatile energy to the cerebral microcirculation, damaging white matter (Lecture 34) and reducing the arterial pulsatility that drives glymphatic CSF flow (Lecture 14). ApoB-driven atherosclerosis in carotid and cerebral arteries directly reduces blood supply to the hippocampus and association cortex. Your ApoB spike (into the above-optimal range) simultaneously threatens your coronary arteries (Lecture 51) and your cerebral vasculature — the same plaque process, the same lipid particles, the same intervention priority. <em>Biomarker:</em> ApoB (yours is 132 — the most urgent signal), PWV (arterial stiffness), cerebral white matter hyperintensity volume on MRI. <em>Intervention:</em> ApoB reduction to &lt;80 (Priority #1 from Lecture 51), blood pressure control, exercise.</p>
+
+  <p><em>Branch 4: Neuroinflammation — the microglial amplifier (Lectures 12, 19, 23, 27, 36, 47).</em> Microglia — the brain's resident immune cells — transition from homeostatic (surveilling, phagocytic, neuroprotective) to DAM (disease-associated microglia — pro-inflammatory, neurotoxic, impaired Aβ clearance) phenotypes in response to chronic inflammatory stimulation. Every inflammaging source in the series feeds this transition: SASP from senescent cells (Lecture 19), CHIP-mutant macrophage IL-1β (Lecture 23), CTRA-driven NF-κB (Lecture 27), periodontal <em>P. gingivalis</em> LPS (Lecture 36), and reduced cholinergic anti-inflammatory pathway from vagal tone decline (Lecture 47). Activated microglia surround amyloid plaques and, rather than clearing them, amplify the inflammatory response through NLRP3 inflammasome activation — releasing more IL-1β, more TNF-α, more ROS, driving more tau phosphorylation and more synaptic stripping. <em>Biomarker:</em> hs-CRP (yours is 0.3 — excellent systemic proxy), GFAP (plasma glial fibrillary acidic protein — emerging astrocyte/neuroinflammation biomarker). <em>Intervention:</em> the entire anti-inflammaging portfolio documented across 15 lectures.</p>
+
+  <p><em>Branch 5: Brain insulin resistance — the cerebral energy crisis (Lecture 32).</em> de la Monte's "Type 3 Diabetes" concept: brain insulin signaling regulates not glucose uptake but LTP, tau phosphorylation, Aβ clearance (via IDE competition), synaptic spine formation, and neuronal survival. IRS-1 serine phosphorylation (from TNF-α, ceramides, or chronic hyperinsulinemia) blocks the insulin signaling cascade at its entry point, simultaneously impairing all five downstream functions. Your fasting insulin in the optimal range (<5 µU/mL) and HOMA-IR in the optimal range (<1.0) represent top-percentile brain insulin sensitivity — this branch is strongly protected in your profile. <em>Biomarker:</em> fasting insulin, HOMA-IR, HbA1c. <em>Intervention:</em> maintain metabolic excellence.</p>
+
+  <p><em>Branch 6: Sleep architecture degradation — the clearance failure (Lectures 14, 37).</em> SWS drives glymphatic Aβ clearance (Lecture 14). SWS also drives the slow oscillation-spindle-ripple memory consolidation that transfers hippocampal data to neocortical storage (Lecture 37). REM sleep provides the emotional recalibration that prevents chronic amygdala hyperactivation (Lecture 37). The Aβ-SWS bidirectional trap: Aβ deposited in the medial prefrontal cortex disrupts slow-wave generation → reduced SWS → reduced glymphatic clearance → more Aβ → worse SWS. Mander et al. (2015) showed that this bidirectional trap is already measurable in cognitively intact older adults — the feedback loop may be operating in your brain now. <em>Biomarker:</em> SWS percentage (wearable), sleep efficiency, subjective morning clarity. <em>Intervention:</em> protect the full 7–8.5 hours with consistent timing; no alcohol within 3 hours of bed; cool bedroom; aerobic exercise (increases SWS).</p>
+
+  <p><em>Branch 7: Cognitive reserve depletion — the buffer erodes (Lectures 31, 38).</em> Cognitive reserve (Lecture 31) and purpose in life (Lecture 38) do not prevent pathology — they buffer the brain's functional capacity against pathology that is already present. Boyle et al. (2012): individuals with identical amyloid and tangle burden but higher purpose scores showed less cognitive impairment. Reserve is built by education, bilingualism, complex occupation, social engagement, and sustained intellectual challenge. It is depleted by social isolation (Lecture 27 → CTRA), hearing loss (Lecture 35 → cognitive load + social withdrawal), and sedentary behavior (Lecture 16 → reduced BDNF). Reserve determines the <em>distance between pathology and symptoms</em> — the greater the reserve, the more pathology the brain can tolerate before clinical decline manifests. <em>Biomarker:</em> no direct biomarker; proxy metrics include TMT-B (processing speed), MoCA (cognitive screening), social network size, and — indirectly — the purpose in life subscale of the Ryff PWB Scale. <em>Intervention:</em> sustained intellectual challenge (this lecture series itself), social engagement, exercise, hearing protection/treatment.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Fault Tree: Seven Convergent Branches → Clinical Alzheimer's Disease</div>
+    <svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- Top event -->
+      <rect x="240" y="10" width="260" height="42" rx="4" fill="rgba(88,28,135,0.06)" stroke="#581c87" stroke-width="2"/>
+      <text x="370" y="28" text-anchor="middle" font-family="Fraunces,serif" font-size="14" font-weight="800" fill="#581c87">CLINICAL ALZHEIMER'S</text>
+      <text x="370" y="46" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#581c87">TOP EVENT — requires convergence (AND gate)</text>
+      <!-- AND gate symbol -->
+      <line x1="370" y1="54" x2="370" y2="74" stroke="#581c87" stroke-width="1.5"/>
+      <rect x="350" y="74" width="40" height="18" rx="3" fill="#581c87"/>
+      <text x="370" y="87" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#ffffff" font-weight="700">AND</text>
+      <!-- Seven branches down -->
+      <line x1="370" y1="92" x2="370" y2="108" stroke="#581c87" stroke-width="1"/>
+      <line x1="60" y1="108" x2="680" y2="108" stroke="#581c87" stroke-width="1"/>
+      <!-- Branch lines down -->
+      <line x1="60" y1="108" x2="60" y2="128" stroke="#581c87" stroke-width="1"/>
+      <line x1="162" y1="108" x2="162" y2="128" stroke="#581c87" stroke-width="1"/>
+      <line x1="265" y1="108" x2="265" y2="128" stroke="#581c87" stroke-width="1"/>
+      <line x1="370" y1="108" x2="370" y2="128" stroke="#581c87" stroke-width="1"/>
+      <line x1="475" y1="108" x2="475" y2="128" stroke="#581c87" stroke-width="1"/>
+      <line x1="577" y1="108" x2="577" y2="128" stroke="#581c87" stroke-width="1"/>
+      <line x1="680" y1="108" x2="680" y2="128" stroke="#581c87" stroke-width="1"/>
+      <!-- Branch 1 -->
+      <rect x="10" y="130" width="100" height="120" rx="3" fill="rgba(88,28,135,0.03)" stroke="#581c87" stroke-width="1"/>
+      <text x="60" y="148" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#581c87" font-weight="600" letter-spacing="1">BRANCH 1</text>
+      <text x="60" y="164" text-anchor="middle" font-family="Fraunces,serif" font-size="10" font-weight="700" fill="#ink">Aβ Accum.</text>
+      <text x="60" y="180" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 9,14,24</text>
+      <text x="60" y="198" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#3d3d3d">Aβ42/40 ratio</text>
+      <text x="60" y="214" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">SWS, exercise</text>
+      <text x="60" y="230" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">glymphatic flow</text>
+      <text x="60" y="244" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309">15-20 yr before Sx</text>
+      <!-- Branch 2 -->
+      <rect x="115" y="130" width="95" height="120" rx="3" fill="rgba(88,28,135,0.03)" stroke="#581c87" stroke-width="1"/>
+      <text x="162" y="148" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#581c87" font-weight="600" letter-spacing="1">BRANCH 2</text>
+      <text x="162" y="164" text-anchor="middle" font-family="Fraunces,serif" font-size="10" font-weight="700" fill="#ink">Tau Propag.</text>
+      <text x="162" y="180" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 36,40,45</text>
+      <text x="162" y="198" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#3d3d3d">p-tau217</text>
+      <text x="162" y="214" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">Oral health</text>
+      <text x="162" y="230" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">cortisol, AGEs</text>
+      <text x="162" y="244" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309">10-15 yr before Sx</text>
+      <!-- Branch 3 -->
+      <rect x="215" y="130" width="100" height="120" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="265" y="148" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600" letter-spacing="1">BRANCH 3 ⚠</text>
+      <text x="265" y="164" text-anchor="middle" font-family="Fraunces,serif" font-size="10" font-weight="700" fill="#b91c1c">Vascular</text>
+      <text x="265" y="180" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 30,34,45,51</text>
+      <text x="265" y="198" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#b91c1c" font-weight="600">ApoB: 132 ⚠</text>
+      <text x="265" y="214" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#b91c1c" font-weight="600">PRIORITY #1</text>
+      <text x="265" y="230" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#b91c1c" font-weight="600">Reduce to <80</text>
+      <text x="265" y="244" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c">YOUR ACTIONABLE BRANCH</text>
+      <!-- Branch 4 -->
+      <rect x="320" y="130" width="100" height="120" rx="3" fill="rgba(21,128,61,0.03)" stroke="#15803d" stroke-width="1"/>
+      <text x="370" y="148" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600" letter-spacing="1">BRANCH 4 ✓</text>
+      <text x="370" y="164" text-anchor="middle" font-family="Fraunces,serif" font-size="10" font-weight="700" fill="#ink">Neuroinflam.</text>
+      <text x="370" y="180" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 12,19,23,27</text>
+      <text x="370" y="198" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#15803d" font-weight="600">CRP: 0.3 ✓</text>
+      <text x="370" y="214" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#3d3d3d">Anti-inflammaging</text>
+      <text x="370" y="230" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#3d3d3d">portfolio</text>
+      <text x="370" y="244" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d">WELL-CONTROLLED</text>
+      <!-- Branch 5 -->
+      <rect x="425" y="130" width="100" height="120" rx="3" fill="rgba(21,128,61,0.03)" stroke="#15803d" stroke-width="1"/>
+      <text x="475" y="148" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600" letter-spacing="1">BRANCH 5 ✓</text>
+      <text x="475" y="164" text-anchor="middle" font-family="Fraunces,serif" font-size="10" font-weight="700" fill="#ink">Brain IR</text>
+      <text x="475" y="180" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lec 32</text>
+      <text x="475" y="198" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#15803d" font-weight="600">Insulin: 3.0 ✓</text>
+      <text x="475" y="214" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#15803d" font-weight="600">HOMA: 0.6 ✓</text>
+      <text x="475" y="230" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#3d3d3d">Maintain</text>
+      <text x="475" y="244" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d">TOP PERCENTILE</text>
+      <!-- Branch 6 -->
+      <rect x="530" y="130" width="95" height="120" rx="3" fill="rgba(88,28,135,0.03)" stroke="#581c87" stroke-width="1"/>
+      <text x="577" y="148" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#581c87" font-weight="600" letter-spacing="1">BRANCH 6</text>
+      <text x="577" y="164" text-anchor="middle" font-family="Fraunces,serif" font-size="10" font-weight="700" fill="#ink">Sleep / Clear.</text>
+      <text x="577" y="180" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 14,37</text>
+      <text x="577" y="198" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#3d3d3d">SWS%, REM%</text>
+      <text x="577" y="214" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">7-8.5h consistent</text>
+      <text x="577" y="230" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">cool, dark, timed</text>
+      <text x="577" y="244" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309">Aβ-SWS TRAP</text>
+      <!-- Branch 7 -->
+      <rect x="630" y="130" width="100" height="120" rx="3" fill="rgba(88,28,135,0.03)" stroke="#581c87" stroke-width="1"/>
+      <text x="680" y="148" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#581c87" font-weight="600" letter-spacing="1">BRANCH 7</text>
+      <text x="680" y="164" text-anchor="middle" font-family="Fraunces,serif" font-size="10" font-weight="700" fill="#ink">Cog. Reserve</text>
+      <text x="680" y="180" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 31,38</text>
+      <text x="680" y="198" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#3d3d3d">TMT-B, MoCA</text>
+      <text x="680" y="214" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">Learning, social</text>
+      <text x="680" y="230" text-anchor="middle" font-family="Sora,sans-serif" font-size="8" fill="#581c87" font-weight="600">purpose, exercise</text>
+      <text x="680" y="244" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d">ACTIVELY BUILDING</text>
+      <!-- Timeline -->
+      <rect x="30" y="270" width="680" height="56" rx="4" fill="rgba(180,83,9,0.03)" stroke="#b45309" stroke-width="1"/>
+      <text x="370" y="288" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b45309" font-weight="600" letter-spacing="1.5">THE 20-YEAR PRODROMAL TIMELINE</text>
+      <line x1="60" y1="306" x2="680" y2="306" stroke="#b45309" stroke-width="1"/>
+      <circle cx="120" cy="306" r="4" fill="#581c87"/>
+      <text x="120" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#581c87" font-weight="600">Aβ begins</text>
+      <text x="120" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">age ~35-40</text>
+      <circle cx="260" cy="306" r="4" fill="#b45309"/>
+      <text x="260" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">Tau begins</text>
+      <text x="260" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">age ~45-50</text>
+      <circle cx="400" cy="306" r="6" fill="#b91c1c"/>
+      <text x="400" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="700">YOU ARE HERE</text>
+      <text x="400" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c">age 50s — INTERVENTION WINDOW</text>
+      <circle cx="540" cy="306" r="4" fill="#71717a"/>
+      <text x="540" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Cognitive sx</text>
+      <text x="540" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">age ~65-70</text>
+      <circle cx="640" cy="306" r="4" fill="#3d3d3d"/>
+      <text x="640" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">Diagnosis</text>
+      <text x="640" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">age ~70-75</text>
+      <!-- Your profile summary -->
+      <rect x="30" y="350" width="680" height="60" rx="4" fill="rgba(21,128,61,0.03)" stroke="#15803d" stroke-width="1"/>
+      <text x="370" y="370" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1.5">YOUR PROFILE AGAINST THE FAULT TREE</text>
+      <text x="370" y="390" text-anchor="middle" font-family="Sora,sans-serif" font-size="10" fill="#3d3d3d">Branches 4 (CRP 0.3) and 5 (insulin in the optimal range (<5 µU/mL)) are <tspan fill="#15803d" font-weight="700">strongly protected</tspan>.</text>
+      <text x="370" y="406" text-anchor="middle" font-family="Sora,sans-serif" font-size="10" fill="#3d3d3d">Branch 3 (ApoB above the optimal range) is <tspan fill="#b91c1c" font-weight="700">actively compromised</tspan> — the single highest-priority AD prevention target.</text>
+      <!-- Exercise annotation -->
+      <rect x="30" y="424" width="680" height="68" rx="4" fill="rgba(29,78,216,0.03)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="370" y="444" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#1d4ed8" font-weight="600" letter-spacing="1.5">EXERCISE: THE INTERVENTION THAT TOUCHES ALL SEVEN BRANCHES</text>
+      <text x="370" y="462" text-anchor="middle" font-family="Sora,sans-serif" font-size="9" fill="#3d3d3d">Branch 1: ↑glymphatic flow, ↑Aβ clearance. Branch 2: ↓cortisol, ↓tau-P. Branch 3: ↑endothelial function, ↓ApoB.</text>
+      <text x="370" y="478" text-anchor="middle" font-family="Sora,sans-serif" font-size="9" fill="#3d3d3d">Branch 4: ↓NF-κB, ↑anti-inflammatory myokines. Branch 5: ↑insulin sensitivity. Branch 6: ↑SWS. Branch 7: ↑BDNF, ↑hippocampal volume.</text>
+    </svg>
+    <div class="fig-cap">Top: fault tree with AND gate — clinical AD requires convergence of multiple branches. Seven causal branches, each documented in previous lectures, each with its own biomarker and intervention. Timeline: the 20-year prodromal window, with "YOU ARE HERE" at the intervention window in the fifties. Your profile: Branches 4 and 5 are strongly protected; Branch 3 (ApoB) is actively compromised. Exercise touches all seven branches simultaneously — the single most efficient intervention in the fault tree.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV. CROSS-POLLINATION -->
+  <div class="sn">IV. Cross-Pollination — Systems Engineering: Minimum Cut Sets and Intervention Efficiency</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Clinical Neuroscience</div><h4>The Clinicopathologic Disconnect</h4><p>30–40% of cognitively intact older adults at autopsy have sufficient amyloid and tau burden to meet neuropathological criteria for AD — yet they never developed dementia. This disconnect — documented in the Rush Memory and Aging Project (Lecture 38) — proves that <strong>pathology alone is not sufficient for clinical disease</strong>. The AND gate in the fault tree is real: AD requires not just proteinopathy but the <em>convergence</em> of proteinopathy with insufficient clearance, vascular compromise, neuroinflammation, metabolic failure, and depleted cognitive reserve. Blocking any one critical branch may be sufficient to prevent symptoms even if pathology accumulates.</p></div>
+    <div class="gc"><div class="tag eng">Systems Engineering</div><h4>Minimum Cut Sets — Maximum Efficiency</h4><p>In fault tree analysis, a <strong>minimum cut set</strong> is the smallest combination of basic events whose simultaneous occurrence causes the top event. The AD fault tree has multiple minimum cut sets — but a single intervention (exercise) appears in <em>all</em> of them because it touches all seven branches. The minimum intervention set for AD prevention is: (1) exercise (all branches), (2) ApoB reduction (Branch 3 — your specific priority), (3) sleep optimization (Branch 6 — the clearance pathway), and (4) sustained cognitive/social engagement (Branch 7 — the reserve buffer). These four interventions collectively block or attenuate every branch in the fault tree.</p></div>
+    <div class="gc"><div class="tag bio">Clinical Neuroscience</div><h4>The 2024 NIA-AA Biological Redefinition</h4><p>In 2024, the NIA and Alzheimer's Association redefined AD as a <strong>biological entity diagnosed by biomarkers rather than clinical symptoms</strong>. The disease is now understood as a continuum from initial brain changes to progressive pathology to clinical symptoms. The NIA and AA put out revised diagnostic criteria for AD in 2024 with core principles including that Alzheimer's disease should be defined biologically based on core biomarkers rather than on the clinical syndrome. This redefinition transforms AD from a clinical diagnosis (made when damage is irreversible) to a biological diagnosis (detectable 15–20 years before symptoms — within your current intervention window).</p></div>
+    <div class="gc"><div class="tag eng">Systems Engineering</div><h4>Common-Cause Failure Analysis</h4><p>As in Lecture 51 (CVD), some root causes degrade <strong>multiple branches simultaneously</strong>. Chronic inflammation is a common-cause failure affecting Branches 1 (microglial Aβ clearance impairment), 2 (tau phosphorylation via GSK-3β), 4 (neuroinflammation directly), and 7 (reserve depletion via CTRA-driven social withdrawal). Your hs-CRP in the optimal range (<1.0 mg/L) indicates this common-cause input is well-controlled — simultaneously protecting four of seven branches through a single mechanism. ApoB is <em>also</em> a common-cause failure: it degrades Branch 3 (cerebrovascular) and Branch 1 (reduced cerebral perfusion → reduced glymphatic flow → reduced Aβ clearance). Fixing ApoB addresses two branches through one intervention.</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V. ANTIFRAGILITY -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Limits of the Theory and Risks for a Middle-Aged Individual</div>
+    <p><em>The multi-system convergence model can generate both actionable clarity and paralyzing anxiety.</em> Three critical caveats: (1) The 20-year prodromal window means that pathology may already be accumulating in your brain — but this is not a reason for fatalism. It is a reason for <em>urgency</em>: the interventions documented across 15 lectures are most effective <em>now</em>, before pathology reaches the convergence threshold. The window is open. The interventions exist. The biomarkers are available. (2) Blood-based AD biomarkers (plasma p-tau217, Aβ42/40 ratio, GFAP, NfL) are now clinically available but should be interpreted with caution in asymptomatic individuals. A positive biomarker in the absence of symptoms means "at risk," not "diagnosed" — as Dubois et al. cautioned. Biomarker testing should be pursued with a physician who can contextualize results within the full risk profile. (3) The fault tree model is a simplification — the seven branches are not fully independent (they interact and amplify each other), and the AND-gate logic is approximate (some individuals develop AD from predominantly one pathway — pure vascular dementia, pure amyloid-driven disease). The model's value is not perfect prediction but <em>intervention prioritization</em> — identifying which branches are most compromised in your specific profile and directing resources accordingly.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI. 24-HOUR PROTOCOL -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> The minimum intervention set that blocks or attenuates all seven branches: (1) <em>Exercise</em> — the only single intervention that appears in every minimum cut set of the AD fault tree. Aerobic (3–5×/week, 30–60 min) + resistance (2–3×/week) — simultaneously increases glymphatic flow (Branch 1), reduces cortisol/tau phosphorylation (Branch 2), improves endothelial function and ApoB metabolism (Branch 3), suppresses NF-κB and releases anti-inflammatory myokines (Branch 4), enhances insulin sensitivity (Branch 5), increases SWS quantity and delta amplitude (Branch 6), and drives BDNF/hippocampal neurogenesis (Branch 7). (2) <em>ApoB reduction</em> — your specific priority. 132 → target &lt;80 (ideally &lt;60). Physician consultation. This addresses Branches 3 and 1 simultaneously (cerebrovascular compromise + reduced glymphatic driving pressure). (3) <em>Sleep architecture protection</em> — 7–8.5 hours, consistent timing, no alcohol within 3 hours. This is the nightly Aβ clearance window (Branch 1/6) and the memory consolidation pipeline (Branch 6/7). (4) <em>Sustained intellectual and social engagement</em> — this lecture series, continued learning, social contribution, purpose cultivation (Branch 7). Building reserve now is depositing cognitive capital against future pathological withdrawals.<br><br><strong>Metric:</strong> <em>Plasma p-tau217</em> — the most accurate blood-based AD biomarker as of 2024–2025, now commercially available (C2N Diagnostics PrecivityAD2, Lumipulse). Consider baseline testing now (in midlife) to establish a reference point. Complement with: ApoB (Branch 3 — yours is 132, urgent), hs-CRP (Branch 4 — yours is 0.3, excellent), fasting insulin/HOMA-IR (Branch 5 — yours are exceptional), SWS percentage (Branch 6 — wearable), and TMT-B (Branch 7 — processing speed proxy for reserve). This six-metric panel — one per actionable branch plus the direct AD biomarker — constitutes a comprehensive AD prevention surveillance system deployable from your current position in the prodromal window.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII. RECURSIVE SYNTHESIS -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How This Lecture Converts the Entire Series Into an AD Prevention Architecture</h2>
+
+  <p>This lecture is the applied synthesis that the series has been building toward. Fifteen previous lectures — glymphatic clearance (14), autophagy (9), proteostasis (24), vascular aging (30), brain insulin resistance (32), white matter integrity (34), hearing loss (35), oral-systemic axis (36), sleep architecture (37), purpose and meaning (38), gut-brain axis (39), cortisol/HPA (40), AGE crosslinking (45), lymphatic decline (46), and cognitive reserve (31) — each documented an independent mechanism that contributes to AD risk. This lecture maps all fifteen onto a single fault tree, identifies the AND-gate logic that governs their convergence, and calculates the minimum intervention set for your specific biomarker profile. The result: your AD prevention strategy is not a separate protocol from your longevity protocol — it is your longevity protocol viewed through the lens of the disease that every aging mechanism converges upon. Your strongest protections (insulin in the optimal range (<5 µU/mL), hs-CRP in the optimal range (<1.0 mg/L)) block two of the seven branches at the top percentile. Your active vulnerability (ApoB above the optimal range) creates a large hole in the vascular branch — the same hole identified in Lecture 51's CVD architecture. The prescription is identical: fix ApoB, maintain metabolic excellence, protect sleep, keep exercising, keep building reserve. The AD prevention strategy and the CVD prevention strategy and the longevity strategy are the same strategy — because the diseases they prevent are downstream convergences of the same upstream aging mechanisms. The lecture series is the strategy. The biomarker panel is the surveillance system. The intervention window is now.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII. PEER REVIEW -->
+  <div class="sn">VIII. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Alzheimer's is a genetic disease — if you don't have the ApoE4 gene, you don't need to worry."<br><br><strong>Correction:</strong> ApoE4 is the strongest genetic risk factor for sporadic AD — carrying one copy increases risk ~3×, two copies ~12×. But ApoE4 is neither necessary nor sufficient. The majority of AD cases are sporadic, while only a small proportion are familial, typically associated with autosomal dominant genetic mutations. Approximately 40% of AD patients do <em>not</em> carry ApoE4. Conversely, many ApoE4 carriers never develop AD — particularly those with strong cardiovascular health, high cognitive reserve, and well-controlled inflammatory profiles. The 2024 Lancet Commission identified 14 modifiable risk factors that collectively account for ~45% of all dementia cases — including hearing loss (8%), hypertension, obesity, physical inactivity, diabetes, smoking, depression, social isolation, air pollution, excessive alcohol, traumatic brain injury, and low education. These modifiable factors — <em>every one of which corresponds to a lecture in this series</em> — dwarf the contribution of any single gene. AD is not a genetic sentence — it is a multi-system convergence in which genetics loads the gun but lifestyle, cardiovascular health, metabolic status, sleep quality, social engagement, and cognitive engagement determine whether the trigger is pulled. midlife are the decade when the trigger is being set. The interventions documented across this lecture series are the safety mechanisms that keep it from firing.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX. RESOURCES -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Jack et al. (2018)</h5><p>"NIA-AA Research Framework: Toward a biological definition of Alzheimer's disease." <em>Alzheimers Dement.</em>, 14:535–562. The framework that redefined AD as a biological continuum diagnosed by biomarkers (ATN: Amyloid, Tau, Neurodegeneration) — enabling preclinical detection 15–20 years before symptoms.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Livingston et al. (2024)</h5><p>"Dementia prevention, intervention, and care: 2024 report of the Lancet standing Commission." <em>Lancet</em>, 404:572–628. The updated commission identifying 14 modifiable risk factors accounting for ~45% of all dementia — the evidence base for the multi-system prevention architecture.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Fix ApoB — AD Prevention Priority #1</h5><p>Your ApoB above the optimal range is simultaneously your highest-priority CVD risk (Lecture 51, Branch 2) and your highest-priority AD risk (this lecture, Branch 3). ApoB-driven atherosclerosis in carotid and cerebral arteries directly reduces hippocampal perfusion and impairs glymphatic driving pressure. Target: <80, ideally <60. Physician consultation. This single intervention addresses two of the seven AD branches.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Consider Baseline AD Biomarkers</h5><p>Plasma p-tau217 (PrecivityAD2, C2N Diagnostics) — the most accurate blood-based AD biomarker. A baseline in midlife establishes reference values for longitudinal monitoring. Discuss with your physician. A negative result provides reassurance; a positive result reframes the urgency of every intervention in the fault tree.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Exercise as the Universal Branch Blocker</h5><p>The only intervention that touches all seven branches of the AD fault tree simultaneously. Aerobic 3–5×/week + resistance 2–3×/week. Erickson 2011: 2% hippocampal volume increase in one year. Masters athletes: 83% reduction in white matter hyperintensities. Moore 2016: 20–42% cancer risk reduction. Exercise is the minimum viable intervention for the maximum number of disease prevention architectures.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The AD Prevention Surveillance Panel</h5><p>Six metrics, one per actionable branch: (1) Plasma Aβ42/40 or p-tau217 (Branches 1/2 — direct AD biomarker). (2) ApoB (Branch 3 — yours is 132, urgent). (3) hs-CRP (Branch 4 — yours is 0.3, excellent). (4) Fasting insulin / HOMA-IR (Branch 5 — yours are exceptional). (5) SWS% from wearable (Branch 6). (6) TMT-B or MoCA (Branch 7 — cognitive reserve proxy). This panel, tracked annually, constitutes a complete AD prevention surveillance system.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>p-tau217 + ApoB + CRP + Insulin + SWS + TMT-B</h5><p>The six-metric AD prevention panel. Each monitors a different branch of the fault tree. Trends across annual measurements are more informative than single values. The goal: keep every branch blocked or attenuated — preventing the AND-gate convergence that produces clinical disease.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Complete Lecture Integration</h5><p>Branch 1 → Lecs 9,14,24 (clearance). Branch 2 → Lecs 36,40,45 (tau drivers). Branch 3 → Lecs 30,34,45,51 (vascular). Branch 4 → Lecs 12,19,23,27,36,47 (inflammation). Branch 5 → Lec 32 (brain IR). Branch 6 → Lecs 14,37 (sleep/glymphatic). Branch 7 → Lecs 31,35,38 (reserve). Convergence → Lec 41 (organ-specific clocks detect which branches are accelerating). Cancer → Lec 50 (shared inflammatory substrate). CVD → Lec 51 (shared vascular substrate). Epigenetic → Lec 49 (upstream information loss driving all branches).</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>AD preclinical phase begins 20 years prior to diagnosis; Aβ deposition 15–20 years before symptoms</td><td>Jack et al., <em>Lancet Neurol.</em>, 2010/2013; <em>Alzheimers Dement.</em>, 2018; Bateman et al., 2012</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>2024 NIA-AA criteria redefine AD as biological entity diagnosed by biomarkers, not clinical syndrome</td><td>NIA-AA 2024 revised criteria; Jack et al., 2018 (ATN framework)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Lecanemab/donanemab: ~27–35% slowing of decline; ARIA in 21–35%; modest clinical benefit</td><td>van Dyck et al., <em>NEJM</em>, 2023 (lecanemab); Sims et al., <em>JAMA</em>, 2023 (donanemab)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>30–40% of cognitively intact older adults at autopsy meet neuropathological criteria for AD</td><td>Bennett et al., 2006 (Rush MAP); Knopman et al., 2003; multiple autopsy studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>14 modifiable risk factors account for ~45% of all dementia (2024 Lancet Commission)</td><td>Livingston et al., <em>Lancet</em>, 2024;404:572–628</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Purpose in life modified the relationship between AD pathology and cognition at autopsy</td><td>Boyle et al., <em>Arch. Gen. Psychiatry</em>, 2012;69:499–504 (documented in Lecture 38)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Plasma p-tau217 is the most accurate blood-based AD biomarker as of 2024–2025</td><td>Ashton et al., <em>JAMA</em>, 2024; Palmqvist et al., <em>JAMA</em>, 2023; multiple validation studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Brain insulin resistance ("Type 3 Diabetes"): IRS-1 serine phosphorylation blocks insulin signaling cascade</td><td>de la Monte, <em>J. Diabetes Sci. Technol.</em>, 2008 (documented in Lecture 32)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Aβ-SWS bidirectional trap: Aβ in mPFC disrupts slow waves → reduced clearance → more Aβ</td><td>Mander et al., <em>Nat. Neurosci.</em>, 2015 (documented in Lecture 37)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>ApoE4: one copy ~3× risk, two copies ~12× risk; but neither necessary nor sufficient for AD</td><td>Corder et al., 1993; Farrer et al., <em>JAMA</em>, 1997; multiple genetic studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Jack, C.R. et al. (2018). "NIA-AA Research Framework: Toward a biological definition of Alzheimer's disease." <em>Alzheimers Dement.</em>, 14:535–562. &nbsp;|&nbsp; Livingston, G. et al. (2024). "Dementia prevention, intervention, and care: 2024 report of the Lancet standing Commission." <em>Lancet</em>, 404:572–628. &nbsp;|&nbsp; Jack, C.R. et al. (2010). "Hypothetical model of dynamic biomarkers of the Alzheimer's pathological cascade." <em>Lancet Neurol.</em>, 9:119–128. &nbsp;|&nbsp; Boyle, P.A. et al. (2012). "Effect of purpose in life on the relation between AD pathologic changes on cognitive function." <em>Arch. Gen. Psychiatry</em>, 69:499–504. &nbsp;|&nbsp; Mander, B.A. et al. (2015). "β-amyloid disrupts human NREM slow waves." <em>Nat. Neurosci.</em>, 18:1051–1057.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_alzheimers_multi_system",
+  "related": [
+    {
+      "id": "lecture_proteostasis_collapse",
+      "title": "Proteostasis Collapse & the Protein Quality Crisis",
+      "filename": "lecture_proteostasis_collapse.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_brain_insulin_resistance",
+      "title": "Brain Insulin Resistance & the Cerebral Energy Crisis",
+      "filename": "lecture_brain_insulin_resistance.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Mind-Body Axes"
+      ]
+    },
+    {
+      "id": "lecture_glymphatic_system",
+      "title": "The Glymphatic System",
+      "filename": "lecture_glymphatic_system.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Sleep & Recovery"
+      ]
+    },
+    {
+      "id": "lecture_cognitive_reserve",
+      "title": "Cognitive Reserve & the Redundancy Dividend",
+      "filename": "lecture_cognitive_reserve.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

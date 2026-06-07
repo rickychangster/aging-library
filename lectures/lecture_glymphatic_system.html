@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: The Glymphatic System</title>
+
+<style>
+  :root {
+    --bg: #faf7f0;
+    --surface: #f2efe6;
+    --card: #ffffff;
+    --ink: #1a1a2e;
+    --ink-mid: #32324a;
+    --ink-soft: #6e6e82;
+    --indigo: #2e3a6e;
+    --indigo-light: #4a5a9a;
+    --indigo-bg: rgba(46,58,110,0.04);
+    --copper: #b5703c;
+    --copper-deep: #8e5428;
+    --copper-bg: rgba(181,112,60,0.06);
+    --alert: #943535;
+    --alert-bg: rgba(148,53,53,0.04);
+    --rule: #d2ccbd;
+    --gold-line: #c9a96e;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink-mid);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.78;
+    font-size: 16.5px;
+  }
+
+  .page { max-width: 810px; margin: 0 auto; padding: 60px 40px 120px; }
+
+  /* Art deco top ornament */
+  .deco-top {
+    text-align: center;
+    margin-bottom: 36px;
+    color: var(--gold-line);
+    font-size: 18px;
+    letter-spacing: 12px;
+  }
+
+  /* Header */
+  .hdr {
+    margin-bottom: 52px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .hdr::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .hdr-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+  }
+
+  .series {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--copper);
+  }
+
+  .lec-num {
+    font-family: 'Spectral', serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--indigo);
+    line-height: 1;
+    opacity: 0.12;
+    position: absolute;
+    right: 0;
+    top: -10px;
+  }
+
+  h1 {
+    font-family: 'Spectral', serif;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  h1 .alt { color: var(--indigo); }
+
+  .sub {
+    font-family: 'Spectral', serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    max-width: 640px;
+  }
+
+  .meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .meta span { color: var(--indigo); font-weight: 700; }
+
+  /* Sections */
+  .sn {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-top: 50px;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Spectral', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 16px; text-align: justify; hyphens: auto; }
+  .t { color: var(--indigo); font-weight: 500; }
+  .pa { color: var(--ink-soft); font-style: italic; }
+  em { color: var(--ink); font-style: italic; }
+
+  /* Deco separator */
+  .sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 44px 0;
+    color: var(--gold-line);
+    font-size: 12px;
+    letter-spacing: 6px;
+  }
+  .sep::before, .sep::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rule), transparent);
+  }
+
+  /* Figure */
+  .fig {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 28px 20px 20px;
+    margin: 36px 0;
+    position: relative;
+  }
+
+  .fig::before, .fig::after {
+    content: '';
+    position: absolute;
+    width: 12px; height: 12px;
+    border: 1px solid var(--gold-line);
+  }
+  .fig::before { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+  .fig::after { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+  .fig-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--indigo); margin-bottom: 16px;
+  }
+
+  .fig svg { display: block; margin: 0 auto; width: 100%; max-width: 720px; }
+
+  .fig-cap {
+    font-size: 13px; color: var(--ink-soft);
+    text-align: center; margin-top: 14px;
+    line-height: 1.6; font-style: italic;
+  }
+
+  /* Callouts */
+  .call {
+    border-left: 3px solid var(--indigo);
+    background: var(--indigo-bg);
+    padding: 18px 22px; margin: 28px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .call .cl {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700; color: var(--indigo);
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .call p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.7; }
+
+  .call-alert {
+    border-left: 3px solid var(--alert);
+    background: var(--alert-bg);
+    padding: 18px 22px; margin: 28px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .call-alert .cl {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700; color: var(--alert);
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .call-alert p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.7; }
+
+  /* Grid */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 32px 0; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 20px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .card:hover { border-color: var(--indigo); box-shadow: 0 3px 14px rgba(46,58,110,0.07); }
+
+  .card-lab {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 8px; font-weight: 700;
+  }
+  .card-lab.neuro { color: var(--indigo); }
+  .card-lab.eng { color: var(--copper); }
+
+  .card h4 {
+    font-family: 'Spectral', serif;
+    font-size: 16.5px; font-weight: 700;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .card p {
+    font-size: 13.5px; line-height: 1.6;
+    margin-bottom: 0; text-align: left;
+  }
+  .card strong { color: var(--indigo); font-weight: 500; }
+
+  /* Footnote */
+  .fn {
+    font-size: 13px; color: var(--ink-soft);
+    border-top: 1px double var(--rule);
+    padding-top: 22px; margin-top: 54px; line-height: 1.7;
+  }
+  .fn strong { color: var(--ink-mid); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 34px; }
+    .grid { grid-template-columns: 1fr; }
+    .page { padding: 36px 18px 80px; }
+    .hdr-row { flex-direction: column; gap: 6px; }
+    .lec-num { font-size: 36px; }
+  }
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="The brain has its own overnight cleaning crew that flushes toxic proteins — but it only runs properly during deep sleep, and it weakens with every decade.">
+<meta property="og:title" content="The Glymphatic System — Longevity & Wellness">
+<meta property="og:description" content="The brain has its own overnight cleaning crew that flushes toxic proteins — but it only runs properly during deep sleep, and it weakens with every decade.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_glymphatic_system.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Glymphatic System — Longevity & Wellness">
+<meta name="twitter:description" content="The brain has its own overnight cleaning crew that flushes toxic proteins — but it only runs properly during deep sleep, and it weakens with every decade.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+
+  <div class="deco-top">◇ ◇ ◇</div>
+
+  <header class="hdr">
+    <div class="lec-num">14</div>
+    <div class="hdr-row">
+      <div class="series">Interdisciplinary Lecture Series — Longevity &amp; Wellness</div>
+    </div>
+    <h1>The <span class="alt">Glymphatic</span> System</h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published April 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">Your Brain Has a Sewage Network That Only Operates While You Sleep — and It Decays Precisely When You Need It Most</div>
+    <div class="meta">
+      <div><span>Origin:</span> Neuroscience (Nedergaard, 2012)</div>
+      <div><span>Bridge:</span> Hydraulic / Civil Engineering</div>
+      <div><span>Peak relevance:</span> Ages 45–65</div>
+      <div>~1,100 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why</div>
+  <h2>The Brain's Missing Drainage System</h2>
+
+  <p>Every organ in the body possesses a <span class="t">lymphatic system</span> <span class="pa">(a parallel network of vessels that collects interstitial fluid, metabolic waste, and immune cells and routes them back to the bloodstream for processing)</span>. Every organ, that is, except the brain — or so neuroscience believed for over a century. The brain was considered "immunologically privileged," sealed behind the blood-brain barrier, with no conventional lymphatic drainage. Yet the brain is the body's most metabolically active organ, consuming 20% of total oxygen while representing 2% of body mass. It produces enormous volumes of metabolic waste, including <span class="t">amyloid-β (Aβ)</span> <span class="pa">(a peptide fragment that, when it fails to clear, aggregates into the plaques characteristic of Alzheimer's disease)</span> and <span class="t">tau protein</span>. How was this waste removed? The question haunted neurology for decades.</p>
+
+  <p>In 2012, Maiken Nedergaard's laboratory at the University of Rochester published a landmark study using two-photon microscopy in living mice, revealing a previously unknown bulk-flow clearance system: the <span class="t">glymphatic system</span> <span class="pa">(a portmanteau of "glial" and "lymphatic" — a brain-wide network of perivascular channels, bounded by astrocyte endfeet, through which cerebrospinal fluid (CSF) flows to flush interstitial waste from neural tissue)</span>. The discovery was stunning in its own right. Its implications for aging in the fifties were even more consequential: glymphatic flow is almost exclusively active during deep sleep, declines dramatically with age, and its failure is now understood to be a primary upstream driver of Alzheimer's pathology — not a consequence of it.</p>
+
+  <div class="sep">◆</div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge</div>
+  <h2>Prerequisites via Analogy</h2>
+
+  <p>Consider the difference between a river and a sewer. A river flows continuously; a sewer operates on a schedule. During the day, the city's wastewater accumulates in pipes. At night, when demand is low, the pumping stations increase flow rate to flush the system. If the nighttime pumping cycle is shortened or interrupted, waste accumulates, pipes clog, and toxins back up into the streets. This is essentially the glymphatic system: the brain's sewer network runs its flush cycle during deep (NREM stage 3) sleep. Shorten or fragment sleep, and the flush cycle is truncated. Metabolic waste accumulates. Over years, the accumulation becomes the plaques and tangles of neurodegeneration.</p>
+
+  <p>Two concepts are essential. First, <span class="t">cerebrospinal fluid (CSF)</span>: produced by the choroid plexus, CSF circulates through the brain's ventricles and around the spinal cord, providing buoyancy, protection, and — as we now understand — the hydraulic medium for waste clearance. Second, <span class="t">astrocytes</span> <span class="pa">(star-shaped glial cells that outnumber neurons and perform critical support functions, including the formation of the blood-brain barrier and, crucially, the walls of glymphatic channels via specialized projections called endfeet)</span>. Astrocyte endfeet express <span class="t">aquaporin-4 (AQP4)</span> <span class="pa">(water channel proteins that facilitate the bulk movement of CSF into and through brain parenchyma)</span>. AQP4 is the molecular pump that drives glymphatic flow.</p>
+
+  <div class="sep">◆</div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept</div>
+  <h2>Nocturnal Bulk Flow — and Why It Fails in the Fifties</h2>
+
+  <p>The glymphatic mechanism operates as follows. During NREM slow-wave sleep, neurons fire synchronously in slow oscillations (0.5–4 Hz), producing rhythmic waves of depolarization and hyperpolarization. During the hyperpolarization phase, the <span class="t">extracellular space expands by approximately 60%</span> as neurons shrink — a finding so counterintuitive that it took Nedergaard's team years to confirm (Xie et al., <em>Science</em>, 2013). This expansion dramatically reduces hydraulic resistance, allowing CSF to surge through perivascular channels (the spaces surrounding penetrating arteries), enter the brain parenchyma via AQP4 water channels on astrocyte endfeet, mix with interstitial fluid carrying dissolved waste (Aβ, tau, lactate, α-synuclein), and exit along perivenous drainage routes to the cervical lymph nodes for systemic clearance.</p>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — The Glymphatic Clearance Cycle &amp; Hydraulic Engineering Parallel</div>
+    <svg viewBox="0 0 720 470" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left panel: Glymphatic system -->
+      <text x="195" y="22" text-anchor="middle" font-family="Space Mono, monospace" font-size="10" fill="#2e3a6e" font-weight="700" letter-spacing="1.5">GLYMPHATIC CLEARANCE CYCLE</text>
+
+      <!-- Sleep state trigger -->
+      <rect x="90" y="40" width="210" height="36" rx="2" fill="var(--indigo-bg)" stroke="#2e3a6e" stroke-width="1"/>
+      <text x="195" y="56" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="11" fill="#2e3a6e" font-weight="500">NREM Slow-Wave Sleep (0.5–4 Hz)</text>
+      <text x="195" y="70" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#6e6e82">extracellular space expands ~60%</text>
+
+      <line x1="195" y1="76" x2="195" y2="96" stroke="#2e3a6e" stroke-width="1"/>
+      <polygon points="190,96 195,104 200,96" fill="#2e3a6e"/>
+
+      <!-- CSF influx -->
+      <rect x="50" y="106" width="290" height="42" rx="2" fill="#ffffff" stroke="#2e3a6e" stroke-width="1.2"/>
+      <text x="195" y="124" text-anchor="middle" font-family="Spectral, serif" font-size="13" font-weight="700" fill="#1a1a2e">CSF Periarterial Influx</text>
+      <text x="195" y="140" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#6e6e82">driven by arterial pulsation + AQP4 channels</text>
+
+      <line x1="195" y1="148" x2="195" y2="168" stroke="#4a5a9a" stroke-width="1"/>
+      <polygon points="190,168 195,176 200,168" fill="#4a5a9a"/>
+
+      <!-- Parenchymal mixing -->
+      <rect x="50" y="178" width="290" height="50" rx="2" fill="rgba(46,58,110,0.03)" stroke="#4a5a9a" stroke-width="1"/>
+      <text x="195" y="196" text-anchor="middle" font-family="Spectral, serif" font-size="13" font-weight="700" fill="#1a1a2e">Parenchymal Convective Flow</text>
+      <text x="195" y="212" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10" fill="#6e6e82">CSF mixes with interstitial fluid</text>
+      <text x="195" y="224" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#943535">dissolves Aβ, tau, α-syn, lactate</text>
+
+      <line x1="195" y1="228" x2="195" y2="248" stroke="#4a5a9a" stroke-width="1"/>
+      <polygon points="190,248 195,256 200,248" fill="#4a5a9a"/>
+
+      <!-- Perivenous efflux -->
+      <rect x="50" y="258" width="290" height="36" rx="2" fill="#ffffff" stroke="#b5703c" stroke-width="1.2"/>
+      <text x="195" y="276" text-anchor="middle" font-family="Spectral, serif" font-size="13" font-weight="700" fill="#1a1a2e">Perivenous Efflux → Cervical Lymph</text>
+      <text x="195" y="290" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#b5703c">waste exits brain for systemic clearance</text>
+
+      <!-- Age-related decline box -->
+      <rect x="30" y="316" width="330" height="68" rx="2" fill="rgba(148,53,53,0.04)" stroke="#943535" stroke-width="1"/>
+      <text x="195" y="336" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#943535" font-weight="700" letter-spacing="1.5">AGE-RELATED DECLINE (50s INFLECTION)</text>
+      <text x="195" y="354" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="11" fill="#32324a">AQP4 depolarizes away from endfeet → flow ↓ 40%</text>
+      <text x="195" y="370" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="11" fill="#32324a">Slow-wave sleep declines 60% between 30 and 60</text>
+      <text x="195" y="386" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="11" fill="#943535" font-weight="500">Aβ clearance half-life doubles → plaque accumulation</text>
+
+      <!-- Bottom evidence box -->
+      <rect x="30" y="400" width="330" height="56" rx="2" fill="rgba(46,58,110,0.04)" stroke="#2e3a6e" stroke-width="1"/>
+      <text x="195" y="418" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#2e3a6e" font-weight="700" letter-spacing="1">EVIDENCE</text>
+      <text x="195" y="436" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10.5" fill="#32324a">One night of sleep deprivation → 5% ↑ Aβ (Shokri-Kojori, 2018)</text>
+      <text x="195" y="450" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10.5" fill="#32324a">Chronic short sleep (<6h) → 30% ↑ Alzheimer's risk (Sabia, 2021)</text>
+
+      <!-- Divider -->
+      <line x1="400" y1="10" x2="400" y2="465" stroke="#d2ccbd" stroke-width="1"/>
+
+      <!-- Right panel: Hydraulic engineering -->
+      <text x="560" y="22" text-anchor="middle" font-family="Space Mono, monospace" font-size="10" fill="#b5703c" font-weight="700" letter-spacing="1.5">MUNICIPAL HYDRAULICS</text>
+
+      <!-- Pipe system diagram -->
+      <!-- Main pipe -->
+      <rect x="440" y="60" width="240" height="20" rx="3" fill="#f2efe8" stroke="#b5703c" stroke-width="1.2"/>
+      <text x="560" y="74" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="9" fill="#b5703c" font-weight="500">Primary trunk sewer</text>
+
+      <!-- Lateral branches -->
+      <line x1="480" y1="80" x2="480" y2="110" stroke="#b5703c" stroke-width="1"/>
+      <line x1="560" y1="80" x2="560" y2="110" stroke="#b5703c" stroke-width="1"/>
+      <line x1="640" y1="80" x2="640" y2="110" stroke="#b5703c" stroke-width="1"/>
+      <rect x="462" y="110" width="36" height="24" rx="2" fill="#ffffff" stroke="#d2ccbd" stroke-width="1"/>
+      <text x="480" y="126" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="8" fill="#6e6e82">lateral</text>
+      <rect x="542" y="110" width="36" height="24" rx="2" fill="#ffffff" stroke="#d2ccbd" stroke-width="1"/>
+      <text x="560" y="126" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="8" fill="#6e6e82">lateral</text>
+      <rect x="622" y="110" width="36" height="24" rx="2" fill="#ffffff" stroke="#d2ccbd" stroke-width="1"/>
+      <text x="640" y="126" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="8" fill="#6e6e82">lateral</text>
+
+      <!-- Night flush -->
+      <rect x="440" y="152" width="240" height="36" rx="2" fill="rgba(181,112,60,0.06)" stroke="#b5703c" stroke-width="1"/>
+      <text x="560" y="168" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10.5" fill="#8e5428" font-weight="500">Night Flush Protocol</text>
+      <text x="560" y="182" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#6e6e82">↑ flow rate when demand is low</text>
+
+      <!-- Parallel mapping boxes -->
+      <rect x="430" y="208" width="260" height="114" rx="2" fill="#ffffff" stroke="#d2ccbd" stroke-width="1"/>
+      <text x="560" y="228" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#2e3a6e" font-weight="700" letter-spacing="1">STRUCTURAL MAPPING</text>
+      <text x="462" y="248" font-family="Work Sans, sans-serif" font-size="10.5" fill="#b5703c" font-weight="500">Trunk sewer</text>
+      <text x="590" y="248" font-family="Work Sans, sans-serif" font-size="10.5" fill="#2e3a6e" font-weight="500">= Perivascular channel</text>
+      <text x="462" y="266" font-family="Work Sans, sans-serif" font-size="10.5" fill="#b5703c" font-weight="500">Lateral pipes</text>
+      <text x="590" y="266" font-family="Work Sans, sans-serif" font-size="10.5" fill="#2e3a6e" font-weight="500">= AQP4 water channels</text>
+      <text x="462" y="284" font-family="Work Sans, sans-serif" font-size="10.5" fill="#b5703c" font-weight="500">Night flush</text>
+      <text x="590" y="284" font-family="Work Sans, sans-serif" font-size="10.5" fill="#2e3a6e" font-weight="500">= NREM slow-wave sleep</text>
+      <text x="462" y="302" font-family="Work Sans, sans-serif" font-size="10.5" fill="#b5703c" font-weight="500">Pipe calcification</text>
+      <text x="590" y="302" font-family="Work Sans, sans-serif" font-size="10.5" fill="#2e3a6e" font-weight="500">= AQP4 depolarization</text>
+      <text x="462" y="318" font-family="Work Sans, sans-serif" font-size="10.5" fill="#943535" font-weight="500">System backup</text>
+      <text x="590" y="318" font-family="Work Sans, sans-serif" font-size="10.5" fill="#943535" font-weight="500">= Aβ plaque accumulation</text>
+
+      <!-- Engineering failure modes -->
+      <rect x="430" y="340" width="260" height="56" rx="2" fill="rgba(148,53,53,0.04)" stroke="#943535" stroke-width="1"/>
+      <text x="560" y="358" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#943535" font-weight="700" letter-spacing="1">IDENTICAL FAILURE MODES</text>
+      <text x="560" y="376" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10.5" fill="#32324a">Shorten flush cycle → waste accumulates</text>
+      <text x="560" y="392" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10.5" fill="#32324a">Narrow pipes → reduced flow rate</text>
+
+      <!-- Engineering solution -->
+      <rect x="430" y="412" width="260" height="48" rx="2" fill="rgba(46,58,110,0.04)" stroke="#2e3a6e" stroke-width="1"/>
+      <text x="560" y="430" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#2e3a6e" font-weight="700" letter-spacing="1">ENGINEERING SOLUTION</text>
+      <text x="560" y="446" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10.5" fill="#32324a">Maintain flush duration + pipe diameter</text>
+      <text x="560" y="458" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="10.5" fill="#2e3a6e" font-weight="500">= protect deep sleep + AQP4 polarity</text>
+    </svg>
+    <div class="fig-cap">Left: the four stages of glymphatic clearance and why the system fails in the fifties (AQP4 depolarization + slow-wave sleep decline).<br>Right: the structurally identical logic of municipal hydraulic engineering — the same physics, the same failure modes, the same solution.</div>
+  </div>
+
+  <p>The rate-limiting factors are twofold: <em>flush duration</em> (total time in NREM stage 3) and <em>channel conductance</em> (AQP4 water channel density at astrocyte endfeet). Both deteriorate sharply after 50. Slow-wave sleep, which peaks in adolescence, declines approximately 2% per year starting in the mid-30s; by age 60, most adults have lost 60–70% of their youthful slow-wave activity (Mander et al., 2017). Simultaneously, AQP4 undergoes <span class="t">depolarization</span> <span class="pa">(a redistribution of AQP4 channels away from their normal concentrated position at astrocyte endfeet to a diffuse, non-polarized distribution across the entire cell body, reducing their effectiveness as directional water pumps by ~40%)</span>. The combined effect: by age 55, glymphatic clearance operates at roughly 30–40% of its capacity at age 25. Aβ and tau that were once cleared overnight now accumulate for decades before clinical symptoms emerge — the "silent" phase of Alzheimer's that PET imaging reveals is well underway in most fifty-year-olds.</p>
+
+  <div class="call-alert">
+    <div class="cl">The Fifties Are the Silent Accumulation Phase</div>
+    <p>Amyloid PET studies show that approximately 30% of cognitively normal adults in their fifties already carry significant Aβ plaque burden (Jansen et al., <em>JAMA</em>, 2015). The plaques did not appear overnight — they accumulated over 15–20 years of gradually declining glymphatic clearance. By the time cognitive symptoms emerge in the 60s–70s, the waste burden is massive and largely irreversible. The fifties are not when Alzheimer's manifests; they are when the outcome is being <em>determined</em> — by sleep quality.</p>
+  </div>
+
+  <div class="sep">◆</div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination</div>
+  <h2>Municipal Hydraulics: The City Engineer Already Solved This Problem</h2>
+
+  <p>The glymphatic system is, in engineering terms, a <span class="t">pressure-driven bulk convective flow system</span> — identical in its governing physics to a municipal wastewater network. In both systems, fluid flows through branching channels driven by hydrostatic pressure gradients; waste is dissolved or entrained in the flow; and clearance rate is a function of three variables: <em>pressure head</em> (arterial pulsation / pump station pressure), <em>channel diameter</em> (perivascular space width / pipe bore), and <em>duty cycle</em> (hours of slow-wave sleep / hours of night-flush operation). The Darcy-Weisbach equation governing pipe flow applies to both.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-lab neuro">Neuroscience</div>
+      <h4>Glymphatic Channel</h4>
+      <p><strong>Medium:</strong> CSF + interstitial fluid<br><strong>Driving force:</strong> Arterial pulsation + respiration<br><strong>Valves:</strong> AQP4 at astrocyte endfeet<br><strong>Duty cycle:</strong> NREM stage 3 sleep<br><strong>Waste:</strong> Aβ, tau, α-synuclein, lactate</p>
+    </div>
+    <div class="card">
+      <div class="card-lab eng">Civil Engineering</div>
+      <h4>Sewer Trunk Main</h4>
+      <p><strong>Medium:</strong> Water + dissolved waste<br><strong>Driving force:</strong> Gravity + pump pressure<br><strong>Valves:</strong> Check valves at junctions<br><strong>Duty cycle:</strong> Night flush protocol<br><strong>Waste:</strong> Organic matter, sediment, chemicals</p>
+    </div>
+    <div class="card">
+      <div class="card-lab neuro">Aging Failure Mode</div>
+      <h4>Glymphatic Decline</h4>
+      <p>AQP4 depolarization = pipe calcification. Slow-wave sleep loss = shortened flush cycle. Result: waste accumulates silently for <em>decades</em> before clinical detection — exactly as sewer systems fail underground before surface flooding reveals the damage.</p>
+    </div>
+    <div class="card">
+      <div class="card-lab eng">Engineering Intervention</div>
+      <h4>Preventive Maintenance</h4>
+      <p>Civil engineers do not wait for sewage to flood streets. They mandate regular flush cycles, pipe inspections, and scheduled lining replacement. The biological equivalent: <strong>protect sleep architecture before symptoms emerge</strong>.</p>
+    </div>
+  </div>
+
+  <p>The engineering parallel yields a precise clinical insight. Civil engineers know that once a trunk sewer is 80% occluded, the cost of repair is 10–50× the cost of the preventive maintenance that would have avoided occlusion entirely. The neuroscience is identical: once Aβ burden crosses the threshold for clinical Alzheimer's, no current therapeutic can meaningfully clear it. The <em>entire value</em> of the intervention lies in maintaining the flush cycle <em>before</em> the accumulation becomes irreversible. For a fifty-year-old, this translates to a non-negotiable prescription: 7–8 hours of sleep with protected slow-wave architecture is not wellness advice — it is infrastructure maintenance.</p>
+
+  <div class="call">
+    <div class="cl">Actionable Protocol for the 50s</div>
+    <p>Maximize glymphatic clearance with the same logic a hydraulic engineer uses to maintain a sewer network: (1) <em>Protect flush duration</em> — 7–8 hours total sleep, with specific attention to early-night slow-wave sleep (the first 3–4 hours contain the majority of NREM stage 3). Alcohol, even 1–2 drinks, suppresses slow-wave sleep by 20–40% and directly impairs the flush cycle. (2) <em>Maintain channel conductance</em> — regular exercise preserves AQP4 polarity (He et al., 2017); chronic sleep deprivation accelerates depolarization. (3) <em>Sleep posture</em> — lateral (side) sleeping improves glymphatic clearance vs. supine or prone, likely by optimizing jugular venous outflow (Lee et al., 2015). (4) <em>Avoid pressure spikes</em> — untreated sleep apnea produces intermittent intracranial pressure surges that disrupt laminar perivascular flow, reducing clearance by an estimated 30%.</p>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Iliff, J.J. et al. (2012). "A paravascular pathway facilitates CSF flow through the brain parenchyma." <em>Sci. Transl. Med.</em>, 4(147). &nbsp;|&nbsp; Xie, L. et al. (2013). "Sleep drives metabolite clearance from the adult brain." <em>Science</em>, 342(6156). &nbsp;|&nbsp; Mander, B.A. et al. (2017). "Sleep and human aging." <em>Neuron</em>, 94(1). &nbsp;|&nbsp; Shokri-Kojori, E. et al. (2018). "β-Amyloid accumulation in the human brain after one night of sleep deprivation." <em>PNAS</em>, 115(17). &nbsp;|&nbsp; Sabia, S. et al. (2021). "Association of sleep duration at age 50, 60, and 70 with risk of dementia." <em>Nat. Commun.</em>, 12.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_glymphatic_system",
+  "related": [
+    {
+      "id": "lecture_sleep_architecture_emotion",
+      "title": "Sleep Architecture & Emotional Memory Processing",
+      "filename": "lecture_sleep_architecture_emotion.html",
+      "tags": [
+        "Adaptive Stress",
+        "Sleep & Recovery"
+      ]
+    },
+    {
+      "id": "lecture_proteostasis_collapse",
+      "title": "Proteostasis Collapse & the Protein Quality Crisis",
+      "filename": "lecture_proteostasis_collapse.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_lymphatic_decline",
+      "title": "Lymphatic System Decline & Interstitial Fluid Dynamics",
+      "filename": "lecture_lymphatic_decline.html",
+      "tags": [
+        "Structural Integrity",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_cognitive_reserve",
+      "title": "Cognitive Reserve & the Redundancy Dividend",
+      "filename": "lecture_cognitive_reserve.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

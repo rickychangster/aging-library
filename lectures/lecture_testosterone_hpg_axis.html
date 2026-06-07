@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 54: Testosterone Decline &amp; the Hypothalamic-Gonadal Axis</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--steel:#334155;--steel-dim:rgba(51,65,85,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Public Sans',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--steel) 0%,var(--blue) 50%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--steel);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--steel);margin-bottom:20px;}
+  .ln{font-family:'Spectral',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Spectral',serif;font-size:37px;font-weight:800;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--steel);}
+  .sub{font-family:'Spectral',serif;font-size:16.5px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--steel);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Spectral',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--steel);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:8px;height:4px;background:var(--steel);border-radius:1px;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--steel);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.warn .wl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--steel);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--steel);}.gc h4{font-family:'Spectral',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--steel);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'Spectral',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Testosterone falls 1–2% a year after 30, but the real story is bioavailable hormone — a feedback controller whose gain fades, setpoint drifts, and output uncouples from demand.">
+<meta property="og:title" content="Testosterone Decline & the Hypothalamic-Gonadal Axis — Longevity & Wellness">
+<meta property="og:description" content="Testosterone falls 1–2% a year after 30, but the real story is bioavailable hormone — a feedback controller whose gain fades, setpoint drifts, and output uncouples from demand.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_testosterone_hpg_axis.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Testosterone Decline & the Hypothalamic-Gonadal Axis — Longevity & Wellness">
+<meta name="twitter:description" content="Testosterone falls 1–2% a year after 30, but the real story is bioavailable hormone — a feedback controller whose gain fades, setpoint drifts, and output uncouples from demand.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">54</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 54</div>
+    <h1>Testosterone Decline, SHBG Rising <span class="a">&amp; the Hypothalamic-Gonadal Axis</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">Testosterone Declines ~1–2% Per Year After 30 — but Total Testosterone Is a Misleading Metric. The Clinically Relevant Story Is Bioavailable Testosterone: as SHBG Rises With Age, It Sequesters Increasingly More Circulating Testosterone, Reducing the Free Fraction That Actually Reaches Androgen Receptors in Muscle, Bone, Brain, and Endothelium. Simultaneously, the Hypothalamic GnRH Pulse Generator Loses Amplitude and Frequency — Attenuating the Feedforward Signal That Drives Leydig Cell Production. The Result Is a Feedback Controller Whose Gain Is Declining, Whose Setpoint Is Drifting, and Whose Output Is Progressively Uncoupled From the Demand Signal</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Reproductive Endocrinology (Harman 2001; Wu 2010; Travison 2017)</div>
+      <div><span class="hl">Bridge:</span> Control Theory — Feedback Loop Attenuation &amp; Setpoint Drift</div>
+      <div><span class="hl">Window:</span> Decline begins 30s; clinically significant 50s+; modifiable</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I. THE WHY -->
+  <div class="sn">I. The Why — The Historical Problem</div>
+  <h2>Why Testosterone Is Not Merely a Sex Hormone — It Is a Systemic Anabolic Signal Whose Decline Touches Every System in the Series</h2>
+
+  <p>The traditional framing of testosterone as a "sex hormone" obscures its systemic role as the body's primary <span class="k">anabolic signaling molecule</span> — a hormone that influences not only libido and reproductive function but muscle protein synthesis (Lecture 13 — mechanotransduction requires androgen receptor activation for full hypertrophic response), bone density and osteocalcin production (Lecture 43 — testosterone stimulates osteoblast activity and osteocalcin release), endothelial NO production (Lecture 30/51 — testosterone upregulates eNOS, directly supporting vascular Barrier 1), insulin sensitivity (Lectures 28/53 — low testosterone independently predicts insulin resistance and T2D risk), hippocampal neurogenesis and spatial cognition (Lecture 31 — androgen receptors in CA1 hippocampal neurons modulate synaptic plasticity), sleep architecture (Lecture 37 — testosterone peaks during SWS; SWS loss reduces testosterone production in a bidirectional trap), mood and motivational drive via dopaminergic pathways (Lecture 43 — osteocalcin promotes dopamine in the VTA; testosterone amplifies this signal), and body composition (visceral fat accumulation from low testosterone feeds the adipose-inflammatory axis of Lectures 12/53). The decline of testosterone with aging is therefore not an isolated reproductive event — it is another instance of Theme I's <em>Programmed Withdrawal of Maintenance Investment</em>, with cascading downstream effects on virtually every system the series has documented.</p>
+
+  <p>The theoretical gap: why do standard testosterone panels often appear "normal" in men who exhibit clear clinical signs of androgen deficiency (fatigue, reduced libido, muscle loss, cognitive fog, visceral fat accumulation)? The answer lies in the distinction between <span class="k">total testosterone</span> (which includes protein-bound, biologically inactive fractions) and <span class="k">bioavailable testosterone</span> <span class="def">(the free + albumin-bound fraction that actually reaches androgen receptors — approximately 30–50% of total testosterone in young men, declining to 20–30% by age 60 as SHBG rises)</span>. The hypothalamic-pituitary-gonadal (HPG) axis maintains total testosterone within a range that appears "normal" on lab reports while the bioavailable fraction — the signal that tissues actually receive — declines significantly. The lab says normal; the biology says deficient. This is the endocrine equivalent of measuring total voltage in a circuit while ignoring impedance — the delivered power to the load is falling even though the source voltage hasn't changed.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II. FOUNDATIONAL BRIDGE -->
+  <div class="sn">II. Foundational Bridge — Feedback Loop Attenuation</div>
+  <h2>Analogy: A Thermostat Whose Sensor Is Losing Sensitivity and Whose Heater Is Losing Capacity</h2>
+
+  <p>In control theory, a <span class="k">feedback control loop</span> maintains a variable at a desired setpoint by continuously measuring the output, comparing it to the setpoint, and adjusting the input signal accordingly. The HPG axis is a neuroendocrine feedback loop: the hypothalamus measures circulating free testosterone (the sensor), compares it to its internal setpoint, and adjusts GnRH pulse frequency and amplitude (the control signal) to drive LH secretion from the pituitary, which in turn drives Leydig cell testosterone production (the actuator output). In youth, this loop operates with high gain, tight precision, and robust dynamic range — free testosterone is maintained within a narrow band regardless of metabolic, stress, or diurnal perturbations.</p>
+
+  <p>With aging, three components degrade simultaneously — producing the gradual, insidious decline that differs from the abrupt "menopause" of female reproductive aging. First, the <em>sensor attenuates</em>: the hypothalamic GnRH pulse generator loses amplitude (~50% reduction in GnRH pulse amplitude by age 70) and frequency, producing a weaker feedforward signal even when free testosterone falls below the setpoint. The controller detects the error but responds with a muted correction — the biological equivalent of a thermostat whose temperature sensor has drifted, reading 72°F when the actual temperature is 68°F. Second, the <em>actuator degrades</em>: Leydig cells decrease in number and steroidogenic capacity — their mitochondrial cholesterol transport (StAR protein) and enzymatic conversion (CYP11A1, CYP17A1, 17β-HSD) decline, reducing testosterone production per unit of LH stimulation. The heater is losing capacity even when the thermostat calls for more heat. Third, the <em>signal is attenuated in transit</em>: SHBG rises ~1.2% per year after age 40, progressively binding more circulating testosterone and reducing the free fraction that reaches androgen receptors. The heater runs, but the warmth is absorbed by insulation before it reaches the rooms. The result: a feedback loop that is simultaneously losing sensor sensitivity, actuator capacity, and signal transmission efficiency — a compound degradation that produces functional hypogonadism (insufficient androgen action at target tissues) even while total testosterone appears "adequate" on standard laboratory panels.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III. CORE CONCEPT -->
+  <div class="sn">III. The Core Concept — Three Levels of HPG Axis Degradation</div>
+  <h2>Hypothalamic, Testicular, and Binding Protein Mechanisms</h2>
+
+  <p><em>Level 1: Central — the hypothalamic-pituitary signal weakens.</em> The GnRH pulse generator normally secretes a pulse of GnRH approximately every 90 minutes. With aging, pulse amplitude decreases, inter-pulse intervals become irregular, and the pituitary's LH response to each GnRH pulse diminishes. This is <span class="k">secondary hypogonadism</span> <span class="def">(androgen deficiency originating from inadequate hypothalamic-pituitary signaling rather than testicular failure)</span>. The central component is particularly sensitive to metabolic and inflammatory inputs: visceral adiposity (through aromatase conversion of testosterone to estradiol in adipose tissue → estradiol feedback suppresses GnRH), chronic cortisol elevation (Lecture 40 — cortisol directly suppresses GnRH pulsatility), sleep disruption (Lecture 37 — SWS is required for the nocturnal testosterone surge; sleep restriction reduces testosterone by 10–15% within one week), and chronic inflammation (IL-6 and TNF-α from the inflammaging milieu suppress hypothalamic GnRH secretion). Every mechanism in the series that elevates cortisol, disrupts sleep, increases visceral fat, or amplifies inflammation simultaneously suppresses the central drive of the HPG axis.</p>
+
+  <p><em>Level 2: Peripheral — the testicular factory loses capacity.</em> Leydig cell number decreases ~40% between ages 20 and 80. Remaining cells show reduced StAR protein expression (the rate-limiting step in cholesterol transport to the inner mitochondrial membrane for steroidogenesis), decreased CYP enzyme activity, increased oxidative damage to the steroidogenic machinery, and altered microenvironment (testicular fibrosis, reduced blood flow). This is <span class="k">primary hypogonadism</span> <span class="def">(androgen deficiency originating from testicular dysfunction, characterized by elevated LH levels as the pituitary attempts to compensate for reduced testicular output)</span>. In older men, both primary and secondary components typically coexist — the actuator is degrading while the control signal is weakening. Rising LH in an older man with low testosterone indicates primary testicular failure; "inappropriately normal" LH with low testosterone indicates secondary hypothalamic-pituitary failure; the most common aging pattern is mixed.</p>
+
+  <p><em>Level 3: Transport — SHBG sequesters the available signal.</em> SHBG is produced by the liver and binds testosterone with ~1,000-fold higher affinity than albumin. Only free testosterone (~1–2% of total) and albumin-bound testosterone (~30–50%) are bioavailable — SHBG-bound testosterone is biologically inert. SHBG increases with aging (~1.2% per year after 40), with hyperthyroidism, with liver disease, and with certain medications. Critically, the decline in bioavailable testosterone appears to be greater than the decline in total testosterone with advancing age, due to this age-related increase in SHBG. This means that a man whose total testosterone is 450 ng/dL (within "normal" range) at age 55 may have a bioavailable fraction equivalent to a man with total testosterone of 300 ng/dL at age 30 — functionally hypogonadal despite a "normal" lab result. Your TSH above the longevity-optimal range (above the longevity-optimal 2.5) is relevant here: subclinical hypothyroidism reduces SHBG — paradoxically increasing free testosterone — but the metabolic cost (reduced metabolic rate, lipid changes, cognitive effects) outweighs this apparent benefit.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — HPG Axis Degradation: Three Levels × Control Theory Parallel</div>
+    <svg viewBox="0 0 740 440" xmlns="http://www.w3.org/2000/svg">
+      <text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#334155" font-weight="600" letter-spacing="1.5">THREE LEVELS OF AGE-RELATED HPG AXIS DEGRADATION</text>
+      <!-- Level 1: Central -->
+      <rect x="30" y="36" width="220" height="130" rx="4" fill="rgba(51,65,85,0.03)" stroke="#334155" stroke-width="1.5"/>
+      <text x="140" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#334155" font-weight="600" letter-spacing="1">LEVEL 1: CENTRAL</text>
+      <text x="140" y="74" text-anchor="middle" font-family="Spectral,serif" font-size="12" font-weight="700" fill="#1a1a1a">Hypothalamic-Pituitary</text>
+      <text x="140" y="92" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">GnRH pulse amplitude ↓50% by 70</text>
+      <text x="140" y="108" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">Pulse frequency irregular</text>
+      <text x="140" y="124" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">LH response to GnRH ↓</text>
+      <text x="140" y="144" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155" font-weight="600">SUPPRESSORS: cortisol, IL-6,</text>
+      <text x="140" y="156" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155" font-weight="600">sleep loss, visceral adiposity</text>
+      <!-- Arrow -->
+      <line x1="252" y1="100" x2="268" y2="100" stroke="#334155" stroke-width="1"/>
+      <polygon points="268,96 276,100 268,104" fill="#334155"/>
+      <!-- Level 2: Testicular -->
+      <rect x="278" y="36" width="200" height="130" rx="4" fill="rgba(180,83,9,0.03)" stroke="#b45309" stroke-width="1.5"/>
+      <text x="378" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b45309" font-weight="600" letter-spacing="1">LEVEL 2: TESTICULAR</text>
+      <text x="378" y="74" text-anchor="middle" font-family="Spectral,serif" font-size="12" font-weight="700" fill="#1a1a1a">Leydig Cell Decline</text>
+      <text x="378" y="92" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">Cell number ↓40% by 80</text>
+      <text x="378" y="108" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">StAR protein ↓, CYP enzymes ↓</text>
+      <text x="378" y="124" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">Mitochondrial oxidative damage</text>
+      <text x="378" y="144" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">OUTPUT: testosterone secretion</text>
+      <text x="378" y="156" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">rate ↓50% by 80</text>
+      <!-- Arrow -->
+      <line x1="480" y1="100" x2="496" y2="100" stroke="#b45309" stroke-width="1"/>
+      <polygon points="496,96 504,100 496,104" fill="#b45309"/>
+      <!-- Level 3: Transport -->
+      <rect x="506" y="36" width="210" height="130" rx="4" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="611" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600" letter-spacing="1">LEVEL 3: TRANSPORT</text>
+      <text x="611" y="74" text-anchor="middle" font-family="Spectral,serif" font-size="12" font-weight="700" fill="#1a1a1a">SHBG Sequestration</text>
+      <text x="611" y="92" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">SHBG rises ~1.2%/yr after 40</text>
+      <text x="611" y="108" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">Binds T with 1000× affinity vs albumin</text>
+      <text x="611" y="124" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">Bioavailable T ↓ faster than total T</text>
+      <text x="611" y="144" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600">RESULT: "normal" total T</text>
+      <text x="611" y="156" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600">with functional hypogonadism</text>
+      <!-- Downstream targets -->
+      <text x="370" y="194" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#334155" font-weight="600" letter-spacing="1.5">DOWNSTREAM SYSTEMS AFFECTED BY BIOAVAILABLE T DECLINE</text>
+      <line x1="60" y1="206" x2="680" y2="206" stroke="#334155" stroke-width="1"/>
+      <!-- Six target boxes -->
+      <rect x="30" y="214" width="110" height="66" rx="3" fill="rgba(51,65,85,0.03)" stroke="#334155" stroke-width="1"/>
+      <text x="85" y="232" text-anchor="middle" font-family="Spectral,serif" font-size="10" font-weight="700" fill="#334155">Muscle</text>
+      <text x="85" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">MPS↓, sarcopenia</text>
+      <text x="85" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 13, 22, 26</text>
+      <text x="85" y="276" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155">AR activation req'd</text>
+      <rect x="148" y="214" width="110" height="66" rx="3" fill="rgba(51,65,85,0.03)" stroke="#334155" stroke-width="1"/>
+      <text x="203" y="232" text-anchor="middle" font-family="Spectral,serif" font-size="10" font-weight="700" fill="#334155">Bone</text>
+      <text x="203" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Osteoblast↓, OCN↓</text>
+      <text x="203" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lec 43</text>
+      <text x="203" y="276" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155">Bone-brain axis↓</text>
+      <rect x="266" y="214" width="110" height="66" rx="3" fill="rgba(51,65,85,0.03)" stroke="#334155" stroke-width="1"/>
+      <text x="321" y="232" text-anchor="middle" font-family="Spectral,serif" font-size="10" font-weight="700" fill="#334155">Endothelium</text>
+      <text x="321" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">eNOS↓ → NO↓</text>
+      <text x="321" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 30, 51</text>
+      <text x="321" y="276" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155">CVD Barrier 1↓</text>
+      <rect x="384" y="214" width="110" height="66" rx="3" fill="rgba(51,65,85,0.03)" stroke="#334155" stroke-width="1"/>
+      <text x="439" y="232" text-anchor="middle" font-family="Spectral,serif" font-size="10" font-weight="700" fill="#334155">Brain</text>
+      <text x="439" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Hippocampal AR → LTP</text>
+      <text x="439" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 31, 32</text>
+      <text x="439" y="276" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155">Spatial cognition↓</text>
+      <rect x="502" y="214" width="110" height="66" rx="3" fill="rgba(51,65,85,0.03)" stroke="#334155" stroke-width="1"/>
+      <text x="557" y="232" text-anchor="middle" font-family="Spectral,serif" font-size="10" font-weight="700" fill="#334155">Metabolism</text>
+      <text x="557" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Insulin sensitivity↓</text>
+      <text x="557" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lecs 28, 53</text>
+      <text x="557" y="276" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155">Visceral fat↑ → IL-6</text>
+      <rect x="620" y="214" width="100" height="66" rx="3" fill="rgba(51,65,85,0.03)" stroke="#334155" stroke-width="1"/>
+      <text x="670" y="232" text-anchor="middle" font-family="Spectral,serif" font-size="10" font-weight="700" fill="#334155">Libido</text>
+      <text x="670" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Desire, arousal↓</text>
+      <text x="670" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Dopamine↓</text>
+      <text x="670" y="276" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#334155">Reward circuit↓</text>
+      <!-- Control Theory Parallel -->
+      <rect x="30" y="302" width="690" height="128" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="370" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#334155" font-weight="600" letter-spacing="1.5">CONTROL THEORY PARALLEL</text>
+      <line x1="40" y1="330" x2="710" y2="330" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="195" y="348" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#334155" font-weight="600">HPG AXIS</text>
+      <text x="545" y="348" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#334155" font-weight="600">CONTROL SYSTEM</text>
+      <line x1="370" y1="330" x2="370" y2="424" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="40" y1="356" x2="710" y2="356" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="195" y="372" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="10" fill="#3d3d3d">GnRH pulse generator</text>
+      <text x="545" y="372" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="10" fill="#3d3d3d">Controller / sensor</text>
+      <line x1="40" y1="380" x2="710" y2="380" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="195" y="396" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="10" fill="#3d3d3d">Leydig cells</text>
+      <text x="545" y="396" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="10" fill="#3d3d3d">Actuator / heater</text>
+      <line x1="40" y1="404" x2="710" y2="404" stroke="rgba(212,208,200,.4)" stroke-width=".5"/>
+      <text x="195" y="420" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="10" fill="#b91c1c">SHBG sequestration</text>
+      <text x="545" y="420" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="10" fill="#b91c1c">Insulation absorbing heat</text>
+    </svg>
+    <div class="fig-cap">Three levels of HPG axis degradation: central (GnRH pulse attenuation), peripheral (Leydig cell decline), and transport (SHBG sequestration). Six downstream systems affected by bioavailable testosterone decline — each mapped to previous lectures. Control theory parallel: the system loses sensor sensitivity, actuator capacity, and signal transmission simultaneously.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV. CROSS-POLLINATION -->
+  <div class="sn">IV. Cross-Pollination — Control Theory: Gain, Setpoint, and the Bidirectional Traps</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Reproductive Endocrinology</div><h4>The Sleep-Testosterone Bidirectional Trap</h4><p>Testosterone peaks during SWS. SWS quality declines with age (Lecture 37). Sleep restriction reduces testosterone by <strong>10–15% within one week</strong> (Leproult &amp; Van Cauter, 2011). Lower testosterone reduces SWS quality (testosterone modulates GABAergic inhibition in sleep-promoting neurons). The trap: declining SWS → less testosterone → worse SWS → less testosterone. Exercise breaks the loop from both sides: it increases SWS delta amplitude <em>and</em> increases testosterone production, providing dual-pathway relief from the bidirectional trap.</p></div>
+    <div class="gc"><div class="tag eng">Control Theory</div><h4>The Adipose-Aromatase Feedback Trap</h4><p>Visceral adipose tissue contains <strong>aromatase</strong> — the enzyme that converts testosterone to estradiol. As men gain visceral fat (from declining testosterone-mediated lean body mass), more testosterone is aromatized to estradiol. Estradiol feeds back to the hypothalamus, suppressing GnRH pulsatility — further reducing testosterone, further promoting fat deposition, further increasing aromatase activity. This is a positive feedback loop — a control system where the error signal drives the system further from the setpoint rather than correcting toward it. Exercise and body composition management are the "circuit breakers" that prevent this runaway feedback.</p></div>
+    <div class="gc"><div class="tag bio">Reproductive Endocrinology</div><h4>Testosterone and Endothelial NO — The CVD Connection</h4><p>Testosterone <strong>upregulates eNOS expression and increases NO bioavailability</strong> in endothelial cells. Low testosterone is independently associated with endothelial dysfunction, increased arterial stiffness, and elevated cardiovascular risk — connecting testosterone decline directly to CVD Barrier 1 (Lecture 51). Testosterone replacement therapy in hypogonadal men improves flow-mediated dilation (FMD), suggesting that androgen status is a modifiable component of vascular health. The implication: testosterone monitoring should be part of the comprehensive cardiovascular risk assessment, not isolated to sexual medicine.</p></div>
+    <div class="gc"><div class="tag eng">Control Theory</div><h4>Compound Degradation vs. Single-Point Failure</h4><p>The HPG axis demonstrates <strong>compound degradation</strong> — three components (sensor, actuator, signal transport) degrade simultaneously, producing a decline rate faster than any single component's degradation would predict. In reliability engineering, compound degradation in a series system (where all components must function for output) produces an overall failure rate equal to the <em>product</em> of individual component reliabilities — declining much faster than any individual component. This is why testosterone decline accelerates in the sixties: all three levels are degrading multiplicatively, not additively.</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V. ANTIFRAGILITY -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Limits and Risks of Over-Application</div>
+    <p><em>Testosterone replacement therapy (TRT) is not a longevity intervention for men with age-appropriate testosterone levels.</em> Critical caveats: (1) The TRAVERSE trial (2023, <em>NEJM</em>) — the largest cardiovascular safety trial of TRT (5,204 men, mean age 63) — showed no increase in major adverse cardiovascular events but also no cardiovascular benefit. TRT is appropriate for symptomatic hypogonadism confirmed by low morning testosterone on two occasions, not for optimizing "normal" levels. (2) Exogenous testosterone suppresses endogenous HPG axis function through negative feedback — LH and FSH decline, testicular volume decreases, and spermatogenesis is impaired. In a man in his fifties who may still desire fertility, TRT requires careful consideration. (3) The relationship between testosterone and prostate cancer risk is complex — the historical fear that TRT causes prostate cancer is not supported by modern evidence (Morgentaler's "saturation model" suggests that prostate tissue androgen receptors saturate at modest testosterone levels), but monitoring with PSA remains standard practice during TRT. (4) Lifestyle interventions — resistance training, sleep optimization, body composition management, stress reduction, and vitamin D optimization — can raise endogenous testosterone by 15–30% without suppressing the HPG axis, preserving the feedback loop's integrity. For a man in his fifties with no confirmed hypogonadism, lifestyle optimization is the first-line strategy; TRT is the second-line option if lifestyle fails to resolve symptoms after confirmed biochemical deficiency.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI. 24-HOUR PROTOCOL -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Support endogenous testosterone production through the four inputs that the HPG axis responds to: (1) <em>Resistance training with compound movements</em> — squats, deadlifts, rows, overhead press. Heavy compound lifts produce the largest acute testosterone spikes and, with consistent training, increase baseline levels. This is the most reliable endogenous testosterone intervention and simultaneously drives the bone-brain axis (Lecture 43), muscle protein synthesis (Lecture 13), and insulin sensitivity (Lecture 28). (2) <em>Sleep optimization</em> — testosterone peaks during SWS. Protect the full 7–8.5 hours with consistent timing. Each hour of SWS lost is an hour of testosterone production lost. (3) <em>Body composition management</em> — maintain lean body mass and minimize visceral fat. Visceral adiposity drives the aromatase-mediated testosterone → estradiol conversion that suppresses GnRH. Body fat percentage <20% is the approximate threshold below which the aromatase feedback trap is minimized. (4) <em>Vitamin D optimization</em> — your 35 ng/mL is below the 40–60 target. Vitamin D receptors are present in Leydig cells, and supplementation in deficient men has been shown to increase testosterone levels. Optimizing to 40–60 simultaneously supports osteocalcin (Lecture 43), hippocampal function (Lecture 31), and testosterone production.<br><br><strong>Metric:</strong> <em>Total testosterone + free testosterone + SHBG</em> — all three, measured in the morning (before 10 AM, when testosterone peaks). Total testosterone alone is insufficient — the SHBG-corrected free testosterone or calculated bioavailable testosterone is the clinically relevant value. Healthy range for total testosterone in men 50+: 400–700 ng/dL; free testosterone: >9 ng/dL (some labs report >6.5 as normal; longevity-optimal is debated but likely >9). Monitor annually. Complement with: DHEA-S (adrenal androgen precursor — declines with age and reflects the HPA/cortisol axis status from Lecture 40), LH (rising LH with declining T = primary testicular failure; normal LH with declining T = secondary hypothalamic-pituitary failure), and estradiol (elevated estradiol with low T suggests aromatase-mediated conversion in visceral fat).</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII. RECURSIVE SYNTHESIS -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How Testosterone Decline Connects to the Lecture Series — Another Withdrawal of Maintenance Investment</h2>
+
+  <p>Testosterone decline is Theme I operating through the reproductive-endocrine axis — a programmed reduction in anabolic signaling that withdraws maintenance investment from muscle (Lecture 13 — reduced mechanotransductive response), bone (Lecture 43 — reduced osteoblast activity and osteocalcin production), endothelium (Lecture 30/51 — reduced eNOS/NO production, weakening CVD Barrier 1), brain (Lecture 31 — reduced hippocampal androgen receptor activation, impairing LTP and spatial cognition), and metabolic architecture (Lecture 28/53 — reduced insulin sensitivity, increased visceral fat deposition, feeding the adipose-inflammatory axis). The bidirectional traps connecting testosterone to sleep (Lecture 37), cortisol (Lecture 40), and body composition create self-reinforcing declines that mirror every other bidirectional trap the series has documented — Aβ-SWS, cortisol-hippocampus, inflammaging-immunosenescence. Exercise is the single intervention that breaks the most traps simultaneously: it acutely elevates testosterone, increases SWS (which supports nocturnal testosterone production), reduces visceral fat (which reduces aromatase conversion), reduces cortisol (which removes hypothalamic GnRH suppression), and builds the muscle and bone mass that testosterone-dependent tissues need. The control theory parallel with Lecture 40's HPA axis is direct: both the HPG and HPA axes are neuroendocrine feedback loops whose gain, sensitivity, and dynamic range decline with aging through the same three-level degradation pattern (central signal attenuation, peripheral effector failure, and transport-level signal loss). Testosterone monitoring — particularly free/bioavailable testosterone, not just total — should be part of the comprehensive longevity biomarker panel alongside the metabolic, inflammatory, cardiovascular, and cognitive metrics the series has already established.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII. PEER REVIEW -->
+  <div class="sn">VIII. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "My total testosterone is in the normal range, so my testosterone is fine."<br><br><strong>Correction:</strong> Total testosterone includes the ~50–60% bound to SHBG, which is biologically inert — it cannot enter cells or activate androgen receptors. The bioavailable fraction (free + albumin-bound) is the clinically relevant signal. Because SHBG rises ~1.2% per year after 40, a man whose total testosterone appears stable may have a bioavailable fraction declining at 2–3% per year — faster than total testosterone suggests. The decrease in bioavailable testosterone appears to be greater than the decline in total testosterone with advancing age, due to an age-related increase in SHBG. A comprehensive testosterone assessment requires three measurements: total testosterone, free testosterone (or calculated free testosterone from total T, SHBG, and albumin), and SHBG. Measured in the morning. On two occasions. Without these, a "normal" total testosterone result can mask clinically significant androgen deficiency at the tissue level — the lab equivalent of measuring total voltage while ignoring the impedance that determines how much power actually reaches the load.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX. RESOURCES -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Harman et al. (2001)</h5><p>"Longitudinal effects of aging on serum total and free testosterone levels in healthy men." <em>JCEM</em>, 86:724–731. The Baltimore Longitudinal Study of Aging — the foundational data showing ~1.6% annual decline in total testosterone and ~2–3% decline in bioavailable testosterone in healthy men.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Travison et al. (2017)</h5><p>"Harmonized reference ranges for circulating testosterone levels in men of four cohort studies." <em>JCEM</em>, 102:1161–1173. The modern harmonized reference ranges accounting for assay variability — essential for interpreting your testosterone values against population norms.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Resistance Training as Testosterone Support</h5><p>Heavy compound lifts 2–3×/week: squats, deadlifts, rows, overhead press. Progressive overload. These produce the largest acute testosterone spikes and, with consistent training, increase baseline levels 15–30%. This is the most reliable endogenous intervention — and it simultaneously activates the bone-brain axis (Lec 43), muscle protein synthesis (Lec 13), and insulin sensitivity (Lec 28).</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Break the Bidirectional Traps</h5><p>Sleep → testosterone trap: protect SWS (Lec 37). Adiposity → aromatase trap: maintain body fat <20%. Cortisol → GnRH trap: stress management (Lec 40). Exercise breaks all three simultaneously — the single intervention that addresses the most HPG axis degradation pathways.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Vitamin D → Leydig Cell Support</h5><p>Your vitamin D below the optimal range → target 40–60 ng/mL. Vitamin D receptors in Leydig cells support steroidogenesis. Supplementation in deficient men increases testosterone. This optimization simultaneously supports osteocalcin (Lec 43), hippocampal function (Lec 31/52), and testosterone production — one of the highest-yield single-variable optimizations in your profile.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Comprehensive Testosterone Panel</h5><p>Morning draw (before 10 AM). Total testosterone + free testosterone (or calculated from total T / SHBG / albumin) + SHBG + LH + estradiol + DHEA-S. Two occasions before diagnosis. This panel identifies which level of HPG axis is degrading (central vs. testicular vs. transport) and guides intervention specificity.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>Free T + SHBG + LH + DHEA-S</h5><p>Free testosterone (target >9 ng/dL; longevity-optimal debated). SHBG (context for interpreting total T). LH (elevated = primary failure; normal-low = secondary). DHEA-S (adrenal androgen, declines with age/stress). Estradiol (elevated with low T = aromatase conversion). Track annually alongside the full metabolic and cardiovascular panels.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Lecture Integration Map</h5><p>Muscle (Lec 13) → AR activation for MPS. Bone (Lec 43) → osteoblast + osteocalcin. Endothelium (Lec 30/51) → eNOS/NO, CVD Barrier 1. Brain (Lec 31/32/52) → hippocampal AR, spatial cognition. Sleep (Lec 37) → SWS-testosterone bidirectional trap. Cortisol (Lec 40) → GnRH suppression. Metabolic (Lec 28/53) → insulin sensitivity, visceral fat. Vitamin D (Lec 43/44) → Leydig cell support. HRV (Lec 47) → autonomic state affects HPG pulsatility.</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>Testosterone declines ~1–2% per year after 30; bioavailable T declines faster than total T due to rising SHBG</td><td>Harman et al., <em>JCEM</em>, 2001;86:724–731; Feldman et al. (MMAS), 2002</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>GnRH pulse generator: pulse every ~90 minutes in youth; amplitude decreases ~50% by age 70</td><td>Reyes-Fuentes &amp; Veldhuis, 1993; Mulligan et al., 1995; reviewed in PMC 2686341</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Leydig cell number decreases ~40% between ages 20–80; StAR and CYP enzyme activity decline</td><td>Neaves et al., 1984; reviewed in Golan et al., 2015; PMC 12887910</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>SHBG increases ~1.2% per year after 40; affinity for testosterone 1,000× higher than albumin</td><td>Vermeulen et al., 1999; Pardridge et al., 1985; reviewed in multiple sources</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Sleep restriction reduces testosterone 10–15% within one week</td><td>Leproult &amp; Van Cauter, <em>JAMA</em>, 2011;305:2173–2174</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Testosterone upregulates eNOS and increases NO bioavailability in endothelial cells</td><td>Traish et al., 2009; reviewed in multiple cardiovascular-testosterone studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>TRAVERSE trial: TRT showed no increase in MACE but also no cardiovascular benefit (n=5,204)</td><td>Lincoff et al., <em>NEJM</em>, 2023;389:107–117</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Resistance training increases endogenous testosterone 15–30% without suppressing HPG axis</td><td>Multiple RCTs; reviewed in Vingren et al., <em>Sports Med.</em>, 2010</td><td><span class="cv">⚠ The magnitude varies significantly by training protocol, baseline fitness, age, and measurement timing. Acute post-exercise spikes are well-documented; chronic baseline elevation of 15–30% is at the upper end of reported ranges and may not be achievable in all individuals.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Harman, S.M. et al. (2001). "Longitudinal effects of aging on serum total and free testosterone levels in healthy men." <em>JCEM</em>, 86:724–731. &nbsp;|&nbsp; Travison, T.G. et al. (2017). "Harmonized reference ranges for circulating testosterone." <em>JCEM</em>, 102:1161–1173. &nbsp;|&nbsp; Lincoff, A.M. et al. (2023). "Cardiovascular safety of testosterone-replacement therapy." <em>NEJM</em>, 389:107–117 (TRAVERSE). &nbsp;|&nbsp; Leproult, R. &amp; Van Cauter, E. (2011). "Effect of 1 week of sleep restriction on testosterone levels in young healthy men." <em>JAMA</em>, 305:2173–2174. &nbsp;|&nbsp; Golan, R. et al. (2015). "Age-related testosterone decline is partly driven by primary hypogonadism." <em>J. Endocr. Soc.</em>
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_testosterone_hpg_axis",
+  "related": [
+    {
+      "id": "lecture_mechanotransduction",
+      "title": "Mechanotransduction & Sarcopenia",
+      "filename": "lecture_mechanotransduction.html",
+      "tags": [
+        "Structural Integrity",
+        "Mind-Body Axes"
+      ]
+    },
+    {
+      "id": "lecture_bone_brain_osteocalcin",
+      "title": "The Bone-Brain Axis & Osteocalcin",
+      "filename": "lecture_bone_brain_osteocalcin.html",
+      "tags": [
+        "Structural Integrity",
+        "Mind-Body Axes"
+      ]
+    },
+    {
+      "id": "lecture_cortisol_hpa_axis",
+      "title": "Cortisol Dysregulation & the HPA Axis",
+      "filename": "lecture_cortisol_hpa_axis.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_dopamine_reward_desire",
+      "title": "The Dopaminergic Reward Circuit, Desire & Anhedonia",
+      "filename": "lecture_dopamine_reward_desire.html",
+      "tags": [
+        "Adaptive Stress",
+        "Mind-Body Axes"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

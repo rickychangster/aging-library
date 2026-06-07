@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture: NAD+ Decline &amp; Sirtuin Dysfunction</title>
+
+<style>
+  :root {
+    --bg: #fcfcfa;
+    --surface: #f5f3ee;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --ink-mid: #3d3d3d;
+    --ink-soft: #737373;
+    --teal: #0d7377;
+    --teal-deep: #095557;
+    --teal-bg: rgba(13,115,119,0.04);
+    --gold: #b8860b;
+    --gold-deep: #8b6508;
+    --gold-bg: rgba(184,134,11,0.05);
+    --graphite: #404040;
+    --alert: #a63d40;
+    --alert-bg: rgba(166,61,64,0.04);
+    --rule: #e0ddd6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink-mid); font-family: 'Manrope', sans-serif; font-weight: 400; line-height: 1.8; font-size: 16.5px; }
+  .page { max-width: 820px; margin: 0 auto; padding: 56px 42px 120px; }
+
+  /* Molecule-inspired top bar */
+  .mol-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 40px; }
+  .mol-bar .seg { height: 2px; border-radius: 1px; }
+  .mol-bar .s1 { flex: 5; background: var(--teal); }
+  .mol-bar .s2 { flex: 1; background: var(--gold); }
+  .mol-bar .s3 { flex: 3; background: var(--graphite); opacity: 0.2; }
+  .mol-bar .node { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+
+  .hdr { margin-bottom: 48px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); position: relative; }
+  .series-tag { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  .lec-num { font-family: 'Libre Baskerville', serif; font-size: 100px; font-weight: 700; color: var(--teal-deep); opacity: 0.04; position: absolute; right: 0; top: -16px; line-height: 1; }
+  h1 { font-family: 'Libre Baskerville', serif; font-size: 42px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: 8px; }
+  h1 .alt { color: var(--teal-deep); }
+  .subtitle { font-family: 'Libre Baskerville', serif; font-size: 17.5px; font-weight: 400; font-style: italic; color: var(--ink-soft); line-height: 1.5; max-width: 680px; margin-bottom: 18px; }
+  .meta { font-family: 'Source Code Pro', monospace; font-size: 10.5px; color: var(--ink-soft); display: flex; gap: 18px; flex-wrap: wrap; }
+  .meta .hl { color: var(--teal); font-weight: 600; }
+
+  .sn { font-family: 'Source Code Pro', monospace; font-weight: 600; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-top: 50px; margin-bottom: 6px; }
+  h2 { font-family: 'Libre Baskerville', serif; font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 16px; line-height: 1.22; }
+  p { margin-bottom: 16px; text-align: justify; hyphens: auto; }
+  .k { color: var(--teal-deep); font-weight: 700; }
+  .def { color: var(--ink-soft); font-style: italic; }
+  em { font-style: italic; color: var(--ink); }
+
+  .sep { display: flex; align-items: center; margin: 44px 0; gap: 8px; }
+  .sep .l { flex: 1; height: 1px; background: var(--rule); }
+  .sep .nd { width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--teal); }
+
+  .fig { background: var(--card); border: 1px solid var(--rule); border-top: 3px solid var(--teal-deep); padding: 24px 18px 18px; margin: 36px 0; border-radius: 0 0 4px 4px; }
+  .fig-tag { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+  .fig svg { display: block; margin: 0 auto; width: 100%; max-width: 740px; }
+  .fig-cap { font-size: 13px; color: var(--ink-soft); text-align: center; margin-top: 12px; line-height: 1.6; font-style: italic; }
+
+  .note { border-left: 3px solid var(--teal); background: var(--teal-bg); padding: 18px 22px; margin: 28px 0; border-radius: 0 4px 4px 0; }
+  .note .nl { font-family: 'Source Code Pro', monospace; font-weight: 600; color: var(--teal-deep); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .note p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.72; }
+
+  .warn { border-left: 3px solid var(--alert); background: var(--alert-bg); padding: 18px 22px; margin: 28px 0; border-radius: 0 4px 4px 0; }
+  .warn .wl { font-family: 'Source Code Pro', monospace; font-weight: 600; color: var(--alert); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .warn p { margin-bottom: 0; font-size: 15px; text-align: left; line-height: 1.72; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 32px 0; }
+  .gc { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 20px; transition: border-color 0.25s; }
+  .gc:hover { border-color: var(--teal); }
+  .gc .tag { font-family: 'Source Code Pro', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+  .tag.bio { color: var(--gold-deep); }
+  .tag.eng { color: var(--teal-deep); }
+  .gc h4 { font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .gc p { font-size: 13.5px; line-height: 1.6; margin-bottom: 0; text-align: left; }
+  .gc strong { color: var(--teal-deep); font-weight: 700; }
+
+  .res { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 28px 24px; margin: 36px 0; }
+  .res .rt { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 18px; }
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ri { background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 14px 16px; }
+  .ri .rc { font-family: 'Source Code Pro', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; font-weight: 600; }
+  .rc.read { color: var(--gold); }
+  .rc.act { color: var(--teal-deep); }
+  .rc.tool { color: var(--graphite); }
+  .rc.meas { color: var(--alert); }
+  .ri h5 { font-family: 'Libre Baskerville', serif; font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .ri p { font-size: 12.5px; line-height: 1.55; margin-bottom: 0; text-align: left; color: var(--ink-soft); }
+
+  .cite { background: var(--gold-bg); border: 1px solid rgba(184,134,11,0.15); border-radius: 4px; padding: 20px 22px; margin: 36px 0; }
+  .cite .ct { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 12px; }
+  .cite table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .cite th { font-family: 'Source Code Pro', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); }
+  .cite td { padding: 6px 8px; border-bottom: 1px solid rgba(224,221,214,0.5); color: var(--ink-mid); line-height: 1.5; vertical-align: top; }
+  .cite .ok { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 600; color: #2e7d32; }
+  .cite .cav { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 600; color: var(--gold); }
+
+  .fn { font-size: 13px; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 22px; margin-top: 54px; line-height: 1.7; }
+  .fn strong { color: var(--ink-mid); font-weight: 700; }
+
+  @media (max-width: 640px) { h1 { font-size: 32px; } .grid, .res-grid { grid-template-columns: 1fr; } .page { padding: 32px 18px 80px; } .lec-num { display: none; } }
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="NAD+ is the master fuel molecule for longevity enzymes — it falls by half between 40 and 60, disabling DNA repair, metabolism, and stress response simultaneously.">
+<meta property="og:title" content="NAD+ Decline & Sirtuin Dysfunction — Longevity & Wellness">
+<meta property="og:description" content="NAD+ is the master fuel molecule for longevity enzymes — it falls by half between 40 and 60, disabling DNA repair, metabolism, and stress response simultaneously.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_nad_sirtuin_decline.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NAD+ Decline & Sirtuin Dysfunction — Longevity & Wellness">
+<meta name="twitter:description" content="NAD+ is the master fuel molecule for longevity enzymes — it falls by half between 40 and 60, disabling DNA repair, metabolism, and stress response simultaneously.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+
+  <div class="mol-bar"><div class="seg s1"></div><div class="node"></div><div class="seg s2"></div><div class="node"></div><div class="seg s3"></div></div>
+
+  <header class="hdr">
+    <div class="lec-num">21</div>
+    <div class="series-tag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 21</div>
+    <h1>NAD<sup>+</sup> Decline <span class="alt">&amp; Sirtuin Dysfunction</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published April 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="subtitle">The Metabolic Fuel That Powers Every Longevity Pathway Is Running Out by Fifty — and Chemical Engineers Recognized the Identical Problem in Industrial Catalysis a Century Ago</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Biochemistry / Metabolic Science</div>
+      <div><span class="hl">Bridge:</span> Chemical Engineering (Catalytic Reactor Design)</div>
+      <div><span class="hl">Window:</span> Ages 40–60</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <div class="sn">I. The Why</div>
+  <h2>The Missing Upstream Regulator</h2>
+
+  <p>By the early 2000s, longevity research had identified an ancient family of enzymes — the <span class="k">sirtuins</span> <span class="def">(a family of seven NAD<sup>+</sup>-dependent deacylase/deacetylase enzymes, SIRT1–7, that regulate metabolism, DNA repair, inflammation, mitochondrial function, and circadian rhythm)</span> — as master regulators of aging across species from yeast to mammals. Caloric restriction, the oldest known lifespan-extending intervention, worked in part through sirtuin activation. SIRT1 overexpression extended lifespan in mice. SIRT6 overexpression did the same. The sirtuins appeared to be a conserved longevity dial. But a puzzle remained: sirtuins were <em>structurally intact</em> in aged organisms. The enzyme protein was present, properly folded, and theoretically functional. Yet sirtuin activity declined precipitously with age. The enzyme was there — it simply wasn't working. In 2014, Shin-ichiro Imai and Leonard Guarente published the synthesis that resolved this paradox: the problem was not the enzyme. The problem was its <span class="k">essential cofactor</span> — <span class="k">NAD<sup>+</sup></span> <span class="def">(nicotinamide adenine dinucleotide — the oxidized form of a coenzyme present in every living cell, required by sirtuins as a co-substrate that is consumed during each catalytic cycle)</span>. NAD<sup>+</sup> levels decline significantly during aging, and without adequate NAD<sup>+</sup>, sirtuins cannot function regardless of how much enzyme is present.</p>
+
+  <p>This reframed the entire longevity field. The sirtuins were never the rate-limiting factor. NAD<sup>+</sup> was — and its depletion in the forties and fifties explained why every downstream system that sirtuins regulate (DNA repair, mitochondrial biogenesis, inflammation control, circadian synchronization) deteriorates simultaneously in midlife.</p>
+
+  <div class="sep"><div class="l"></div><div class="nd"></div><div class="l"></div></div>
+
+  <!-- II -->
+  <div class="sn">II. Foundational Bridge</div>
+  <h2>Prerequisites: The Lock, the Key, and the Oil</h2>
+
+  <p>Imagine a high-security vault with seven locks (SIRT1–7), each controlling a different function: one controls the power supply (mitochondria), another controls security cameras (DNA repair), another controls the climate system (inflammation), and so on. Each lock requires two things to operate: the <em>correct key</em> (the enzyme's protein substrate — a specific acetylated protein) and a drop of <em>specialized oil</em> (NAD<sup>+</sup>) that is consumed each time the lock turns. Without the oil, the key fits but the lock doesn't turn. If the building's oil supply drops by half, <em>all seven locks</em> malfunction simultaneously — even though every lock is mechanically intact and every key is present. You don't see a single system fail; you see the entire building degrade at once. This is what happens in aging: NAD<sup>+</sup> falls, and every sirtuin-dependent process decays in parallel.</p>
+
+  <p>Two essential concepts: first, NAD<sup>+</sup> is not merely a coenzyme that assists the reaction — it is a <span class="k">co-substrate</span> <span class="def">(a molecule consumed stoichiometrically during the reaction, not recycled — one NAD<sup>+</sup> molecule is destroyed for each deacetylation event)</span>. This distinguishes sirtuins from most enzymes: they <em>use up</em> their fuel rather than recycling it. Second, NAD<sup>+</sup> availability is regulated by a <span class="k">salvage pathway</span> <span class="def">(the recycling circuit, primarily through the enzyme NAMPT, that regenerates NAD<sup>+</sup> from its breakdown product nicotinamide)</span>. When NAMPT activity declines — as it does with aging — NAD<sup>+</sup> synthesis cannot keep pace with NAD<sup>+</sup> consumption, and total cellular NAD<sup>+</sup> drops.</p>
+
+  <div class="sep"><div class="l"></div><div class="nd"></div><div class="l"></div></div>
+
+  <!-- III -->
+  <div class="sn">III. The Core Concept</div>
+  <h2>The Triple Drain: Why NAD<sup>+</sup> Falls and Why the Fifties Are the Inflection</h2>
+
+  <p>NAD<sup>+</sup> depletion in aging results from a supply-demand imbalance driven by three converging forces. On the <em>supply</em> side, NAMPT — the rate-limiting enzyme of the salvage pathway — declines in expression and activity with age, reducing NAD<sup>+</sup> regeneration capacity. On the <em>demand</em> side, two major NAD<sup>+</sup>-consuming processes intensify: <span class="k">PARPs</span> <span class="def">(poly-ADP-ribose polymerases — enzymes that consume NAD<sup>+</sup> to repair DNA damage)</span>, which become hyperactive as accumulated DNA damage increases with age, consuming enormous quantities of NAD<sup>+</sup> for repair operations; and <span class="k">CD38</span> <span class="def">(a membrane-bound NAD<sup>+</sup>-degrading ectoenzyme that increases with chronic inflammation)</span>, which has been identified as the primary driver of age-related NAD<sup>+</sup> decline in multiple tissues. CD38 expression is upregulated by the very inflammatory cytokines (IL-6, TNF-α) that constitute the SASP and inflammaging cascades of Lectures 12 and 19. The result: supply decreases while demand increases — a metabolic scissors effect that accelerates through the forties and fifties.</p>
+
+  <div class="warn">
+    <div class="wl">The Cascade of Sirtuin Failure</div>
+    <p>When NAD<sup>+</sup> falls below sirtuin activation thresholds, the consequences cascade through every major aging pathway simultaneously. SIRT1 dysfunction impairs circadian clock regulation — Chang and Guarente (2013) showed that SIRT1 mediates central circadian control in the SCN and that this mechanism decays with aging (directly connecting to Lecture 17). SIRT3 dysfunction reduces mitochondrial deacetylation, impairing the electron transport chain and increasing ROS production — feeding back into more DNA damage and more PARP consumption of NAD<sup>+</sup>. SIRT6 dysfunction impairs DNA double-strand break repair and telomere maintenance (Lecture 20). The NAD<sup>+</sup>-sirtuin axis is not one pathway among many — it is the <em>upstream regulator</em> of the pathways covered across this entire lecture series. Its decline in the fifties is the biochemical master switch that initiates the coordinated multi-system deterioration we experience as aging.</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — NAD<sup>+</sup> Depletion Cascade &amp; Catalytic Reactor Parallel</div>
+    <svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- LEFT: Biological -->
+      <text x="185" y="18" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="10" fill="#b8860b" font-weight="600" letter-spacing="1.5">NAD+ DEPLETION CASCADE</text>
+
+      <!-- Supply side -->
+      <rect x="30" y="38" width="145" height="44" rx="3" fill="rgba(13,115,119,0.05)" stroke="#0d7377" stroke-width="1"/>
+      <text x="102" y="56" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="12" font-weight="700" fill="#095557">SUPPLY ↓</text>
+      <text x="102" y="72" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="9" fill="#737373">NAMPT declines</text>
+      <text x="102" y="80" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="8" fill="#737373">with age</text>
+
+      <!-- Demand side -->
+      <rect x="195" y="38" width="145" height="44" rx="3" fill="rgba(166,61,64,0.05)" stroke="#a63d40" stroke-width="1"/>
+      <text x="267" y="56" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="12" font-weight="700" fill="#a63d40">DEMAND ↑</text>
+      <text x="267" y="72" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="9" fill="#737373">PARPs (DNA repair) +</text>
+      <text x="267" y="80" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="8" fill="#737373">CD38 (inflammation)</text>
+
+      <!-- Scissors converge -->
+      <line x1="102" y1="82" x2="185" y2="110" stroke="#0d7377" stroke-width="1"/>
+      <line x1="267" y1="82" x2="185" y2="110" stroke="#a63d40" stroke-width="1"/>
+
+      <rect x="80" y="112" width="210" height="38" rx="3" fill="rgba(166,61,64,0.06)" stroke="#a63d40" stroke-width="1.5"/>
+      <text x="185" y="128" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="14" font-weight="700" fill="#a63d40">NAD<tspan baseline-shift="super" font-size="10">+</tspan> Depletion</text>
+      <text x="185" y="144" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="9" fill="#a63d40">~50% decline by age 50–60</text>
+
+      <!-- Seven sirtuins fan out -->
+      <line x1="185" y1="150" x2="185" y2="172" stroke="#095557" stroke-width="1.2"/>
+      <polygon points="180,172 185,180 190,172" fill="#095557"/>
+
+      <rect x="35" y="182" width="300" height="34" rx="3" fill="rgba(13,115,119,0.04)" stroke="#095557" stroke-width="1"/>
+      <text x="185" y="196" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="13" font-weight="700" fill="#095557">All 7 Sirtuins Lose Activity Simultaneously</text>
+      <text x="185" y="210" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="9" fill="#737373">enzyme intact • cofactor depleted • function lost</text>
+
+      <!-- Downstream effects -->
+      <line x1="80" y1="216" x2="55" y2="244" stroke="#095557" stroke-width="0.8"/>
+      <line x1="140" y1="216" x2="125" y2="244" stroke="#095557" stroke-width="0.8"/>
+      <line x1="230" y1="216" x2="245" y2="244" stroke="#095557" stroke-width="0.8"/>
+      <line x1="290" y1="216" x2="315" y2="244" stroke="#095557" stroke-width="0.8"/>
+
+      <rect x="15" y="246" width="80" height="48" rx="2" fill="#fff" stroke="#e0ddd6" stroke-width="1"/>
+      <text x="55" y="264" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" fill="#3d3d3d" font-weight="600">SIRT1</text>
+      <text x="55" y="278" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737373">Circadian ↓</text>
+      <text x="55" y="288" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="7" fill="#095557">Lec 17</text>
+
+      <rect x="105" y="246" width="80" height="48" rx="2" fill="#fff" stroke="#e0ddd6" stroke-width="1"/>
+      <text x="145" y="264" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" fill="#3d3d3d" font-weight="600">SIRT3</text>
+      <text x="145" y="278" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737373">Mitochondria ↓</text>
+      <text x="145" y="288" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="7" fill="#095557">VO₂ max Lec 16</text>
+
+      <rect x="195" y="246" width="80" height="48" rx="2" fill="#fff" stroke="#e0ddd6" stroke-width="1"/>
+      <text x="235" y="264" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" fill="#3d3d3d" font-weight="600">SIRT6</text>
+      <text x="235" y="278" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737373">DNA repair ↓</text>
+      <text x="235" y="288" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="7" fill="#095557">Telomeres Lec 20</text>
+
+      <rect x="285" y="246" width="80" height="48" rx="2" fill="#fff" stroke="#e0ddd6" stroke-width="1"/>
+      <text x="325" y="264" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" fill="#3d3d3d" font-weight="600">SIRT1/6</text>
+      <text x="325" y="278" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737373">Inflammation ↑</text>
+      <text x="325" y="288" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="7" fill="#095557">Lec 12, 19</text>
+
+      <!-- Restoration -->
+      <rect x="50" y="314" width="270" height="40" rx="3" fill="rgba(13,115,119,0.06)" stroke="#0d7377" stroke-width="1.5"/>
+      <text x="185" y="332" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="13" font-weight="700" fill="#0d7377">NAD<tspan baseline-shift="super" font-size="10">+</tspan> Restoration Strategy</text>
+      <text x="185" y="348" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10.5" fill="#3d3d3d">NMN / NR supplementation • Exercise • Fasting • CD38 inhibition</text>
+
+      <!-- DIVIDER -->
+      <line x1="388" y1="10" x2="388" y2="490" stroke="#e0ddd6" stroke-width="1"/>
+
+      <!-- RIGHT: Chemical engineering -->
+      <text x="564" y="18" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="10" fill="#095557" font-weight="600" letter-spacing="1.5">CATALYTIC REACTOR PARALLEL</text>
+
+      <rect x="405" y="34" width="318" height="210" rx="4" fill="#fff" stroke="#e0ddd6" stroke-width="1"/>
+      <text x="564" y="56" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="10" fill="#1a1a1a" font-weight="700" letter-spacing="1.5">STRUCTURAL MAPPING</text>
+      <line x1="415" y1="64" x2="713" y2="64" stroke="#e0ddd6" stroke-width="0.5"/>
+      <text x="488" y="82" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="9" fill="#b8860b" font-weight="600">BIOLOGY</text>
+      <text x="640" y="82" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="9" fill="#095557" font-weight="600">CHEMICAL ENGINEERING</text>
+      <line x1="564" y1="64" x2="564" y2="236" stroke="#e0ddd6" stroke-width="0.5"/>
+      <line x1="415" y1="90" x2="713" y2="90" stroke="#e0ddd6" stroke-width="0.5"/>
+
+      <text x="488" y="108" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">Sirtuins (SIRT1–7)</text>
+      <text x="640" y="108" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">Catalyst (e.g., platinum)</text>
+      <line x1="415" y1="116" x2="713" y2="116" stroke="rgba(224,221,214,0.5)" stroke-width="0.5"/>
+      <text x="488" y="134" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">NAD<tspan baseline-shift="super" font-size="9">+</tspan> (cofactor)</text>
+      <text x="640" y="134" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">Promoter / co-catalyst</text>
+      <line x1="415" y1="142" x2="713" y2="142" stroke="rgba(224,221,214,0.5)" stroke-width="0.5"/>
+      <text x="488" y="160" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">NAMPT (salvage pathway)</text>
+      <text x="640" y="160" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">Promoter regeneration unit</text>
+      <line x1="415" y1="168" x2="713" y2="168" stroke="rgba(224,221,214,0.5)" stroke-width="0.5"/>
+      <text x="488" y="186" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">CD38 / PARPs (consumers)</text>
+      <text x="640" y="186" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">Competing side reactions</text>
+      <line x1="415" y1="194" x2="713" y2="194" stroke="rgba(224,221,214,0.5)" stroke-width="0.5"/>
+      <text x="488" y="212" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#a63d40">NAD<tspan baseline-shift="super" font-size="9">+</tspan> depletion → sirtuin off</text>
+      <text x="640" y="212" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#a63d40">Promoter loss → catalyst inactive</text>
+      <line x1="415" y1="220" x2="713" y2="220" stroke="rgba(224,221,214,0.5)" stroke-width="0.5"/>
+      <text x="488" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#0d7377" font-weight="600">NMN / NR supplementation</text>
+      <text x="640" y="238" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#095557" font-weight="600">Promoter replenishment</text>
+
+      <!-- Engineering concept -->
+      <rect x="405" y="262" width="318" height="88" rx="4" fill="rgba(13,115,119,0.03)" stroke="#095557" stroke-width="1"/>
+      <text x="564" y="282" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="10" fill="#095557" font-weight="700" letter-spacing="1">CHEMICAL ENGINEERING PRINCIPLE</text>
+      <text x="420" y="302" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">In heterogeneous catalysis, the catalyst (Pt, Pd) is structurally</text>
+      <text x="420" y="318" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">intact but <tspan font-weight="700" fill="#095557">catalytically dead</tspan> when its promoter (e.g., alkali</text>
+      <text x="420" y="334" font-family="Manrope, sans-serif" font-size="11" fill="#3d3d3d">metal, sulfur) migrates away or is consumed by side reactions.</text>
+      <text x="420" y="348" font-family="Manrope, sans-serif" font-size="11" fill="#095557" font-weight="600">Reactor throughput collapses. You blame the catalyst. It's the promoter.</text>
+
+      <!-- Shared insight -->
+      <rect x="405" y="366" width="318" height="52" rx="4" fill="rgba(184,134,11,0.06)" stroke="#b8860b" stroke-width="1"/>
+      <text x="564" y="386" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="10" fill="#8b6508" font-weight="600" letter-spacing="1">SHARED INSIGHT</text>
+      <text x="564" y="404" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11.5" fill="#8b6508" font-weight="700">Don't replace the catalyst. Replenish the cofactor.</text>
+      <text x="564" y="418" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#3d3d3d">The enzyme isn't broken. It's starving.</text>
+
+      <!-- Bio translation -->
+      <rect x="405" y="434" width="318" height="50" rx="4" fill="rgba(13,115,119,0.05)" stroke="#0d7377" stroke-width="1"/>
+      <text x="564" y="454" text-anchor="middle" font-family="Source Code Pro, monospace" font-size="9" fill="#095557" font-weight="600" letter-spacing="1">ENGINEERING STRATEGY → BIOLOGY</text>
+      <text x="564" y="472" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#095557" font-weight="700">Boost NAD<tspan baseline-shift="super" font-size="9">+</tspan> supply (NMN/NR) + Reduce drains (exercise ↓ CD38)</text>
+    </svg>
+    <div class="fig-cap">Left: the NAD<sup>+</sup> depletion cascade — supply decline (NAMPT↓) meets demand increase (PARPs + CD38↑), draining the cofactor pool and simultaneously disabling all seven sirtuins, each governing a different longevity pathway. Right: the identical logic in catalytic reactor design — a structurally intact catalyst becomes inactive when its promoter substance is consumed by competing side reactions, and the solution is promoter replenishment, not catalyst replacement.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="nd"></div><div class="l"></div></div>
+
+  <!-- IV -->
+  <div class="sn">IV. Cross-Pollination</div>
+  <h2>Chemical Engineering: Catalyst Deactivation by Promoter Depletion</h2>
+
+  <p>In industrial chemical engineering, a <span class="k">heterogeneous catalyst</span> — platinum, palladium, nickel, zeolite — accelerates chemical reactions by providing active surface sites where reactant molecules bind and transform. Many catalysts require a <span class="k">promoter</span> <span class="def">(an auxiliary substance that does not catalyze the reaction itself but enhances the catalyst's activity, selectivity, or stability — often by modifying the electronic environment of the active site)</span>. The classic example: in ammonia synthesis (Haber-Bosch process), the iron catalyst requires potassium oxide as a promoter. Without potassium oxide, iron is structurally present but produces ammonia at a fraction of its potential rate. If competing reactions consume or displace the promoter, the catalyst <em>deactivates</em> — appearing to fail while remaining structurally intact. The reactor engineer who replaces the catalyst achieves nothing; the one who replenishes the promoter restores full throughput.</p>
+
+  <div class="grid">
+    <div class="gc">
+      <div class="tag bio">Biochemistry</div>
+      <h4>The NAD<sup>+</sup> Starvation Problem</h4>
+      <p>Sirtuins are structurally intact in aged tissue. The enzyme has not degraded, mutated, or been lost. But without its essential co-substrate NAD<sup>+</sup>, the catalytic cycle cannot turn. <strong>NAD<sup>+</sup> is consumed stoichiometrically</strong> — one molecule per deacetylation. When the NAD<sup>+</sup> pool shrinks below the Km (Michaelis constant) of each sirtuin, enzymatic velocity drops precipitously. All seven sirtuins share the same cofactor pool, so depletion affects all simultaneously.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">Chemical Engineering</div>
+      <h4>The Promoter Depletion Problem</h4>
+      <p>Industrial catalysts lose activity through <strong>promoter migration, volatilization, or consumption</strong> by side reactions — not through structural degradation of the catalytic material. The catalyst surface is unchanged; the electronic enhancement provided by the promoter is absent. Reactor throughput drops. Adding more catalyst (overexpressing sirtuins) does nothing. Replenishing the promoter (NAD<sup>+</sup>) restores activity instantly.</p>
+    </div>
+    <div class="gc">
+      <div class="tag bio">Competing Drains</div>
+      <h4>PARPs and CD38: The Side Reactions</h4>
+      <p>PARPs consume NAD<sup>+</sup> for DNA repair; CD38 degrades NAD<sup>+</sup> on cell surfaces during inflammation. Both increase with age. This is the biological equivalent of <strong>parasitic side reactions</strong> that consume the promoter substance. The sirtuins lose their cofactor not because of intrinsic failure but because competing processes are outconsuming them — the reactor has a feed-stream leak.</p>
+    </div>
+    <div class="gc">
+      <div class="tag eng">The Engineering Solution</div>
+      <h4>Dual Strategy: Feed + Protect</h4>
+      <p>Chemical engineers optimize promoted catalysts via two levers: (1) <strong>increase promoter feed rate</strong> — supply more cofactor faster than side reactions consume it (NMN/NR supplementation). (2) <strong>Suppress side reactions</strong> — reduce parasitic consumption (exercise lowers CD38 expression; reducing inflammation lowers PARP hyperactivation). Identical to the biological prescription.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="nl">The Deepest Parallel: Circadian Oscillation of NAD<sup>+</sup></div>
+    <p>NAD<sup>+</sup> levels oscillate in a circadian rhythm — peaking during waking hours and troughing during sleep — because NAMPT (the regeneration enzyme) is directly regulated by the CLOCK/BMAL1 circadian transcription factors. SIRT1 in turn regulates CLOCK/BMAL1 function. This creates a <em>coupled oscillator</em>: the circadian clock drives NAD<sup>+</sup> production, and NAD<sup>+</sup>-dependent SIRT1 maintains the clock. In chemical engineering, this is a <em>feedback-controlled reactor</em> — the product of the reaction regulates the feed stream that supplies the reaction. When NAD<sup>+</sup> declines with age, the oscillation dampens: SIRT1 activity drops → circadian amplitude flattens → NAMPT expression falls → NAD<sup>+</sup> drops further. The coupled oscillator decays, mirroring the circadian desynchronization of Lecture 17 — and now we understand the <em>molecular reason</em>: it is, fundamentally, a cofactor depletion problem.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="nd"></div><div class="l"></div></div>
+
+  <!-- V -->
+  <div class="sn">V. Resources &amp; Activities</div>
+  <h2>Replenishing the Cofactor Pool</h2>
+
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Imai &amp; Guarente (2014)</h5>
+        <p>"NAD<sup>+</sup> and sirtuins in aging and disease." <em>Trends Cell Biol.</em>, 24(8):464–471. The definitive review establishing NAD<sup>+</sup> as the rate-limiting cofactor for sirtuin-dependent longevity pathways.</p>
+      </div>
+      <div class="ri">
+        <div class="rc read">Read</div>
+        <h5>Lifespan (David Sinclair, 2019)</h5>
+        <p>Accessible treatment of NAD<sup>+</sup>/sirtuin biology for general audiences. Covers the "Information Theory of Aging" — the hypothesis that aging is an information loss problem driven by epigenetic noise, with NAD<sup>+</sup> depletion as a central driver.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Exercise (The Free NAD<sup>+</sup> Booster)</h5>
+        <p>Aerobic exercise upregulates NAMPT expression in skeletal muscle, increasing NAD<sup>+</sup> biosynthesis. Exercise also reduces CD38 expression and chronic inflammation, decreasing NAD<sup>+</sup> consumption. This is the "dual strategy" — boost supply while reducing drains — at zero cost. VO₂ max training (Lecture 16) is simultaneously a NAD<sup>+</sup> intervention.</p>
+      </div>
+      <div class="ri">
+        <div class="rc act">Activity</div>
+        <h5>Time-Restricted Eating / Fasting</h5>
+        <p>Caloric restriction and intermittent fasting upregulate NAMPT and increase NAD<sup>+</sup> levels through AMPK activation. The connection to caloric restriction and longevity — the oldest finding in gerontology — is now understood to operate in significant part through NAD<sup>+</sup>/sirtuin pathway activation.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>NMN / NR Supplementation</h5>
+        <p>Nicotinamide mononucleotide (NMN) and nicotinamide riboside (NR) are NAD<sup>+</sup> precursors that bypass the NAMPT bottleneck. Human trials (Yi et al., 2023; Yoshino et al., 2021) show NMN supplementation increases whole-blood NAD<sup>+</sup> levels. Effective doses: NMN 250–500 mg/day; NR 300–1000 mg/day. Evidence is promising but long-term human outcomes data is still accumulating — treat as an evidence-based intervention, not a proven therapy.</p>
+      </div>
+      <div class="ri">
+        <div class="rc tool">Tool</div>
+        <h5>Reduce the Drains</h5>
+        <p>Every prior lecture's interventions reduce NAD<sup>+</sup> consumption: controlling inflammaging (Lec 12) reduces CD38 upregulation; managing stress (Lec 20) reduces DNA damage and PARP activation; protecting sleep (Lec 14, 17) maintains circadian NAMPT expression; gut health (Lec 18) reduces LPS-driven NF-κB which upregulates CD38.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Measure</div>
+        <h5>NAD<sup>+</sup> Testing</h5>
+        <p>Whole-blood NAD<sup>+</sup> measurement is commercially available (e.g., Jinfiniti Intracellular NAD test). Provides a baseline and allows tracking response to interventions. Not yet standardized clinically, but useful for personal longitudinal tracking.</p>
+      </div>
+      <div class="ri">
+        <div class="rc meas">Cross-Reference</div>
+        <h5>The Integrating Lecture</h5>
+        <p>NAD<sup>+</sup>/sirtuin biology is the <em>molecular unifying layer</em> beneath every prior topic: SIRT1 governs circadian clocks (Lec 17), SIRT3 governs mitochondrial capacity (Lec 16), SIRT6 governs DNA/telomere repair (Lec 20), and NAD<sup>+</sup> depletion drives both inflammaging (Lec 12) and senescence (Lec 19). This is the upstream metabolic switch.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citation Verification -->
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr>
+        <td>NAD<sup>+</sup> becomes limiting during aging, affecting sirtuin activities; decline due to NAMPT biosynthesis defect + PARP/CD38 depletion</td>
+        <td>Imai &amp; Guarente, <em>Trends Cell Biol.</em>, 2014;24(8):464–471</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>NAD<sup>+</sup> availability decreases over age, reducing sirtuin activities at cellular (nuclear-mitochondrial) and systemic (hypothalamus-adipose) levels</td>
+        <td>Imai &amp; Guarente, <em>npj Aging Mech. Dis.</em>, 2016;2:16017</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>SIRT1 mediates central circadian control in SCN; mechanism decays with aging</td>
+        <td>Chang &amp; Guarente, <em>Cell</em>, 2013;153:1448–1460</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>NAD<sup>+</sup> oscillates in circadian rhythm; NAMPT regulated by CLOCK/BMAL1</td>
+        <td>Nakahata et al., <em>Science</em>, 2009;324:654–657; Ramsey et al., <em>Science</em>, 2009;324:651–654</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Supplementing NAD<sup>+</sup> intermediates (NMN/NR) can restore NAD<sup>+</sup> and ameliorate age-associated pathophysiologies</td>
+        <td>Imai &amp; Guarente (2014, 2016); Yoshino et al., <em>Science</em>, 2011;332:1443–1446</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Sir2 (sirtuin ancestor) is an NAD-dependent histone deacetylase</td>
+        <td>Imai et al., <em>Nature</em>, 2000;403:795–800</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>SIRT6 overexpression extends lifespan in male mice</td>
+        <td>Kanfi et al., <em>Nature</em>, 2012;483:218–221</td>
+        <td><span class="ok">✓ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>NAD<sup>+</sup> declines ~50% by age 50–60</td>
+        <td>Widely cited estimate; Massudi et al., <em>PLoS ONE</em>, 2012; Zhu et al., 2015</td>
+        <td><span class="cav">⚠ Exact magnitude varies by tissue and measurement method (30–65% reported across studies). ~50% is a consensus midpoint for skin/muscle tissue in humans aged 40–60 vs. 20–30.</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Imai, S. &amp; Guarente, L. (2014). "NAD<sup>+</sup> and sirtuins in aging and disease." <em>Trends Cell Biol.</em>, 24(8):464–471. &nbsp;|&nbsp; Imai, S. &amp; Guarente, L. (2016). "It takes two to tango: NAD<sup>+</sup> and sirtuins in aging/longevity control." <em>npj Aging Mech. Dis.</em>, 2:16017. &nbsp;|&nbsp; Chang, H.C. &amp; Guarente, L. (2013). "SIRT1 mediates central circadian control in the SCN." <em>Cell</em>, 153:1448–1460. &nbsp;|&nbsp; Imai, S. et al. (2000). "Transcriptional silencing and longevity protein Sir2 is an NAD-dependent histone deacetylase." <em>Nature</em>, 403:795–800. &nbsp;|&nbsp; Nakahata, Y. et al. (2009). "Circadian control of the NAD<sup>+</sup> salvage pathway by CLOCK-SIRT1." <em>Science</em>, 324:654–657. &nbsp;|&nbsp; Kanfi, Y. et al. (2012). "The sirtuin SIRT6 regulates lifespan in male mice." <em>Nature</em>, 483:218–221.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_nad_sirtuin_decline",
+  "related": [
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "filename": "lecture_mitochondrial_dysfunction.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_epigenetic_clocks",
+      "title": "Epigenetic Clocks",
+      "filename": "lecture_epigenetic_clocks.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "filename": "lecture_metabolic_inflexibility.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_cellular_senescence_senolytics",
+      "title": "Cellular Senescence & Senolytics",
+      "filename": "lecture_cellular_senescence_senolytics.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Chronic Inflammation"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

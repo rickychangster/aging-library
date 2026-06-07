@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Local-only PII scrub rules (contain the author's personal values) — never commit
+*.local.json

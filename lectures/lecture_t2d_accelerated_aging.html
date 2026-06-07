@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 53: Type 2 Diabetes as Accelerated Aging</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--copper:#854d0e;--copper-dim:rgba(133,77,14,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Work Sans',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--copper) 0%,var(--amber) 40%,var(--red) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--copper);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--copper);margin-bottom:20px;}
+  .ln{font-family:'Newsreader',serif;font-size:100px;font-weight:800;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Newsreader',serif;font-size:37px;font-weight:800;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--copper);}
+  .sub{font-family:'Newsreader',serif;font-size:16.5px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--copper);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Newsreader',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--copper);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:8px;height:4px;background:var(--copper);border-radius:1px;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--copper);padding:24px 18px 18px;margin:36px 0;border-radius:0 4px 4px 0;}
+  .fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--copper);margin-bottom:14px;}
+  .fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}
+  .fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.warn .wl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--copper);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--copper);}.gc h4{font-family:'Newsreader',serif;font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--copper);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--copper);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'Newsreader',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Type 2 diabetes isn't a disease that accompanies aging — it is aging itself, running every organ-specific decline pathway at two to three times normal speed.">
+<meta property="og:title" content="Type 2 Diabetes as Accelerated Aging — Longevity & Wellness">
+<meta property="og:description" content="Type 2 diabetes isn't a disease that accompanies aging — it is aging itself, running every organ-specific decline pathway at two to three times normal speed.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_t2d_accelerated_aging.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Type 2 Diabetes as Accelerated Aging — Longevity & Wellness">
+<meta name="twitter:description" content="Type 2 diabetes isn't a disease that accompanies aging — it is aging itself, running every organ-specific decline pathway at two to three times normal speed.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">53</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 53</div>
+    <h1>Type 2 Diabetes <span class="a">as Accelerated Aging</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">T2D Advances the Epigenetic Clock by 3–5 Years, Doubles the Rate of AGE Crosslink Accumulation, Accelerates Telomere Shortening in Leukocytes and β-Cells, Induces Premature Senescence Across Multiple Cell Types, and Drives Every Organ-Specific Aging Pathway This Series Has Documented at 2–3× the Normal Rate. It Is Not a Disease That Accompanies Aging — It Is Aging Itself, Operating at Accelerated Speed Through the Same Cascading Interdependencies That Collapse Interconnected Infrastructure Networks When a Single Critical Node Fails</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Metabolic Medicine / Gerontology (Aguayo-Mazzucato 2019; Chen 2025; Horvath 2014)</div>
+      <div><span class="hl">Bridge:</span> Systems Engineering — Cascading Failure in Interdependent Networks</div>
+      <div><span class="hl">Window:</span> Pre-diabetes to T2D transition occurs in 50s; your markers show exceptional protection</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I. THE WHY -->
+  <div class="sn">I. The Why — The Historical Problem</div>
+  <h2>Why T2D Produces the Same Pathologies as Aging — in Every Organ, Simultaneously, but Faster</h2>
+
+  <p>The clinical observation is striking: a 55-year-old with poorly controlled T2D develops the cardiovascular disease profile of a 70-year-old (accelerated atherosclerosis, arterial stiffening, diastolic dysfunction), the renal function of a 68-year-old (glomerular basement membrane thickening, declining eGFR), the cognitive trajectory of a 65-year-old (hippocampal atrophy, brain insulin resistance, elevated AD risk), the retinal vasculature of a 72-year-old (microaneurysms, macular edema), and the wound healing capacity of a 75-year-old. Every organ ages faster. The theoretical gap: is T2D a metabolic disease that <em>causes</em> complications in various organs, or is it a <em>systemic acceleration of the aging process itself</em> that manifests as organ-specific pathologies because the underlying aging mechanisms — the same mechanisms documented across 46 lectures in this series — operate at 2–3× their normal rate?</p>
+
+  <p>A 2025 review in <em>Aging and Disease</em> formally proposed the latter: T2D is a metabolic model of accelerated aging, operating through four diabetes-specific aging axes — <span class="k">glucose toxicity</span> (chronic hyperglycemia → oxidative stress → mitochondrial dysfunction → DNA damage → epigenetic erosion, Lecture 49), <span class="k">AGE toxicity</span> (accelerated Maillard reaction → irreversible collagen crosslinking → structural stiffening + RAGE → NF-κB, Lecture 45), <span class="k">immunoinflammatory aging</span> (adipose tissue macrophage infiltration → TNF-α/IL-6 → chronic NF-κB → accelerated inflammaging, Lecture 12), and <span class="k">protein amyloidosis</span> (islet amyloid polypeptide (IAPP) aggregation in pancreatic islets — the same amyloid-type misfolding that Aβ undergoes in AD, Lecture 24). These four axes feed into the "metabolism-inflammation-aging" triad that converges with every mechanism the series has documented. The epigenetic data confirms it: T2D individuals show accelerated DNA methylation aging in pancreatic islets and whole blood — their epigenetic clocks (Lecture 10/41/49) tick 3–5 years faster than their chronological age, and this acceleration correlates with complication severity. T2D does not merely accompany aging — it <em>is</em> aging, running at accelerated speed because the metabolic environment that normally constrains the rate of the Maillard reaction, oxidative DNA damage, inflammatory activation, and protein misfolding has been pathologically amplified.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II. FOUNDATIONAL BRIDGE -->
+  <div class="sn">II. Foundational Bridge — Cascading Failure in Interdependent Networks</div>
+  <h2>Analogy: When One Node Fails in an Interconnected Infrastructure, Every Connected System Collapses Faster</h2>
+
+  <p>In systems engineering, a <span class="k">cascading failure</span> occurs in networks of interdependent infrastructure systems — power grids, water treatment, telecommunications, transportation — when the failure of one node overloads interconnected nodes, causing them to fail in sequence, each failure accelerating the next. The 2003 Northeast Blackout demonstrated the principle: a software bug in an Ohio power company caused a localized failure; the overload cascaded through interconnected grid segments; within 3 hours, 55 million people across eight states and Ontario lost power — not because every power plant failed independently, but because <em>the interconnections between them transmitted the failure faster than it could be contained</em>. The speed of cascading failure is proportional to the density of interconnection: the more tightly coupled the systems, the faster a local failure propagates into a systemic catastrophe.</p>
+
+  <p>The human body's organ systems are tightly interconnected through shared metabolic, vascular, inflammatory, and hormonal networks. T2D is the equivalent of a critical node failure in the metabolic network — the failure of insulin sensitivity — that cascades through every interconnected system at a rate proportional to their coupling density. The pancreas fails to compensate → hyperglycemia → accelerated AGE formation in every collagen-containing tissue (arteries, kidneys, brain, retina, tendons — Lecture 45) → endothelial dysfunction (Lecture 30) → impaired cerebral perfusion (Lecture 34) + impaired renal filtration + impaired retinal circulation + impaired coronary flow → simultaneously. The hyperinsulinemia that precedes overt diabetes promotes hepatic lipogenesis → elevated triglycerides → atherogenic dyslipidemia → ApoB-driven plaque. Adipose tissue inflammation → TNF-α, IL-6 → NF-κB activation → inflammaging (Lecture 12) → microglial activation → brain insulin resistance (Lecture 32) → impaired Aβ clearance (Lecture 14/52). Each downstream failure feeds back to accelerate the metabolic failure that caused it: insulin resistance → hyperglycemia → β-cell glucotoxicity → β-cell senescence → reduced insulin secretion → worse hyperglycemia. The cascade is self-amplifying — the metabolic equivalent of Theme III's inflammatory spiral, but operating across every organ simultaneously.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III. CORE CONCEPT -->
+  <div class="sn">III. The Core Concept — Four Axes of Diabetic Aging Acceleration</div>
+  <h2>How T2D Drives Every Hallmark of Aging at 2–3× the Normal Rate</h2>
+
+  <p><em>Axis 1: Glucose toxicity → oxidative DNA damage → epigenetic erosion.</em> Chronic hyperglycemia increases mitochondrial superoxide production through four established pathways: the polyol pathway (glucose → sorbitol, depleting NADPH), the hexosamine pathway (glucose → UDP-GlcNAc, modifying protein function), PKC activation (diacylglycerol → vascular dysfunction), and AGE formation (the Maillard reaction, Lecture 45). The superoxide generated by these pathways drives oxidative DNA damage — the very double-strand breaks that trigger <span class="k">Relocalization of Chromatin Modifiers (RCM)</span> documented in Lecture 49 as the upstream mechanism of epigenetic aging. More glucose → more superoxide → more DSBs → more RCM events → faster epigenetic erosion → faster cellular identity loss → faster aging. The epigenetic clock data confirms this: T2D individuals show accelerated DNAm PhenoAge in pancreatic islets and whole blood, with a ~9.85-year increase in biological age correlating with significantly increased mortality. Your fasting insulin in the optimal range (<5 µU/mL) and HOMA-IR in the optimal range (<1.0) indicate that this axis operates at or near its minimum achievable rate in your body — the glucose bathing your tissues is at the lowest concentration compatible with normal physiology, producing the minimum rate of superoxide generation, DSB formation, and epigenetic erosion.</p>
+
+  <p><em>Axis 2: AGE toxicity → structural stiffening + RAGE amplification.</em> Lecture 45 established that AGE formation rate is glucose-concentration-dependent and approximately exponential at higher levels. In T2D, AGE accumulation proceeds at 2–3× the non-diabetic rate — accelerating arterial stiffening (PWV increases ~5 years ahead of chronological age in diabetes), lens opacification (diabetic cataracts develop ~10 years earlier), kidney basement membrane thickening (diabetic nephropathy onset), and tendon/ligament brittleness. Simultaneously, AGE-RAGE signaling amplifies NF-κB → inflammatory cytokines → more oxidative stress → more AGE formation — a self-reinforcing cycle. Your HOMA-IR in the optimal range (<1.0) means your AGE formation rate is at the protective floor — the structural Maillard damage documented in Lecture 45 is accumulating in your tissues at the slowest rate achievable.</p>
+
+  <p><em>Axis 3: Immunoinflammatory aging → the adipose-immune axis.</em> Obesity and insulin resistance drive macrophage infiltration into visceral adipose tissue, shifting the tissue's immune profile from anti-inflammatory (M2 macrophages) to pro-inflammatory (M1 macrophages producing TNF-α, IL-1β, IL-6). This creates a chronic inflammatory input that feeds the Theme III spiral through every downstream pathway the series has documented: NF-κB → SASP amplification (Lecture 19), microglial activation (Lecture 52, Branch 4), endothelial dysfunction (Lecture 30/51, Barrier 1), and HPA axis activation (Lecture 40 → cortisol → hippocampal damage). Low-grade inflammation, oxidative stress, and the infiltration of macrophages, T cells, and B cells in insulin-sensitive tissues lead to metabolic impairment and accelerated aging. Your hs-CRP in the optimal range (<1.0 mg/L) indicates this axis is minimally active — the adipose-immune inflammatory input that drives diabetic aging is not contributing significantly to your inflammatory burden.</p>
+
+  <p><em>Axis 4: β-cell senescence → the progressive failure of compensation.</em> Insulin resistance initially triggers β-cell compensatory hyperinsulinemia — the pancreas works harder to maintain normoglycemia. But this metabolic stress drives β-cell senescence: insulin resistance induced the expression of aging markers in β-cells, including p16<sup>Ink4a</sup>, p21, and SA-β-galactosidase, and metabolic stress increased the number of senescent β-cells while impairing glucose tolerance. Senescent β-cells secrete SASP factors that damage neighboring β-cells (paracrine senescence spread, Lecture 19), further reducing insulin secretory capacity and accelerating the transition from compensated insulin resistance to overt T2D. Clearing senescent β-cells with senolytics (dasatinib + quercetin) in mouse models improved glucose tolerance — establishing β-cell senescence as a therapeutic target. Your insulin in the optimal range (<5 µU/mL) (not elevated — no compensatory hyperinsulinemia) and HOMA-IR in the optimal range (<1.0) (minimal insulin resistance) indicate that your β-cells are not under the metabolic stress that drives senescence — they are operating in a low-demand state that preserves their functional lifespan.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — T2D as Cascading Failure: Four Axes Accelerating All Hallmarks of Aging</div>
+    <svg viewBox="0 0 740 440" xmlns="http://www.w3.org/2000/svg">
+      <text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#854d0e" font-weight="600" letter-spacing="1.5">TYPE 2 DIABETES = ACCELERATED AGING VIA FOUR AXES</text>
+      <!-- Central node -->
+      <rect x="260" y="32" width="220" height="44" rx="4" fill="rgba(133,77,14,0.06)" stroke="#854d0e" stroke-width="2"/>
+      <text x="370" y="52" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="700" fill="#854d0e">Insulin Resistance</text>
+      <text x="370" y="68" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#854d0e">The Critical Node Failure</text>
+      <!-- Four axes -->
+      <line x1="180" y1="54" x2="260" y2="54" stroke="#854d0e" stroke-width="1"/>
+      <line x1="480" y1="54" x2="560" y2="54" stroke="#854d0e" stroke-width="1"/>
+      <line x1="310" y1="78" x2="310" y2="110" stroke="#854d0e" stroke-width="1"/>
+      <line x1="430" y1="78" x2="430" y2="110" stroke="#854d0e" stroke-width="1"/>
+      <!-- Axis 1 -->
+      <rect x="20" y="32" width="158" height="82" rx="3" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="99" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600" letter-spacing="1">AXIS 1</text>
+      <text x="99" y="66" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="700" fill="#1a1a1a">Glucose Toxicity</text>
+      <text x="99" y="82" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Superoxide → DSBs → RCM</text>
+      <text x="99" y="96" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">→ epigenetic erosion (Lec 49)</text>
+      <text x="99" y="110" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c">Clock advances 3-5 years</text>
+      <!-- Axis 2 -->
+      <rect x="560" y="32" width="158" height="82" rx="3" fill="rgba(133,77,14,0.03)" stroke="#854d0e" stroke-width="1"/>
+      <text x="639" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#854d0e" font-weight="600" letter-spacing="1">AXIS 2</text>
+      <text x="639" y="66" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="700" fill="#1a1a1a">AGE Toxicity</text>
+      <text x="639" y="82" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Maillard reaction 2-3× faster</text>
+      <text x="639" y="96" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">+ RAGE → NF-κB (Lec 45)</text>
+      <text x="639" y="110" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#854d0e">Irreversible structural damage</text>
+      <!-- Axis 3 -->
+      <rect x="210" y="114" width="200" height="76" rx="3" fill="rgba(180,83,9,0.03)" stroke="#b45309" stroke-width="1"/>
+      <text x="310" y="132" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600" letter-spacing="1">AXIS 3</text>
+      <text x="310" y="148" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="700" fill="#1a1a1a">Immunoinflammatory</text>
+      <text x="310" y="164" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Adipose M1 → TNF-α, IL-6 → NF-κB</text>
+      <text x="310" y="178" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">→ inflammaging at 2× rate (Lec 12)</text>
+      <text x="310" y="188" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309">Feeds Theme III spiral</text>
+      <!-- Axis 4 -->
+      <rect x="330" y="114" width="200" height="76" rx="3" fill="rgba(88,28,135,0.03)" stroke="#581c87" stroke-width="1"/>
+      <text x="430" y="132" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#581c87" font-weight="600" letter-spacing="1">AXIS 4</text>
+      <text x="430" y="148" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="700" fill="#1a1a1a">β-Cell Senescence</text>
+      <text x="430" y="164" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Stress → p16/p21 → SASP → paracrine</text>
+      <text x="430" y="178" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">spread → progressive β-cell failure</text>
+      <text x="430" y="188" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#581c87">Feedback: worse IR → worse β-cell</text>
+      <!-- Convergence -->
+      <line x1="99" y1="116" x2="370" y2="210" stroke="#b91c1c" stroke-width=".7"/>
+      <line x1="639" y1="116" x2="370" y2="210" stroke="#854d0e" stroke-width=".7"/>
+      <line x1="310" y1="192" x2="370" y2="210" stroke="#b45309" stroke-width=".7"/>
+      <line x1="430" y1="192" x2="370" y2="210" stroke="#581c87" stroke-width=".7"/>
+      <rect x="210" y="212" width="320" height="36" rx="4" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="370" y="234" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="700" fill="#b91c1c">Multi-Organ Cascading Failure at 2–3× Speed</text>
+      <!-- Downstream organs -->
+      <line x1="200" y1="250" x2="200" y2="274" stroke="#b91c1c" stroke-width=".7"/>
+      <line x1="310" y1="250" x2="310" y2="274" stroke="#b91c1c" stroke-width=".7"/>
+      <line x1="430" y1="250" x2="430" y2="274" stroke="#b91c1c" stroke-width=".7"/>
+      <line x1="540" y1="250" x2="540" y2="274" stroke="#b91c1c" stroke-width=".7"/>
+      <rect x="140" y="276" width="120" height="52" rx="3" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="200" y="296" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="700" fill="#b91c1c">Vasculature</text>
+      <text x="200" y="310" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">AGE stiffening + ApoB plaque</text>
+      <text x="200" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">CVD 2-4× risk (Lec 30/51)</text>
+      <rect x="250" y="276" width="120" height="52" rx="3" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="310" y="296" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="700" fill="#b91c1c">Brain</text>
+      <text x="310" y="310" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Brain IR + Aβ↑ + hippocampal↓</text>
+      <text x="310" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">AD 1.5-2× risk (Lec 32/52)</text>
+      <rect x="370" y="276" width="120" height="52" rx="3" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="430" y="296" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="700" fill="#b91c1c">Kidneys</text>
+      <text x="430" y="310" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">GBM crosslinking + perfusion↓</text>
+      <text x="430" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">CKD leading cause (Lec 45)</text>
+      <rect x="480" y="276" width="120" height="52" rx="3" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="540" y="296" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="700" fill="#b91c1c">Immune System</text>
+      <text x="540" y="310" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Accelerated immunosenescence</text>
+      <text x="540" y="322" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Infection + cancer risk↑ (Lec 48/50)</text>
+      <!-- YOUR PROFILE -->
+      <rect x="80" y="350" width="580" height="80" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1.5"/>
+      <text x="370" y="370" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600" letter-spacing="1.5">YOUR PROFILE: MAXIMUM PROTECTION AGAINST THE T2D AGING ACCELERATOR</text>
+      <text x="110" y="392" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan font-weight="700" fill="#15803d">insulin in the optimal range (<5 µU/mL)</tspan> = minimal β-cell stress (Axis 4 protected)</text>
+      <text x="110" y="408" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan font-weight="700" fill="#15803d">HOMA-IR in the optimal range (<1.0)</tspan> = near-zero insulin resistance (Axis 1 minimized)</text>
+      <text x="110" y="424" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan font-weight="700" fill="#15803d">hs-CRP in the optimal range (<1.0 mg/L)</tspan> = minimal inflammaging (Axis 3 controlled)</text>
+      <text x="430" y="392" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan font-weight="700" fill="#15803d">TG/HDL 0.84</tspan> = no atherogenic dyslipidemia</text>
+      <text x="430" y="408" font-family="Work Sans,sans-serif" font-size="10" fill="#3d3d3d"><tspan font-weight="700" fill="#15803d">GGT 15 / ALT 14</tspan> = no hepatic lipogenesis</text>
+      <text x="430" y="424" font-family="Work Sans,sans-serif" font-size="10" fill="#b91c1c"><tspan font-weight="700">ApoB above the optimal range</tspan> = the ONE compromised pathway ⚠</text>
+    </svg>
+    <div class="fig-cap">T2D operates as a critical node failure (insulin resistance) that cascades through four aging acceleration axes into multi-organ failure at 2–3× the normal aging rate. Your metabolic profile represents maximum protection against three of the four axes — the cascading failure network has been prevented from initiating. The sole compromised pathway (ApoB above the optimal range) is addressable and represents the series' highest-priority intervention across all disease prevention architectures.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV. CROSS-POLLINATION -->
+  <div class="sn">IV. Cross-Pollination — Systems Engineering: Interdependent Network Failure</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Metabolic Medicine</div><h4>The Epigenetic Acceleration Data</h4><p>T2D individuals show <strong>accelerated DNAm PhenoAge in pancreatic islets and whole blood</strong> but not uniformly across all tissues — adipose and skeletal muscle show lower correlations. This tissue-specific acceleration maps directly onto the organ-specific aging clock concept (Lecture 41): the pancreatic islet clock and the vascular clock accelerate fastest in T2D, while muscle and fat clocks lag. A 9.85-year increase in biological age in T2D correlates with significantly increased mortality — confirming that the epigenetic clock acceleration is not merely a biomarker but a <em>predictor of clinical outcomes</em>.</p></div>
+    <div class="gc"><div class="tag eng">Systems Engineering</div><h4>Cascading Failure Speed ∝ Coupling Density</h4><p>In power grid engineering, <strong>cascading failure propagates fastest through the most tightly coupled segments</strong>. The metabolic-vascular-inflammatory network is among the most tightly coupled in the body: insulin resistance increases hepatic VLDL production (→ ApoB), activates NF-κB in adipocytes (→ TNF-α), increases cortisol (→ HPA), elevates glucose (→ AGEs), and impairs eNOS (→ endothelial dysfunction) — all simultaneously, through direct biochemical connections with no intermediate buffering. This coupling density explains why T2D produces multi-organ damage so rapidly.</p></div>
+    <div class="gc"><div class="tag bio">Metabolic Medicine</div><h4>β-Cell Senescence — The Point of No Return</h4><p>Aguayo-Mazzucato (2019, Joslin/Harvard) showed that <strong>insulin resistance drives β-cell senescence through metabolic stress-induced expression of p16<sup>Ink4a</sup> and SASP factors</strong>. Senescent β-cells not only lose insulin secretory capacity but actively damage neighboring β-cells through paracrine SASP signaling — accelerating the transition from compensated insulin resistance to overt diabetes. Crucially, clearing senescent β-cells with senolytics improved glucose tolerance in mouse models — establishing the first link between senolytic therapy (Lecture 19) and diabetes treatment.</p></div>
+    <div class="gc"><div class="tag eng">Systems Engineering</div><h4>Circuit Breakers and Node Protection</h4><p>Power grids use <strong>circuit breakers</strong> to isolate failed segments, preventing cascading failure from propagating. The metabolic equivalent: interventions that interrupt the cascade at its earliest stage — before the critical node (insulin sensitivity) fails. Exercise increases insulin sensitivity (circuit breaker 1). Sleep consistency prevents insulin resistance (circuit breaker 2, Lecture 17). Caloric modulation maintains β-cell low-demand state (circuit breaker 3). Your metabolic profile shows that all three circuit breakers are active — the cascading failure has been prevented from initiating.</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V. ANTIFRAGILITY -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Limits and Risks of Over-Application</div>
+    <p><em>The T2D-as-accelerated-aging framework is powerful but must be applied carefully.</em> Three caveats: (1) Not all T2D is created equal. Lean T2D (prevalent in Asian populations) operates through different pathways than obese T2D — the adipose-inflammatory axis (Axis 3) is less prominent, while β-cell dysfunction (Axis 4) and hepatic insulin resistance may dominate. The four-axis model is most applicable to the Western metabolic syndrome phenotype. (2) Your exceptional metabolic markers do not guarantee permanent protection — insulin sensitivity can deteriorate rapidly with sleep disruption (25–40% insulin resistance increase within days, Lectures 17/29), acute stress (cortisol → hepatic glucose output → transient hyperglycemia, Lecture 40), or illness-related inactivity. The circuit breakers must be actively maintained; they are not permanent installations. (3) Overemphasis on glycemic control metrics (HbA1c obsession) can produce counterproductive interventions — very low HbA1c achieved through aggressive pharmacotherapy without lifestyle change doesn't address the underlying insulin resistance that drives the aging acceleration. The goal is not low glucose numbers but <em>metabolic flexibility</em> (Lecture 28) — the capacity to switch efficiently between fuel sources, which your HOMA-IR in the optimal range (<1.0) confirms.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI. 24-HOUR PROTOCOL -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Preserve the metabolic circuit breakers that prevent the cascading failure from initiating: (1) <em>Exercise</em> — the primary insulin sensitizer. Aerobic (3–5×/week) + resistance (2–3×/week). A single session of moderate exercise increases insulin sensitivity for 24–72 hours — each session resets the circuit breaker. Skipping exercise for 3–5 days measurably reduces insulin sensitivity. (2) <em>Sleep consistency</em> — Van Cauter et al. showed that restricting sleep to 4 hours for 6 nights reduced insulin sensitivity by ~40% in healthy young adults. Your circadian discipline (Lectures 17/29) is directly protecting your metabolic architecture. (3) <em>Metabolic flexibility training</em> (Lecture 28) — periodic fasting windows, dietary variety between carbohydrate and fat oxidation, and avoiding chronic carbohydrate excess maintain the substrate-switching capacity that HOMA-IR in the optimal range (<1.0) reflects. (4) <em>Monitor for drift</em> — metabolic deterioration is gradual and often asymptomatic. The transition from optimal insulin sensitivity to pre-diabetes to T2D occurs over 5–10 years with no subjective symptoms. Serial monitoring catches drift before the cascading failure initiates.<br><br><strong>Metric:</strong> <em>Fasting insulin + HOMA-IR</em> (the most sensitive early indicators — yours are 3.0 / 0.6 = exceptional). HbA1c (target <5.4% — confirms average glucose in the low-AGE-formation range). TG/HDL ratio (target <1.0 — yours is 0.84 = excellent metabolic health marker). GGT (target <20 — yours is 15 = no hepatic fat/lipogenesis). Consider a 2-week CGM trial to reveal postprandial glucose dynamics that fasting labs miss (Lecture 45). Track these every 6–12 months — the goal is <em>stability over decades</em>, not single-timepoint optimization. Any upward drift in fasting insulin or HOMA-IR — even within the "normal" range — signals the earliest stage of the cascading failure and warrants intervention before glucose or HbA1c change.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII. RECURSIVE SYNTHESIS -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How T2D Maps to Every Lecture — and Why Your Metabolic Profile Is the Series' Strongest Asset</h2>
+
+  <p>This lecture is the <em>negative-image counterpart</em> to the entire series: it documents the disease trajectory that accelerates every aging mechanism the curriculum has been designed to slow. Lecture 45 (AGE crosslinking) is accelerated 2–3× by T2D. Lecture 49 (epigenetic erosion) advances 3–5 epigenetic years in T2D. Lecture 32 (brain insulin resistance) is the direct neurodegenerative consequence of peripheral insulin resistance. Lecture 30/51 (vascular aging / CVD architecture) is the cardiovascular manifestation — CVD risk is 2–4× in T2D. Lecture 52 (AD multi-system convergence) is accelerated because Branches 3 (vascular) and 5 (brain IR) are both activated by T2D. Lecture 48 (immunosenescence) is accelerated by diabetic immune dysregulation. Lecture 19 (cellular senescence) is driven by β-cell senescence and endothelial senescence from hyperglycemia. Lecture 12 (inflammaging) is amplified by the adipose-immune axis. And Lecture 10/41 (epigenetic/multi-omic clocks) shows the acceleration in real time — the metabolic clock running fastest of all organ-specific clocks in T2D. Your metabolic profile represents the <em>opposite</em> of every one of these disease trajectories: insulin in the optimal range (<5 µU/mL) (where T2D has >25), HOMA-IR in the optimal range (<1.0) (where T2D has >3.0), TG/HDL 0.84 (where T2D has >3.0), hs-CRP in the optimal range (<1.0 mg/L) (where T2D has >3.0), GGT 15 (where fatty liver has >40). The distance between your metabolic markers and the T2D threshold is the quantifiable measure of how much aging deceleration your metabolic health provides — across every organ, every mechanism, and every disease architecture the series has documented. Maintaining this distance is arguably the single most powerful longevity strategy available — because it prevents the critical node failure that cascades through every interconnected system simultaneously.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII. PEER REVIEW -->
+  <div class="sn">VIII. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Type 2 diabetes is a blood sugar disease — if my fasting glucose is normal, I don't have a metabolic problem."<br><br><strong>Correction:</strong> Fasting glucose is the <em>last</em> metabolic marker to change — not the first. The cascading failure sequence is: insulin resistance develops (detectable by rising HOMA-IR) → compensatory hyperinsulinemia (detectable by rising fasting insulin) → β-cell stress and early senescence (detectable by declining first-phase insulin response on OGTT) → postprandial glucose excursions (detectable by CGM or 2-hour OGTT but NOT by fasting glucose) → and only after years of progression, fasting glucose rises above the diagnostic threshold. By the time fasting glucose is abnormal, the cascading failure has been propagating for 5–10 years, β-cell senescence is established, AGE accumulation has accelerated, and multi-organ damage is underway. The sensitive early markers are <em>fasting insulin and HOMA-IR</em> — which detect the cascade's initiation years before glucose changes. Your fasting insulin in the optimal range (<5 µU/mL) and HOMA-IR in the optimal range (<1.0) confirm that you are not at the earliest stage of this cascade — you are at the <em>opposite end of the metabolic spectrum from it</em>. This is the single most reassuring finding in your entire biomarker panel, because it means the cascading failure network documented in this lecture has been prevented from initiating.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX. RESOURCES -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Chen et al. (2025)</h5><p>"Type 2 Diabetes Mellitus: A Metabolic Model of Accelerated Aging — Multi-Organ Mechanisms and Intervention Approaches." <em>Aging and Disease</em>. The 2025 review formalizing the four diabetes-specific aging axes (glucose toxicity, AGE toxicity, immunoinflammatory aging, protein amyloidosis) and the "metabolism-inflammation-aging" triad.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Aguayo-Mazzucato &amp; Midha (2019)</h5><p>"β-cell senescence in type 2 diabetes." <em>Aging</em>, 11:9574–9584. The Joslin/Harvard paper establishing that insulin resistance drives β-cell senescence through p16/SASP, and that senolytic clearance of senescent β-cells improves glucose tolerance in mice.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Maintain the Circuit Breakers</h5><p>Exercise (each session resets insulin sensitivity for 24–72 hours). Sleep consistency (sleep restriction → 40% insulin sensitivity loss in days). Metabolic flexibility training (periodic fasting windows, fuel-source variety). These are active maintenance requirements, not one-time installations — skipping them for days produces measurable metabolic drift.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Monitor for Drift — Every 6 Months</h5><p>Fasting insulin + HOMA-IR (the earliest cascade indicators — yours are 3.0 / 0.6 = exceptional). HbA1c (<5.4%). TG/HDL ratio (<1.0 — yours is 0.84). GGT (<20 — yours is 15). Any upward drift — even within "normal" — signals the cascade is initiating. Consider a 2-week CGM trial to reveal postprandial dynamics fasting labs miss.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Quantify Your Protection Distance</h5><p>The distance between your metabolic markers and the T2D threshold is the quantifiable measure of aging deceleration: Insulin (yours 3.0 vs. T2D >25), HOMA-IR (0.6 vs. >3.0), TG/HDL (0.84 vs. >3.0), hs-CRP (0.3 vs. >3.0). Each unit of distance = slower AGE formation, slower epigenetic erosion, slower β-cell senescence, slower multi-organ aging.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Address the One Outlier</h5><p>Your ApoB above the optimal range is the sole metabolic-adjacent variable that doesn't match the protective profile. While ApoB is not directly caused by insulin resistance in your case (your TG/HDL confirms no atherogenic dyslipidemia from metabolic syndrome), it operates through the same vascular aging pathways that T2D accelerates. Resolving ApoB completes the protective circuit.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>Insulin + HOMA-IR + HbA1c + TG/HDL + GGT</h5><p>The five-metric metabolic protection panel. Track every 6–12 months. Stability over decades is the goal. These five metrics collectively quantify the distance between your metabolic architecture and the cascading failure threshold — the most powerful longevity metric set in the series because metabolic health modulates the rate of every other aging mechanism.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Complete Lecture Integration</h5><p>AGE crosslinking (Lec 45) → glucose-dependent formation rate 2-3× in T2D. Epigenetic erosion (Lec 49) → glucose toxicity drives DSBs → RCM → clock acceleration. Brain IR (Lec 32) → peripheral IR drives central IR. CVD (Lec 51) → all six barriers compromised by T2D. AD (Lec 52) → Branches 3 and 5 activated. Senescence (Lec 19) → β-cell + endothelial senescence. Inflammaging (Lec 12) → adipose-immune axis. Multi-omic clocks (Lec 41) → metabolic clock accelerates fastest in T2D. Metabolic flexibility (Lec 28) → the capacity that prevents the cascade. Circadian (Lec 17/29) → sleep disruption → insulin resistance within days.</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>T2D is a metabolic model of accelerated aging with four specific aging axes (glucose toxicity, AGE toxicity, immunoinflammatory, protein amyloidosis)</td><td>Chen et al., <em>Aging and Disease</em>, 2025 (May)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>T2D epigenetic clock acceleration: DNAm PhenoAge advances 3–5 years; 9.85-year BA increase correlates with increased mortality</td><td>Horvath et al., 2014; Haag et al., <em>GeroScience</em>, 2024; bioRxiv 2022 (ACCORD/NHANES cohorts)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>DNAm acceleration in T2D is tissue-specific: accelerated in pancreatic islets and whole blood but not uniformly across all tissues</td><td>Haag et al., <em>Commun. Med.</em>, 2024;4:15</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Insulin resistance induces β-cell senescence (p16, p21, SA-β-gal); senolytic clearance improves glucose tolerance in mice</td><td>Aguayo-Mazzucato &amp; Midha, <em>Aging</em>, 2019;11:9574–9584</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Four established pathways of glucose-driven superoxide: polyol, hexosamine, PKC, AGE formation</td><td>Brownlee, <em>Nature</em>, 2001;414:813–820 (unifying mechanism); widely confirmed</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Low-grade inflammation and immune cell infiltration in insulin-sensitive tissues lead to metabolic impairment and accelerated aging</td><td>Prattichizzo et al., <em>Antioxid. Redox Signal.</em>, 2018;29:1257–1281</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Insulin resistance correlates with chromatin H3K9 acetylation changes, inflammatory signaling, and accelerated aging markers</td><td>Kreuz &amp; Bhatt, <em>Biology</em>, 2024;13:163</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Sleep restriction to 4 hours for 6 nights reduced insulin sensitivity ~40% in healthy young adults</td><td>Spiegel et al., <em>Lancet</em>, 1999;354:1435–1439 (Van Cauter lab)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>DNAm age acceleration in T2D is partially reversible with pharmacological treatment (metformin, insulin)</td><td>Haag et al., <em>Commun. Med.</em>, 2024;4:15 (ACCORD cohort analysis)</td><td><span class="cv">⚠ The reversibility finding is from a single cohort analysis showing association between treatment and reduced BA acceleration; causality and generalizability require additional confirmation.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Chen, W. et al. (2025). "Type 2 Diabetes Mellitus: A Metabolic Model of Accelerated Aging." <em>Aging and Disease</em>. &nbsp;|&nbsp; Aguayo-Mazzucato, C. &amp; Midha, A. (2019). "β-cell senescence in type 2 diabetes." <em>Aging</em>, 11:9574–9584. &nbsp;|&nbsp; Brownlee, M. (2001). "Biochemistry and molecular cell biology of diabetic complications." <em>Nature</em>, 414:813–820. &nbsp;|&nbsp; Prattichizzo, F. et al. (2018). "Epigenetics and immunometabolism in diabetes and aging." <em>Antioxid. Redox Signal.</em>, 29:1257–1281. &nbsp;|&nbsp; Haag, L. et al. (2024). "Heterogeneity of increased biological age in T2D correlates with differential tissue DNA methylation." <em>Commun. Med.</em>, 4:15. &nbsp;|&nbsp; Spiegel, K. et al. (1999). "Impact of sleep debt on metabolic and endocrine function." <em>Lancet</em>, 354:1435–1439.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_t2d_accelerated_aging",
+  "related": [
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "filename": "lecture_metabolic_inflexibility.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_brain_insulin_resistance",
+      "title": "Brain Insulin Resistance & the Cerebral Energy Crisis",
+      "filename": "lecture_brain_insulin_resistance.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Mind-Body Axes"
+      ]
+    },
+    {
+      "id": "lecture_age_crosslinking_ecm",
+      "title": "AGE Crosslinking & ECM Stiffening",
+      "filename": "lecture_age_crosslinking_ecm.html",
+      "tags": [
+        "Structural Integrity",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_epigenetic_clocks",
+      "title": "Epigenetic Clocks",
+      "filename": "lecture_epigenetic_clocks.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Biological Clocks"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>
