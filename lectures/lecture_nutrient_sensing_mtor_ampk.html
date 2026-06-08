@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 58: The Nutrient-Sensing Network — mTOR, AMPK &amp; the Fasting-Longevity Axis</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--emerald:#065f46;--emerald-dim:rgba(6,95,70,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Manrope',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--emerald) 0%,var(--blue) 50%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--emerald);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--emerald);margin-bottom:20px;}
+  .ln{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:700;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--emerald);}
+  .sub{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--emerald);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--emerald);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--emerald);border-radius:50%;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--emerald);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--emerald);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .warn{border-left:3px solid var(--red);background:var(--red-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.warn .wl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--red);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.warn p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--emerald);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--emerald);}.gc h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--emerald);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--emerald);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:30px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Two opposing fuel sensors — mTOR and AMPK — decide whether cells grow or repair; fasting flips the switch toward autophagy and longevity.">
+<meta property="og:title" content="The Nutrient-Sensing Network — mTOR, AMPK & the Fasting-Longevity Axis — Longevity & Wellness">
+<meta property="og:description" content="Two opposing fuel sensors — mTOR and AMPK — decide whether cells grow or repair; fasting flips the switch toward autophagy and longevity.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_nutrient_sensing_mtor_ampk.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Nutrient-Sensing Network — mTOR, AMPK & the Fasting-Longevity Axis — Longevity & Wellness">
+<meta name="twitter:description" content="Two opposing fuel sensors — mTOR and AMPK — decide whether cells grow or repair; fasting flips the switch toward autophagy and longevity.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">58</div>
+    <div class="stag">Interdisciplinary Lecture Series — Longevity &amp; Wellness &middot; No. 58</div>
+    <h1>The Nutrient-Sensing Network <span class="a">— mTOR, AMPK &amp; the Fasting-Longevity Axis</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">Every Cell in the Body Faces a Fundamental Resource-Allocation Decision Every Second: Invest in Growth (protein synthesis, cell division, anabolic expansion) or Invest in Maintenance (autophagy, DNA repair, mitophagy, stress resistance). The Decision Is Made by a Three-Input Molecular Logic Circuit — mTOR, AMPK, and Sirtuins — That Reads Nutrient Status, Energy Status, and NAD⁺ Levels, and Outputs a Single Binary State: Grow or Maintain. Chronic Overfeeding Locks This Circuit in "Grow" — Suppressing the Maintenance Programs That Every Previous Lecture Has Documented as Essential for Longevity. Your fasting insulin in the optimal range (<5 µU/mL) Indicates That Your Circuit Is Not Locked in Growth Mode — the Maintenance Programs Are Running at Their Intended Duty Cycle</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Molecular Biology / Geroscience (Sabatini 2006; Hardie 2012; Guarente 2000)</div>
+      <div><span class="hl">Bridge:</span> Digital Electronics — Multiplexer Logic &amp; Priority Encoding</div>
+      <div><span class="hl">Window:</span> Modifiable daily through feeding/fasting patterns and exercise</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- I. THE WHY -->
+  <div class="sn">I. The Why — The Historical Problem</div>
+  <h2>Why Caloric Restriction Extends Lifespan in Every Species Tested — and What the Mechanism Reveals About the Growth-Maintenance Trade-Off</h2>
+
+  <p>Caloric restriction (CR) — reducing caloric intake by 20–40% without malnutrition — extends lifespan in yeast, worms, flies, fish, mice, rats, and non-human primates. This is the most robust, most replicated finding in the history of aging research. The theoretical question it posed for decades was: <em>why?</em> Is CR simply reducing wear-and-tear by reducing metabolic rate? Or is it activating a specific biological program — a conserved molecular response to nutrient scarcity that redirects cellular resources from growth toward maintenance? The answer, established through three decades of molecular genetics, is the latter. Organisms possess a <span class="k">nutrient-sensing network</span> — a set of evolutionarily conserved molecular pathways that continuously monitor the availability of amino acids, glucose, energy (ATP/AMP ratio), and NAD⁺, and use this information to allocate cellular resources between two competing priorities: <em>growth</em> (protein synthesis, lipogenesis, cell proliferation — appropriate when nutrients are abundant and the organism should expand) and <em>maintenance</em> (autophagy, mitophagy, DNA repair, proteostasis, stress resistance — appropriate when nutrients are scarce and the organism should survive). The network's three principal components — <span class="k">mTOR</span>, <span class="k">AMPK</span>, and <span class="k">sirtuins</span> — form an interconnected logic circuit that the entire lecture series has been orbiting without explicitly documenting.</p>
+
+  <p>The theoretical gap this lecture fills: the series has documented autophagy (Lecture 9), NAD⁺ decline (Lecture 21), proteostasis collapse (Lecture 24), mitochondrial dysfunction (Lecture 25), metabolic flexibility (Lecture 28), epigenetic erosion (Lecture 49), and T2D as accelerated aging (Lecture 53) — each as an independent mechanism. This lecture reveals that they are not independent. They are <em>outputs of a single regulatory logic circuit</em> — the nutrient-sensing network — whose state (growth vs. maintenance) determines the activity of every one of these downstream processes. mTOR activation suppresses autophagy (Lecture 9), reduces proteostasis (Lecture 24), and drives the anabolic programs that, when chronically active, accelerate aging. AMPK activation promotes autophagy, enhances mitochondrial biogenesis (via PGC-1α, connecting to Lecture 25), improves metabolic flexibility (Lecture 28), and enhances insulin sensitivity. Sirtuins (SIRT1–7) — the NAD⁺-dependent deacetylases whose relocalization drives epigenetic erosion (Lecture 49) — coordinate the maintenance response by deacetylating histones (gene regulation), FOXO3 (stress resistance, DNA repair), PGC-1α (mitochondrial biogenesis), and p53 (cell fate decisions). The growth-maintenance trade-off is the cell's version of the macro-level Theme I (Programmed Withdrawal of Maintenance Investment) — chronic growth signaling withdraws maintenance investment at the molecular level, and aging is the accumulated consequence.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- II. FOUNDATIONAL BRIDGE -->
+  <div class="sn">II. Foundational Bridge — The Multiplexer</div>
+  <h2>Analogy: A Three-Input Logic Circuit That Resolves Conflicting Signals Into a Single Output State</h2>
+
+  <p>In digital electronics, a <span class="k">multiplexer (MUX)</span> is a logic circuit that takes multiple input signals and selects one to pass through to a single output line, based on the state of control signals. A <span class="k">priority encoder</span> is a related circuit that resolves simultaneous inputs by assigning priority — when multiple signals arrive at once, the highest-priority input determines the output. The nutrient-sensing network is a biological priority-encoded multiplexer with three inputs (nutrient status via mTOR, energy status via AMPK, and redox/repair status via sirtuins) and one output (the growth-or-maintenance resource allocation decision). When nutrients are abundant and energy is sufficient (Input 1: mTOR active, Input 2: AMPK inactive, Input 3: sirtuins low-activity) — the MUX output is <em>GROW</em>: protein synthesis proceeds, cell division is enabled, autophagy is suppressed, and stress resistance programs are downregulated. When nutrients are scarce and energy is limiting (Input 1: mTOR suppressed, Input 2: AMPK active, Input 3: sirtuins high-activity) — the MUX output switches to <em>MAINTAIN</em>: autophagy activates, damaged mitochondria are recycled, DNA repair is prioritized, and stress resistance genes are upregulated.</p>
+
+  <p>The priority encoding is critical: AMPK directly inhibits mTORC1 by phosphorylating its subunit Raptor and by activating TSC2 — meaning that the energy-deficit signal (AMPK) has <em>architectural priority</em> over the nutrient-abundance signal (mTOR). When energy is scarce, the MAINTAIN program overrides the GROW program regardless of nutrient availability. This is the evolutionary logic: survival during famine is more important than growth during feast. Exercise and fasting both activate AMPK — flipping the MUX toward MAINTAIN — which is why they produce overlapping longevity benefits despite being metabolically opposite (one increases energy expenditure, the other reduces energy intake). Both create a transient energy deficit that activates the AMPK priority input, overriding mTOR and engaging the maintenance programs. The pathology of aging in the context of chronic overfeeding (the modern Western dietary pattern) is a MUX locked in GROW mode — mTOR is chronically active because amino acids and insulin are chronically elevated, AMPK is chronically suppressed because energy is never limiting, and sirtuins are underactive because NAD⁺ declines with age. The maintenance programs that the first 57 lectures have documented as essential for longevity are suppressed by the very abundance that modern life provides.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- III. CORE CONCEPT -->
+  <div class="sn">III. The Core Concept — The Three Inputs and Their Downstream Outputs</div>
+  <h2>mTOR (Growth Accelerator), AMPK (Maintenance Activator), Sirtuins (Repair Coordinators)</h2>
+
+  <p><em>Input 1: mTOR — the nutrient sensor and growth accelerator.</em> <span class="k">mTORC1</span> <span class="def">(mechanistic target of rapamycin complex 1 — a serine/threonine kinase complex activated by amino acids (particularly leucine, sensed via Ragulator/Rag GTPases), insulin/IGF-1 (via PI3K/Akt), and growth factors, which phosphorylates S6K1 and 4E-BP1 to promote protein synthesis, lipogenesis, and cell growth while simultaneously suppressing autophagy by phosphorylating ULK1)</span> is the cell's growth command center. When nutrients are abundant, mTORC1 drives anabolic expansion. The longevity connection: <span class="k">rapamycin</span> — the pharmacological mTORC1 inhibitor — extends lifespan in mice by 9–14% even when administered late in life (Harrison et al., 2009, <em>Nature</em>) and remains the most robust pharmacological life-extension intervention in mammalian models. mTORC1 hyperactivation suppresses autophagy (Lecture 9 — the cellular cleanup that clears misfolded proteins, damaged organelles, and pre-cancerous cells), inhibits TFEB (the master transcription factor for lysosomal biogenesis), and promotes the S6K1-mediated IRS-1 serine phosphorylation that drives insulin resistance (connecting directly to Lecture 32's brain insulin resistance and Lecture 53's T2D cascade). Chronic mTORC1 activation is, at the molecular level, the cell deciding to grow when it should be maintaining — the intra-cellular version of Theme I's programmed withdrawal of maintenance investment.</p>
+
+  <p><em>Input 2: AMPK — the energy sensor and maintenance activator.</em> <span class="k">AMPK</span> <span class="def">(AMP-activated protein kinase — a heterotrimeric kinase activated by increases in the AMP/ATP and ADP/ATP ratios, reflecting cellular energy deficit; the cell's fuel gauge that triggers catabolic, energy-restoring programs when ATP production falls behind demand)</span> is the evolutionary sentinel for energy scarcity. When activated, AMPK initiates a comprehensive maintenance program: it directly inhibits mTORC1 (via Raptor phosphorylation and TSC2 activation), activates autophagy (via ULK1 phosphorylation), stimulates mitochondrial biogenesis (via PGC-1α activation — connecting to Lecture 25), enhances fatty acid oxidation (via ACC phosphorylation — connecting to Lecture 28's metabolic flexibility), increases glucose uptake (via GLUT4 translocation), activates SIRT1 (by increasing NAD⁺ through NAMPT upregulation — connecting to Lecture 21), and upregulates FOXO3 (the longevity-associated transcription factor that promotes DNA repair, autophagy genes, and oxidative stress resistance). Exercise activates AMPK across tissues through ATP consumption during muscle contraction. Fasting activates AMPK through reduced glucose and insulin, lowering the ATP/AMP ratio. Metformin (the most prescribed diabetes drug) activates AMPK by inhibiting mitochondrial Complex I. All three produce overlapping longevity benefits because they converge on the same molecular input — the AMPK priority switch that flips the MUX from GROW to MAINTAIN.</p>
+
+  <p><em>Input 3: Sirtuins — the NAD⁺ sensors and repair coordinators.</em> <span class="k">Sirtuins (SIRT1–7)</span> <span class="def">(a family of NAD⁺-dependent deacetylases and ADP-ribosyltransferases that remove acetyl groups from histone and non-histone proteins, regulating gene expression, metabolic enzyme activity, and chromatin structure in response to the cellular NAD⁺/NADH ratio)</span> are the network's third input — sensing the redox and repair status of the cell through NAD⁺ availability. SIRT1 deacetylates PGC-1α (mitochondrial biogenesis), FOXO1/3 (stress resistance and autophagy), p53 (cell fate — survival vs. apoptosis), NF-κB (inflammation suppression — connecting SIRT1 to the anti-inflammaging pathway), and LKB1 (which activates AMPK, creating a positive feedback loop between sirtuins and AMPK). SIRT3 regulates mitochondrial enzyme acetylation and ROS defense (connecting to Lecture 25). SIRT6 maintains heterochromatin and participates in DNA repair — its relocalization during DNA damage response is the RCM mechanism driving epigenetic erosion (Lecture 49). The NAD⁺ decline documented in Lecture 21 means that sirtuin activity decreases with age — reducing the capacity for chromatin maintenance, DNA repair coordination, inflammatory suppression, and metabolic regulation simultaneously. NAD⁺ precursor supplementation (NR, NMN) aims to restore sirtuin activity by replenishing their essential cofactor.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — The Nutrient-Sensing Multiplexer: Three Inputs → One Binary Output</div>
+    <svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+      <text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#065f46" font-weight="600" letter-spacing="1.5">NUTRIENT-SENSING NETWORK: GROWTH vs. MAINTENANCE</text>
+      <!-- Three inputs -->
+      <rect x="30" y="36" width="200" height="100" rx="4" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="130" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600" letter-spacing="1">INPUT 1: mTORC1</text>
+      <text x="130" y="74" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="12" font-weight="700" fill="#b91c1c">Growth Accelerator</text>
+      <text x="130" y="92" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Activated by: amino acids,</text>
+      <text x="130" y="106" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">insulin, IGF-1, growth factors</text>
+      <text x="130" y="126" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c">Rapamycin inhibits → lifespan +9-14%</text>
+      <rect x="270" y="36" width="200" height="100" rx="4" fill="rgba(6,95,70,0.04)" stroke="#065f46" stroke-width="1.5"/>
+      <text x="370" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#065f46" font-weight="600" letter-spacing="1">INPUT 2: AMPK</text>
+      <text x="370" y="74" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="12" font-weight="700" fill="#065f46">Maintenance Activator</text>
+      <text x="370" y="92" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Activated by: ↑AMP/ATP ratio,</text>
+      <text x="370" y="106" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">exercise, fasting, metformin</text>
+      <text x="370" y="126" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#065f46">PRIORITY: directly inhibits mTORC1</text>
+      <rect x="510" y="36" width="200" height="100" rx="4" fill="rgba(29,78,216,0.03)" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="610" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#1d4ed8" font-weight="600" letter-spacing="1">INPUT 3: SIRTUINS</text>
+      <text x="610" y="74" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="12" font-weight="700" fill="#1d4ed8">Repair Coordinator</text>
+      <text x="610" y="92" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Activated by: NAD⁺ (declines</text>
+      <text x="610" y="106" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">with age — Lecture 21)</text>
+      <text x="610" y="126" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#1d4ed8">SIRT1 → PGC-1α, FOXO3, NF-κB, p53</text>
+      <!-- Inhibition arrows -->
+      <line x1="270" y1="86" x2="232" y2="86" stroke="#065f46" stroke-width="1.5"/>
+      <line x1="232" y1="80" x2="232" y2="92" stroke="#065f46" stroke-width="3"/>
+      <text x="251" y="78" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#065f46" font-weight="600">INHIBITS</text>
+      <!-- Sirtuin → AMPK activation -->
+      <line x1="510" y1="86" x2="472" y2="86" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="3,2"/>
+      <polygon points="472,82 464,86 472,90" fill="#1d4ed8"/>
+      <text x="491" y="78" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#1d4ed8">activates</text>
+      <!-- MUX box -->
+      <rect x="210" y="158" width="320" height="44" rx="4" fill="rgba(6,95,70,0.06)" stroke="#065f46" stroke-width="2"/>
+      <text x="370" y="176" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="11" fill="#065f46" font-weight="700" letter-spacing="2">MULTIPLEXER / PRIORITY ENCODER</text>
+      <text x="370" y="194" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#065f46">Resolves conflicting inputs → single output state</text>
+      <!-- Arrows into MUX -->
+      <line x1="130" y1="138" x2="280" y2="158" stroke="#b91c1c" stroke-width="1"/>
+      <line x1="370" y1="138" x2="370" y2="158" stroke="#065f46" stroke-width="1"/>
+      <line x1="610" y1="138" x2="460" y2="158" stroke="#1d4ed8" stroke-width="1"/>
+      <!-- Two output states -->
+      <line x1="260" y1="204" x2="180" y2="230" stroke="#b91c1c" stroke-width="1.5"/>
+      <line x1="480" y1="204" x2="560" y2="230" stroke="#065f46" stroke-width="1.5"/>
+      <!-- GROW output -->
+      <rect x="60" y="232" width="240" height="116" rx="4" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="180" y="252" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="16" font-weight="700" fill="#b91c1c">OUTPUT: GROW</text>
+      <text x="180" y="270" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c">mTOR dominant / AMPK suppressed</text>
+      <line x1="70" y1="278" x2="290" y2="278" stroke="rgba(185,28,28,0.15)" stroke-width=".5"/>
+      <text x="80" y="294" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">✗ Autophagy suppressed (Lec 9)</text>
+      <text x="80" y="308" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">✗ DNA repair deprioritized (Lec 49)</text>
+      <text x="80" y="322" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">✗ Mitophagy reduced (Lec 25)</text>
+      <text x="80" y="336" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c">→ Senescence↑, inflammation↑, aging↑</text>
+      <!-- MAINTAIN output -->
+      <rect x="440" y="232" width="260" height="116" rx="4" fill="rgba(6,95,70,0.04)" stroke="#065f46" stroke-width="1.5"/>
+      <text x="570" y="252" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="16" font-weight="700" fill="#065f46">OUTPUT: MAINTAIN</text>
+      <text x="570" y="270" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#065f46">AMPK dominant / mTOR suppressed</text>
+      <line x1="450" y1="278" x2="690" y2="278" stroke="rgba(6,95,70,0.15)" stroke-width=".5"/>
+      <text x="460" y="294" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">✓ Autophagy active (Lec 9)</text>
+      <text x="460" y="308" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">✓ Mitochondrial biogenesis (Lec 25)</text>
+      <text x="460" y="322" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">✓ DNA repair, FOXO3 active (Lec 49)</text>
+      <text x="460" y="336" font-family="Source Code Pro,monospace" font-size="8" fill="#065f46">→ Stress resistance↑, longevity↑</text>
+      <!-- Activators -->
+      <text x="370" y="376" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#065f46" font-weight="600" letter-spacing="1.5">WHAT ACTIVATES EACH STATE?</text>
+      <rect x="60" y="390" width="240" height="68" rx="3" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="180" y="408" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600">LOCKS MUX IN "GROW"</text>
+      <text x="180" y="426" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9.5" fill="#3d3d3d">Chronic overfeeding, high insulin,</text>
+      <text x="180" y="442" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9.5" fill="#3d3d3d">excess amino acids, sedentary behavior,</text>
+      <text x="180" y="456" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9.5" fill="#b91c1c" font-weight="600">Western dietary pattern → accelerated aging</text>
+      <rect x="440" y="390" width="260" height="68" rx="3" fill="rgba(6,95,70,0.03)" stroke="#065f46" stroke-width="1"/>
+      <text x="570" y="408" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#065f46" font-weight="600">FLIPS MUX TO "MAINTAIN"</text>
+      <text x="570" y="426" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9.5" fill="#3d3d3d">Exercise, fasting, time-restricted feeding,</text>
+      <text x="570" y="442" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9.5" fill="#3d3d3d">caloric restriction, low insulin (in the optimal range, <5 µU/mL),</text>
+      <text x="570" y="456" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9.5" fill="#065f46" font-weight="600">metformin, rapamycin → decelerated aging</text>
+    </svg>
+    <div class="fig-cap">The nutrient-sensing network as a three-input multiplexer. mTOR (nutrient abundance), AMPK (energy deficit), and sirtuins (NAD⁺/repair status) resolve into a single output: GROW (anabolic, maintenance-suppressing) or MAINTAIN (catabolic, repair-activating). AMPK has architectural priority — energy deficit overrides nutrient abundance. Your fasting insulin in the optimal range (<5 µU/mL) and HOMA-IR in the optimal range (<1.0) indicate the MUX is not locked in GROW mode — the maintenance programs documented across 50+ lectures are running at their intended duty cycle.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IV. CROSS-POLLINATION -->
+  <div class="sn">IV. Cross-Pollination — Digital Electronics: Why Oscillation Between States Is Superior to Locking in Either</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Molecular Biology</div><h4>The Cyclical Modulation Paradigm</h4><p>Emerging evidence suggests that <strong>rhythmic engagement of AMPK and mTOR — oscillating between growth and maintenance states — more effectively promotes longevity than chronic suppression of either</strong>. Constant mTOR suppression (chronic rapamycin) produces immunosuppression and impaired wound healing. Constant AMPK activation impairs muscle anabolism. The optimal pattern is <em>cyclical</em>: periods of mTOR activation (fed state — protein synthesis, muscle repair after exercise) alternating with periods of AMPK activation (fasted state — autophagy, mitophagy, stress resistance). Time-restricted feeding (TRF) produces this oscillation daily. Periodic fasting produces it over 24–72 hour cycles. Exercise produces it acutely — AMPK activates during exercise, mTOR activates during post-exercise recovery and feeding.</p></div>
+    <div class="gc"><div class="tag eng">Digital Electronics</div><h4>Duty Cycle and the Clock Signal</h4><p>In electronics, a <strong>duty cycle</strong> is the proportion of time a signal is in the "on" state versus the total cycle period. A 50% duty cycle means the signal is on half the time and off half the time. The growth/maintenance MUX should oscillate — the duty cycle determines the balance. <strong>Modern chronic overfeeding produces a ~90% growth duty cycle</strong> — the MUX is in GROW mode for nearly the entire waking day because insulin is chronically elevated and AMPK is never activated. Reducing the growth duty cycle to ~60–70% (through TRF, exercise-induced AMPK activation, and overnight fasting) restores the maintenance window that chronic feeding eliminates.</p></div>
+    <div class="gc"><div class="tag bio">Molecular Biology</div><h4>mTOR-Autophagy: The Growth-Cleanup Toggle</h4><p>mTORC1 directly phosphorylates <strong>ULK1 (the autophagy initiation kinase)</strong>, preventing the formation of the autophagy initiation complex. When mTORC1 is active, autophagy is suppressed — the cell builds but doesn't clean. When AMPK activates and inhibits mTORC1, ULK1 is released and autophagy initiates — the cell cleans but doesn't build. You cannot do both simultaneously. This is why Lecture 9's autophagy, Lecture 24's proteostasis, and Lecture 25's mitophagy all decline with aging and chronic overfeeding — the chronic mTOR activation that abundant nutrition provides <em>directly suppresses the cleanup programs</em> that would otherwise maintain cellular quality.</p></div>
+    <div class="gc"><div class="tag eng">Digital Electronics</div><h4>The Priority Encoder: Energy > Nutrients</h4><p>In a priority encoder, when multiple inputs assert simultaneously, the <strong>highest-priority input determines the output</strong>. AMPK has architectural priority over mTOR — it directly phosphorylates Raptor (an mTORC1 subunit) and activates TSC2 (the mTORC1 inhibitor). Even in the presence of abundant amino acids and insulin, AMPK activation suppresses mTORC1. This is why exercise during the fed state still activates autophagy — the energy deficit from muscle contraction flips the priority encoder to MAINTAIN even while nutrients are present. The evolutionary logic: when ATP production is failing, conservation takes absolute priority over expansion, regardless of what the nutrient signal says.</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- V. ANTIFRAGILITY -->
+  <div class="sn">V. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Limits and Risks of Over-Application</div>
+    <p><em>Chronic mTOR suppression is as problematic as chronic mTOR activation — the system requires oscillation, not permanent suppression.</em> Five critical caveats: (1) mTOR is essential for muscle protein synthesis — Lecture 54's testosterone-driven muscle maintenance and Lecture 13's mechanotransductive hypertrophic response both require mTORC1/S6K1 activation. Chronic mTOR suppression (prolonged fasting, rapamycin without cycling) produces sarcopenia, immune suppression, and impaired wound healing — the maintenance programs run at the expense of the structural programs. For a person in their fifties, preserving muscle mass is a competing priority with autophagy optimization — the balance matters more than maximizing either side. (2) Extended fasting (>72 hours) in older adults carries risks of muscle catabolism, electrolyte derangement, and hypoglycemia that may outweigh autophagy benefits. Time-restricted feeding (12–16 hour overnight fast) provides the daily AMPK oscillation without the risks of extended fasting. (3) Rapamycin, despite its life-extending effects in mice, is an immunosuppressant at clinical doses — it is used to prevent organ transplant rejection. Low-dose, intermittent rapamycin protocols for longevity are under clinical investigation but are not yet validated for safety or efficacy in healthy humans. (4) NAD⁺ precursor supplementation (NR, NMN) aims to support sirtuin activity, but human clinical trials have shown modest and inconsistent results — NMN increases NAD⁺ levels in blood but its impact on tissue NAD⁺ and functional outcomes remains under investigation. (5) Your metabolic profile (insulin in the optimal range (<5 µU/mL), HOMA-IR in the optimal range (<1.0)) already indicates that your MUX is not locked in chronic GROW mode — the maintenance programs are likely running at or near their intended duty cycle. The primary optimization for your profile is <em>maintaining</em> this favorable state through continued exercise and dietary pattern, not adding aggressive fasting or pharmacological mTOR suppression on top of an already well-calibrated system.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VI. 24-HOUR PROTOCOL -->
+  <div class="sn">VI. The 24-Hour Protocol</div>
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Maintain the growth-maintenance oscillation that your metabolic profile confirms is already functional: (1) <em>Time-restricted feeding (12–16 hour overnight fast)</em> — the simplest, lowest-risk intervention for daily AMPK activation. A 12-hour overnight fast (e.g., finish dinner by 8 PM, breakfast at 8 AM) provides a reliable daily window during which insulin drops, AMPK activates, mTORC1 is released, and autophagy initiates. Extending to 14–16 hours (e.g., first meal at 10–12 PM) increases the AMPK activation window. The overnight fast coordinates with SWS-mediated glymphatic clearance (Lecture 14) and cortisol nadir (Lecture 40) — the three maintenance windows (glymphatic, autophagic, hormonal) align during the same overnight period. (2) <em>Exercise as the most powerful daily AMPK activator</em> — muscle contraction consumes ATP, raises the AMP/ATP ratio, and activates AMPK across skeletal muscle, liver, and adipose tissue. Each exercise session flips the MUX to MAINTAIN acutely, regardless of fed/fasted state, through AMPK's architectural priority over mTOR. Post-exercise feeding then flips it back to GROW — providing the mTOR activation needed for muscle protein synthesis and repair. This natural oscillation is the optimal duty cycle: exercise → MAINTAIN → feed → GROW → fast → MAINTAIN → sleep → MAINTAIN (overnight) → wake → feed → GROW. (3) <em>Protein timing</em> — concentrate protein intake (especially leucine-rich sources) in the post-exercise feeding window, when mTOR activation for muscle protein synthesis is most beneficial. Avoid continuous protein intake throughout the day (which maintains chronic mTOR activation without the intervening AMPK windows).<br><br><strong>Metric:</strong> <em>Fasting insulin</em> (in the optimal range, <5 µU/mL — the most direct proxy for chronic mTOR activation status; fasting insulin >12 suggests chronic mTOR over-activation from hyperinsulinemia). <em>HOMA-IR</em> (in the optimal range, <1.0 — confirms the system is insulin-sensitive, meaning mTOR responsiveness to insulin is normal, not chronically elevated). <em>HbA1c</em> (reflects average glycemia — the substrate that drives both AGE formation and insulin-mediated mTOR activation). <em>DunedinPACE</em> (Lecture 41/49 — the speedometer for the epigenetic consequences of the growth-maintenance balance). Track stability over time — the goal is to maintain your current favorable MUX calibration across decades, not to aggressively optimize a system that is already well-tuned.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VII. RECURSIVE SYNTHESIS -->
+  <div class="sn">VII. Recursive Synthesis</div>
+  <h2>How the Nutrient-Sensing Network Unifies the Lecture Series</h2>
+
+  <p>This lecture reveals the <em>master regulatory circuit</em> that connects lectures previously presented as independent mechanisms. Autophagy (Lecture 9) is suppressed by mTORC1 and activated by AMPK — its age-related decline is not autonomous but downstream of the nutrient-sensing network's chronic growth bias. NAD⁺ decline (Lecture 21) reduces sirtuin activity — weakening the third input to the MUX and degrading the repair coordination that maintains chromatin (Lecture 49), mitochondria (Lecture 25), and inflammatory suppression (Lecture 12). Metabolic flexibility (Lecture 28) is the functional readout of AMPK-mediated fuel-switching capacity — metabolically inflexible individuals are those whose AMPK activation is chronically impaired by sustained insulin signaling. Brain insulin resistance (Lecture 32) is downstream of chronic mTOR-mediated IRS-1 serine phosphorylation — the same molecular event that Lecture 53 documented as the initiating step in the T2D cascade. The epigenetic erosion of Lecture 49 is accelerated when SIRT1 and SIRT6 — which require NAD⁺ and are activated during AMPK-dominant states — are chronically underactive because the system never enters the MAINTAIN phase. And the proteostasis collapse of Lecture 24 is a direct consequence of chronic mTOR suppression of TFEB — the master regulator of lysosomal biogenesis and autophagic flux. Your metabolic profile — insulin in the optimal range (<5 µU/mL), HOMA-IR in the optimal range (<1.0) — is the biomarker evidence that your nutrient-sensing MUX is not locked in GROW mode. The insulin level is the most accessible proxy for chronic mTOR activation: low insulin means mTOR is not chronically stimulated, AMPK can activate during fasting and exercise, sirtuins operate with their intended duty cycle, and the maintenance programs run. This is why your metabolic markers are the single most powerful longevity asset the series has identified — they reflect not just glucose homeostasis but the <em>state of the master regulatory circuit that governs every maintenance program the entire curriculum has documented</em>.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- VIII. PEER REVIEW -->
+  <div class="sn">VIII. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Fasting is dangerous for older adults — you should eat regularly to maintain muscle and energy."<br><br><strong>Correction:</strong> The concern about fasting-induced muscle loss is valid for <em>extended</em> fasting (>48–72 hours) or chronic caloric restriction without adequate protein, but does not apply to time-restricted feeding (12–16 hour overnight fasting window with adequate protein during the feeding period). Time-restricted feeding activates AMPK and autophagy during the fasting window while mTOR-driven muscle protein synthesis occurs during the feeding window — preserving the oscillation that the system requires. The critical distinction is between <em>chronic caloric restriction</em> (permanent energy deficit — which can cause sarcopenia) and <em>temporal restriction</em> (normal caloric intake compressed into a shorter feeding window — which activates AMPK without chronic energy deficit). Multiple human trials of 16:8 TRF show preserved lean mass when protein intake is adequate. For a person in their fifties, the optimal strategy is not avoiding fasting but <em>timing nutrients strategically</em>: overnight fast of 12–16 hours to activate AMPK/autophagy, followed by protein-rich feeding (especially post-exercise) to activate mTOR/muscle protein synthesis. This oscillation — not permanent suppression of either side — is the pattern that every long-lived species and every life-extending intervention in the geroscience literature converges upon.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- IX. RESOURCES -->
+  <div class="sn">IX. Resources &amp; Activities</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Sabatini (2017)</h5><p>"Twenty-five years of mTOR." <em>Science</em>, 357:eaar2685. The comprehensive retrospective by mTOR's discoverer — covering the pathway from rapamycin's discovery in Easter Island soil to its role as the central growth regulator in every eukaryotic cell, and its implications for aging and disease.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Hardie et al. (2012)</h5><p>"AMPK: a nutrient and energy sensor that maintains energy homeostasis." <em>Nat. Rev. Mol. Cell Biol.</em>, 13:251–262. The definitive AMPK review: structure, activation mechanisms, downstream targets, and integration with mTOR and sirtuin signaling.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Time-Restricted Feeding (12–16 Hours)</h5><p>Begin with 12-hour overnight fast (dinner by 8 PM, breakfast at 8 AM). Progress to 14–16 hours if tolerated (first meal 10 AM–12 PM). This creates a daily AMPK activation window coordinated with SWS-mediated glymphatic clearance and cortisol nadir — three maintenance windows aligned overnight. Maintain adequate protein (1.2–1.6 g/kg/day) concentrated in the feeding window.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Exercise as AMPK Activator</h5><p>Each exercise session flips the MUX to MAINTAIN through AMPK's architectural priority — regardless of fed/fasted state. Post-exercise feeding flips it back to GROW for muscle protein synthesis. This natural oscillation is the optimal duty cycle. Aerobic exercise activates AMPK most broadly across tissues; resistance exercise activates both AMPK (during) and mTOR (after, with feeding) — the complete cycle in a single session.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Protein Timing Strategy</h5><p>Concentrate leucine-rich protein intake (whey, eggs, meat, fish) within the post-exercise feeding window — when mTOR activation for muscle protein synthesis is most beneficial. Avoid continuous protein grazing throughout the day (maintains chronic mTOR without AMPK windows). 30–40g protein per meal, 2–3 meals within the feeding window, with the largest protein dose post-exercise.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Pharmacological Considerations</h5><p>Metformin: activates AMPK via Complex I inhibition; the TAME trial (Targeting Aging with Metformin) is underway in non-diabetics. Rapamycin: the most robust pharmacological life-extender in mice; intermittent low-dose protocols under clinical investigation. NAD⁺ precursors (NR/NMN): aim to support sirtuin activity; human evidence still emerging. All are physician-supervised decisions — lifestyle optimization (exercise + TRF) produces comparable AMPK activation without pharmacological risk.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>Fasting Insulin + HOMA-IR + HbA1c</h5><p>Fasting insulin (in the optimal range, <5 µU/mL — the most direct proxy for chronic mTOR status; >12 suggests chronic mTOR over-activation). HOMA-IR (in the optimal range, <1.0 — confirms insulin sensitivity). HbA1c (<5.4% — average glycemia). DunedinPACE (epigenetic speedometer — reflects downstream consequences of MUX state). These four metrics collectively quantify the nutrient-sensing network's calibration.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Complete Lecture Integration</h5><p>Autophagy (Lec 9) → mTORC1 phosphorylates ULK1 → suppressed when mTOR dominant. NAD⁺ (Lec 21) → sirtuin cofactor → Input 3 declines. Mitochondria (Lec 25) → PGC-1α activated by AMPK + SIRT1. Proteostasis (Lec 24) → TFEB suppressed by mTORC1. Metabolic flexibility (Lec 28) → AMPK-mediated fuel switching. Brain IR (Lec 32) → mTOR-driven IRS-1 pSer. Epigenetic erosion (Lec 49) → SIRT1/6 require NAD⁺ + AMPK state. T2D (Lec 53) → chronic mTOR = cascading failure initiator. Hormesis (Lec 11) → exercise/fasting are hormetic AMPK activators.</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>mTOR, AMPK, and sirtuins form an interconnected nutrient-sensing network that regulates the growth-maintenance balance</td><td>Multiple reviews; Sabatini, 2017; Hardie et al., 2012; Guarente, 2013; formalized in 2026 NAD⁺-Insulin-AMPK-mTOR framework</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>AMPK directly inhibits mTORC1 by phosphorylating Raptor and activating TSC2</td><td>Gwinn et al., <em>Mol. Cell</em>, 2008; Inoki et al., <em>Cell</em>, 2003; widely confirmed</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Rapamycin extends mouse lifespan 9–14% even when administered late in life</td><td>Harrison et al., <em>Nature</em>, 2009;460:392–395; ITP replications</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>mTORC1 suppresses autophagy by phosphorylating ULK1</td><td>Kim et al., <em>Nat. Cell Biol.</em>, 2011;13:132–141; widely confirmed</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>AMPK activates autophagy via ULK1 phosphorylation and mTORC1 inhibition</td><td>Egan et al., <em>Science</em>, 2011;331:456–461; Kim et al., 2011</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>SIRT1 deacetylates PGC-1α, FOXO3, NF-κB, p53; NAD⁺-dependent activity declines with age</td><td>Guarente, <em>Genes Dev.</em>, 2013;27:2072–2085; Imai &amp; Guarente, 2014; Lecture 21</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>CR extends lifespan in yeast, worms, flies, fish, mice, rats, and non-human primates</td><td>Multiple studies; NIA and Wisconsin primate studies; comprehensive reviews</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Cyclical modulation (oscillation between AMPK and mTOR states) more effective than chronic suppression of either</td><td>Healthspan review 2025 (cyclical longevity protocols); emerging evidence</td><td><span class="cv">⚠ This is an emerging paradigm with strong mechanistic rationale and preclinical support but limited head-to-head clinical comparison of cyclical vs. chronic interventions in humans. The concept is gaining acceptance but definitive clinical validation is pending.</span></td></tr>
+      <tr><td>Exercise activates AMPK across tissues through ATP consumption; fasting activates AMPK through reduced insulin/glucose</td><td>Steinberg &amp; Kemp, <em>Physiol. Rev.</em>, 2009; Cantó &amp; Auwerx, 2009; widely confirmed</td><td><span class="ok">✓ Confirmed</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Sabatini, D.M. (2017). "Twenty-five years of mTOR: Uncovering the link from nutrients to growth." <em>Science</em>, 357:eaar2685. &nbsp;|&nbsp; Hardie, D.G. et al. (2012). "AMPK: a nutrient and energy sensor." <em>Nat. Rev. Mol. Cell Biol.</em>, 13:251–262. &nbsp;|&nbsp; Harrison, D.E. et al. (2009). "Rapamycin fed late in life extends lifespan in genetically heterogeneous mice." <em>Nature</em>, 460:392–395. &nbsp;|&nbsp; Guarente, L. (2013). "Calorie restriction and sirtuins revisited." <em>Genes Dev.</em>, 27:2072–2085. &nbsp;|&nbsp; Kim, J. et al. (2011). "AMPK and mTOR regulate autophagy through direct phosphorylation of ULK1." <em>Nat. Cell Biol.</em>, 13:132–141.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_nutrient_sensing_mtor_ampk",
+  "related": [
+    {
+      "id": "lecture_nad_sirtuin_decline",
+      "title": "NAD+ Decline & Sirtuin Dysfunction",
+      "filename": "lecture_nad_sirtuin_decline.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "filename": "lecture_metabolic_inflexibility.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    },
+    {
+      "id": "lecture_hormesis",
+      "title": "Hormesis",
+      "filename": "lecture_hormesis.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "filename": "lecture_mitochondrial_dysfunction.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>
