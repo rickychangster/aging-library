@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 62: Aerobic Exercise — Three Dose-Response Curves</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--graphite:#27272a;--graphite-dim:rgba(39,39,42,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--green) 0%,var(--blue) 50%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--green);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:20px;}
+  .ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'DM Serif Text',serif;font-size:37px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--green);}
+  .sub{font-family:'DM Serif Text',serif;font-size:16.5px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--green);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--green);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:8px;height:3px;background:var(--green);border-radius:1px;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--green);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--green);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--green);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--green);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="The same 30-minute run produces three dose-response curves — mortality, VO₂ max, hippocampal volume — with different shapes and ceilings; this lecture resolves them into one weekly prescription.">
+<meta property="og:title" content="Aerobic Exercise — Three Dose-Response Curves — Longevity & Wellness">
+<meta property="og:description" content="The same 30-minute run produces three dose-response curves — mortality, VO₂ max, hippocampal volume — with different shapes and ceilings; this lecture resolves them into one weekly prescription.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_aerobic_dose_response.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Aerobic Exercise — Three Dose-Response Curves — Longevity & Wellness">
+<meta name="twitter:description" content="The same 30-minute run produces three dose-response curves — mortality, VO₂ max, hippocampal volume — with different shapes and ceilings; this lecture resolves them into one weekly prescription.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">62</div>
+    <div class="stag">Protocol Engineering Series &middot; No. 62 (2 of 7)</div>
+    <h1>Aerobic Exercise <span class="a">— Three Dose-Response Curves, One Weekly Architecture</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">The Same 30-Minute Run Produces Three Different Dose-Response Curves Depending on Which Endpoint You Measure — All-Cause Mortality (Logarithmic, No Confirmed Reversal), VO₂ Max Improvement (Sigmoidal, Threshold + Plateau), and Hippocampal Volume (Low Threshold, Early Saturation). The "Right Amount" of Exercise Does Not Exist as a Single Number — It Exists as Three Numbers, One Per Curve, Resolved Into a Weekly Architecture That Optimizes Across All Three Simultaneously</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Exercise Physiology / Epidemiology (Arem 2015; Ekelund 2019; Erickson 2011)</div>
+      <div><span class="hl">Bridge:</span> Clinical Pharmacology — Multi-Endpoint Dose Optimization</div>
+      <div><span class="hl">Series:</span> Protocol Engineering 2 of 7 — Aerobic Exercise</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- CORE CONCEPT -->
+  <div class="sn">I. The Core Concept — Three Curves From One Intervention</div>
+  <h2>Each Endpoint Has Its Own EC₅₀, Its Own E<sub>max</sub>, and Its Own Therapeutic Window</h2>
+
+  <p><em>Curve 1: All-cause mortality — logarithmic, wide therapeutic window, no confirmed ceiling.</em> The definitive dataset: Arem et al. (2015, <em>JAMA Internal Medicine</em>, pooled analysis, n=661,137) mapped the exercise-mortality dose-response with extraordinary precision. Compared to no leisure-time physical activity: 1–2× the recommended minimum (150–299 min/week moderate) produced a 31% mortality reduction; 2–3× the minimum (300–449 min/week) produced a 37% reduction; 3–5× the minimum (450–749 min/week) produced a 39% reduction; and even 10× the minimum (>750 min/week) showed no excess mortality. The curve's shape is logarithmic — a steep initial drop that flattens progressively without reverting. The key inflection: <span class="k">75 minutes per week of vigorous activity</span> — approximately 15 minutes per day, 5 days per week — is the MED that crosses the first meaningful mortality reduction threshold. Performing at least 75 min per week of physical activity contributed to significantly reduced all-cause mortality. Below this threshold, individuals are in the high-risk zone where the steepest per-minute benefit exists. The <span class="k">Optimal Dose</span> — the efficiency frontier where the curve transitions from steep to flat — is approximately <span class="k">150–300 minutes per week of moderate activity</span> (or 75–150 minutes of vigorous activity). Beyond 300 minutes, returns diminish substantially but remain positive. The therapeutic window is enormous: the MED is 75 min/week and no MTD has been confirmed for the general population — making aerobic exercise the pharmacological equivalent of a drug with a 10:1+ therapeutic index.</p>
+
+  <p><em>Curve 2: VO₂ max improvement — sigmoidal, threshold-dependent, intensity-gated.</em> VO₂ max — the single strongest predictor of cardiovascular longevity (Lecture 16) — follows a fundamentally different dose-response shape from mortality. The curve is sigmoidal with two critical thresholds: an <em>intensity threshold</em> (below ~60% of max HR, minimal VO₂ max adaptation occurs regardless of volume — this is the lag phase where walking alone produces minimal cardiovascular fitness improvement) and a <em>volume ceiling</em> (above which additional training produces negligible further VO₂ max gain — typically reached at 5–6 hours/week of structured training in a person in their fifties). Between these boundaries, two training modalities drive VO₂ max through different mechanisms. <span class="k">Zone 2 training</span> <span class="def">(60–70% of max HR — the highest intensity at which lactate production equals lactate clearance, maximizing mitochondrial density, capillary density, and fat oxidation capacity in slow-twitch muscle fibers)</span> builds the aerobic base: mitochondrial volume, fatty acid transport, capillary network density. It responds to high volume (3–5 sessions/week, 30–60 min each). <span class="k">HIIT</span> <span class="def">(high-intensity interval training — brief intervals at 85–95% of max HR interspersed with recovery periods, which drives stroke volume increase and cardiac output expansion through different hemodynamic adaptations than Zone 2)</span> drives the peak: maximal stroke volume, left ventricular compliance, peak cardiac output. Every 1 MET increase in CRF is associated with an 11% reduction in the relative risk for all-cause mortality — making VO₂ max improvement per MET one of the most powerful dose-response relationships in medicine. HIIT responds to low frequency but high intensity (1–2 sessions/week, 20–30 min). The weekly architecture that optimizes the VO₂ max sigmoid: <span class="k">3–4 sessions of Zone 2 (building the base) + 1–2 sessions of HIIT (building the peak)</span>.</p>
+
+  <p><em>Curve 3: Hippocampal volume and BDNF — low threshold, early saturation.</em> The Erickson et al. (2011) trial demonstrated that 120 minutes per week of moderate walking — 40 minutes, 3×/week — produced a 2% increase in hippocampal volume in older adults over one year, while the control group showed a 1.4% decrease. This is a lower dose than either the mortality-optimal or VO₂ max-optimal prescription — suggesting that the cognitive dose-response curve has a <em>lower EC₅₀</em> than the cardiovascular curve. The BDNF dose-response appears to have a threshold at approximately 20 minutes of moderate activity (below which minimal BDNF elevation occurs) and a plateau above approximately 45–60 minutes per session (beyond which additional duration does not further increase circulating BDNF). The implication: the cognitive protection documented in Lectures 31 and 52 requires a <em>lower exercise dose</em> than cardiovascular optimization — a person who can only manage three 40-minute walks per week is still capturing most of the cognitive benefit, even if they're below the VO₂ max optimization threshold. This is the most encouraging dose-response finding for individuals starting from a low baseline: the brain responds to less exercise than the heart requires.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Three Dose-Response Curves From One Intervention: Aerobic Exercise</div>
+    <svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+      <text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#15803d" font-weight="600" letter-spacing="1.5">SAME INTERVENTION, THREE CURVES, THREE OPTIMAL DOSES</text>
+      <!-- Shared axes -->
+      <line x1="70" y1="42" x2="70" y2="250" stroke="#d4d0c8" stroke-width="1"/>
+      <line x1="70" y1="250" x2="700" y2="250" stroke="#d4d0c8" stroke-width="1"/>
+      <text x="60" y="52" text-anchor="end" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">100%</text>
+      <text x="60" y="150" text-anchor="end" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">50%</text>
+      <text x="60" y="248" text-anchor="end" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">0%</text>
+      <text x="30" y="150" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a" transform="rotate(-90 30 150)">% of Maximum Benefit</text>
+      <!-- X-axis labels -->
+      <text x="120" y="266" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">75</text>
+      <text x="220" y="266" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">150</text>
+      <text x="340" y="266" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">300</text>
+      <text x="480" y="266" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">450</text>
+      <text x="620" y="266" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">750+</text>
+      <text x="385" y="280" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">MINUTES PER WEEK (moderate equivalent)</text>
+      <!-- Curve 1: All-cause mortality (green, logarithmic) -->
+      <path d="M72,248 Q100,160 120,120 Q160,82 220,68 Q340,52 480,48 L700,46" fill="none" stroke="#15803d" stroke-width="2.5"/>
+      <text x="705" y="42" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">MORTALITY ↓</text>
+      <!-- MED marker -->
+      <line x1="120" y1="120" x2="120" y2="254" stroke="#15803d" stroke-width=".7" stroke-dasharray="3,3"/>
+      <text x="120" y="296" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">MED</text>
+      <text x="120" y="306" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#15803d">75 min/wk</text>
+      <!-- Optimal zone -->
+      <rect x="220" y="38" width="120" height="218" rx="0" fill="rgba(21,128,61,0.04)"/>
+      <text x="280" y="296" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">OPTIMAL ZONE</text>
+      <text x="280" y="306" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#15803d">150–300 min/wk</text>
+      <!-- Curve 2: VO₂ max (blue, sigmoidal) -->
+      <path d="M72,248 L120,246 Q160,242 200,230 Q240,180 280,130 Q320,86 380,70 Q440,60 520,56 L700,54" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="705" y="58" font-family="Source Code Pro,monospace" font-size="7" fill="#1d4ed8" font-weight="600">VO₂ MAX ↑</text>
+      <!-- Intensity threshold annotation -->
+      <line x1="160" y1="242" x2="160" y2="254" stroke="#1d4ed8" stroke-width=".7" stroke-dasharray="2,2"/>
+      <text x="160" y="316" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#1d4ed8">Intensity threshold</text>
+      <text x="160" y="324" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#1d4ed8">(>60% max HR)</text>
+      <!-- Curve 3: Hippocampal / BDNF (amber, early plateau) -->
+      <path d="M72,248 Q100,180 120,120 Q140,82 180,66 Q220,56 280,52 Q340,50 480,48 L700,48" fill="none" stroke="#b45309" stroke-width="1.5" stroke-dasharray="2,2"/>
+      <text x="705" y="52" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">BRAIN (BDNF) ↑</text>
+      <!-- Brain EC50 annotation -->
+      <line x1="140" y1="82" x2="140" y2="254" stroke="#b45309" stroke-width=".5" stroke-dasharray="2,2"/>
+      <text x="140" y="338" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309">Brain EC₅₀</text>
+      <text x="140" y="346" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309">120 min/wk</text>
+      <!-- KEY INSIGHT box -->
+      <rect x="420" y="100" width="260" height="80" rx="4" fill="rgba(39,39,42,0.04)" stroke="#27272a" stroke-width="1"/>
+      <text x="550" y="118" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600">KEY INSIGHT</text>
+      <text x="550" y="136" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#3d3d3d">The brain responds to LESS exercise</text>
+      <text x="550" y="150" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#3d3d3d">than the heart requires. The mortality</text>
+      <text x="550" y="164" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#3d3d3d">curve flattens where the VO₂ max curve</text>
+      <text x="550" y="178" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#15803d" font-weight="600">is still climbing.</text>
+
+      <!-- WEEKLY ARCHITECTURE -->
+      <text x="370" y="376" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#15803d" font-weight="600" letter-spacing="1.5">THE WEEKLY ARCHITECTURE: OPTIMIZING ACROSS ALL THREE CURVES</text>
+      <rect x="30" y="390" width="680" height="100" rx="4" fill="rgba(21,128,61,0.03)" stroke="#15803d" stroke-width="1.5"/>
+      <!-- Zone 2 -->
+      <rect x="46" y="406" width="200" height="30" rx="3" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="1"/>
+      <text x="146" y="424" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600">ZONE 2: 3–4×/wk, 30–60 min</text>
+      <text x="146" y="446" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">60–70% max HR. Builds aerobic base.</text>
+      <text x="146" y="458" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Mitochondria, capillaries, fat oxidation.</text>
+      <text x="146" y="470" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">~120–240 min/wk moderate equivalent.</text>
+      <!-- HIIT -->
+      <rect x="262" y="406" width="200" height="30" rx="3" fill="rgba(29,78,216,0.06)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="362" y="424" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#1d4ed8" font-weight="600">HIIT: 1–2×/wk, 20–30 min</text>
+      <text x="362" y="446" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">85–95% max HR intervals. Builds peak.</text>
+      <text x="362" y="458" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Stroke volume, cardiac output, VO₂ peak.</text>
+      <text x="362" y="470" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">~40–60 min/wk vigorous equivalent.</text>
+      <!-- Total -->
+      <rect x="478" y="406" width="218" height="30" rx="3" fill="rgba(180,83,9,0.06)" stroke="#b45309" stroke-width="1"/>
+      <text x="587" y="424" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b45309" font-weight="600">TOTAL: 200–350 min/wk moderate eq.</text>
+      <text x="587" y="446" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">✓ Mortality curve: in the optimal zone</text>
+      <text x="587" y="458" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">✓ VO₂ max: above sigmoid threshold</text>
+      <text x="587" y="470" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">✓ Brain: well above BDNF EC₅₀</text>
+      <text x="587" y="482" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">PER >1 for all three endpoints</text>
+    </svg>
+    <div class="fig-cap">Three dose-response curves from one intervention. Green solid: all-cause mortality (logarithmic — steep initial benefit, never reverses; MED at 75 min/wk, optimal 150–300). Blue dashed: VO₂ max (sigmoidal — requires intensity threshold >60% max HR; responds to Zone 2 volume + HIIT peak). Amber dotted: hippocampal BDNF (low threshold, early saturation — the brain needs less exercise than the heart). The weekly architecture (bottom) operates in the optimal zone of all three curves simultaneously.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- CROSS-POLLINATION -->
+  <div class="sn">II. Cross-Pollination — Multi-Endpoint Optimization: The Combination Drug Analogy</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Exercise Physiology</div><h4>The VPA Proportion Curve — A Fourth Optimization</h4><p>A 2024 meta-analysis revealed that <strong>maintaining vigorous physical activity at 30–60% of total MVPA is associated with maximal reduction in all-cause and CVD mortality</strong>. Below 30% VPA, the dose is too mild to drive VO₂ max adaptations. Above 60% VPA, the proportion of intense training may exceed recovery capacity and increase cortisol/immune costs. The ratio itself — not just total volume — follows a U-shaped optimum. The weekly architecture (3–4× Zone 2 + 1–2× HIIT) naturally produces a VPA proportion of ~25–35%, near the lower edge of the optimal window. Adding a third HIIT session would push VPA toward 40–50% — still within the optimal window but increasing recovery demands.</p></div>
+    <div class="gc"><div class="tag eng">Clinical Pharmacology</div><h4>The Combination Drug: Why Z2 + HIIT Outperforms Either Alone</h4><p>In pharmacology, <strong>combination therapy</strong> uses drugs with different mechanisms to produce complementary effects (e.g., ACE inhibitor + diuretic for hypertension). Zone 2 and HIIT are pharmacologically analogous to two drugs with different targets: Z2 drives <em>peripheral adaptation</em> (mitochondrial density in type I fibers, capillary angiogenesis, fat oxidation enzymes — the oxygen-extraction machinery). HIIT drives <em>central adaptation</em> (stroke volume increase, cardiac output expansion — the oxygen-delivery machinery). VO₂ max = delivery × extraction. Maximizing both requires both stimuli — at their respective optimal doses, not at the max of either.</p></div>
+    <div class="gc"><div class="tag bio">Exercise Physiology</div><h4>The 1-MET Mortality Currency</h4><p>A meta-analysis of 37 cohort studies (>2 million adults) revealed that <strong>every 1 MET increase in cardiorespiratory fitness is associated with an 11% reduction in relative risk for all-cause mortality</strong> — independent of age, sex, and follow-up duration. This makes the MET the "currency" of cardiorespiratory longevity: each MET gained through training purchases an 11% mortality reduction. For a person in their fifties, increasing VO₂ max from 8 METs to 10 METs (a realistic 12-month training goal) translates to a ~22% mortality risk reduction — comparable to the effect of a statin on cardiovascular events.</p></div>
+    <div class="gc"><div class="tag eng">Clinical Pharmacology</div><h4>Adherence Modifies Effective Dose</h4><p>In drug trials, <strong>adherence rates typically run 50–80%</strong> — meaning the effective dose received is lower than the prescribed dose. The same applies to exercise protocols: a 5-day/week prescription followed 60% of the time produces a 3-day/week effective dose. The Protocol Efficiency Ratio from Lecture 61 must account for this: a 3-day/week prescription followed 95% of the time may produce greater benefit than a 5-day/week prescription followed 60% of the time. The optimal prescribed dose is the dose that maximizes <em>effective dose × adherence probability</em> — not the dose that maximizes benefit at perfect compliance.</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- ANTIFRAGILITY -->
+  <div class="sn">III. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Where the Curves Conflict — and How to Resolve the Tension</div>
+    <p><em>The three curves produce different optimal doses — and the conflicts must be explicitly resolved.</em> The mortality curve says 150–300 min/week is the efficiency frontier. The VO₂ max curve says structured intensity matters more than volume — 1–2 HIIT sessions + 3–4 Zone 2 sessions, totaling ~250–350 min/week. The brain curve says 120 min/week is sufficient. A person with unlimited time could satisfy all three by exercising ~350 min/week (5 sessions: 3 Zone 2 × 45 min + 2 HIIT × 25 min). But a person with 150 min/week available faces a genuine optimization problem: should they spread 150 min across 5 low-intensity sessions (maximizing the mortality curve), concentrate it into 3 moderate-intensity sessions (satisfying the brain curve), or split it between 2 Zone 2 + 1 HIIT (beginning to address the VO₂ max curve)? The answer depends on endpoint priority — but the general principle from Lecture 61 applies: <em>operate at the EC₅₀ of multiple curves rather than the E<sub>max</sub> of one</em>. For 150 min/week: 2× Zone 2 (40 min) + 1× HIIT (20 min) + 2× brisk walk (25 min) captures ~70% of the mortality benefit, ~50% of the VO₂ max potential, and ~90% of the brain benefit — a PER >1 across all three endpoints. The concurrent training consideration from Lecture 63 (resistance training interaction with aerobic) adds a fourth constraint that must be resolved by weekly sequencing.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- PROTOCOL -->
+  <div class="sn">IV. The Protocol — Specific Numbers for a Person in Their Fifties</div>
+  <div class="note">
+    <div class="nl">The Weekly Architecture With Dose Parameters</div>
+    <p><strong>The Prescription:</strong> Three tiers based on available time budget:<br><br>
+    <strong>Tier 1 — Time-Rich (350+ min/wk available):</strong> Zone 2: 4×/wk × 45 min (180 min). HIIT: 2×/wk × 25 min (50 min). Total: ~300 min moderate equivalent. This operates in the optimal zone of all three curves simultaneously. VO₂ max improvement: target 1–2 METs/year (11–22% mortality reduction per MET). Combine with resistance training (Lecture 63) on 2–3 of the Zone 2 days (separate sessions by >3 hours or do resistance AM, Zone 2 PM).<br><br>
+    <strong>Tier 2 — Time-Moderate (200 min/wk available):</strong> Zone 2: 3×/wk × 40 min (120 min). HIIT: 1×/wk × 25 min (25 min). Brisk walk: 2×/wk × 25 min (50 min). Total: ~220 min moderate equivalent. This captures ~85% of the mortality benefit, ~70% of VO₂ max potential, and >90% of brain benefit.<br><br>
+    <strong>Tier 3 — Time-Constrained (120 min/wk available):</strong> Zone 2: 2×/wk × 30 min (60 min). HIIT: 1×/wk × 20 min (20 min). Daily walk: 7×/wk × 10 min (70 min). Total: ~170 min moderate equivalent. This is above the MED for all three curves and captures ~75% of mortality benefit, ~50% of VO₂ max, and ~80% of brain benefit. The daily 10-minute walk is the highest-PER single activity — minimal time investment, maximum per-minute mortality benefit on the steepest part of the logarithmic curve.<br><br>
+    <strong>Zone Definitions:</strong> Zone 2 = 60–70% max HR (estimate: 220 − age × 0.60 to 0.70; for age 55: ~99–115 bpm). Conversational pace — you can speak in sentences but not sing. HIIT = 85–95% max HR intervals (for age 55: ~140–157 bpm) × 30–60 seconds, with 1–2 min recovery between intervals, 4–8 intervals per session. Vigorous = 70–85% max HR (~115–140 bpm for age 55) — this is the zone where most "running" and "cycling at effort" occurs.<br><br>
+    <strong>Metric:</strong> <em>VO₂ max</em> (direct measurement via cardiopulmonary exercise test, or estimated from a timed 1-mile walk, Cooper 12-minute run, or wearable algorithm). Target for a 55-year-old male: ≥10 METs (35 mL/kg/min) places you in the top quartile for age; ≥12 METs (42 mL/kg/min) approaches the "fitness age" of a 40-year-old. Each 1 MET gained = 11% mortality risk reduction. Track quarterly. Complement with resting heart rate trend (declining = improving stroke volume), HRV/RMSSD (Lecture 47), and the Protocol Efficiency Ratio from Lecture 61.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RECURSIVE SYNTHESIS -->
+  <div class="sn">V. Recursive Synthesis</div>
+  <h2>How This Lecture Converts Mechanistic Understanding Into Numeric Protocol</h2>
+
+  <p>Lecture 16 established that VO₂ max is the strongest predictor of all-cause mortality. Lecture 22 documented that exercise releases myokines. Lecture 31 showed exercise increases hippocampal volume. Lecture 43 showed exercise stimulates osteocalcin. Lecture 47 showed exercise restores vagal tone. Lecture 50 showed exercise enhances cancer immunosurveillance. Lecture 52 showed exercise addresses all seven AD prevention branches. Lecture 58 showed exercise activates AMPK. Lecture 59 showed exercise prevents sarcopenia. Lecture 60 showed exercise synergizes with heat stress. Every one of those lectures said "exercise is beneficial" without specifying <em>how much</em>. This lecture provides the specific numbers: 75 min/week is the MED that crosses the first mortality threshold. 150–300 min/week is the optimal zone for the mortality curve. Zone 2 at 60–70% max HR × 3–4 sessions builds the aerobic base. HIIT at 85–95% max HR × 1–2 sessions builds the peak. 120 min/week satisfies the brain's BDNF requirement. 30–60% VPA proportion optimizes the intensity mix. And each 1 MET gained translates to an 11% mortality reduction — providing the conversion factor that transforms abstract "improvement" into concrete "risk reduction." The subsequent lectures (63–67) will resolve the remaining questions: how resistance training interacts with aerobic (63), how sleep modulates the training response (64), how feeding windows affect the mTOR-AMPK duty cycle around exercise (65), how sauna and cold exposure interact with exercise timing (66), and how all of these integrate into a single weekly schedule (67).</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- PEER REVIEW -->
+  <div class="sn">VI. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "You need to exercise for at least 30 minutes for it to 'count' — shorter sessions are worthless."<br><br><strong>Correction:</strong> The dose-response curve for all-cause mortality is logarithmic with its steepest region at the <em>lowest</em> doses. The first 10–15 minutes of daily exercise produce the largest per-minute mortality reduction of any segment of the curve. A 2022 study in the <em>European Heart Journal</em> (Stamatakis et al.) showed that even 3–4 bouts of vigorous intermittent lifestyle physical activity (VILPA) — essentially vigorous activities lasting 1–2 minutes embedded in daily life (taking stairs quickly, brief walking sprints, carrying heavy bags) — totaling as little as 3.4 minutes per day were associated with a 38–40% reduction in all-cause mortality and up to a 49% reduction in cardiovascular mortality compared to no vigorous activity. The "30-minute threshold" is a public health guideline designed for simplicity, not a physiological requirement. The biology follows the curve, not the guideline — and the curve says that every minute of movement above zero produces a disproportionately large return when starting from inactivity. The person who says "I don't have 30 minutes" can be told: "You have 10. That covers 50–70% of the mortality benefit that 30 minutes would provide, because the curve is steepest at the bottom."</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RESOURCES -->
+  <div class="sn">VII. Resources</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Arem et al. (2015)</h5><p>"Leisure time physical activity and mortality." <em>JAMA Intern. Med.</em>, 175:959–967. The definitive pooled cohort (n=661,137) that mapped the exercise-mortality dose-response curve: logarithmic shape, no confirmed reversal at high doses, optimal zone at 150–300 min/week moderate activity.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Erickson et al. (2011)</h5><p>"Exercise training increases size of hippocampus and improves memory." <em>PNAS</em>, 108:3017–3022. The RCT showing 120 min/week of walking produced 2% hippocampal volume increase in older adults — establishing the brain's lower EC₅₀ for exercise compared to cardiovascular endpoints.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Implement the Weekly Architecture</h5><p>Choose your tier (1/2/3) based on available time. Schedule Zone 2, HIIT, and walking sessions into your weekly calendar with specific days and times. The architecture must be <em>scheduled</em>, not aspirational — implementation intention ("I will do Zone 2 on Mon/Wed/Fri at 7 AM") increases adherence by 91% compared to unscheduled intention (Gollwitzer, 1999).</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Determine Your Zone Boundaries</h5><p>Max HR estimate: 220 − age (crude) or 208 − (0.7 × age) (Tanaka formula, more accurate). Zone 2: 60–70% of max HR. HIIT: 85–95% of max HR. Use a chest strap HR monitor or wearable for real-time zone confirmation. For age 55: Zone 2 ≈ 99–115 bpm; HIIT ≈ 140–157 bpm (Tanaka: max HR ≈ 169.5).</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The 1-MET Currency Converter</h5><p>Each 1 MET increase in VO₂ max = 11% reduction in all-cause mortality risk. Current VO₂ max estimate (from wearable or Cooper test) → target 1–2 MET improvement over 12 months → translate to HR: 22% mortality reduction for 2 METs gained. This conversion makes abstract "fitness improvement" concrete and motivating.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The Floor Protocol</h5><p>When life intervenes (travel, illness, stress): the absolute minimum that maintains gains = 10 min daily walking + 1× HIIT per week. This keeps you above the MED for all three curves, prevents detraining, and can be performed anywhere without equipment. The floor protocol preserves ~60% of the full protocol's benefit at ~25% of the time investment — a PER of ~2.4.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>VO₂ Max + RHR + HRV + Zone Minutes</h5><p>VO₂ max (quarterly — target ≥10 METs for age 55; each MET gained = 11% mortality↓). Resting HR (weekly — declining trend confirms ↑stroke volume). HRV/RMSSD (nightly — confirms autonomic adaptation). Weekly zone minutes from wearable (confirms actual dose matches prescribed dose — the adherence check). Track VPA proportion: aim 30–60% of total MVPA.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Protocol Engineering Integration</h5><p>This lecture → Lecture 63 (resistance training — concurrent training sequencing). → Lecture 64 (sleep — recovery modulates training response). → Lecture 65 (nutrition — protein timing around exercise for mTOR/AMPK resolution). → Lecture 66 (sauna/cold — post-exercise timing for HSP synergy vs. cold interference). → Lecture 67 (integrated weekly architecture assembling all six intervention dose-response curves into a single schedule).</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>Exercise-mortality dose-response: 1–2× recommended minimum = 31% mortality↓; 2–3× = 37%; 3–5× = 39%; >10× = no excess mortality (n=661,137)</td><td>Arem et al., <em>JAMA Intern. Med.</em>, 2015;175:959–967</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Performing at least 75 min/week of physical activity contributed to significantly reduced all-cause mortality</td><td>Chinese cohort (n=109,407); Arem 2015; multiple replications</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Every 1 MET increase in CRF associated with 11% reduction in all-cause mortality risk (37 cohort studies, >2M adults)</td><td>Kodama et al., <em>JAMA</em>, 2009; replicated in Poon et al., 2024; multiple meta-analyses</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>VPA at 30–60% of total MVPA associated with maximal reduction in all-cause and CVD mortality</td><td>Systematic review and meta-analysis, <em>Sports Med.</em>, 2024 (20 studies)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>120 min/week walking → 2% hippocampal volume increase in older adults over 1 year (RCT)</td><td>Erickson et al., <em>PNAS</em>, 2011;108:3017–3022</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>3.4 min/day VILPA (vigorous intermittent lifestyle PA) → 38–40% all-cause mortality reduction</td><td>Stamatakis et al., <em>Eur. Heart J.</em>, 2022 (UK Biobank accelerometry)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Zone 2 drives peripheral adaptation (mitochondria, capillaries); HIIT drives central adaptation (stroke volume, cardiac output)</td><td>MacInnis &amp; Gibala, <em>J. Physiol.</em>, 2017; reviewed in multiple exercise physiology texts</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Combined muscle-strengthening + aerobic activity produces additive mortality benefit in adults ≥65</td><td>Gorzelitz et al., <em>JAMA Netw. Open</em>, 2022 (n=115,489)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>BDNF elevation threshold at ~20 min moderate exercise; plateau at ~45–60 min per session</td><td>Schmolesky et al., 2013; Dinoff et al., 2017 (meta-analysis)</td><td><span class="cv">⚠ The BDNF threshold and plateau values are approximate — derived from aggregated data across studies with varying exercise protocols, populations, and BDNF measurement methods (serum vs. plasma, timing of blood draw post-exercise). The direction and general magnitude are consistent but precise thresholds vary across studies.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Arem, H. et al. (2015). "Leisure time physical activity and mortality: a detailed pooled analysis." <em>JAMA Intern. Med.</em>, 175:959–967. &nbsp;|&nbsp; Erickson, K.I. et al. (2011). "Exercise training increases size of hippocampus and improves memory." <em>PNAS</em>, 108:3017–3022. &nbsp;|&nbsp; Stamatakis, E. et al. (2022). "Association of wearable device-measured vigorous intermittent lifestyle physical activity with mortality." <em>Nat. Med.</em>, 28:2521–2529. &nbsp;|&nbsp; Gorzelitz, J. et al. (2022). "Association of muscle-strengthening and aerobic PA with mortality in US adults aged ≥65 years." <em>JAMA Netw. Open</em>, 5:e2236394. &nbsp;|&nbsp; MacInnis, M.J. &amp; Gibala, M.J. (2017). "Physiological adaptations to interval training and the role of exercise intensity." <em>J. Physiol.</em>, 595:2915–2930.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_aerobic_dose_response",
+  "related": [
+    {
+      "id": "lecture_dose_response_framework",
+      "title": "The Dose-Response Framework — Seven Dosing Models",
+      "filename": "lecture_dose_response_framework.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_vo2max_capacity_margin",
+      "title": "VO₂ Max & the Capacity Margin",
+      "filename": "lecture_vo2max_capacity_margin.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_white_matter_fitness",
+      "title": "Cardiorespiratory Fitness & White Matter Integrity",
+      "filename": "lecture_white_matter_fitness.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_mitochondrial_dysfunction",
+      "title": "Mitochondrial Dysfunction & the Bioenergetic Crisis",
+      "filename": "lecture_mitochondrial_dysfunction.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

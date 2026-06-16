@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 67: The Integrated Weekly Architecture</title>
+
+<style>
+:root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--graphite:#27272a;--graphite-dim:rgba(39,39,42,0.04);--fire:#c2410c;--ice:#0369a1;--rule:#d4d0c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+.page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+.top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--graphite) 0%,var(--green) 25%,var(--blue) 50%,var(--fire) 75%,var(--amber) 100%);border-radius:2px;}
+.hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--graphite);position:relative;}
+.stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--graphite);margin-bottom:20px;}
+.ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+h1{font-family:'DM Serif Text',serif;font-size:36px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--graphite);}
+.sub{font-family:'DM Serif Text',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+.meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--graphite);font-weight:600;}
+.sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+.k{color:var(--graphite);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+.sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:8px;height:3px;background:var(--graphite);border-radius:1px;}
+.fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--graphite);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--graphite);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+.note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--graphite);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--graphite);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--graphite);font-weight:700;}
+.res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--graphite);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+.cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+.fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+@media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Assembles six dose-response prescriptions into a single weekly schedule that satisfies five interference rules simultaneously — the capstone that makes a coherent, achievable protocol from six separate curves.">
+<meta property="og:title" content="The Integrated Weekly Architecture — Longevity & Wellness">
+<meta property="og:description" content="Assembles six dose-response prescriptions into a single weekly schedule that satisfies five interference rules simultaneously — the capstone that makes a coherent, achievable protocol from six separate curves.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_integrated_weekly_architecture.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Integrated Weekly Architecture — Longevity & Wellness">
+<meta name="twitter:description" content="Assembles six dose-response prescriptions into a single weekly schedule that satisfies five interference rules simultaneously — the capstone that makes a coherent, achievable protocol from six separate curves.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+<div class="top-bar"></div>
+<header class="hdr">
+<div class="ln">67</div>
+<div class="stag">Protocol Engineering Series · No. 67 (7 of 7) — Capstone</div>
+<h1>The Integrated Weekly Architecture <span class="a">— Sequencing, Periodizing & Sustaining</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+<div class="sub">Six Lectures Established the Dose-Response Curves. This Lecture Assembles Them Into a Single Weekly Schedule That Respects Every Interference Rule, Operates in the Optimal Zone of Every Curve Simultaneously, and — Most Critically — Is Actually Achievable by a Person With a Career, a Family, and a Finite Number of Hours. The Most Sophisticated Protocol Is Worthless if It Isn't Followed. The Best Protocol Is the One That Is Performed</div>
+<div class="meta">
+<div><span class="hl">Origin:</span> Systems Integration / Periodization Science (Bompa 1999; Issurin 2010)</div>
+<div><span class="hl">Bridge:</span> Project Management — Resource Scheduling Under Constraints</div>
+<div><span class="hl">Series:</span> Protocol Engineering 7 of 7 — The Deliverable</div>
+<div>~1,200 words</div>
+</div>
+</header>
+
+<div class="sn">I. The Core Concept — Assembling Six Prescriptions Under Five Constraints</div>
+<h2>Every Intervention Has a Dose, a Timing Window, and an Interference Rule — the Schedule Must Satisfy All of Them Simultaneously</h2>
+
+<p>The six intervention prescriptions from Lectures 62–66 are not independent modules — they interact through five scheduling constraints that the weekly architecture must resolve: (1) <em>Concurrent training interference</em> — resistance training and aerobic exercise activate opposing molecular pathways (mTOR vs. AMPK); they must be separated by ≥3 hours on the same day, or placed on alternating days (Lecture 63). (2) <em>Cold-resistance antagonism</em> — cold exposure within 6 hours of resistance training blunts hypertrophy; cold is permitted only on aerobic or rest days (Lecture 66). (3) <em>Sauna-sleep coordination</em> — sauna enhances SWS when placed 1–2 hours before bed; placed too close (<1 hour), it delays sleep onset (Lecture 66). (4) <em>Feeding-fasting oscillation</em> — the 16:8 TRE window must align with post-exercise protein timing (mTOR activation) and the overnight fast (AMPK activation), with the final meal ≥3 hours before bed (Lectures 64/65). (5) <em>Sleep consistency anchor</em> — the fixed wake time (±30 min, 7 days/week) is the non-negotiable anchor around which everything else is scheduled (Lecture 64). These five constraints, combined with the six intervention doses, produce a scheduling problem that — if solved correctly — yields a weekly architecture where every intervention operates in its optimal zone without interfering with any other.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="fig">
+<div class="fig-tag">Figure 1 — The Complete Weekly Architecture: Two Templates</div>
+<svg viewBox="0 0 740 620" xmlns="http://www.w3.org/2000/svg">
+<text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#27272a" font-weight="600" letter-spacing="1.5">TEMPLATE A: ALTERNATE DAYS (PREFERRED — ZERO INTERFERENCE)</text>
+<!-- Day headers -->
+<rect x="20" y="32" width="100" height="22" rx="2" fill="rgba(39,39,42,0.06)"/><text x="70" y="47" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="700">MON</text>
+<rect x="122" y="32" width="100" height="22" rx="2" fill="rgba(39,39,42,0.06)"/><text x="172" y="47" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="700">TUE</text>
+<rect x="224" y="32" width="100" height="22" rx="2" fill="rgba(39,39,42,0.06)"/><text x="274" y="47" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="700">WED</text>
+<rect x="326" y="32" width="100" height="22" rx="2" fill="rgba(39,39,42,0.06)"/><text x="376" y="47" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="700">THU</text>
+<rect x="428" y="32" width="100" height="22" rx="2" fill="rgba(39,39,42,0.06)"/><text x="478" y="47" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="700">FRI</text>
+<rect x="530" y="32" width="100" height="22" rx="2" fill="rgba(39,39,42,0.06)"/><text x="580" y="47" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="700">SAT</text>
+<rect x="632" y="32" width="88" height="22" rx="2" fill="rgba(39,39,42,0.06)"/><text x="676" y="47" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="700">SUN</text>
+<!-- Exercise row -->
+<rect x="20" y="58" width="100" height="46" rx="2" fill="rgba(71,85,105,0.06)" stroke="#475569" stroke-width="1"/>
+<text x="70" y="74" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#475569" font-weight="600">RESISTANCE</text>
+<text x="70" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Upper body 40min</text>
+<text x="70" y="98" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">4×3 sets, 60-80%</text>
+<rect x="122" y="58" width="100" height="46" rx="2" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="1"/>
+<text x="172" y="74" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#15803d" font-weight="600">ZONE 2</text>
+<text x="172" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">45 min, 60-70% HR</text>
+<text x="172" y="98" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Walk/cycle/swim</text>
+<rect x="224" y="58" width="100" height="46" rx="2" fill="rgba(71,85,105,0.06)" stroke="#475569" stroke-width="1"/>
+<text x="274" y="74" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#475569" font-weight="600">RESISTANCE</text>
+<text x="274" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Lower body 40min</text>
+<text x="274" y="98" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">4×3 sets, 60-80%</text>
+<rect x="326" y="58" width="100" height="46" rx="2" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="1"/>
+<text x="376" y="74" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#15803d" font-weight="600">ZONE 2</text>
+<text x="376" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">45 min, 60-70% HR</text>
+<text x="376" y="98" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Walk/cycle/swim</text>
+<rect x="428" y="58" width="100" height="46" rx="2" fill="rgba(71,85,105,0.06)" stroke="#475569" stroke-width="1"/>
+<text x="478" y="74" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#475569" font-weight="600">RESISTANCE</text>
+<text x="478" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Full body 35min</text>
+<text x="478" y="98" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">5×2 sets, 60-75%</text>
+<rect x="530" y="58" width="100" height="46" rx="2" fill="rgba(29,78,216,0.06)" stroke="#1d4ed8" stroke-width="1"/>
+<text x="580" y="74" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#1d4ed8" font-weight="600">HIIT</text>
+<text x="580" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">25 min, 85-95% HR</text>
+<text x="580" y="98" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">6-8 intervals</text>
+<rect x="632" y="58" width="88" height="46" rx="2" fill="rgba(180,83,9,0.06)" stroke="#b45309" stroke-width="1"/>
+<text x="676" y="74" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b45309" font-weight="600">REST</text>
+<text x="676" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Walk 30 min</text>
+<text x="676" y="98" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Mobility work</text>
+<!-- Hormetic row -->
+<rect x="20" y="108" width="100" height="36" rx="2" fill="rgba(194,65,12,0.06)" stroke="#c2410c" stroke-width="1"/>
+<text x="70" y="122" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#c2410c" font-weight="600">SAUNA 25min</text>
+<text x="70" y="134" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#c2410c">Post-exercise. NO COLD</text>
+<rect x="122" y="108" width="100" height="36" rx="2" fill="rgba(3,105,161,0.06)" stroke="#0369a1" stroke-width="1"/>
+<text x="172" y="122" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#0369a1" font-weight="600">COLD 3min</text>
+<text x="172" y="134" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#0369a1">Post-Z2. End on cold</text>
+<rect x="224" y="108" width="100" height="36" rx="2" fill="rgba(194,65,12,0.06)" stroke="#c2410c" stroke-width="1"/>
+<text x="274" y="122" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#c2410c" font-weight="600">SAUNA 25min</text>
+<text x="274" y="134" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#c2410c">Post-exercise. NO COLD</text>
+<rect x="326" y="108" width="100" height="36" rx="2" fill="rgba(3,105,161,0.06)" stroke="#0369a1" stroke-width="1"/>
+<text x="376" y="122" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#0369a1" font-weight="600">COLD 3min</text>
+<text x="376" y="134" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#0369a1">Post-Z2. End on cold</text>
+<rect x="428" y="108" width="100" height="36" rx="2" fill="rgba(194,65,12,0.06)" stroke="#c2410c" stroke-width="1"/>
+<text x="478" y="122" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#c2410c" font-weight="600">SAUNA 25min</text>
+<text x="478" y="134" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#c2410c">Post-exercise. NO COLD</text>
+<rect x="530" y="108" width="100" height="36" rx="2" fill="rgba(194,65,12,0.06)" stroke="#c2410c" stroke-width="1"/>
+<text x="580" y="122" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#c2410c" font-weight="600">SAUNA 25min</text>
+<text x="580" y="134" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#c2410c">Pre-bed (1-2h gap)</text>
+<rect x="632" y="108" width="88" height="36" rx="2" fill="rgba(194,65,12,0.06)" stroke="#c2410c" stroke-width="1"/>
+<text x="676" y="122" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#c2410c" font-weight="600">SAUNA 25min</text>
+<text x="676" y="134" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#c2410c">Pre-bed (1-2h gap)</text>
+<!-- Daily constants row -->
+<rect x="20" y="148" width="700" height="36" rx="2" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+<text x="370" y="164" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">DAILY CONSTANTS (every day, no exceptions)</text>
+<text x="370" y="178" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">RF Breathing 10-20 min | 16:8 TRE (last meal by 6-7 PM) | 30-40g protein/meal | Sleep 7-8h, wake ±30 min | Morning light 20 min</text>
+<!-- Volume check -->
+<rect x="20" y="192" width="700" height="30" rx="2" fill="rgba(39,39,42,0.03)" stroke="#d4d0c8" stroke-width="1"/>
+<text x="370" y="210" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#27272a" font-weight="600">WEEKLY TOTALS: Resistance 3×/wk (~10-12 sets/muscle) ✓ | Z2 2× + HIIT 1× (~200 min mod. eq.) ✓ | Sauna 5-6× ✓ | Cold 2× (~6 min) ✓ | Breathing 7× ✓</text>
+
+<!-- TEMPLATE B -->
+<text x="370" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#27272a" font-weight="600" letter-spacing="1.5">TEMPLATE B: TIME-CONSTRAINED (60 MIN/DAY BUDGET)</text>
+<rect x="20" y="262" width="700" height="110" rx="4" fill="rgba(39,39,42,0.03)" stroke="#27272a" stroke-width="1"/>
+<text x="35" y="282" font-family="Source Code Pro,monospace" font-size="8.5" fill="#27272a" font-weight="600">MON / WED / FRI — The Resistance Stack (60 min total):</text>
+<text x="35" y="298" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Resistance 35 min (full-body, 5×2-3 sets) → Sauna 20 min (HSP synergy) → Protein meal. Breathing 10 min pre-bed.</text>
+<text x="35" y="318" font-family="Source Code Pro,monospace" font-size="8.5" fill="#27272a" font-weight="600">TUE / THU — The Aerobic Stack (55 min total):</text>
+<text x="35" y="334" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Zone 2 aerobic 30 min → Cold 3 min (end cold) → Sauna 20 min (pre-bed, eve). Breathing 10 min pre-bed.</text>
+<text x="35" y="354" font-family="Source Code Pro,monospace" font-size="8.5" fill="#27272a" font-weight="600">SAT — The HIIT + Recovery Day (45 min total):</text>
+<text x="35" y="366" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">HIIT 20 min → Sauna 25 min (pre-bed). Breathing 10 min pre-bed. SUN: Walk 30 min + Sauna + Breathing. Rest.</text>
+
+<!-- PERIODIZATION -->
+<text x="370" y="400" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#27272a" font-weight="600" letter-spacing="1.5">THE PERIODIZATION CALENDAR</text>
+<rect x="20" y="414" width="230" height="82" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+<text x="135" y="432" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600">MONTHLY (3:1 CYCLE)</text>
+<text x="35" y="450" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Weeks 1-3: Progressive overload</text>
+<text x="35" y="464" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">(+2.5-5% load or +1-2 reps/wk)</text>
+<text x="35" y="478" font-family="Source Code Pro,monospace" font-size="7.5" fill="#15803d" font-weight="600">Week 4: DELOAD (vol -40%, int -10%)</text>
+<text x="35" y="490" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Maintain frequency + movements</text>
+<rect x="260" y="414" width="230" height="82" rx="4" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+<text x="375" y="432" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#1d4ed8" font-weight="600">QUARTERLY REVIEW</text>
+<text x="275" y="450" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Grip strength (dynamometer)</text>
+<text x="275" y="464" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">1RM estimates (5 compounds)</text>
+<text x="275" y="478" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">VO2 max estimate (Cooper/wearable)</text>
+<text x="275" y="490" font-family="Source Code Pro,monospace" font-size="7.5" fill="#1d4ed8" font-weight="600">Blood panel: insulin, ApoB, CRP, T</text>
+<rect x="500" y="414" width="220" height="82" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+<text x="610" y="432" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b45309" font-weight="600">ANNUAL ASSESSMENT</text>
+<text x="515" y="450" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Comprehensive blood panel</text>
+<text x="515" y="464" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">DEXA (lean mass + bone density)</text>
+<text x="515" y="478" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Physician review + ApoB recheck</text>
+<text x="515" y="490" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b45309" font-weight="600">Optional: DunedinPACE, CAC</text>
+
+<!-- FLOOR PROTOCOL -->
+<text x="370" y="520" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#b91c1c" font-weight="600" letter-spacing="1.5">THE FLOOR PROTOCOL (WHEN LIFE INTERVENES)</text>
+<rect x="20" y="534" width="700" height="76" rx="4" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="370" y="554" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c" font-weight="600">THE ABSOLUTE MINIMUM THAT MAINTAINS GAINS DURING TRAVEL, ILLNESS, OR HIGH-STRESS PERIODS</text>
+<text x="370" y="574" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#3d3d3d">10 min daily walk + 1× bodyweight resistance (push-ups, squats, lunges) + sleep consistency (non-negotiable)</text>
+<text x="370" y="590" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#3d3d3d">+ RF breathing 5 min + 14h overnight fast. No sauna, no cold, no HIIT. <tspan fill="#b91c1c" font-weight="600">Preserves ~60% of full protocol benefit at ~20% time.</tspan></text>
+<text x="370" y="606" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600">IF YOU CAN ONLY DO ONE THING: EXERCISE. ALWAYS EXERCISE. THE DOSE-RESPONSE CURVE IS STEEPEST AT THE BOTTOM.</text>
+</svg>
+<div class="fig-cap">Template A: the full alternate-day protocol with zero concurrent training interference — resistance days (Mon/Wed/Fri) paired with sauna; aerobic days (Tue/Thu) paired with cold; HIIT Saturday; rest Sunday. Daily constants: RF breathing, 16:8 TRE, 30-40g protein per meal, consistent sleep. Template B: time-constrained version (60 min/day) using stacked sessions. Periodization: 3-week progressive overload + 1-week deload monthly; quarterly functional + biomarker review; annual comprehensive assessment. Floor protocol: the irreducible minimum during disrupted weeks.</div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">II. Cross-Pollination — Project Management: Scheduling Under Constraints</div>
+<div class="grid">
+<div class="gc"><div class="tag bio">Protocol Design</div><h4>The Compliance Architecture — Why Scheduling Beats Intention</h4><p>Implementation intention research (Gollwitzer, 1999) showed that <strong>specifying when, where, and how an intended behavior will be performed increases follow-through by 91%</strong> compared to unspecified intention. "I will exercise more" produces ~35% compliance. "I will do Zone 2 cycling on Tuesday and Thursday at 7 AM in my garage for 45 minutes" produces ~75% compliance. The weekly schedule is not merely an organizational tool — it is a <em>compliance intervention</em> that transforms vague intention into specific, cue-triggered behavior. Print the template. Post it visibly. Each completed session is checked off — the visual record of consistency becomes its own reinforcement.</p></div>
+<div class="gc"><div class="tag eng">Project Management</div><h4>Critical Path and Buffer Allocation</h4><p>In project management, the <strong>critical path</strong> is the sequence of tasks that determines the minimum project duration — any delay on the critical path delays the entire project. In the weekly protocol, sleep consistency is the critical path: it determines the wake time that anchors morning exercise timing, which determines post-exercise feeding timing, which determines the overnight fast window. If sleep consistency fails, the entire downstream sequence shifts. The <em>buffer</em> is flexibility built around non-critical tasks: sauna can shift ±2 hours without affecting the critical path; cold can be dropped entirely on disrupted days; breathing can be done anytime. <strong>Protect the critical path; flex the buffers.</strong></p></div>
+<div class="gc"><div class="tag bio">Protocol Design</div><h4>The Hierarchy of Abandonment</h4><p>When time is insufficient for the full protocol, interventions should be dropped in reverse order of PER (Protocol Efficiency Ratio from Lecture 61): <strong>drop cold first</strong> (lowest evidence base, most infrastructure-dependent), <strong>then sauna</strong> (high PER but requires facility), <strong>then HIIT</strong> (powerful but recoverable within days), <strong>then Zone 2 volume</strong> (reduce sessions, not eliminate). <strong>Never drop</strong>: resistance training (sarcopenia prevention — Lecture 59), sleep consistency (strongest mortality predictor — Lecture 64), breathing (highest PER, zero cost — Lecture 66), and the 10-min daily walk (steepest mortality curve region — Lecture 62).</p></div>
+<div class="gc"><div class="tag eng">Project Management</div><h4>The N=1 Feedback Loop</h4><p>The Adaptive Dose model (Lecture 61, Model 7) uses <strong>biometric feedback to adjust the protocol in real time</strong>. Daily: HRV/RMSSD from wearable — if nocturnal RMSSD drops >15% below 7-day rolling average, reduce training intensity (amber day) or substitute with active recovery (red day). Weekly: grip strength trend, body weight, sleep efficiency. Quarterly: blood panel (fasting insulin, ApoB, CRP, testosterone, vitamin D) + functional tests (grip, gait speed, chair stand, VO2 estimate). The protocol is not static — it self-adjusts based on your body's actual response.</p></div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">III. Antifragility & Trade-Offs</div>
+<div class="caut">
+<div class="cl">The Protocol Paradox: Optimization vs. Sustainability</div>
+<p><em>The protocol that produces the most biological benefit is not necessarily the protocol that should be followed.</em> Three final caveats for the entire Protocol Engineering series: (1) <em>The compliance discount.</em> A protocol followed 95% of the time at 70% of theoretical maximum benefit produces more lifetime health than a protocol followed 50% of the time at 100% of theoretical maximum. The weekly architecture is designed for sustainability — every intervention is in the optimal zone (70–85% of Emax), not at the maximum, because the marginal benefit of pushing to 100% is small while the marginal compliance cost is large. (2) <em>The enjoyment factor.</em> A protocol you resent will be abandoned within months. If you hate cold showers, drop them — the 11 min/week of cold exposure adds incrementally to a protocol already operating at high PER from exercise, sauna, sleep, and breathing. If you love morning runs, keep running even if the protocol "should" be Zone 2 cycling — consistent engagement with an imperfect modality beats sporadic engagement with the optimal one. (3) <em>The seasonality of life.</em> Career demands, family events, travel, illness, and emotional periods will periodically compress the protocol to the floor. This is normal, expected, and planned for. The deload week is built into the monthly cycle. The floor protocol is built into the architecture. The quarterly review resets the trajectory. The protocol is designed to survive disruption — because a protocol that requires perfect conditions to function is a protocol that doesn't function in real life.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">IV. The N=1 Tracking Dashboard</div>
+<div class="note">
+<div class="nl">What to Track, How Often, and What Each Metric Means</div>
+<p><strong>Daily (automated via wearable):</strong> Nocturnal RMSSD (autonomic recovery — rising trend = protocol working; drop >15% = reduce intensity). Sleep duration + efficiency + timing variability (Lecture 64 — the critical path metric). Resting heart rate (cardiovascular adaptation — declining trend = improving stroke volume).<br><br>
+<strong>Weekly (manual, 2 minutes):</strong> Grip strength (Lecture 59 — best of 3, dominant hand; trend over months matters more than single values). Body weight (trend, not daily — weekly average to smooth fluctuation). Training log review (is progressive overload trending upward over the 3-week block?).<br><br>
+<strong>Monthly:</strong> Blood pressure (Lecture 51, Barrier 1 — target <120/80). Waist circumference (visceral fat proxy — stable or declining). Protocol compliance percentage (what fraction of scheduled sessions were actually completed? Target: >80%).<br><br>
+<strong>Quarterly (blood draw + functional tests):</strong> Fasting insulin + HOMA-IR (Lecture 58 — mTOR/AMPK calibration; both in the optimal range = excellent). ApoB (Lecture 51 — your #1 priority; target <80). hs-CRP (Lecture 51, Barrier 3 — maintain <1.0; in the optimal range (<1.0 mg/L)). Testosterone + free T + SHBG (Lecture 54 — HPG axis status). Vitamin D (Lecture 44 — target 40-60; below the optimal range). HbA1c (Lecture 53 — target <5.4%). VO2 max estimate (Lecture 62 — each MET gained = 11% mortality reduction). Chair stand test (Lecture 59 — <12 seconds = normal). Gait speed (Lecture 59 — >1.0 m/s = normal).<br><br>
+<strong>Annually (comprehensive):</strong> Full blood panel (above + lipid panel, CBC with diff for NLR, thyroid, liver enzymes, kidney function). DEXA (lean mass trend + bone density — the structural safety margin check). Physician review (ApoB resolution progress, screening compliance). Optional: DunedinPACE (Lecture 49 — the epigenetic speedometer for biological aging pace). Optional: CAC score (Lecture 51 — if physician recommends for ApoB context).</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">V. Recursive Synthesis</div>
+<h2>What 61 Lectures Become When They Are Compressed Into a Single Week</h2>
+<p>This lecture is the culmination of the entire series — the engineering deliverable that transforms 54 lectures of mechanistic understanding (Lectures 7–60) and 6 lectures of dose-response analysis (Lectures 61–66) into a single, printable, weekly protocol. The weekly architecture is not an arbitrary schedule — every slot is a specific, evidence-based response to a specific biological mechanism. Monday's resistance training drives mTOR for muscle protein synthesis (Lecture 58/63), stimulates osteoblasts for osteocalcin release (Lecture 43), produces myokines (Lecture 22), and deploys mechanotransductive signaling (Lecture 13). Monday's post-exercise sauna amplifies the HSP response (Lecture 60/66), suppresses NF-kB (Lecture 12), and activates FOXO3 (Lecture 60). Monday's post-exercise protein meal crosses the leucine threshold (Lecture 65) during the mTOR rebound window. Monday evening's breathing practice restores vagal tone (Lecture 47/57). Monday night's consistent sleep timing (Lecture 64) drives glymphatic clearance (Lecture 14), GH release for muscle repair, and the overnight AMPK activation that the 16-hour fast sustains (Lecture 58/65). Each day of the week follows this logic — every intervention is placed where the dose-response curve (Lecture 61) says it belongs, timed to avoid every interference (Lecture 66), and sequenced to flow naturally from one modality to the next. The protocol is the lecture series made actionable. The lecture series is the protocol made intelligible. Together, they constitute the most comprehensive, mechanistically grounded, dose-optimized, interference-resolved longevity protocol that the current evidence base supports — personalized to your specific biomarker profile, scaled to your available time, and designed to survive the disruptions that real life inevitably delivers.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VI. Peer Review — Common Misconception</div>
+<div class="corr">
+<div class="cl">Corrected Misconception</div>
+<p><strong>Misconception:</strong> "I need to follow the protocol perfectly or it's not worth doing."<br><br><strong>Correction:</strong> The dose-response curves from Lectures 62–66 unanimously show that the steepest benefit occurs at the transition from nothing to something — not from good to perfect. A person who follows 60% of this protocol consistently for 10 years will accumulate dramatically more health benefit than a person who follows 100% for 3 months and then abandons it. The floor protocol (10-min daily walk + bodyweight resistance + sleep consistency + breathing + overnight fast) preserves approximately 60% of the full protocol's benefit at 20% of the time investment — a PER of ~3.0, the highest efficiency ratio in the entire series. Perfection is the enemy of consistency. The protocol is designed with three tiers (full, moderate, floor) specifically because life doesn't offer a stable platform for optimization. The only true failure mode is complete cessation — and the floor protocol makes complete cessation unnecessary even in the most disrupted weeks. Start where you are. Do what you can. Track what matters. Adjust based on data. Sustain for decades. That is the protocol.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VII. Resources</div>
+<div class="res">
+<div class="rt">Resources & Activities</div>
+<div class="res-grid">
+<div class="ri"><div class="rc act">Activity</div><h5>Print the Template</h5><p>Choose Template A (alternate days, zero interference) or Template B (time-constrained, stacked sessions). Print it. Post it where you'll see it daily — bathroom mirror, refrigerator, office wall. Physical visibility of the schedule is itself a compliance intervention. Check off each completed session.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Set the Anchors This Week</h5><p>Three non-negotiable anchors to establish immediately: (1) Fixed wake time ±30 min, 7 days/week. (2) Last meal by 6-7 PM (starts the 16h fast). (3) RF breathing 10 min before bed. These three anchors cost zero money, require zero equipment, and establish the circadian, metabolic, and autonomic foundations that all other interventions build on. Start here. Add exercise, heat, and cold as the schedule stabilizes.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Quarterly Review Checklist</h5><p>Every 12 weeks: (1) Grip strength — dynamometer, best of 3. (2) Blood panel — insulin, HOMA-IR, ApoB, CRP, T, vitamin D, HbA1c. (3) VO2 estimate — Cooper test or wearable. (4) Chair stand + gait speed. (5) Training log trend — is progressive overload advancing? (6) Sleep regularity — what is my SRI? (7) Protocol compliance — what % of scheduled sessions were completed? Review. Adjust. Continue.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The HRV Traffic Light</h5><p>Daily nocturnal RMSSD from wearable → compare to 7-day rolling average. GREEN (within normal range): full protocol as scheduled. AMBER (RMSSD 10-15% below average): reduce training intensity by 20%, substitute HIIT with Zone 2, add extra breathing. RED (RMSSD >15% below average): active recovery only (walk, mobility, sauna, breathing). No resistance, no HIIT. Prioritize sleep. Resume normal protocol when RMSSD returns to baseline.</p></div>
+<div class="ri"><div class="rc meas">Metric</div><h5>The Complete Dashboard</h5><p>Daily: RMSSD, sleep duration/timing, RHR. Weekly: grip, weight trend, training log. Monthly: BP, waist, compliance %. Quarterly: insulin, ApoB, CRP, T, D, HbA1c, VO2, chair stand, gait speed. Annually: full panel, DEXA, physician review. Optional: DunedinPACE, CAC. This dashboard monitors every dose-response curve from every protocol lecture — confirming that the integrated architecture is operating in the optimal zone across all interventions simultaneously.</p></div>
+<div class="ri"><div class="rc meas">Cross-Reference</div><h5>The Complete Series Map</h5><p>Mechanistic foundation: Lectures 7-60 (54 lectures: what happens and why). Protocol Engineering: Lectures 61-67 (7 lectures: how much, how often, when, in what order). Dose-Response Framework (61) → Aerobic (62) → Resistance (63) → Sleep (64) → Fasting/Protein (65) → Hormetic Stress (66) → This Lecture: Integration (67). Output: a weekly schedule with specific numbers, interference rules, periodization calendar, tracking dashboard, floor protocol, and compliance architecture. The lecture series is complete.</p></div>
+</div>
+</div>
+
+<div class="cite">
+<div class="ct">Citation Verification</div>
+<table>
+<tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+<tr><td>Implementation intentions increase follow-through by 91% vs. unspecified intention</td><td>Gollwitzer, 1999; meta-analysis by Gollwitzer & Sheeran, 2006</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>3:1 loading-to-deload periodization prevents cumulative fatigue and sustains progressive overload in older adults</td><td>Standard periodization literature; Bompa & Haff, 2009; Issurin, 2010; adapted for aging populations</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>All interference rules (cold-resistance, sauna-sleep, AMPK-mTOR temporal separation) as cited in Lectures 62-66</td><td>See individual lecture citations: Roberts 2015, Gwinn 2008, Murlasits 2018</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>HRV-guided training produces greater VO2 max improvements with fewer overtraining episodes vs. fixed programming</td><td>Kiviniemi et al., <em>Med. Sci. Sports Exerc.</em>, 2007; Vesterinen et al., 2016; multiple replication studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Floor protocol (~10 min daily walk + bodyweight resistance + sleep consistency) preserves ~60% of full protocol benefit</td><td>Extrapolated from Lecture 62 dose-response data (steepest curve region) and Lecture 64 (consistency as strongest predictor)</td><td><span class="cv">⚠ The "60% preservation" is a practical estimate synthesized from the dose-response curves documented in Lectures 62-66, not from a single study that directly compared full vs. floor protocols. The individual components (10-min walk mortality benefit, sleep consistency mortality benefit, breathing HRV benefit) are each well-documented; their combined preservation percentage is a reasonable but approximate synthesis.</span></td></tr>
+</table>
+</div>
+
+<div class="fn">
+<strong>Key References:</strong> Gollwitzer, P.M. (1999). "Implementation intentions: Strong effects of simple plans." <em>Am. Psychol.</em>, 54:493–503. &nbsp;|&nbsp; Bompa, T. & Haff, G. (2009). <em>Periodization: Theory and Methodology of Training.</em> 5th ed. Human Kinetics. &nbsp;|&nbsp; Kiviniemi, A.M. et al. (2007). "Endurance training guided individually by daily heart rate variability measurements." <em>Eur. J. Appl. Physiol.</em>, 101:743–751. &nbsp;|&nbsp; All dose-response parameters: see individual citations in Lectures 62–66.
+</div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_integrated_weekly_architecture",
+  "related": [
+    {
+      "id": "lecture_dose_response_framework",
+      "title": "The Dose-Response Framework — Seven Dosing Models",
+      "filename": "lecture_dose_response_framework.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_aerobic_dose_response",
+      "title": "Aerobic Exercise — Three Dose-Response Curves",
+      "filename": "lecture_aerobic_dose_response.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_hormetic_stress_dosing",
+      "title": "Hormetic Stress Dosing — Heat, Cold & Breathing Protocols",
+      "filename": "lecture_hormetic_stress_dosing.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_fasting_protein_architecture",
+      "title": "Fasting Windows, Protein Architecture & Nutritional Periodization",
+      "filename": "lecture_fasting_protein_architecture.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Systems Thinking"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

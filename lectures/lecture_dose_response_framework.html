@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 61: The Dose-Response Framework — Seven Dosing Models</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--graphite:#27272a;--graphite-dim:rgba(39,39,42,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--graphite) 0%,var(--blue) 50%,var(--green) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--graphite);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--graphite);margin-bottom:20px;}
+  .ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'DM Serif Text',serif;font-size:38px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--graphite);}
+  .sub{font-family:'DM Serif Text',serif;font-size:17px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.5;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--graphite);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--graphite);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:8px;height:3px;background:var(--graphite);border-radius:1px;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--graphite);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--graphite);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--graphite);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--graphite);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--graphite);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--graphite);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Imports pharmacology's dose-response mathematics into lifestyle medicine — every intervention has a shape, a ceiling, and seven distinct dosing models that transform mechanism knowledge into a precise prescription.">
+<meta property="og:title" content="The Dose-Response Framework — Seven Dosing Models — Longevity & Wellness">
+<meta property="og:description" content="Imports pharmacology's dose-response mathematics into lifestyle medicine — every intervention has a shape, a ceiling, and seven distinct dosing models that transform mechanism knowledge into a precise prescription.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_dose_response_framework.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Dose-Response Framework — Seven Dosing Models — Longevity & Wellness">
+<meta name="twitter:description" content="Imports pharmacology's dose-response mathematics into lifestyle medicine — every intervention has a shape, a ceiling, and seven distinct dosing models that transform mechanism knowledge into a precise prescription.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">61</div>
+    <div class="stag">Interdisciplinary Lecture Series — Protocol Engineering &middot; No. 61</div>
+    <h1>The Dose-Response Framework <span class="a">— Seven Models for Prescribing Longevity</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">Fifty-Four Lectures Answered "Why." This Lecture — the First of Seven in the Protocol Engineering Series — Answers "How Much." Every Lifestyle Intervention Has a Dose-Response Curve With a Shape, a Slope, an Inflection Point, and a Ceiling. Pharmacology Has Spent a Century Developing the Mathematics to Characterize These Curves — EC₅₀, E<sub>max</sub>, Therapeutic Window, Sigmoid Modeling. This Lecture Imports That Pharmacological Precision Into Lifestyle Medicine, Establishing the Seven Dosing Frameworks That Transform Mechanistic Understanding Into Actionable Protocol</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Pharmacodynamics / Systems Optimization (Hill 1910; Calabrese 2005; Arem 2015)</div>
+      <div><span class="hl">Bridge:</span> Clinical Pharmacology — Sigmoid E<sub>max</sub> Modeling &amp; Therapeutic Windows</div>
+      <div><span class="hl">Series:</span> Protocol Engineering 1 of 7 — The Conceptual Lens</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- CORE CONCEPT -->
+  <div class="sn">I. The Core Concept — Why "More Is Better" Is Wrong, and "Some Is Enough" Is Also Wrong</div>
+  <h2>The Shape of the Curve Determines the Prescription</h2>
+
+  <p>Every intervention the series has documented — exercise, sleep, fasting, heat stress, cold exposure, social engagement, cognitive challenge — produces a biological response that varies as a function of dose (intensity, duration, frequency, or volume). The relationship between dose and response is never linear. It follows a curve — and the <em>shape</em> of that curve contains all the information needed to determine how much, how often, and when to stop. Pharmacology formalized this insight a century ago through the <span class="k">dose-response curve</span> <span class="def">(a graphical representation of the relationship between the dose of a substance (x-axis, typically logarithmic) and the magnitude of the biological response it produces (y-axis, typically percentage of maximum), characterized by four parameters: baseline (E₀ — the response at zero dose), maximum effect (E<sub>max</sub> — the ceiling), potency (EC₅₀ — the dose producing 50% of E<sub>max</sub>), and slope (the Hill coefficient — how steeply the response changes near EC₅₀))</span>. These four parameters — baseline, ceiling, potency, and slope — describe every drug's behavior. This lecture argues that they describe every lifestyle intervention's behavior with equal precision.</p>
+
+  <p>The critical insight: <em>different biological endpoints produce different curves from the same intervention</em>. Exercise has one dose-response curve for all-cause mortality (logarithmic — steep initial benefit, gradual flattening, no confirmed reversal at high doses), a different curve for VO₂ max (sigmoidal — requires a minimum threshold intensity, has a clear ceiling), a different curve for muscle hypertrophy (approximately linear up to ~20 sets/muscle group/week, then flat), and a different curve for cortisol (inverted-U — moderate exercise reduces cortisol, extreme exercise elevates it). Asking "what is the optimal dose of exercise?" without specifying <em>which endpoint you're optimizing for</em> is like asking "what is the optimal dose of aspirin?" without specifying whether you mean pain relief, antiplatelet effect, or anti-inflammatory action — the same molecule, three different EC₅₀ values, three different E<sub>max</sub> ceilings, three different therapeutic windows. The first principle of protocol engineering: <em>choose the endpoint, then read the curve</em>.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- CURVE SHAPES -->
+  <div class="sn">II. Four Curve Shapes — and What Each Means for Dosing</div>
+  <h2>Logarithmic, Sigmoidal, U-Shaped, and Threshold — Each Demands a Different Protocol Strategy</h2>
+
+  <p><em>Shape 1: Logarithmic (steep initial gain, gradual flattening, no reversal).</em> The dose-response curve for physical activity and all-cause mortality. The greatest difference in mortality rates occurs among inactive and minimally active individuals — the first 15 minutes of daily exercise produces a larger per-minute mortality reduction than any subsequent 15-minute block. The curve flattens progressively but <em>never reverses</em> — even at very high volumes, no confirmed increase in all-cause mortality has been demonstrated in the general population. The protocol implication: the MED is extremely low (any movement is dramatically better than none), the optimal dose is in the steep-to-flat transition zone (150–300 min/week of moderate activity), and there is no confirmed MTD for all-cause mortality. This curve shape rewards consistency over intensity — the person who walks 30 minutes daily, every day, captures more of the curve than the person who runs a marathon once a month.</p>
+
+  <p><em>Shape 2: Sigmoidal (threshold → steep linear → plateau).</em> The classic pharmacological curve — and the shape of many specific physiological adaptations. VO₂ max improvement follows a sigmoid: below a threshold intensity (~60% max HR), minimal adaptation occurs (the lag phase); between 60–85% max HR, adaptation increases steeply with dose (the linear phase); above the ceiling (genetically determined VO₂ max potential), additional training volume produces diminishing returns (the plateau). Muscle protein synthesis follows a sigmoid per-meal response: below ~1.5g leucine, minimal MPS activation (threshold); between 1.5–3g leucine (20–40g protein), steep increase; above ~3g leucine (~40g protein), MPS is saturated for that meal (ceiling) and excess amino acids are oxidized. The protocol implication: you must exceed the threshold to get any response, but exceeding the ceiling wastes resources. The EC₅₀ (the dose producing 50% of maximum) is the most efficient operating point — not maximum benefit, but maximum benefit per unit of input.</p>
+
+  <p><em>Shape 3: Inverted-U / J-curve (benefit at moderate doses, harm at extremes).</em> The hormetic curve documented in Lecture 11 — and the shape of several critical longevity variables. Sleep duration follows a U-curve: mortality risk increases below 6 hours <em>and</em> above 9 hours, with the nadir at 7–8.5 hours. The exercise-cortisol relationship follows an inverted-U: moderate exercise reduces cortisol, extreme overtraining elevates it. The exercise-immune relationship may follow a J-curve (the "open window" hypothesis): moderate exercise enhances NK cell function, extreme sustained exercise transiently immunosuppresses. The protocol implication: there is both a MED <em>and</em> an MTD, and exceeding the MTD produces harm rather than diminishing returns. The therapeutic window — the range between MED and MTD — defines the safe operating zone.</p>
+
+  <p><em>Shape 4: Threshold with binary transition (no response → full response).</em> Some physiological responses are effectively all-or-nothing: either the threshold is crossed and the response activates, or it isn't and nothing happens. Autophagy activation in humans appears to have a threshold character — fasting below ~16–18 hours may not produce measurable autophagy marker elevation, but exceeding the threshold produces a full autophagic response. The core temperature threshold for HSP activation (~38.5°C / 101°F) is similarly binary — below it, no heat shock response; above it, HSPs are deployed. The protocol implication: sub-threshold dosing is wasted effort; the MED <em>is</em> the threshold, and exceeding it produces diminishing (not additional) returns.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Four Dose-Response Curve Shapes × Seven Dosing Models</div>
+    <svg viewBox="0 0 740 520" xmlns="http://www.w3.org/2000/svg">
+      <!-- Title -->
+      <text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#27272a" font-weight="600" letter-spacing="1.5">FOUR CURVE SHAPES THAT GOVERN ALL LONGEVITY INTERVENTIONS</text>
+      <!-- Curve 1: Logarithmic -->
+      <rect x="20" y="32" width="170" height="168" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="105" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600" letter-spacing="1">LOGARITHMIC</text>
+      <!-- Axes -->
+      <line x1="40" y1="64" x2="40" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="40" y1="178" x2="172" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="36" y="72" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">100%</text>
+      <text x="36" y="178" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">0</text>
+      <text x="106" y="192" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">DOSE →</text>
+      <!-- Curve -->
+      <path d="M42,176 Q60,100 80,88 Q110,76 140,72 L170,70" fill="none" stroke="#15803d" stroke-width="2"/>
+      <!-- MED annotation -->
+      <line x1="60" y1="100" x2="60" y2="182" stroke="#15803d" stroke-width=".5" stroke-dasharray="2,2"/>
+      <text x="62" y="188" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">MED</text>
+      <text x="105" y="130" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Steep initial gain</text>
+      <text x="105" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Never reverses</text>
+      <text x="105" y="158" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">Exercise → mortality</text>
+      <text x="105" y="168" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">Physical activity → CVD</text>
+      <!-- Curve 2: Sigmoidal -->
+      <rect x="200" y="32" width="170" height="168" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="285" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600" letter-spacing="1">SIGMOIDAL</text>
+      <line x1="220" y1="64" x2="220" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="220" y1="178" x2="352" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="216" y="72" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">E<tspan font-size="5" dy="-3">max</tspan><tspan dy="3"></tspan></text>
+      <path d="M222,176 L250,174 Q270,170 280,150 Q290,110 300,90 Q310,76 330,72 L350,70" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+      <!-- EC50 -->
+      <line x1="290" y1="125" x2="290" y2="182" stroke="#1d4ed8" stroke-width=".5" stroke-dasharray="2,2"/>
+      <line x1="220" y1="125" x2="290" y2="125" stroke="#1d4ed8" stroke-width=".5" stroke-dasharray="2,2"/>
+      <text x="292" y="188" font-family="Source Code Pro,monospace" font-size="5.5" fill="#1d4ed8" font-weight="600">EC₅₀</text>
+      <text x="285" y="130" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Threshold → steep → plateau</text>
+      <text x="285" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Must exceed threshold</text>
+      <text x="285" y="158" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#1d4ed8" font-weight="600">VO₂ max, MPS per meal</text>
+      <text x="285" y="168" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#1d4ed8" font-weight="600">HRV training response</text>
+      <!-- Curve 3: Inverted-U -->
+      <rect x="380" y="32" width="170" height="168" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="465" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600" letter-spacing="1">INVERTED-U</text>
+      <line x1="400" y1="64" x2="400" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="400" y1="178" x2="532" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <path d="M402,176 Q420,130 445,80 Q465,68 485,80 Q510,130 530,176" fill="none" stroke="#b91c1c" stroke-width="2"/>
+      <!-- Therapeutic window -->
+      <line x1="428" y1="100" x2="502" y2="100" stroke="#15803d" stroke-width="1"/>
+      <text x="465" y="96" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#15803d" font-weight="600">THERAPEUTIC WINDOW</text>
+      <line x1="428" y1="100" x2="428" y2="182" stroke="#b91c1c" stroke-width=".5" stroke-dasharray="2,2"/>
+      <line x1="502" y1="100" x2="502" y2="182" stroke="#b91c1c" stroke-width=".5" stroke-dasharray="2,2"/>
+      <text x="428" y="190" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">MED</text>
+      <text x="502" y="190" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b91c1c" font-weight="600">MTD</text>
+      <text x="465" y="130" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Harm at both extremes</text>
+      <text x="465" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">MED and MTD both exist</text>
+      <text x="465" y="158" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600">Sleep duration, cortisol</text>
+      <text x="465" y="168" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600">Exercise → immune</text>
+      <!-- Curve 4: Threshold -->
+      <rect x="560" y="32" width="160" height="168" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="640" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600" letter-spacing="1">THRESHOLD</text>
+      <line x1="580" y1="64" x2="580" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="580" y1="178" x2="702" y2="178" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="582" y1="176" x2="638" y2="176" stroke="#b45309" stroke-width="2"/>
+      <line x1="638" y1="176" x2="642" y2="72" stroke="#b45309" stroke-width="2"/>
+      <line x1="642" y1="72" x2="700" y2="70" stroke="#b45309" stroke-width="2"/>
+      <line x1="640" y1="176" x2="640" y2="182" stroke="#b45309" stroke-width=".5" stroke-dasharray="2,2"/>
+      <text x="640" y="190" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b45309" font-weight="600">THRESHOLD</text>
+      <text x="640" y="130" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Nothing → everything</text>
+      <text x="640" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Sub-threshold = wasted</text>
+      <text x="640" y="158" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">HSP activation (38.5°C)</text>
+      <text x="640" y="168" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">Autophagy (~16–18h fast)</text>
+
+      <!-- SEVEN DOSING MODELS -->
+      <text x="370" y="228" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#27272a" font-weight="600" letter-spacing="1.5">SEVEN DOSING MODELS — EACH READS THE CURVE DIFFERENTLY</text>
+      <!-- Model boxes -->
+      <rect x="20" y="244" width="200" height="60" rx="3" fill="rgba(21,128,61,0.03)" stroke="#15803d" stroke-width="1"/>
+      <text x="120" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">1. MINIMAL EFFECTIVE DOSE</text>
+      <text x="120" y="278" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#3d3d3d">Smallest dose producing measurable response.</text>
+      <text x="120" y="294" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">For: time-constrained, starting from zero</text>
+
+      <rect x="230" y="244" width="200" height="60" rx="3" fill="rgba(29,78,216,0.03)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="330" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#1d4ed8" font-weight="600">2. OPTIMAL DOSE (EC₅₀ ZONE)</text>
+      <text x="330" y="278" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#3d3d3d">Maximum benefit per unit of input invested.</text>
+      <text x="330" y="294" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">For: sustainable long-term protocol</text>
+
+      <rect x="440" y="244" width="280" height="60" rx="3" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+      <text x="580" y="262" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600">3. MAXIMUM TOLERABLE DOSE</text>
+      <text x="580" y="278" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#3d3d3d">Highest dose before benefits plateau or reverse.</text>
+      <text x="580" y="294" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">For: aggressive optimization, athletes. Risk: overtraining</text>
+
+      <rect x="20" y="314" width="200" height="60" rx="3" fill="rgba(180,83,9,0.03)" stroke="#b45309" stroke-width="1"/>
+      <text x="120" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b45309" font-weight="600">4. CHRONODOSE</text>
+      <text x="120" y="348" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#3d3d3d"><tspan font-style="italic">When</tspan> you do it changes <tspan font-style="italic">what</tspan> it does.</text>
+      <text x="120" y="364" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">For: same effort, better result via timing</text>
+
+      <rect x="230" y="314" width="200" height="60" rx="3" fill="rgba(88,28,135,0.03)" stroke="#581c87" stroke-width="1"/>
+      <text x="330" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#581c87" font-weight="600">5. STACKING DOSE</text>
+      <text x="330" y="348" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#3d3d3d">Sub-optimal doses combine for supra-additive effect.</text>
+      <text x="330" y="364" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">For: multi-pathway activation in limited time</text>
+
+      <rect x="440" y="314" width="140" height="60" rx="3" fill="rgba(6,95,70,0.03)" stroke="#065f46" stroke-width="1"/>
+      <text x="510" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#065f46" font-weight="600">6. PERIODIZED</text>
+      <text x="510" y="348" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#3d3d3d">Cycling load + recovery</text>
+      <text x="510" y="364" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">For: avoiding adaptation</text>
+
+      <rect x="590" y="314" width="130" height="60" rx="3" fill="rgba(39,39,42,0.03)" stroke="#27272a" stroke-width="1"/>
+      <text x="655" y="332" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600">7. ADAPTIVE</text>
+      <text x="655" y="348" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#3d3d3d">N=1 biomarker-driven</text>
+      <text x="655" y="364" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">For: personalized tuning</text>
+
+      <!-- The Endpoint Problem -->
+      <rect x="20" y="394" width="700" height="118" rx="4" fill="rgba(39,39,42,0.03)" stroke="#27272a" stroke-width="1.5"/>
+      <text x="370" y="414" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#27272a" font-weight="600" letter-spacing="1.5">THE ENDPOINT PROBLEM: SAME INTERVENTION, DIFFERENT OPTIMAL DOSES</text>
+      <line x1="30" y1="424" x2="710" y2="424" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="180" y="440" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600">ENDPOINT</text>
+      <text x="420" y="440" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600">OPTIMAL DOSE (EXERCISE)</text>
+      <text x="630" y="440" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#27272a" font-weight="600">CURVE SHAPE</text>
+      <line x1="30" y1="446" x2="710" y2="446" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="180" y="462" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#3d3d3d">All-cause mortality</text>
+      <text x="420" y="462" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9.5" fill="#15803d" font-weight="600">150–300 min/wk moderate</text>
+      <text x="630" y="462" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#71717a">Logarithmic</text>
+      <text x="180" y="478" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#3d3d3d">VO₂ max improvement</text>
+      <text x="420" y="478" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9.5" fill="#1d4ed8" font-weight="600">3–5×/wk Z2 + 1–2×/wk HIIT</text>
+      <text x="630" y="478" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#71717a">Sigmoidal</text>
+      <text x="180" y="494" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#3d3d3d">Hippocampal volume</text>
+      <text x="420" y="494" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9.5" fill="#065f46" font-weight="600">120 min/wk walking (Erickson)</text>
+      <text x="630" y="494" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#71717a">Logarithmic (low MED)</text>
+      <text x="180" y="510" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" fill="#3d3d3d">Immune function (NK)</text>
+      <text x="420" y="510" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9.5" fill="#b91c1c" font-weight="600">Moderate; excess → suppression</text>
+      <text x="630" y="510" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#71717a">Inverted-U</text>
+    </svg>
+    <div class="fig-cap">Top: four dose-response curve shapes that govern all longevity interventions — each with distinct dosing implications. Center: seven dosing models, each reading the same curve through a different optimization lens. Bottom: the endpoint problem — the same intervention (exercise) has different optimal doses depending on which biological outcome is being optimized, because each endpoint follows a different curve shape.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- CROSS-POLLINATION -->
+  <div class="sn">III. Cross-Pollination — Clinical Pharmacology: Why Lifestyle Interventions Are Drugs Without Package Inserts</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Lifestyle Medicine</div><h4>The Therapeutic Window Applied to Exercise</h4><p>In pharmacology, the <strong>therapeutic window</strong> is the dose range between the MED (where benefit begins) and the MTD (where toxicity begins). Drugs with narrow therapeutic windows (digoxin, warfarin, lithium) require careful titration; drugs with wide windows (amoxicillin, ibuprofen) are more forgiving. Exercise for all-cause mortality has an <strong>extremely wide therapeutic window</strong> — the MED is ~15 min/day and no confirmed MTD has been established for the general population. This makes exercise the pharmacological equivalent of a drug with a massive safety margin. Sleep, by contrast, has a <strong>narrow therapeutic window</strong> — the U-curve means that both too little (below 6h) and too much (above 9h) increase mortality risk, with the optimal range compressed into a 2.5-hour window.</p></div>
+    <div class="gc"><div class="tag eng">Clinical Pharmacology</div><h4>EC₅₀ as the Efficiency Optimum</h4><p>The EC₅₀ — the dose producing 50% of maximum effect — is the <strong>most information-rich point on any dose-response curve</strong>. Below EC₅₀, each additional unit of dose produces a large marginal gain. Above EC₅₀, each additional unit produces a smaller marginal gain. The EC₅₀ is therefore the <em>efficiency frontier</em> — the point where benefit-per-unit-of-input peaks. For a person optimizing across multiple interventions simultaneously (exercise + sleep + fasting + heat + cold + breathing), operating at the EC₅₀ of each allows the time budget to accommodate all six — whereas operating at the E<sub>max</sub> of any one would consume the time budget entirely.</p></div>
+    <div class="gc"><div class="tag bio">Lifestyle Medicine</div><h4>The Polypharmacy Problem — Stacking Interactions</h4><p>Pharmacology recognizes that <strong>combining multiple drugs produces interactions</strong> — synergistic (1+1=3), additive (1+1=2), or antagonistic (1+1=0.5). Lifestyle interventions interact similarly: exercise + sauna is synergistic for HSP70 (Lecture 60). Exercise + fasting is synergistic for AMPK (Lecture 58). But cold immersion + resistance training is <em>antagonistic</em> — cold suppresses the IL-6 signal needed for hypertrophic adaptation. Protocol engineering requires the same interaction awareness that polypharmacy requires — Lecture 66 will map these interactions systematically.</p></div>
+    <div class="gc"><div class="tag eng">Clinical Pharmacology</div><h4>Tachyphylaxis — Why the Body Stops Responding</h4><p>In pharmacology, <strong>tachyphylaxis</strong> is the rapid decrease in response to a drug after repeated doses — the receptors downregulate or desensitize. The biological equivalent: <em>adaptation</em>. The same training stimulus that produced gains in month one produces no gains in month four because the body has adapted to the load. Periodized dosing (Model 6) prevents tachyphylaxis by cycling stimulus intensity — the sports science principle of progressive overload + deload weeks. This applies equally to exercise, fasting (metabolic adaptation to chronic caloric restriction), heat exposure (thermoregulatory acclimatization), and cognitive challenge (the learning plateau).</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- ANTIFRAGILITY -->
+  <div class="sn">IV. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Limits of Applying Pharmacological Precision to Lifestyle Interventions</div>
+    <p><em>The framework is powerful but the data resolution is lower than pharmaceutical dose-response data.</em> Five caveats that prevent naive application: (1) <em>Individual variation dwarfs population means.</em> A drug's EC₅₀ varies ~2–3× between individuals; lifestyle intervention responses vary ~5–10×. Your optimal exercise dose may be 60% or 140% of the population mean. The seven dosing models identify the correct <em>region</em> of the curve, not the precise point. (2) <em>Multiple endpoints mean multiple curves — and they conflict.</em> The exercise dose that optimizes VO₂ max (high volume, high intensity) exceeds the dose that optimizes immune function (moderate volume, moderate intensity). You cannot simultaneously operate at the E<sub>max</sub> of every endpoint. Protocol engineering is the art of choosing which endpoints to optimize, which to satisfice (operate above MED but below optimal), and which to accept at whatever level the other optimizations produce. (3) <em>The curves shift with age, fitness, and metabolic state.</em> A sedentary 55-year-old has a different MED, EC₅₀, and MTD than a trained 55-year-old — the curve itself changes as the organism adapts. Static prescriptions based on population curves will be wrong for any specific individual at any specific time. (4) <em>Measurement precision limits curve resolution.</em> Unlike pharmaceutical trials (where plasma drug concentration can be measured to ng/mL precision), lifestyle intervention doses are measured imprecisely — "moderate exercise" can mean HR 110 or HR 140, and the difference matters for which curve shape applies. (5) <em>Compliance modifies effective dose.</em> The optimal dose that is followed 40% of the time produces less benefit than the sub-optimal dose followed 95% of the time. The best protocol is the one that is <em>actually performed</em> — a principle that no dose-response curve captures.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- 24-HOUR PROTOCOL -->
+  <div class="sn">V. The 24-Hour Protocol</div>
+  <div class="note">
+    <div class="nl">Minimum Viable Action &amp; Tracking Metric</div>
+    <p><strong>Action:</strong> Before implementing any protocol from Lectures 62–67, perform this diagnostic: <em>identify which curve shape governs each intervention you currently practice, and estimate where on that curve you currently operate.</em> For each of the six core interventions (aerobic exercise, resistance training, sleep, fasting/nutrition, heat stress, breathing/recovery), answer three questions: (1) What is my current dose? (minutes/week, sessions/week, hours/night, fasting window length, sauna frequency, breathing practice duration.) (2) What is the MED for my primary endpoint? (Use the specific values provided in Lectures 62–67 for each intervention.) (3) Am I below MED (wasting effort on sub-threshold dosing), between MED and optimal (the efficiency zone), between optimal and MTD (diminishing returns), or above MTD (potential harm)? This self-assessment takes 15 minutes and produces the most actionable diagnostic the series has ever offered — it tells you, for each intervention, whether to <em>increase dose</em> (below MED), <em>maintain dose</em> (in the optimal zone), <em>redirect effort</em> (above optimal — time could be better spent on an under-dosed intervention), or <em>reduce dose</em> (above MTD). The subsequent six lectures will provide the specific curve parameters for each assessment.<br><br><strong>Metric:</strong> <em>The Protocol Efficiency Ratio (PER)</em> — a self-calculated index: for each intervention, estimate the percentage of E<sub>max</sub> you're currently achieving (based on your dose vs. the population curve) divided by the percentage of your weekly time budget you're investing. A PER >1 means you're getting more benefit per unit of time than the average protocol; a PER <1 means you're in diminishing returns territory and could reallocate time to an under-dosed intervention. The goal: maximize total benefit across all interventions, not maximize any single intervention — the portfolio optimization approach, not the single-stock approach.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RECURSIVE SYNTHESIS -->
+  <div class="sn">VI. Recursive Synthesis</div>
+  <h2>How the Dose-Response Framework Transforms the Mechanistic Series Into Actionable Protocol</h2>
+
+  <p>Lectures 7–60 built the mechanistic library — 54 lectures documenting <em>what</em> happens inside the body as it ages and <em>why</em> specific interventions modulate those mechanisms. This lecture — and the six that follow — transforms that library from understanding into prescription. The hormesis lecture (11) established that controlled stress is beneficial — but didn't specify <em>how much stress</em>. The mTOR/AMPK lecture (58) established the growth-maintenance oscillation — but didn't specify <em>how long to fast</em>. The HRV lecture (47) established that vagal tone can be trained — but didn't specify <em>how many minutes of breathing practice are needed</em>. The sauna lecture (60) cited the KIHD frequency gradient — but didn't resolve the optimal session duration or temperature for a person in their fifties with your specific biomarker profile. The dose-response framework is the bridge between mechanism and protocol. Each of the following six lectures will import a specific intervention into this framework, identify the curve shape for each endpoint, mark the MED / EC₅₀ / MTD on each curve, and produce a specific, numeric, evidence-based prescription — not a range, not a guideline, but a <em>protocol</em> with the pharmacological precision that the quality of the underlying evidence supports. The output of Lectures 61–67 is not more understanding — it is a <em>weekly schedule with numbers</em>.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- PEER REVIEW -->
+  <div class="sn">VII. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "If some exercise is good, more exercise is always better — there's no such thing as too much."<br><br><strong>Correction:</strong> The dose-response curve for exercise varies by endpoint — and for some endpoints, it is not monotonically increasing. All-cause mortality follows a logarithmic curve that flattens but does not reverse — <em>for the general population, more exercise is never associated with increased all-cause mortality</em>. But this is not true for all endpoints. The exercise-cortisol relationship follows an inverted-U: chronic overtraining (>90 min/day of high-intensity endurance without adequate recovery) elevates resting cortisol, suppresses the HPA axis recovery documented in Lecture 40, and impairs sleep architecture (Lecture 37/64). The exercise-immune relationship may follow a J-curve: ultra-endurance athletes show transient immunosuppression in the 3–72 hours post-extreme effort (the "open window"), with increased upper respiratory infection rates during heavy training blocks. Atrial fibrillation risk is elevated in lifelong endurance athletes — a cardiovascular "excess dose" effect. The correct statement is: "For most endpoints, the optimal exercise dose is higher than most people achieve; for a few endpoints, it is lower than elite athletes practice." The dose-response framework replaces the binary "more is better / less is enough" debate with the precise, endpoint-specific curve reading that both statements oversimplify.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RESOURCES -->
+  <div class="sn">VIII. Resources &amp; Activities</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Arem et al. (2015)</h5><p>"Leisure time physical activity and mortality: a detailed pooled analysis of the dose-response relationship." <em>JAMA Intern. Med.</em>, 175:959–967. The pooled cohort (n=661,137) that definitively mapped the exercise-mortality dose-response curve: steep initial benefit, gradual flattening, no confirmed reversal at high doses. The empirical foundation for the logarithmic curve shape.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Calabrese &amp; Baldwin (2002)</h5><p>"Defining hormesis." <em>Hum. Exp. Toxicol.</em>, 21:91–97. The formal definition of the hormetic dose-response relationship — the inverted-U that governs heat stress, cold exposure, exercise-immune interactions, and every other controlled-stress intervention in the series.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Self-Assessment: Where Am I on Each Curve?</h5><p>For each of the six core interventions (aerobic, resistance, sleep, fasting, heat, breathing), estimate your current weekly dose and identify whether you're below MED, in the optimal zone, in diminishing returns, or above MTD. This 15-minute diagnostic produces the most actionable output of any activity in the series — it tells you exactly where to increase, maintain, redirect, or reduce effort.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Choose Your Primary Endpoint</h5><p>The same intervention has different optimal doses for different endpoints. Before setting your protocol, explicitly choose which 2–3 endpoints matter most to you: all-cause mortality (logarithmic curve — favors consistency over intensity), VO₂ max (sigmoidal — favors structured training), cognitive protection (low MED — favors moderate daily activity), or muscle preservation (sigmoidal — favors progressive resistance). Your endpoint priority determines which curve you optimize against.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The Protocol Efficiency Ratio</h5><p>For each intervention: estimated % of E<sub>max</sub> achieved ÷ % of weekly time budget invested. PER >1 = efficient (getting more than proportional benefit). PER <1 = diminishing returns (time could be reallocated). The goal: maximize total PER across all six interventions — portfolio optimization, not single-asset maximization.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The Pharmacological Vocabulary</h5><p>EC₅₀ (dose for 50% of max effect — the efficiency optimum). E<sub>max</sub> (maximum achievable response — the ceiling). MED (smallest dose producing measurable response). MTD (highest dose before reversal). Therapeutic window (range between MED and MTD). Hill coefficient (curve steepness — steep = narrow effective range; shallow = wide effective range). These terms will be used precisely in Lectures 62–67.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>PER + Endpoint Dashboard</h5><p>Protocol Efficiency Ratio for each intervention (self-calculated, quarterly). Primary endpoint biomarkers: VO₂ max (aerobic fitness), grip strength (muscular), HRV/RMSSD (autonomic), sleep efficiency/SWS% (recovery), fasting insulin/HOMA-IR (metabolic), hs-CRP (inflammatory). Each biomarker tracks a different dose-response curve — together they confirm whether the protocol is operating in the optimal zone or drifting into under- or over-dosing.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Series Integration</h5><p>Hormesis (Lec 11) → the inverted-U curve shape. mTOR/AMPK (Lec 58) → the fasting dose threshold for AMPK activation. HRV (Lec 47) → the breathing dose-response for vagal training. Sauna (Lec 60) → the KIHD frequency gradient as a dose-response curve. Sarcopenia (Lec 59) → the resistance training volume threshold. All disease architectures (50–53) → exercise appears in every minimum cut set — but at different doses for different disease endpoints.</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>Exercise-mortality dose-response is logarithmic: steep initial benefit, gradual flattening, no confirmed reversal at high doses</td><td>Arem et al., <em>JAMA Intern. Med.</em>, 2015;175:959–967 (n=661,137); replicated in multiple large cohorts</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Greatest mortality risk reduction occurs among inactive → minimally active individuals; curve flattens at higher doses</td><td>Geidl et al., <em>IJBNPA</em>, 2020;17:109; Ekelund et al., <em>BMJ</em>, 2019;366:l4570</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Sleep duration follows a U-curve: increased mortality risk below 6h and above 9h; nadir at 7–8.5h</td><td>Cappuccio et al., <em>Sleep</em>, 2010;33:585–592 (meta-analysis, n=1.3M); multiple replications</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Sigmoid E<sub>max</sub> model: E₀ (baseline), E<sub>max</sub> (ceiling), EC₅₀ (50% of max), Hill coefficient (slope)</td><td>Hill, 1910; Holford &amp; Sheiner, 1981; standard pharmacodynamic model across all textbooks</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Muscle protein synthesis per-meal follows sigmoid: threshold at ~1.5g leucine, saturation at ~3g leucine (~30–40g protein)</td><td>Moore et al., <em>J. Gerontol.</em>, 2015; Burd et al., 2012; multiple MPS dose-response studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Exercise-cortisol follows inverted-U: moderate exercise reduces cortisol; chronic overtraining elevates it</td><td>Hackney &amp; Walz, 2013; reviewed in multiple exercise endocrinology sources</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Optimal exercise dose for quality of life: ~850 METs-min/week with diminishing returns beyond 1,100 METs-min/week</td><td>Xiong et al., <em>Front. Oncol.</em>, 2024;14:1510578 (Bayesian network meta-analysis)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Autophagy activation in humans requires ~16–18 hours fasting for measurable marker elevation</td><td>Limited human data; extrapolated from LC3-II/p62 measurements in fasting studies</td><td><span class="cv">⚠ The precise fasting duration threshold for autophagy activation in humans is not definitively established. The ~16–18h figure is extrapolated from limited human biomarker studies and extensive animal data. Non-invasive human autophagy measurement remains technically challenging, and the threshold likely varies by tissue, age, fitness level, and baseline metabolic state.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Arem, H. et al. (2015). "Leisure time physical activity and mortality: a detailed pooled analysis." <em>JAMA Intern. Med.</em>, 175:959–967. &nbsp;|&nbsp; Calabrese, E.J. &amp; Baldwin, L.A. (2002). "Defining hormesis." <em>Hum. Exp. Toxicol.</em>, 21:91–97. &nbsp;|&nbsp; Cappuccio, F.P. et al. (2010). "Sleep duration and all-cause mortality: a meta-analysis." <em>Sleep</em>, 33:585–592. &nbsp;|&nbsp; Holford, N.H. &amp; Sheiner, L.B. (1981). "Understanding the dose-effect relationship." <em>Clin. Pharmacokinet.</em>, 6:429–453. &nbsp;|&nbsp; Xiong, Z. et al. (2024). "Optimal exercise dose-response." <em>Front. Oncol.</em>, 14:1510578.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_dose_response_framework",
+  "related": [
+    {
+      "id": "lecture_hormesis",
+      "title": "Hormesis",
+      "filename": "lecture_hormesis.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_nutrient_sensing_mtor_ampk",
+      "title": "The Nutrient-Sensing Network — mTOR, AMPK & the Fasting-Longevity Axis",
+      "filename": "lecture_nutrient_sensing_mtor_ampk.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_heat_shock_sauna",
+      "title": "Heat Shock Proteins, Sauna & Hormetic Heat Stress",
+      "filename": "lecture_heat_shock_sauna.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    },
+    {
+      "id": "lecture_vo2max_capacity_margin",
+      "title": "VO₂ Max & the Capacity Margin",
+      "filename": "lecture_vo2max_capacity_margin.html",
+      "tags": [
+        "Adaptive Stress",
+        "Stress & Resilience"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

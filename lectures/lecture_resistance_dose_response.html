@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 63: Resistance Training — Volume, Frequency, Intensity &amp; Sarcopenia Prevention</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--steel:#475569;--steel-dim:rgba(71,85,105,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--steel) 0%,var(--blue) 50%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--steel);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--steel);margin-bottom:20px;}
+  .ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'DM Serif Text',serif;font-size:37px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--steel);}
+  .sub{font-family:'DM Serif Text',serif;font-size:16.5px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--steel);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--steel);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:8px;height:3px;background:var(--steel);border-radius:1px;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--steel);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--steel);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--steel);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--steel);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Resistance training's volume, frequency, and intensity each follow a different dose-response shape — resolving all three produces the minimum effective weekly prescription to prevent sarcopenia without interfering with aerobic gains.">
+<meta property="og:title" content="Resistance Training — Volume, Frequency, Intensity & the Sarcopenia Threshold — Longevity & Wellness">
+<meta property="og:description" content="Resistance training's volume, frequency, and intensity each follow a different dose-response shape — resolving all three produces the minimum effective weekly prescription to prevent sarcopenia without interfering with aerobic gains.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_resistance_dose_response.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Resistance Training — Volume, Frequency, Intensity & the Sarcopenia Threshold — Longevity & Wellness">
+<meta name="twitter:description" content="Resistance training's volume, frequency, and intensity each follow a different dose-response shape — resolving all three produces the minimum effective weekly prescription to prevent sarcopenia without interfering with aerobic gains.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">63</div>
+    <div class="stag">Protocol Engineering Series &middot; No. 63 (3 of 7)</div>
+    <h1>Resistance Training <span class="a">— Volume, Frequency, Intensity &amp; the Sarcopenia Threshold</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">Aerobic Exercise (Lecture 62) Operates on Logarithmic and Sigmoidal Curves With Enormous Therapeutic Windows. Resistance Training Operates on a Different Geometry: the Volume-Hypertrophy Curve Is Approximately Linear Up to ~12 Sets Per Muscle Group Per Week Then Shows Diminishing Returns; the Frequency Curve Is Flat After 2×/Week When Volume Is Matched; and the Intensity Curve Has a Hard Threshold Below Which No Meaningful Strength Adaptation Occurs. These Three Curves, Combined With the Concurrent Training Interference Window From the mTOR-AMPK Axis (Lecture 58), Produce a Specific Weekly Architecture That Complements — Rather Than Competes With — the Aerobic Architecture of Lecture 62</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Exercise Science / Geriatric Physiology (Schoenfeld 2017; Pelland 2025; Grgic 2019)</div>
+      <div><span class="hl">Bridge:</span> Manufacturing Engineering — Throughput, Batch Frequency &amp; Quality Control</div>
+      <div><span class="hl">Series:</span> Protocol Engineering 3 of 7 — Resistance Training</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- CORE CONCEPT -->
+  <div class="sn">I. The Core Concept — Three Independent Dose Variables, Each With Its Own Curve</div>
+  <h2>Volume, Frequency, and Intensity Are Not Interchangeable — Each Has a Distinct Dose-Response Shape</h2>
+
+  <p><em>Variable 1: Volume (sets per muscle group per week) — approximately linear with diminishing returns.</em> The Pelland et al. 2025 meta-regression (<em>Sports Medicine</em>) — the most comprehensive dose-response analysis of resistance training volume to date — established that each additional weekly set per muscle group (using the fractional quantification method) produced approximately <span class="k">0.24% additional hypertrophy</span> (95% CrI: 0.15–0.33%) at the average volume of ~12 sets/week. This marginal return is approximately linear through the measured range — but the absolute magnitude of each additional set's contribution diminishes relative to total accumulated hypertrophy. The Schoenfeld et al. (2017) meta-analysis reported a comparable 0.38% increase per additional set using direct measurements. The practical implication: <span class="k">10–12 sets per muscle group per week</span> captures the steep-to-flat transition zone — the efficiency frontier where each set still produces meaningful adaptation without excessive volume that extends session duration, increases injury risk, and exceeds recovery capacity. Below 5 sets/week: measurable but sub-optimal hypertrophy. Between 5–12: the efficiency zone. Between 12–20: continued gains but at diminishing rates. Above 20: the evidence for additional benefit is weak, and some data suggest possible inverted-U attenuation — though this remains debated.</p>
+
+  <p><em>Variable 2: Frequency (sessions per muscle group per week) — flat above 2× when volume is matched.</em> This is the most counterintuitive finding in resistance training dose-response: training frequency appears to be secondary to total weekly volume for hypertrophy. A person performing 10 sets for chest across 2 sessions (5 sets each) and a person performing 10 sets across 3 sessions (~3.3 sets each) produce equivalent hypertrophy — because the total stimulus (weekly volume) is identical. Thrice-weekly resistance exercise does not provide an additive benefit on sarcopenia outcomes over twice-weekly when volume is matched. The practical implication: for a person in their fifties managing concurrent aerobic training, time constraints, and recovery demands, <span class="k">2–3 sessions per week</span> is sufficient when total weekly volume per muscle group reaches 10–12 sets. Higher frequency (4×/week) allows lower per-session volume (reducing fatigue and injury risk per session) but does not produce greater hypertrophy if total weekly volume is equal. The MED for frequency is 2×/week — below which the per-session volume required to reach 10+ sets becomes impractical and potentially injurious.</p>
+
+  <p><em>Variable 3: Intensity (% of 1RM) — threshold with bifurcated endpoints.</em> Intensity follows a threshold curve, but the threshold differs for strength vs. hypertrophy. For <span class="k">strength gain</span> (neural adaptation — motor unit recruitment, rate coding, intermuscular coordination): loads ≥60% 1RM are needed for meaningful adaptation, and the dose-response continues to favor heavier loads (~70–85% 1RM for maximal strength development) because strength is fundamentally a neural phenomenon that requires high-threshold motor unit recruitment. For <span class="k">hypertrophy</span> (muscle fiber cross-sectional area increase): the threshold is lower — loads as low as 30% 1RM produce equivalent hypertrophy to 80% 1RM <em>when taken to or near muscular failure</em> (Schoenfeld et al., 2017, <em>J Strength Cond Res</em>). The equalizer is proximity to failure: light loads must be performed for more reps to reach the same degree of motor unit fatigue that heavier loads achieve in fewer reps. For a person in their fifties, the optimal intensity range is <span class="k">60–80% 1RM, 6–15 repetitions per set</span> — heavy enough to recruit high-threshold motor units (driving strength and neural adaptation) but not so heavy that joint stress, injury risk, and recovery time become limiting. The Bayesian network meta-analysis for sarcopenia-specific grip strength improvement (2025) identified an optimal intensity of ~49% 1RM — lower than the hypertrophy optimum, suggesting that for the sarcopenia prevention endpoint specifically, moderate loads with higher reps may be more effective than heavy loads with low reps.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Three Dose-Response Variables × The Concurrent Training Resolution</div>
+    <svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+      <text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#475569" font-weight="600" letter-spacing="1.5">RESISTANCE TRAINING: THREE INDEPENDENT DOSE VARIABLES</text>
+      <!-- Volume curve -->
+      <rect x="20" y="34" width="230" height="178" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="135" y="52" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#475569" font-weight="600">VOLUME (sets/muscle group/wk)</text>
+      <line x1="50" y1="64" x2="50" y2="190" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="50" y1="190" x2="234" y2="190" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="46" y="72" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Hyp.</text>
+      <text x="80" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">5</text>
+      <text x="125" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">10</text>
+      <text x="170" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">15</text>
+      <text x="215" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">20+</text>
+      <!-- Linear with diminishing curve -->
+      <path d="M52,188 L80,158 L125,118 L170,92 L215,80" fill="none" stroke="#475569" stroke-width="2"/>
+      <!-- Optimal zone -->
+      <rect x="110" y="60" width="40" height="134" rx="0" fill="rgba(71,85,105,0.06)"/>
+      <text x="130" y="210" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#475569" font-weight="600">OPTIMAL</text>
+      <text x="130" y="218" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#475569">10–12 sets</text>
+      <!-- Marginal return annotation -->
+      <text x="135" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">+0.24% per set</text>
+      <text x="135" y="152" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">(Pelland 2025)</text>
+
+      <!-- Frequency curve -->
+      <rect x="260" y="34" width="220" height="178" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="370" y="52" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#1d4ed8" font-weight="600">FREQUENCY (sessions/wk, vol. matched)</text>
+      <line x1="290" y1="64" x2="290" y2="190" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="290" y1="190" x2="464" y2="190" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="286" y="72" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Hyp.</text>
+      <text x="330" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">1×</text>
+      <text x="370" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">2×</text>
+      <text x="410" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">3×</text>
+      <text x="450" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">4×</text>
+      <!-- Flat curve after 2x -->
+      <path d="M330,160 L370,90 L410,86 L450,84" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+      <text x="370" y="218" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#1d4ed8" font-weight="600">MED: 2×/wk</text>
+      <text x="370" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">Flat when volume</text>
+      <text x="370" y="152" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">is matched</text>
+
+      <!-- Intensity curve -->
+      <rect x="490" y="34" width="230" height="178" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="605" y="52" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b45309" font-weight="600">INTENSITY (% 1RM)</text>
+      <line x1="520" y1="64" x2="520" y2="190" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="520" y1="190" x2="704" y2="190" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="516" y="72" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Resp.</text>
+      <text x="560" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">30%</text>
+      <text x="610" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">60%</text>
+      <text x="660" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">80%</text>
+      <text x="700" y="204" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">95%</text>
+      <!-- Strength line (steep, needs >60%) -->
+      <path d="M560,188 L570,186 L610,120 L660,80 L700,70" fill="none" stroke="#b45309" stroke-width="2"/>
+      <text x="680" y="66" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309" font-weight="600">STRENGTH</text>
+      <!-- Hypertrophy line (flat if to failure) -->
+      <path d="M560,100 L610,92 L660,86 L700,84" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="680" y="98" font-family="Source Code Pro,monospace" font-size="6" fill="#475569">HYPERTROPHY</text>
+      <text x="605" y="120" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Hypertrophy equivalent</text>
+      <text x="605" y="130" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">at any load if to failure</text>
+      <!-- Threshold -->
+      <line x1="610" y1="190" x2="610" y2="194" stroke="#b45309" stroke-width="1"/>
+      <text x="610" y="218" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309" font-weight="600">THRESHOLD: 60% 1RM</text>
+      <text x="610" y="226" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309">(for strength gains)</text>
+
+      <!-- CONCURRENT TRAINING RESOLUTION -->
+      <text x="370" y="252" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#475569" font-weight="600" letter-spacing="1.5">THE CONCURRENT TRAINING INTERFERENCE WINDOW</text>
+      <rect x="30" y="266" width="680" height="90" rx="4" fill="rgba(71,85,105,0.03)" stroke="#475569" stroke-width="1"/>
+      <text x="370" y="286" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#475569" font-weight="600">mTOR-AMPK TEMPORAL CONFLICT (Lecture 58)</text>
+      <text x="370" y="304" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" fill="#3d3d3d">Aerobic exercise activates AMPK → suppresses mTORC1 for ~3 hours → blunts muscle protein synthesis.</text>
+      <text x="370" y="322" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" fill="#3d3d3d">Resistance training activates mTORC1 → drives MPS → requires post-exercise protein for full response.</text>
+      <text x="370" y="344" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#475569" font-weight="600">RESOLUTION: Separate sessions by ≥3 hours, or resistance AM + aerobic PM, or alternate days.</text>
+
+      <!-- THE PRESCRIPTION -->
+      <text x="370" y="378" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#475569" font-weight="600" letter-spacing="1.5">THE RESISTANCE TRAINING PRESCRIPTION (AGE 50+)</text>
+      <rect x="30" y="392" width="330" height="100" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1.5"/>
+      <text x="195" y="412" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600">LONGEVITY-OPTIMIZED PROTOCOL</text>
+      <text x="45" y="432" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Frequency: <tspan fill="#15803d" font-weight="600">2–3×/wk</tspan></text>
+      <text x="45" y="448" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Volume: <tspan fill="#15803d" font-weight="600">10–12 sets/muscle group/wk</tspan></text>
+      <text x="45" y="464" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Intensity: <tspan fill="#15803d" font-weight="600">60–80% 1RM, 6–15 reps</tspan></text>
+      <text x="45" y="480" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Movements: <tspan fill="#15803d" font-weight="600">squat, deadlift, row, press, lunge</tspan></text>
+      <rect x="380" y="392" width="330" height="100" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1.5"/>
+      <text x="545" y="412" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b45309" font-weight="600">SARCOPENIA-SPECIFIC OPTIMAL (2025)</text>
+      <text x="395" y="432" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Frequency: <tspan fill="#b45309" font-weight="600">3×/wk</tspan></text>
+      <text x="395" y="448" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Intensity: <tspan fill="#b45309" font-weight="600">~49% 1RM (moderate)</tspan></text>
+      <text x="395" y="464" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Sets × Reps: <tspan fill="#b45309" font-weight="600">6 sets × 16 reps</tspan></text>
+      <text x="395" y="480" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Duration: <tspan fill="#b45309" font-weight="600">19 weeks minimum</tspan></text>
+    </svg>
+    <div class="fig-cap">Top row: three independent dose-response curves for volume (linear with diminishing returns; optimal at 10–12 sets/muscle/week), frequency (flat above 2×/week when volume is matched), and intensity (threshold at 60% 1RM for strength; hypertrophy equivalent at any load if taken to failure). Center: the concurrent training interference window from Lecture 58 — AMPK from aerobic exercise suppresses mTOR for ~3 hours, requiring temporal separation from resistance training. Bottom: two protocol templates — the longevity-optimized protocol and the sarcopenia-specific Bayesian-derived optimal parameters.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- CROSS-POLLINATION -->
+  <div class="sn">II. Cross-Pollination — Manufacturing: Throughput, Batch Frequency & Quality Assurance</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Exercise Science</div><h4>Anabolic Resistance — the Aging-Specific Modifier</h4><p>Older muscle exhibits <strong>anabolic resistance</strong> — a blunted MPS response to the same training stimulus that would maximally stimulate a younger muscle. A 25-year-old achieves maximal MPS with ~20g protein post-exercise; a 55-year-old requires ~30–40g (Lecture 65 will detail the protein dose-response). This means the same 10-set training session produces less hypertrophy per set in an older adult — the "yield per batch" is lower. The compensation: slightly higher volume (12 vs. 10 sets), higher protein dose (40g vs. 20g post-exercise), and adequate leucine (≥2.5g per meal — the mTOR activation threshold for anabolic-resistant muscle).</p></div>
+    <div class="gc"><div class="tag eng">Manufacturing Engineering</div><h4>Batch Size vs. Batch Frequency</h4><p>In manufacturing, the same weekly output can be achieved through <strong>fewer large batches or more frequent small batches</strong>. The quality difference depends on the process: some processes produce better yield from large, uninterrupted runs; others benefit from smaller, more frequent runs with quality checks between batches. Resistance training is the latter: 10 sets distributed across 3 sessions (3-3-4) allows recovery and quality control between batches, producing equivalent or better adaptation than 10 sets in one marathon session — with lower per-session fatigue, lower injury risk, and better movement quality in later sets.</p></div>
+    <div class="gc"><div class="tag bio">Exercise Science</div><h4>Proximity to Failure — the True Intensity Variable</h4><p><strong>Proximity to failure</strong> (measured as RIR — reps in reserve) may be more important than absolute load. A set of 8 reps at 80% 1RM with 0 RIR (taken to failure) produces equivalent hypertrophy to a set of 25 reps at 30% 1RM with 0 RIR — because both recruit the full motor unit pool at the point of failure. The practical implication for a person in their fifties: training at 60–75% 1RM with 1–3 RIR (stopping 1–3 reps before failure) provides sufficient stimulus for hypertrophy and strength while preserving joints, reducing injury risk, and allowing adequate recovery. Training to absolute failure on every set is unnecessary and counterproductive for long-term protocol sustainability.</p></div>
+    <div class="gc"><div class="tag eng">Manufacturing Engineering</div><h4>The Deload as Scheduled Maintenance</h4><p>Manufacturing lines schedule <strong>preventive maintenance shutdowns</strong> — brief periods where production stops to inspect, repair, and recalibrate equipment, preventing the unplanned breakdowns that would halt production for much longer. The resistance training <strong>deload week</strong> (every 3–4 weeks: reduce volume by 40–50% and/or intensity by 10–15%, maintain frequency) serves the same function: allowing tendons, ligaments, and neural systems to recover from cumulative fatigue, preventing the overuse injuries that would require weeks-to-months of unplanned cessation. For a person over 50 — whose recovery biology is slower (satellite cell latency, reduced GH, reduced testosterone) — the deload is not optional. It is the scheduled maintenance that keeps the structural system operational.</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- ANTIFRAGILITY -->
+  <div class="sn">III. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Where the Resistance and Aerobic Prescriptions Conflict — and How to Resolve Them</div>
+    <p><em>The mTOR-AMPK interference is real but manageable with temporal separation.</em> Four practical resolution strategies for a person in their fifties doing both aerobic (Lecture 62) and resistance training: (1) <em>Alternate days</em> — the simplest solution. Mon/Wed/Fri: resistance. Tue/Thu: Zone 2 aerobic. Sat: HIIT or long Zone 2. Sun: rest or active recovery. No interference because sessions are separated by 24+ hours. (2) <em>Same-day split</em> — resistance in the morning (when testosterone and cortisol ratios favor anabolism), aerobic in the evening (separated by ≥6 hours). AMPK activation from the evening aerobic session has largely cleared by the next morning's resistance session. (3) <em>Post-resistance aerobic</em> — if sessions must be combined, do resistance first (when glycogen is full and neural output is highest), followed by aerobic. This order preserves the mTOR activation window from resistance before AMPK from aerobic engages — though some interference still occurs. Never do aerobic first then resistance — the AMPK activation from aerobic directly suppresses the mTOR response to the subsequent resistance session. (4) <em>Intensity matching</em> — low-intensity aerobic (Zone 2 walking, light cycling) produces less AMPK activation than HIIT, creating less interference. Pairing resistance training with Zone 2 aerobic on the same day produces less mTOR suppression than pairing with HIIT. Save HIIT for separate days from heavy resistance sessions.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- PROTOCOL -->
+  <div class="sn">IV. The Protocol — Specific Numbers Integrated With Lecture 62's Aerobic Architecture</div>
+  <div class="note">
+    <div class="nl">The Combined Aerobic + Resistance Weekly Architecture</div>
+    <p><strong>The Prescription — Two Templates:</strong><br><br>
+    <strong>Template A — Alternate Days (preferred for maximal adaptation, minimal interference):</strong><br>
+    Mon: Resistance — upper body (chest, back, shoulders, arms) — 4 movements × 3 sets = 12 sets. 60–80% 1RM, 6–12 reps, 1–3 RIR.<br>
+    Tue: Zone 2 aerobic — 40–50 min, 60–70% max HR.<br>
+    Wed: Resistance — lower body (squat, deadlift, lunge, calf raise) — 4 movements × 3 sets = 12 sets. 60–80% 1RM, 6–15 reps, 1–3 RIR.<br>
+    Thu: Zone 2 aerobic — 40–50 min.<br>
+    Fri: Resistance — full body (compound movements, moderate volume) — 5 movements × 2 sets = 10 sets. 60–75% 1RM, 8–15 reps.<br>
+    Sat: HIIT — 25 min (4–8 intervals at 85–95% max HR) OR long Zone 2 (60–90 min).<br>
+    Sun: Rest or active recovery (walk, mobility, sauna).<br><br>
+    Volume check: upper body = 12 direct sets + 10 from full-body compounds ≈ 10–12 sets/muscle group/wk. Lower body = 12 direct + 10 full-body ≈ 10–12 sets/muscle group/wk. ✓ Optimal zone.<br>
+    Aerobic check: Z2 ~100 min + HIIT ~25 min + walks = ~200–250 min moderate equivalent/wk. ✓ Lecture 62 optimal zone.<br><br>
+    <strong>Template B — Time-Constrained (3 sessions/wk, concurrent training):</strong><br>
+    Mon/Wed/Fri: Resistance (35–40 min) → Zone 2 aerobic (20–30 min). Resistance first, always. Total session: 55–70 min.<br>
+    Resistance: 3 full-body sessions × 5 movements × 2–3 sets = 10–15 sets/muscle group/wk across the week.<br>
+    Aerobic: 3 × 25 min Z2 = 75 min + add 1 standalone HIIT session (Sat, 20 min) = ~120 min moderate equivalent/wk. ✓ Above MED for all Lecture 62 curves.<br><br>
+    <strong>Deload schedule:</strong> Every 4th week: reduce sets by 40% (e.g., 12 sets → 7 sets/muscle group), reduce intensity by 10% (e.g., 75% → 65% 1RM), maintain frequency and movement patterns. Resume full volume in week 5. This 3:1 loading:deload ratio prevents cumulative fatigue, preserves tendon/ligament health, and allows the supercompensation (Lecture 67) that produces continued adaptation.<br><br>
+    <strong>Metric:</strong> <em>Grip strength</em> (Lecture 59 — $25 dynamometer, quarterly tracking, best of 3 attempts dominant hand). <em>Progressive overload log</em> — the most important resistance training metric is whether the total load lifted (sets × reps × weight) is trending upward over months. A plateau lasting >4 weeks despite adequate sleep, nutrition, and recovery signals the need for programming adjustment (periodization change, exercise variation, volume modification). <em>Body composition</em> — DEXA (annually) or waist-to-hip ratio (monthly) to confirm that lean mass is maintained or increasing while visceral fat is stable or declining. <em>1RM estimates</em> — for the five compound movements, estimate 1RM from submaximal performance (Epley or Brzycki formula) quarterly. Declining 1RM trend = strength loss = safety margin erosion (Lecture 59).</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RECURSIVE SYNTHESIS -->
+  <div class="sn">V. Recursive Synthesis</div>
+  <h2>How Resistance Training Doses Connect to the Mechanistic Series</h2>
+
+  <p>This lecture converts the mechanistic insights from seven previous lectures into specific numeric protocols. Lecture 13 (mechanotransduction) established that muscle cells sense and respond to mechanical load — this lecture specifies <em>how much</em> load (60–80% 1RM) and <em>how often</em> (2–3×/week). Lecture 22 (myokines) established that contracting muscle secretes signaling molecules — this lecture specifies the volume threshold (10+ sets/muscle/week) that produces meaningful myokine output. Lecture 43 (osteocalcin/bone-brain) established that mechanical loading stimulates osteoblasts — compound lifts (squat, deadlift) produce the highest axial loading forces that drive osteocalcin release. Lecture 54 (testosterone) established that resistance training acutely elevates testosterone — the compound movement, moderate-to-heavy load protocol specified here produces the largest acute testosterone response. Lecture 58 (mTOR/AMPK) established the growth-maintenance oscillation — this lecture resolves the temporal conflict between resistance-driven mTOR activation and aerobic-driven AMPK activation through specific scheduling. Lecture 59 (sarcopenia/grip strength) established that muscle mass determines the safety margin above the frailty threshold — this lecture provides the specific volume, frequency, and intensity parameters that maintain that margin. And Lecture 62 (aerobic dose-response) established the concurrent aerobic prescription — this lecture integrates resistance into the same weekly architecture without interference. The output is not two separate programs but <em>one integrated weekly protocol</em> that operates in the optimal zone of both aerobic (logarithmic mortality curve, sigmoidal VO₂ max curve) and resistance (linear volume curve, threshold intensity curve) dose-response relationships simultaneously.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- PEER REVIEW -->
+  <div class="sn">VI. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "Older adults should use light weights with high reps to avoid injury — heavy lifting is dangerous after 50."<br><br><strong>Correction:</strong> The evidence shows the opposite: moderate-to-heavy resistance training (60–80% 1RM) produces superior strength gains compared to light loads in older adults, and the injury rate in supervised resistance training programs for older adults is extremely low (0.2–3.3 injuries per 1,000 participant-hours — comparable to walking). The misconception confuses <em>training to failure with heavy loads</em> (which does increase injury risk, particularly for joints and connective tissue) with <em>training at moderate-to-heavy loads with controlled reps in reserve</em> (which is both safe and more effective than light loads for the strength and neural adaptations that prevent falls and maintain functional independence). The 2025 Bayesian meta-analysis for sarcopenia specifically identified ~49% 1RM as optimal for grip strength improvement — a moderate load, not a light one. Furthermore, heavy compound movements (squat, deadlift) produce the highest osteoblast-stimulating mechanical loads documented in Lecture 43 — loads that light weights with high reps cannot replicate. The prescription for a person in their fifties is not "lift light to be safe" — it is "lift heavy enough to stimulate adaptation (≥60% 1RM), with enough reps in reserve to be sustainable (1–3 RIR), with scheduled deloads to prevent cumulative fatigue (every 4th week)." This is the evidence-based resolution of the safety-effectiveness tension.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RESOURCES -->
+  <div class="sn">VII. Resources</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Pelland et al. (2025)</h5><p>"The Resistance Training Dose Response: Meta-Regressions Exploring the Effects of Weekly Volume and Frequency." <em>Sports Med.</em>, 56:481–505. The most comprehensive RT dose-response analysis to date: 0.24% hypertrophy per additional set at average volume; frequency flat above 2×/wk when volume matched.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Schoenfeld et al. (2017)</h5><p>"Dose-response relationship between weekly RT volume and increases in muscle mass." <em>J Sports Sci.</em>, 35:1073–1082. The foundational meta-analysis: 0.38% hypertrophy per additional set; 10+ sets/muscle group/week outperforms <5 sets with graded dose-response.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Implement Template A or B</h5><p>Choose based on available time. Template A (5–6 days, alternate): maximal adaptation, zero interference. Template B (3 days, concurrent): time-efficient, moderate interference managed by session order (resistance first). Schedule specific days, times, and movements. Track every session in a training log.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Establish 1RM Baselines</h5><p>For the five compound movements (squat, deadlift, row, overhead press, lunge): find your estimated 1RM using submaximal testing (a set of 5–8 reps to near-failure; apply Epley formula: 1RM = weight × (1 + reps/30)). This establishes your intensity zones: 60% 1RM, 70%, 80%. Retest quarterly to track strength trajectory.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The Deload Protocol</h5><p>Every 4th week: same exercises, same frequency, but reduce volume by 40% (3 sets → 2 sets per movement) and intensity by ~10% (75% → 65% 1RM). Maintain movement patterns to preserve neural coordination. This is not a rest week — it is a recovery week that allows tendons, joints, and the nervous system to supercompensate before the next loading block.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The Five-Movement Foundation</h5><p>Squat pattern (barbell back squat, goblet squat, leg press). Hip hinge (conventional or trap bar deadlift, Romanian deadlift). Horizontal push (bench press, push-up). Horizontal/vertical pull (barbell row, pull-up, lat pulldown). Lunge/single-leg (walking lunge, Bulgarian split squat, step-up). These five patterns load every major muscle group through functional movement planes. Master form before adding load.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>Grip + 1RM Trend + Lean Mass + Overload Log</h5><p>Grip strength (dynamometer, quarterly). Estimated 1RM for 5 compounds (quarterly — declining = safety margin erosion). DEXA lean mass (annually) or waist-hip ratio (monthly). Training log (progressive overload confirmation — total volume should trend upward over 3-month blocks). Deload compliance (every 4th week — skipping deloads is the most common programming error in middle-aged trainees).</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Protocol Engineering Integration</h5><p>Aerobic (Lec 62) → concurrent training sequencing resolved here. Sleep (Lec 64) → recovery modulates training response; MPS peaks during sleep. Nutrition (Lec 65) → protein timing around resistance for mTOR activation. Hormetic stress (Lec 66) → sauna post-resistance for HSP synergy; cold NOT post-resistance (interference). Integrated protocol (Lec 67) → resistance slots into the complete weekly architecture.</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>0.24% hypertrophy increase per additional set at average fractional weekly volume of ~12 sets (95% CrI: 0.15–0.33%)</td><td>Pelland et al., <em>Sports Med.</em>, 2026;56:481–505 (published online Dec 2025)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>0.38% hypertrophy increase per additional set using direct muscle measurements</td><td>Schoenfeld et al., <em>J Sports Sci.</em>, 2017;35:1073–1082</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Thrice-weekly RT does not provide additive benefit over twice-weekly when volume is matched</td><td>Grgic et al., 2019; Schoenfeld et al., 2018 (frequency review); multiple matched-volume studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Loads as low as 30% 1RM produce equivalent hypertrophy to 80% 1RM when taken to failure</td><td>Schoenfeld et al., <em>J Strength Cond Res.</em>, 2017;31:3508–3523; Mitchell et al., 2012</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Sarcopenia-specific optimal: 3×/wk, ~49% 1RM, 6 sets × 16 reps, 19 weeks, ~1400 reps/wk for grip strength</td><td>Bayesian network meta-analysis, <em>Front. Med.</em>, 2025 (n=sarcopenia patients)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>AMPK from aerobic exercise suppresses mTORC1 for ~3 hours via Raptor phosphorylation</td><td>Gwinn et al., 2008; Inoki et al., 2003; reviewed in concurrent training literature</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Resistance training before aerobic produces less interference than aerobic before resistance</td><td>Murlasits et al., <em>Sports Med.</em>, 2018;48:2457–2473; multiple concurrent training reviews</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Injury rate in supervised RT for older adults: 0.2–3.3 per 1,000 participant-hours</td><td>Liu &amp; Latham, <em>Cochrane Database Syst. Rev.</em>, 2009; Mayer et al., 2011</td><td><span class="cv">⚠ Injury rates vary significantly by study design, supervision level, and population. The 0.2–3.3 range represents supervised settings with trained instructors. Unsupervised RT with poor form at heavy loads carries higher injury risk, particularly for spinal and shoulder injuries.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Pelland, J.C. et al. (2025). "The Resistance Training Dose Response." <em>Sports Med.</em>, 56:481–505. &nbsp;|&nbsp; Schoenfeld, B.J. et al. (2017). "Dose-response relationship between weekly RT volume and muscle mass." <em>J Sports Sci.</em>, 35:1073–1082. &nbsp;|&nbsp; Grgic, J. et al. (2019). "Effects of RT frequency on hypertrophy." <em>Sports Med.</em>, 49:1207–1220. &nbsp;|&nbsp; Schoenfeld, B.J. et al. (2017). "Strength and hypertrophy adaptations between low- vs. high-load RT." <em>J Strength Cond Res.</em>, 31:3508–3523. &nbsp;|&nbsp; Murlasits, Z. et al. (2018). "The physiological effects of concurrent strength and endurance training sequence." <em>J Sports Sci.</em>, 36:1212–1219.
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_resistance_dose_response",
+  "related": [
+    {
+      "id": "lecture_dose_response_framework",
+      "title": "The Dose-Response Framework — Seven Dosing Models",
+      "filename": "lecture_dose_response_framework.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_aerobic_dose_response",
+      "title": "Aerobic Exercise — Three Dose-Response Curves",
+      "filename": "lecture_aerobic_dose_response.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_sarcopenia_grip_frailty",
+      "title": "Sarcopenia, Grip Strength & the Frailty Cascade",
+      "filename": "lecture_sarcopenia_grip_frailty.html",
+      "tags": [
+        "Structural Integrity",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_mechanotransduction",
+      "title": "Mechanotransduction & Sarcopenia",
+      "filename": "lecture_mechanotransduction.html",
+      "tags": [
+        "Structural Integrity",
+        "Mind-Body Axes"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

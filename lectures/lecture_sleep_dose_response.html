@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 64: Sleep — Duration U-Curve, Architecture Minimums &amp; the Consistency Multiplier</title>
+
+<style>
+  :root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--indigo:#4338ca;--indigo-dim:rgba(67,56,202,0.04);--rule:#d4d0c8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+  .page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+  .top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--indigo) 0%,var(--blue) 50%,var(--amber) 100%);border-radius:2px;}
+  .hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--indigo);position:relative;}
+  .stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--indigo);margin-bottom:20px;}
+  .ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+  h1{font-family:'DM Serif Text',serif;font-size:37px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--indigo);}
+  .sub{font-family:'DM Serif Text',serif;font-size:16.5px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+  .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--indigo);font-weight:600;}
+  .sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+  h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+  p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+  .k{color:var(--indigo);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+  .sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--indigo);border-radius:50%;}
+  .fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--indigo);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--indigo);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+  .note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--indigo);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--indigo);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--indigo);font-weight:700;}
+  .res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--indigo);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+  .cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+  .fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+  @media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Sleep's mortality curve is U-shaped, but the UK Biobank finding that regularity predicts risk better than duration rewrites the prescription from 'more hours' to 'same time every night.'">
+<meta property="og:title" content="Sleep — Duration U-Curve, Architecture Minimums & the Consistency Multiplier — Longevity & Wellness">
+<meta property="og:description" content="Sleep's mortality curve is U-shaped, but the UK Biobank finding that regularity predicts risk better than duration rewrites the prescription from 'more hours' to 'same time every night.'">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_sleep_dose_response.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sleep — Duration U-Curve, Architecture Minimums & the Consistency Multiplier — Longevity & Wellness">
+<meta name="twitter:description" content="Sleep's mortality curve is U-shaped, but the UK Biobank finding that regularity predicts risk better than duration rewrites the prescription from 'more hours' to 'same time every night.'">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <header class="hdr">
+    <div class="ln">64</div>
+    <div class="stag">Protocol Engineering Series &middot; No. 64 (4 of 7)</div>
+    <h1>Sleep <span class="a">— The Duration U-Curve, Architecture Minimums &amp; the Consistency Multiplier</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+    <div class="sub">Exercise (Lectures 62–63) Has a Logarithmic Mortality Curve With No Confirmed Ceiling — More Is Never Harmful. Sleep Has the Opposite Geometry: a U-Curve Where Both Too Little and Too Much Increase Mortality Risk, Compressing the Therapeutic Window Into a Narrow Band. But the 2024 UK Biobank Study (n=60,977) Revealed Something More Important Than Duration: Sleep Regularity Is a Stronger Predictor of Mortality Risk Than Sleep Duration. The Person Who Sleeps 7 Hours at the Same Time Every Night Outperforms the Person Who Averages 8 Hours With Variable Timing — Because the Circadian System Rewards Consistency More Than It Rewards Extra Minutes</div>
+    <div class="meta">
+      <div><span class="hl">Origin:</span> Sleep Medicine / Chronobiology (Windred 2024; Cappuccio 2010; Jia 2026)</div>
+      <div><span class="hl">Bridge:</span> Control Systems — Clock Synchronization &amp; Jitter Tolerance</div>
+      <div><span class="hl">Series:</span> Protocol Engineering 4 of 7 — Sleep</div>
+      <div>~1,200 words</div>
+    </div>
+  </header>
+
+  <!-- CORE CONCEPT -->
+  <div class="sn">I. The Core Concept — Three Independent Sleep Dose Variables</div>
+  <h2>Duration, Architecture, and Consistency Are Not Interchangeable — Each Has Its Own Dose-Response Curve and Its Own Intervention</h2>
+
+  <p><em>Variable 1: Duration — the U-curve with a narrow therapeutic window.</em> The 2025 <em>GeroScience</em> meta-analysis quantified the risks precisely: short sleep duration (&lt;7 hours per night) was associated with a 14% increase in mortality risk, while long sleep (&gt;8 hours) was associated with a 27–34% increase, compared to the 7–8 hour reference. The 2026 <em>Nature</em> Sleep Chart — the first study to map sleep duration against 23 biological aging clocks (derived from brain imaging, plasma proteomics, and metabolomics) across 37–84-year-olds in the UK Biobank — confirmed the U-shape with extraordinary organ-specific resolution: the lowest biological age gaps were achieved between <span class="k">6.4 and 7.8 hours</span> of sleep duration, varying by organ and sex. Short (&lt;6h) and long (&gt;8h) sleep duration were associated with increased risk of systemic diseases beyond the brain and all-cause mortality. The therapeutic window is narrow: approximately <span class="k">6.5–8.0 hours</span>, with the biological age optimum clustering around 7–7.5 hours for most organ-specific clocks. Unlike exercise (where the therapeutic window spans from 75 min/week to infinity), sleep's U-curve means that both under-dosing <em>and</em> over-dosing carry measurable risk. This is the inverted-U shape from Lecture 61 — requiring both a MED (~6.5 hours below which biological aging accelerates) and an MTD (~8.5 hours above which mortality risk rises).</p>
+
+  <p><em>Variable 2: Architecture — the sub-dose composition that determines what sleep actually accomplishes.</em> Seven hours of sleep is not a uniform block — it is composed of 4–6 <span class="k">ultradian cycles</span> <span class="def">(90-minute oscillations between NREM stages 1–3 and REM sleep, with the first half of the night dominated by deep SWS and the second half dominated by REM)</span>, each containing distinct physiological programs. <span class="k">Slow-wave sleep (SWS / NREM Stage 3)</span> — concentrated in the first 3–4 hours — drives glymphatic Aβ clearance (Lecture 14), growth hormone secretion (~70% of daily GH is released during SWS), muscle protein synthesis (the recovery window from Lectures 62/63's training), immune NK cell restoration (Lecture 50), and declarative memory consolidation (hippocampal replay → neocortical transfer). <span class="k">REM sleep</span> — concentrated in the last 2–3 hours — drives emotional recalibration (amygdala-prefrontal recoupling), procedural memory consolidation, and the creative associative processing that Lecture 31 documented as cognitive reserve construction. SWS declines ~2% per decade after age 30 — a person in their fifties may have 40–60% less SWS than they had at 25, even at the same total duration. The consequence: 7 hours of sleep at age 55 may contain significantly less SWS than 7 hours at age 25 — meaning the glymphatic, hormonal, immune, and memory consolidation programs are running at reduced capacity even when total duration appears adequate. The dose-response for SWS is approximately threshold: below a minimum (~60–90 minutes per night), these programs fail to complete their cycles; above that minimum, additional SWS produces diminishing returns.</p>
+
+  <p><em>Variable 3: Consistency — the multiplier that the field underestimated for decades.</em> The 2024 landmark study by Windred et al. (UK Biobank, n=60,977, >10 million hours of accelerometer data) produced the finding that rewrites sleep medicine's dosing hierarchy: <span class="k">sleep regularity was a stronger predictor of mortality risk than sleep duration</span>. The highest Sleep Regularity Index (SRI) quintile — individuals with the most consistent day-to-day sleep-wake timing — had a 20–48% lower risk of all-cause mortality, 16–39% lower cancer mortality, and 22–57% lower cardiometabolic mortality compared to the least regular quintile, after adjusting for age, sex, ethnicity, sociodemographic factors, lifestyle, and health conditions. A 2025 systematic review confirmed the pattern across diverse populations: unstable sleep timing consistently portended poorer mental, metabolic, vascular, cognitive, and survival outcomes, with low SRI associated with smaller hippocampal volume and a 26–53% increase in dementia risk. The mechanism: inconsistent sleep-wake timing produces chronic circadian misalignment — the internal clocks of different organs desynchronize (connecting directly to Lecture 29's peripheral clock desync), disrupting the temporal coordination of cortisol (Lecture 40), insulin sensitivity (Lectures 17/53), immune function (Lecture 48), and the autonomic nervous system (Lecture 47). Social jet lag — the discrepancy between weekday and weekend sleep timing — is a form of chronic circadian disruption that produces measurable metabolic, inflammatory, and cardiovascular consequences independent of total duration. The dose-response for consistency is approximately <span class="k">logarithmic</span>: the greatest benefit comes from reducing high variability (±2 hours) to moderate variability (±1 hour); further reductions to ±30 minutes produce additional but smaller gains.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- DIAGRAM -->
+  <div class="fig">
+    <div class="fig-tag">Figure 1 — Three Sleep Dose Variables: Duration U-Curve × Architecture Composition × Consistency Multiplier</div>
+    <svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+      <text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4338ca" font-weight="600" letter-spacing="1.5">SLEEP: THREE INDEPENDENT DOSE VARIABLES</text>
+      <!-- Duration U-Curve -->
+      <rect x="20" y="34" width="230" height="190" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="135" y="52" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600">VARIABLE 1: DURATION (U-CURVE)</text>
+      <line x1="50" y1="66" x2="50" y2="198" stroke="#d4d0c8" stroke-width=".5"/>
+      <line x1="50" y1="198" x2="234" y2="198" stroke="#d4d0c8" stroke-width=".5"/>
+      <text x="46" y="74" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Risk↑</text>
+      <text x="46" y="194" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Risk↓</text>
+      <text x="70" y="212" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">5h</text>
+      <text x="105" y="212" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">6h</text>
+      <text x="140" y="212" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">7h</text>
+      <text x="175" y="212" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">8h</text>
+      <text x="210" y="212" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">9h+</text>
+      <!-- U-curve -->
+      <path d="M65,100 Q85,140 105,168 Q120,182 140,186 Q160,182 175,170 Q195,140 220,95" fill="none" stroke="#b91c1c" stroke-width="2"/>
+      <!-- Optimal zone -->
+      <rect x="115" y="60" width="50" height="134" rx="0" fill="rgba(21,128,61,0.05)"/>
+      <text x="140" y="220" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#15803d" font-weight="600">OPTIMAL</text>
+      <text x="140" y="228" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#15803d">6.5–8.0h</text>
+      <!-- Risk annotations -->
+      <text x="75" y="88" font-family="Source Code Pro,monospace" font-size="6" fill="#b91c1c">+14%</text>
+      <text x="75" y="96" font-family="Source Code Pro,monospace" font-size="6" fill="#b91c1c">mortality</text>
+      <text x="200" y="88" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#b91c1c">+27-34%</text>
+      <text x="200" y="96" text-anchor="end" font-family="Source Code Pro,monospace" font-size="6" fill="#b91c1c">mortality</text>
+
+      <!-- Architecture -->
+      <rect x="260" y="34" width="220" height="190" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="370" y="52" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#4338ca" font-weight="600">VARIABLE 2: ARCHITECTURE</text>
+      <!-- Night timeline -->
+      <rect x="280" y="70" width="180" height="24" rx="3" fill="rgba(67,56,202,0.06)" stroke="#4338ca" stroke-width="0.5"/>
+      <text x="370" y="86" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4338ca" font-weight="600">7-HOUR SLEEP BLOCK</text>
+      <!-- SWS block -->
+      <rect x="280" y="100" width="90" height="40" rx="3" fill="rgba(67,56,202,0.12)" stroke="#4338ca" stroke-width="1"/>
+      <text x="325" y="118" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#4338ca" font-weight="600">SWS-DOMINANT</text>
+      <text x="325" y="130" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">First 3–4 hours</text>
+      <!-- REM block -->
+      <rect x="370" y="100" width="90" height="40" rx="3" fill="rgba(180,83,9,0.08)" stroke="#b45309" stroke-width="1"/>
+      <text x="415" y="118" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b45309" font-weight="600">REM-DOMINANT</text>
+      <text x="415" y="130" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">Last 2–3 hours</text>
+      <!-- SWS functions -->
+      <text x="280" y="156" font-family="Source Code Pro,monospace" font-size="7" fill="#4338ca">SWS drives:</text>
+      <text x="280" y="168" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">• Glymphatic Aβ clearance (14)</text>
+      <text x="280" y="180" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">• GH release (~70% daily)</text>
+      <text x="280" y="192" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">• NK restoration (50)</text>
+      <text x="280" y="204" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">• Declarative memory (31)</text>
+      <text x="280" y="216" font-family="Source Code Pro,monospace" font-size="6.5" fill="#b91c1c">Declines ~2%/decade after 30</text>
+
+      <!-- Consistency -->
+      <rect x="490" y="34" width="230" height="190" rx="4" fill="#ffffff" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="605" y="52" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">VARIABLE 3: CONSISTENCY</text>
+      <text x="605" y="76" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" font-weight="400" fill="#1a1a1a">Stronger predictor than</text>
+      <text x="605" y="92" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" font-weight="400" fill="#1a1a1a">duration for mortality</text>
+      <text x="605" y="110" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">(Windred 2024, n=60,977)</text>
+      <rect x="510" y="124" width="190" height="26" rx="3" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="1"/>
+      <text x="605" y="141" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">Highest SRI → 30% ↓ all-cause</text>
+      <rect x="510" y="156" width="190" height="26" rx="3" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="1"/>
+      <text x="605" y="173" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">→ 38% ↓ cardiometabolic</text>
+      <text x="605" y="198" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Low SRI: 26–53% ↑ dementia risk</text>
+      <text x="605" y="212" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">+ smaller hippocampal volume</text>
+
+      <!-- THE HIERARCHY -->
+      <text x="370" y="252" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4338ca" font-weight="600" letter-spacing="1.5">THE SLEEP DOSING HIERARCHY: CONSISTENCY > DURATION > ARCHITECTURE</text>
+      <rect x="30" y="268" width="680" height="50" rx="4" fill="rgba(67,56,202,0.03)" stroke="#4338ca" stroke-width="1"/>
+      <text x="370" y="288" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10.5" fill="#3d3d3d">Fix consistency first (same bed/wake time ±30 min). Then optimize duration (7–8h). Then protect architecture</text>
+      <text x="370" y="306" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10.5" fill="#3d3d3d">(SWS: exercise, cool room, no alcohol; REM: no alarm truncation, manage stress). This order maximizes ROI.</text>
+
+      <!-- THE PRESCRIPTION -->
+      <text x="370" y="346" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4338ca" font-weight="600" letter-spacing="1.5">THE SLEEP PRESCRIPTION (AGE 50+)</text>
+      <rect x="30" y="360" width="340" height="112" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1.5"/>
+      <text x="200" y="380" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600">THE FIVE PARAMETERS</text>
+      <text x="45" y="400" font-family="Source Code Pro,monospace" font-size="9" fill="#3d3d3d">1. Duration: <tspan fill="#15803d" font-weight="600">7.0–8.0 hours</tspan></text>
+      <text x="45" y="416" font-family="Source Code Pro,monospace" font-size="9" fill="#3d3d3d">2. Consistency: <tspan fill="#15803d" font-weight="600">bed/wake ±30 min daily</tspan></text>
+      <text x="45" y="432" font-family="Source Code Pro,monospace" font-size="9" fill="#3d3d3d">3. SWS protection: <tspan fill="#15803d" font-weight="600">no alcohol 3h pre-bed</tspan></text>
+      <text x="45" y="448" font-family="Source Code Pro,monospace" font-size="9" fill="#3d3d3d">4. REM protection: <tspan fill="#15803d" font-weight="600">no alarm truncation</tspan></text>
+      <text x="45" y="464" font-family="Source Code Pro,monospace" font-size="9" fill="#3d3d3d">5. Temperature: <tspan fill="#15803d" font-weight="600">65–68°F (18–20°C)</tspan></text>
+      <rect x="390" y="360" width="320" height="112" rx="4" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="550" y="380" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c" font-weight="600">THE SWS DESTROYERS (ranked)</text>
+      <text x="405" y="400" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c">1. Alcohol — abolishes SWS + GH pulse</text>
+      <text x="405" y="416" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c">2. Late caffeine — blocks adenosine</text>
+      <text x="405" y="432" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c">3. Light exposure — suppresses melatonin</text>
+      <text x="405" y="448" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c">4. High room temp — blocks core T↓</text>
+      <text x="405" y="464" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c">5. Late heavy meal — metabolic arousal</text>
+    </svg>
+    <div class="fig-cap">Three independent sleep dose variables. Left: the duration U-curve — short sleep (<7h) = 14% mortality increase; long sleep (>8h) = 27–34%; optimal 6.5–8.0h; biological age optimum 6.4–7.8h across 23 aging clocks (Nature 2026). Center: architecture — SWS dominates the first half (glymphatic clearance, GH, immune), REM dominates the second half (emotional, procedural); SWS declines ~2%/decade. Right: consistency — a stronger predictor of mortality than duration; highest regularity quintile = 30% lower all-cause mortality (UK Biobank n=60,977). Bottom: the hierarchy (consistency > duration > architecture), the five-parameter prescription, and the ranked SWS destroyers.</div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- CROSS-POLLINATION -->
+  <div class="sn">II. Cross-Pollination — Control Systems: Clock Synchronization and Jitter Tolerance</div>
+
+  <div class="grid">
+    <div class="gc"><div class="tag bio">Sleep Medicine</div><h4>The Alcohol-SWS Catastrophe</h4><p>Alcohol is the most destructive single substance for sleep architecture. Even 1–2 drinks within 3 hours of bed <strong>abolish the first SWS cycle</strong> — replacing deep, restorative NREM3 with shallow NREM1/2. This eliminates the first GH pulse (~70% of daily secretion), the deepest glymphatic flow period (Aβ clearance rate proportional to SWS depth), and the first round of immune NK cell restoration. The second half of the night fragments with withdrawal-mediated cortical arousal, reducing REM. Net effect: 7 hours of alcohol-adjacent sleep delivers the restorative equivalent of 4–5 hours of clean sleep. For a person in their fifties whose SWS has already declined 40–60% from peak: alcohol doesn't reduce SWS by a fraction — it eliminates what little remains.</p></div>
+    <div class="gc"><div class="tag eng">Control Systems</div><h4>Clock Jitter and Synchronization</h4><p>In digital electronics, <strong>clock jitter</strong> is the deviation of a clock signal's edge timing from its ideal position. Excessive jitter causes data transmission errors, signal degradation, and system failure — not because the clock stops, but because the <em>timing precision degrades</em>. The circadian system is a distributed clock network (master clock in the SCN, peripheral clocks in liver, gut, muscle, fat — Lecture 29). Sleep timing consistency is the synchronization signal. Irregular sleep-wake timing is high-jitter — the peripheral clocks desynchronize, producing metabolic, immune, and hormonal timing errors. The 30% mortality reduction from consistent timing is the biological equivalent of reducing clock jitter below the system's error tolerance threshold.</p></div>
+    <div class="gc"><div class="tag bio">Sleep Medicine</div><h4>Social Jet Lag — Chronic Circadian Disruption</h4><p>The discrepancy between weekday and weekend sleep timing — sleeping 11 PM–6:30 AM on workdays but 1 AM–9:30 AM on weekends — produces a <strong>3-hour circadian phase shift every 5 days</strong>, equivalent to flying from New York to Los Angeles and back every week. This "social jet lag" is associated with higher BMI, worse metabolic markers, increased inflammatory biomarkers, and greater cardiovascular risk — effects mediated by the same peripheral clock desynchronization documented in Lecture 29. The dose-response is approximately linear: each hour of social jet lag increases metabolic risk markers proportionally.</p></div>
+    <div class="gc"><div class="tag eng">Control Systems</div><h4>The Narrow Therapeutic Window Requires Precision</h4><p>Exercise (Lecture 62) has a therapeutic window of ~75 min/week to infinity — <strong>enormous tolerance for imprecise dosing</strong>. Sleep's therapeutic window is ~6.5–8.0 hours — a <strong>1.5-hour window</strong> within which the optimal dose must fall. This narrow window demands precision in a way that exercise dosing does not. Combined with the consistency requirement (±30 min timing), sleep is the most precision-demanding variable in the protocol — the pharmacological equivalent of a drug with a narrow therapeutic index (like warfarin or lithium) that requires careful titration and monitoring.</p></div>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- ANTIFRAGILITY -->
+  <div class="sn">III. Antifragility &amp; Trade-Offs</div>
+  <div class="caut">
+    <div class="cl">Limits, Confounders, and the Long-Sleep Paradox</div>
+    <p><em>The long-sleep mortality association may be confounded by reverse causation.</em> Three critical caveats: (1) Individuals who sleep >9 hours may do so <em>because</em> they have undiagnosed illness (depression, sleep apnea, chronic inflammation, occult malignancy) that causes both excessive sleep and increased mortality — the long sleep is a symptom, not a cause, of the elevated risk. However, the 2026 <em>Nature</em> Sleep Chart controlled for this concern by using biological aging clocks rather than mortality endpoints, and still found that long sleep (>8h) was associated with accelerated biological aging across multiple organ systems — suggesting the relationship is not entirely confounded by illness. (2) Sleep tracking technology (wearables) measures <em>time in bed</em> or <em>estimated total sleep time</em>, not verified polysomnographic sleep — the accuracy varies by device (typically ±30 min for total duration, less reliable for SWS/REM staging). Protocol targets should be set with this measurement uncertainty in mind: targeting 7.5 hours with a ±30 min device means actual sleep may be 7.0–8.0 hours — safely within the therapeutic window. (3) The consistency finding, while robust (n=60,977, objective accelerometry), cannot fully exclude the possibility that sleep regularity is a marker of overall health discipline rather than an independent causal factor. However, the mechanistic pathway is plausible (circadian synchronization → metabolic, immune, autonomic coordination) and is supported by experimental circadian disruption studies showing causal metabolic and inflammatory consequences.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- PROTOCOL -->
+  <div class="sn">IV. The Protocol — The Five-Parameter Sleep Prescription</div>
+  <div class="note">
+    <div class="nl">Specific Numbers, Priority-Ordered</div>
+    <p><strong>The Prescription (ordered by impact per unit of effort):</strong><br><br>
+    <strong>1. Consistency (highest priority, zero cost):</strong> Same bedtime and wake time ±30 minutes, 7 days/week — including weekends. This is the single most impactful sleep optimization and costs nothing. Set a non-negotiable wake time (e.g., 6:30 AM) and work backward to bedtime (e.g., 10:30 PM for 8h sleep opportunity, accounting for ~30 min sleep latency). Do not shift on weekends.<br><br>
+    <strong>2. Duration target: 7.0–8.0 hours actual sleep</strong> (7.5–8.5 hours sleep opportunity, accounting for latency and brief nighttime awakenings). The biological age optimum from the 2026 Sleep Chart is 6.4–7.8h — the upper end of this range provides adequate SWS and REM without entering the long-sleep risk zone. If wearable shows &lt;6.5h or &gt;8.5h consistently, adjust sleep opportunity window.<br><br>
+    <strong>3. SWS protection (high priority, requires discipline):</strong> No alcohol within 3 hours of bedtime (the single most effective SWS intervention). No caffeine after 2 PM (adenosine blockade reduces SWS depth; caffeine half-life is 5–6 hours, meaning afternoon caffeine is still active at bedtime). Bedroom temperature 65–68°F / 18–20°C (core temperature decline is the thermoregulatory trigger for SWS initiation; a warm room prevents the decline). Evening sauna 1–2 hours pre-bed (Lecture 60) enhances SWS through the core temperature rebound. Regular aerobic exercise increases SWS duration and delta power — the most evidence-based SWS enhancer after alcohol avoidance.<br><br>
+    <strong>4. REM protection:</strong> Do not truncate sleep with an early alarm that cuts into the REM-dominant final 1.5–2 hours. If wake time is non-negotiable, ensure bedtime allows a full 7.5–8.0 hour sleep opportunity. REM deprivation impairs emotional regulation (Lecture 37), reduces cognitive flexibility, and may increase amygdala reactivity (contributing to the anxiety-arousal trap from Lecture 57).<br><br>
+    <strong>5. Light environment:</strong> Dim lighting (&lt;10 lux) 1–2 hours before bed. No screens within 30 min of bed (or use blue-light filtering at maximum intensity). Morning bright light (>10,000 lux or 20 min outdoor light) within 30 min of waking — the strongest zeitgeber for anchoring the circadian rhythm that consistency depends on.<br><br>
+    <strong>Metric:</strong> <em>Sleep Regularity Index (SRI)</em> — most wearables now report sleep timing variability. Target: bed/wake time standard deviation &lt;30 min. <em>Total sleep time</em> — target 7.0–8.0h measured by wearable (accepting ±30 min measurement error). <em>Sleep efficiency</em> — time asleep ÷ time in bed; target >85%. <em>SWS percentage</em> — if wearable provides staging, track trend; a declining SWS% may indicate alcohol interference, thermal disruption, or age-related decline warranting intervention. <em>Subjective morning alertness</em> — the experiential readiness metric: do you feel restored within 30 min of waking, or does it take 2+ hours and multiple caffeine doses to reach functional alertness? Persistent morning grogginess despite adequate duration suggests poor SWS quality or circadian misalignment.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RECURSIVE SYNTHESIS -->
+  <div class="sn">V. Recursive Synthesis</div>
+  <h2>How Sleep Dosing Modulates Every Other Protocol in the Series</h2>
+
+  <p>Sleep is not one protocol among six — it is the <em>recovery substrate</em> upon which every other protocol's adaptation depends. The aerobic training from Lecture 62 produces cardiovascular adaptation during recovery, not during exercise — and recovery peaks during SWS when GH drives the anabolic repair program. The resistance training from Lecture 63 produces muscle protein synthesis for 24–48 hours post-exercise — and the largest MPS spike occurs during the first SWS cycle of the post-training night. The mTOR/AMPK oscillation from Lecture 58 requires overnight fasting for AMPK activation — but sleep deprivation increases late-night snacking behavior (disrupting the fast) and directly impairs insulin sensitivity by 25–40% (Lecture 53's Van Cauter data), shifting the MUX toward chronic GROW even during the fasting window. The glymphatic clearance from Lecture 14 operates exclusively during SWS — and the Aβ-SWS bidirectional trap from Lecture 52 means that impaired SWS allows Aβ accumulation that further impairs SWS, creating the self-reinforcing loop that drives AD Branch 6. The testosterone-SWS bidirectional trap from Lecture 54 means that inadequate SWS reduces testosterone production, which further impairs SWS quality. The NK cell restoration that cancer immunosurveillance (Lecture 50) depends on occurs during SWS — a single night of deprivation reduces NK activity by ~70% (Irwin 1996). And the HRV restoration that autonomic bandwidth (Lecture 47) depends on occurs during the parasympathetic dominance of sleep — which consistency optimizes through circadian synchronization of the autonomic oscillation. Sleep is the convergence point where every protocol either succeeds or fails. It is the recovery that makes the stress worth applying. Without it, exercise damages rather than strengthens, fasting depletes rather than cleanses, and learning fragments rather than consolidates. Consistency is the multiplier that determines whether the recovery programs execute on schedule or drift into desynchronized inefficiency. It costs nothing. It takes no additional time. And it is a stronger predictor of mortality than sleep duration itself.</p>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- PEER REVIEW -->
+  <div class="sn">VI. Peer Review — Common Misconception</div>
+  <div class="corr">
+    <div class="cl">Corrected Misconception</div>
+    <p><strong>Misconception:</strong> "I'll catch up on sleep over the weekend — sleeping in on Saturday and Sunday makes up for short sleep during the week."<br><br><strong>Correction:</strong> Weekend "catch-up" sleep does not fully reverse the accumulated damage from weekday sleep restriction — and the timing shift it creates (social jet lag) may itself be harmful. A longitudinal study demonstrated that individuals who curtailed sleep during the week combined with longer weekend sleep had mortality rates that were better than consistently short sleepers but still worse than consistently adequate sleepers. The 2024 UK Biobank finding is definitive: sleep regularity was a stronger predictor of mortality than duration. Sleeping 6 hours consistently at the same time every night produced lower mortality risk than sleeping 6 hours on weekdays and 9 hours on weekends — because the consistency maintained circadian synchronization while the variable pattern disrupted it. The weekend sleep-in shifts the circadian clock by 2–3 hours, producing a Sunday-night insomnia effect (can't fall asleep at the "normal" weekday bedtime because the clock has shifted) that propagates a new round of sleep restriction into Monday. The metabolic cost of this weekly oscillation — measured by insulin resistance, inflammatory markers, and cortisol dysregulation — is comparable to chronic shift work when sustained over years. The prescription is simple but countercultural: sleep the same amount, at the same time, every day. Seven days a week. Fifty-two weeks a year.</p>
+  </div>
+
+  <div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+  <!-- RESOURCES -->
+  <div class="sn">VII. Resources</div>
+  <div class="res">
+    <div class="rt">Resources &amp; Activities</div>
+    <div class="res-grid">
+      <div class="ri"><div class="rc read">Read</div><h5>Windred et al. (2024)</h5><p>"Sleep regularity is a stronger predictor of mortality risk than sleep duration." <em>Sleep</em>, 47:zsad253. The landmark UK Biobank study (n=60,977, >10M hours of accelerometer data): highest SRI quintile = 20–48% lower all-cause mortality; regularity outperformed duration as a mortality predictor.</p></div>
+      <div class="ri"><div class="rc read">Read</div><h5>Jia et al. (2026)</h5><p>"Sleep chart of biological ageing clocks in middle and late life." <em>Nature</em>. The first mapping of sleep duration against 23 biological aging clocks: lowest biological age gaps at 6.4–7.8h; U-shaped pattern confirmed across brain, body, proteomics, and metabolomics clocks.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Set the Non-Negotiable Anchor</h5><p>Choose a wake time that works 7 days/week (e.g., 6:30 AM). Work backward to bedtime (10:30 PM for 8h sleep opportunity). Set this schedule tonight. Do not shift on weekends. This single action — which costs nothing and requires no equipment — may produce a larger health return than any other change you can make, based on the regularity-mortality data.</p></div>
+      <div class="ri"><div class="rc act">Activity</div><h5>Eliminate the SWS Destroyers</h5><p>No alcohol within 3 hours of bedtime (Priority #1 — the single most impactful SWS intervention). No caffeine after 2 PM. Bedroom temperature 65–68°F / 18–20°C. Dim lighting 1–2 hours before bed. These four changes protect the SWS architecture that drives glymphatic clearance, GH release, immune restoration, and memory consolidation.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>The Sauna-SWS Protocol</h5><p>Sauna 1–2 hours before bedtime (Lecture 60): the core temperature elevation followed by cooling activates the thermoregulatory trigger for SWS initiation, increasing both SWS duration and delta power. This integrates the heat shock protocol with the sleep protocol — one session that simultaneously activates HSP proteostasis, NF-κB suppression, FOXO3, and enhanced SWS.</p></div>
+      <div class="ri"><div class="rc tool">Tool</div><h5>Morning Light as Circadian Anchor</h5><p>Bright light (>10,000 lux or 20 min outdoor light) within 30 min of waking. This is the strongest zeitgeber — the timing signal that synchronizes the SCN master clock to the solar day. Consistent morning light exposure anchors the circadian rhythm that makes consistent bedtime achievable. Without it, the clock drifts, bedtime compliance degrades, and consistency — the most important sleep variable — erodes.</p></div>
+      <div class="ri"><div class="rc meas">Metric</div><h5>SRI + TST + Efficiency + SWS% + Alertness</h5><p>Sleep Regularity Index (timing variability — target SD <30 min). Total sleep time (7.0–8.0h). Sleep efficiency (>85%). SWS% (if wearable provides — trend monitoring). Subjective morning alertness (restored within 30 min of waking?). Track alongside HRV (Lec 47 — nocturnal RMSSD reflects sleep quality), fasting insulin (Lec 53 — sleep restriction → insulin resistance), and the training adaptation metrics from Lecs 62/63.</p></div>
+      <div class="ri"><div class="rc meas">Cross-Reference</div><h5>Protocol Engineering Integration</h5><p>Aerobic (Lec 62) → exercise increases SWS delta power; recovery occurs during sleep. Resistance (Lec 63) → MPS peaks during post-training SWS. mTOR/AMPK (Lec 58) → overnight fast requires sleep discipline. Glymphatic (Lec 14) → SWS drives Aβ clearance. AD prevention (Lec 52) → Branch 6 (sleep/clearance). Sauna (Lec 60) → pre-bed sauna enhances SWS. Testosterone (Lec 54) → SWS drives nocturnal T pulse. Cortisol (Lec 40) → circadian consistency → proper CAR. Fasting (Lec 65) → sleep timing defines the overnight fast window. Integrated protocol (Lec 67) → sleep is the non-negotiable foundation.</p></div>
+    </div>
+  </div>
+
+  <div class="cite">
+    <div class="ct">Citation Verification</div>
+    <table>
+      <tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+      <tr><td>Sleep regularity is a stronger predictor of mortality than sleep duration; highest SRI quintile = 20–48% lower all-cause mortality (n=60,977, accelerometry)</td><td>Windred et al., <em>Sleep</em>, 2024;47:zsad253</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Short sleep (<7h) = 14% increased mortality; long sleep (>8h) = 27–34% increased mortality vs. 7–8h reference</td><td><em>GeroScience</em>, 2025 meta-analysis; Cappuccio et al., 2010 (n=1.3M)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Lowest biological age gaps achieved between 6.4–7.8h sleep; U-shaped across 23 aging clocks (brain, body, proteomics, metabolomics)</td><td>Jia et al., <em>Nature</em>, 2026 (Sleep Chart; UK Biobank aged 37–84)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Low SRI associated with 26–53% increased dementia risk and smaller hippocampal volume</td><td>Systematic review, <em>Sleep Health J.</em>, 2025; Cribb et al., <em>eLife</em>, 2023</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Unstable sleep timing predicts poorer mental, metabolic, vascular, cognitive, and survival outcomes across diverse populations</td><td>Systematic review, <em>Sleep Health J.</em>, 2025; AHA Scientific Statement, <em>Circ. CQO</em>, 2025</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Alcohol abolishes SWS / first deep sleep cycle; eliminates the first GH pulse</td><td>Roehrs &amp; Roth, 2001; Ebrahim et al., <em>Alcohol. Clin. Exp. Res.</em>, 2013; multiple studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>SWS declines ~2% per decade after 30; GH release ~70% during SWS</td><td>Ohayon et al., <em>Sleep</em>, 2004; Van Cauter et al., 2000; multiple studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Sleep restriction of 4h for 6 nights reduces insulin sensitivity ~40% (Van Cauter)</td><td>Spiegel et al., <em>Lancet</em>, 1999;354:1435–1439 (documented in Lecture 53)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+      <tr><td>Weekend catch-up sleep reduces but does not fully reverse mortality risk from weekday short sleep</td><td>Åkerstedt et al., <em>J Sleep Res.</em>, 2019;28:e12712; National Sleep Foundation consensus, 2023</td><td><span class="cv">⚠ The evidence on catch-up sleep is mixed: one Swedish study (n=43,880) found no excess mortality for short weekday/long weekend sleepers under age 65, while other studies found only partial reversal. The weight of evidence supports partial but incomplete recovery — consistent with the circadian disruption mechanism. The National Sleep Foundation consensus rated catch-up sleep as "important but not fully compensatory."</span></td></tr>
+    </table>
+  </div>
+
+  <div class="fn">
+    <strong>Key References:</strong> Windred, D.P. et al. (2024). "Sleep regularity is a stronger predictor of mortality risk than sleep duration." <em>Sleep</em>, 47:zsad253. &nbsp;|&nbsp; Jia, T. et al. (2026). "Sleep chart of biological ageing clocks in middle and late life." <em>Nature</em>. &nbsp;|&nbsp; Cappuccio, F.P. et al. (2010). "Sleep duration and all-cause mortality: a systematic review and meta-analysis." <em>Sleep</em>, 33:585–592. &nbsp;|&nbsp; American Heart Association (2025). "Multidimensional Sleep Health: Definitions and Implications for Cardiometabolic Health." <em>Circ. Cardiovasc. Qual. Outcomes</em>. &nbsp;|&nbsp; National Sleep Foundation (2023). "The importance of sleep regularity: a consensus statement."
+  </div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_sleep_dose_response",
+  "related": [
+    {
+      "id": "lecture_dose_response_framework",
+      "title": "The Dose-Response Framework — Seven Dosing Models",
+      "filename": "lecture_dose_response_framework.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_glymphatic_system",
+      "title": "The Glymphatic System",
+      "filename": "lecture_glymphatic_system.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Sleep & Recovery"
+      ]
+    },
+    {
+      "id": "lecture_circadian_desynchronization",
+      "title": "Circadian Desynchronization & the Drifting Clock",
+      "filename": "lecture_circadian_desynchronization.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_sleep_architecture_emotion",
+      "title": "Sleep Architecture & Emotional Memory Processing",
+      "filename": "lecture_sleep_architecture_emotion.html",
+      "tags": [
+        "Adaptive Stress",
+        "Sleep & Recovery"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

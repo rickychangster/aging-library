@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 65: Fasting Windows, Protein Architecture & Nutritional Periodization</title>
+
+<style>
+:root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--olive:#4d7c0f;--olive-dim:rgba(77,124,15,0.04);--rule:#d4d0c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+.page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+.top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--olive) 0%,var(--amber) 50%,var(--blue) 100%);border-radius:2px;}
+.hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--olive);position:relative;}
+.stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--olive);margin-bottom:20px;}
+.ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+h1{font-family:'DM Serif Text',serif;font-size:36px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--olive);}
+.sub{font-family:'DM Serif Text',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+.meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--olive);font-weight:600;}
+.sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+.k{color:var(--olive);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+.sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:8px;height:3px;background:var(--olive);border-radius:1px;}
+.fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--olive);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--olive);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+.note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--olive);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--olive);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--olive);font-weight:700;}
+.res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--olive);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+.cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+.fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+@media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Only 16:8, not 14:10 or 12:12, produced measurable metabolic changes in RCTs; the fasting step function and age-shifted leucine threshold together dictate the nutritional precision protocol.">
+<meta property="og:title" content="Fasting Windows, Protein Architecture & Nutritional Periodization — Longevity & Wellness">
+<meta property="og:description" content="Only 16:8, not 14:10 or 12:12, produced measurable metabolic changes in RCTs; the fasting step function and age-shifted leucine threshold together dictate the nutritional precision protocol.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_fasting_protein_architecture.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fasting Windows, Protein Architecture & Nutritional Periodization — Longevity & Wellness">
+<meta name="twitter:description" content="Only 16:8, not 14:10 or 12:12, produced measurable metabolic changes in RCTs; the fasting step function and age-shifted leucine threshold together dictate the nutritional precision protocol.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+<div class="top-bar"></div>
+<header class="hdr">
+<div class="ln">65</div>
+<div class="stag">Protocol Engineering Series · No. 65 (5 of 7)</div>
+<h1>Fasting Windows, Protein Architecture <span class="a">& Nutritional Periodization</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+<div class="sub">Lecture 58 Established the mTOR-AMPK Multiplexer — the Molecular Logic That Decides Whether Cells Grow or Maintain. This Lecture Provides the Specific Numbers: How Long to Fast (12h vs. 14h vs. 16h — Only 16:8 Produced Significant Body Composition Changes in Healthy Individuals), How Much Protein Per Meal (the Leucine Threshold Shifts Upward With Age — Older Muscle Requires ~30–40g Per Meal), When to Eat Relative to Exercise (Resistance First, Protein Within 2 Hours), and What the CALERIE Trial — the Only RCT of Sustained Caloric Restriction in Non-Obese Humans — Actually Showed About Slowing the Pace of Biological Aging</div>
+<div class="meta">
+<div><span class="hl">Origin:</span> Nutritional Geroscience / Chrononutrition (Panda 2020; Moore 2015; Belsky 2023)</div>
+<div><span class="hl">Bridge:</span> Supply Chain Engineering — Just-In-Time Delivery vs. Batch Processing</div>
+<div><span class="hl">Series:</span> Protocol Engineering 5 of 7 — Fasting & Protein</div>
+<div>~1,200 words</div>
+</div>
+</header>
+
+<div class="sn">I. The Core Concept — Three Dose-Response Curves for Nutritional Timing</div>
+<h2>Fasting Window Duration, Per-Meal Protein Dose, and the mTOR-AMPK Duty Cycle Resolution</h2>
+
+<p><em>Curve 1: Fasting window — threshold with a dose-specific step function.</em> A 2024 RCT directly compared 16:8, 14:10, and 12:12 TRE windows against a normal-diet control over 8 weeks in metabolically healthy individuals. The result was unambiguous: <span class="k">TRE 16:8 reduced body mass (−2.46%) and absolute fat mass (−8.65%)</span> with no changes in lean soft tissue and no change in calorie intake. TRE 14:10 and 12:12 produced no significant changes in any body composition or metabolic parameter. The dose-response is not a smooth curve — it is a <em>step function</em> with the step occurring between 14 and 16 hours of fasting. Below 14 hours: no measurable effect in healthy individuals. At 16 hours: fat loss without lean mass loss or caloric restriction. The mechanistic explanation connects directly to Lecture 58: the AMPK activation threshold requires sufficient glycogen depletion and insulin nadir to flip the MUX from GROW to MAINTAIN — and this takes approximately 14–16 hours of fasting for a metabolically healthy individual (earlier for insulin-resistant individuals whose glycogen stores deplete faster). For a person with your metabolic profile (insulin in the optimal range (<5 µU/mL), HOMA-IR in the optimal range (<1.0)), the AMPK activation window likely opens at the later end of this range — your exceptional insulin sensitivity means glycogen is efficiently maintained, requiring a longer fast to achieve meaningful depletion.</p>
+
+<p><em>Curve 2: Per-meal protein — sigmoidal with an aging-shifted threshold.</em> Muscle protein synthesis (MPS) follows a sigmoid per-meal dose-response with a critical inflection at the <span class="k">leucine threshold</span> — the minimum leucine concentration required to activate the mTORC1/S6K1 signaling cascade that initiates protein translation. In young adults, this threshold is approximately 1.5–2.0g leucine (achieved with ~20g of high-quality protein). With aging, <span class="k">anabolic resistance</span> shifts the entire sigmoid rightward: older muscle requires approximately <span class="k">2.5–3.0g leucine (~30–40g protein)</span> per meal to achieve the same MPS activation that 20g produces in a 25-year-old. Below this threshold: minimal MPS activation regardless of other training or hormonal factors. Above it: MPS saturates — additional protein in the same meal is oxidized for energy rather than incorporated into muscle. The practical consequence for a person in their fifties: every protein-containing meal must cross the 30g threshold or it fails to stimulate meaningful MPS. Three meals of 20g protein (60g total) produce less total daily MPS than two meals of 35g (70g total) — because three sub-threshold meals generate three incomplete MPS signals while two supra-threshold meals generate two complete ones. The per-meal dose matters more than the daily total for the same reason that three sub-therapeutic drug doses don't equal one therapeutic dose.</p>
+
+<p><em>Curve 3: The mTOR-AMPK duty cycle — the temporal resolution of the growth-maintenance tension.</em> The fundamental conflict: fasting activates AMPK (maintenance, autophagy, longevity pathways) while protein intake activates mTOR (growth, MPS, sarcopenia prevention). Both are essential — chronic AMPK without mTOR causes sarcopenia (Lecture 59), and chronic mTOR without AMPK accelerates aging (Lecture 58). The resolution is <em>temporal oscillation</em> — not choosing one or the other but alternating between them within each 24-hour cycle. The CALERIE trial (n=220, 2-year RCT of 25% CR in non-obese adults) showed that even moderate caloric restriction (~12% actually achieved) produced a measurable ~3% slowing of the pace of biological aging as measured by DunedinPACE — with improvements in cardiometabolic health, liver function, skeletal muscle quality, and immune health. But CALERIE also showed that <em>chronic</em> caloric restriction is difficult to sustain (participants achieved only ~12% of the prescribed 25%) and carries risks of muscle loss, bone density reduction, and hormonal disruption. TRE achieves the same AMPK activation through temporal restriction rather than caloric restriction — producing the maintenance window without the chronic energy deficit that CALERIE's side effects derived from. The daily cycle: overnight fast (AMPK dominant → autophagy, mitophagy, DNA repair) → post-exercise protein-rich feeding (mTOR dominant → MPS, recovery, sarcopenia prevention) → feeding window (2–3 protein-rich meals crossing the leucine threshold) → evening fast begins (insulin declines → AMPK window opens → overnight maintenance cycle repeats). This oscillation — the practical application of Lecture 58's MUX model — is the nutritional architecture that resolves the growth-maintenance tension without requiring chronic caloric restriction.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="fig">
+<div class="fig-tag">Figure 1 — The 24-Hour mTOR-AMPK Duty Cycle: Fasting, Feeding & Exercise Integration</div>
+<svg viewBox="0 0 740 420" xmlns="http://www.w3.org/2000/svg">
+<text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4d7c0f" font-weight="600" letter-spacing="1.5">THE 24-HOUR NUTRITIONAL ARCHITECTURE</text>
+<!-- Timeline -->
+<line x1="50" y1="60" x2="700" y2="60" stroke="#d4d0c8" stroke-width="1"/>
+<!-- Time markers -->
+<text x="50" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">10PM</text>
+<text x="150" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">2AM</text>
+<text x="250" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">6AM</text>
+<text x="350" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">10AM</text>
+<text x="450" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">1PM</text>
+<text x="550" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">4PM</text>
+<text x="650" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">8PM</text>
+<text x="700" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">10PM</text>
+<!-- AMPK zone (overnight fast) -->
+<rect x="50" y="68" width="300" height="50" rx="4" fill="rgba(77,124,15,0.08)" stroke="#4d7c0f" stroke-width="1.5"/>
+<text x="200" y="88" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4d7c0f" font-weight="600">AMPK DOMINANT — FASTING (16h)</text>
+<text x="200" y="106" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Autophagy ✓ | Mitophagy ✓ | DNA repair ✓ | Glymphatic clearance ✓ | GH release ✓</text>
+<!-- Exercise marker -->
+<rect x="275" y="126" width="75" height="24" rx="3" fill="rgba(29,78,216,0.08)" stroke="#1d4ed8" stroke-width="1"/>
+<text x="312" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#1d4ed8" font-weight="600">EXERCISE</text>
+<text x="312" y="162" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#1d4ed8">Fasted or early-fed</text>
+<text x="312" y="172" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#1d4ed8">AMPK boost before feeding</text>
+<!-- mTOR zone (feeding window) -->
+<rect x="350" y="68" width="300" height="50" rx="4" fill="rgba(180,83,9,0.08)" stroke="#b45309" stroke-width="1.5"/>
+<text x="500" y="88" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#b45309" font-weight="600">mTOR ACTIVE — FEEDING (8h)</text>
+<text x="500" y="106" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">MPS ✓ | Recovery ✓ | Glycogen replenishment ✓ | Nutrient absorption ✓</text>
+<!-- Meal markers -->
+<rect x="360" y="126" width="90" height="40" rx="3" fill="rgba(180,83,9,0.06)" stroke="#b45309" stroke-width="1"/>
+<text x="405" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b45309" font-weight="600">MEAL 1 (post-exercise)</text>
+<text x="405" y="156" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">35–40g protein + leucine</text>
+<text x="405" y="166" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309">Largest mTOR activation</text>
+<rect x="460" y="126" width="90" height="40" rx="3" fill="rgba(180,83,9,0.06)" stroke="#b45309" stroke-width="1"/>
+<text x="505" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b45309" font-weight="600">MEAL 2 (midday)</text>
+<text x="505" y="156" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">30–35g protein</text>
+<text x="505" y="166" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309">Sustained MPS</text>
+<rect x="560" y="126" width="90" height="40" rx="3" fill="rgba(180,83,9,0.06)" stroke="#b45309" stroke-width="1"/>
+<text x="605" y="142" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b45309" font-weight="600">MEAL 3 (final)</text>
+<text x="605" y="156" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">30–35g protein</text>
+<text x="605" y="166" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309">Before 6–8 PM</text>
+<!-- Back to AMPK -->
+<rect x="650" y="68" width="50" height="50" rx="4" fill="rgba(77,124,15,0.08)" stroke="#4d7c0f" stroke-width="1"/>
+<text x="675" y="93" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4d7c0f" font-weight="600">FAST</text>
+<text x="675" y="103" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4d7c0f">begins</text>
+<!-- Total protein -->
+<text x="500" y="184" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b45309" font-weight="600">DAILY TOTAL: 95–110g protein (1.6–2.0 g/kg for 60–70kg individual)</text>
+<!-- Dose-response comparison -->
+<text x="370" y="214" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4d7c0f" font-weight="600" letter-spacing="1.5">FASTING WINDOW DOSE-RESPONSE (HEAD-TO-HEAD RCT DATA)</text>
+<rect x="50" y="228" width="200" height="80" rx="4" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+<text x="150" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c" font-weight="600">12:12 WINDOW</text>
+<text x="150" y="268" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#71717a">No significant changes</text>
+<text x="150" y="284" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#71717a">in body composition or</text>
+<text x="150" y="300" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#71717a">metabolic parameters</text>
+<rect x="270" y="228" width="200" height="80" rx="4" fill="rgba(180,83,9,0.03)" stroke="#b45309" stroke-width="1"/>
+<text x="370" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b45309" font-weight="600">14:10 WINDOW</text>
+<text x="370" y="268" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#71717a">No significant changes</text>
+<text x="370" y="284" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#71717a">in healthy individuals</text>
+<text x="370" y="300" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#b45309">(may benefit metabolic syndrome)</text>
+<rect x="490" y="228" width="200" height="80" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1.5"/>
+<text x="590" y="248" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600">16:8 WINDOW ✓</text>
+<text x="590" y="268" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#15803d" font-weight="600">Body mass ↓2.46%</text>
+<text x="590" y="284" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#15803d" font-weight="600">Fat mass ↓8.65%</text>
+<text x="590" y="300" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#15803d" font-weight="600">No lean mass loss</text>
+<!-- CALERIE -->
+<text x="370" y="334" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4d7c0f" font-weight="600" letter-spacing="1.5">CALERIE TRIAL: THE ONLY CR RCT IN NON-OBESE HUMANS</text>
+<rect x="50" y="348" width="640" height="60" rx="4" fill="rgba(77,124,15,0.04)" stroke="#4d7c0f" stroke-width="1"/>
+<text x="370" y="368" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10.5" fill="#3d3d3d">n=220 | 2 years | 25% CR prescribed (11.9% achieved) | Non-obese adults (BMI 22–28)</text>
+<text x="370" y="388" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10.5" fill="#3d3d3d">DunedinPACE: <tspan fill="#15803d" font-weight="700">~3% slowing of biological aging</tspan> | Improved cardiometabolic health, liver function,</text>
+<text x="370" y="402" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10.5" fill="#3d3d3d">skeletal muscle quality, immune health | Mixed results for epigenetic clocks, telomeres</text>
+</svg>
+<div class="fig-cap">Top: the 24-hour mTOR-AMPK duty cycle — 16h AMPK-dominant overnight fast (maintenance programs) alternating with 8h mTOR-active feeding window (growth/recovery programs), with exercise positioned at the fast-to-fed transition to maximize both AMPK activation and post-exercise mTOR response. Center: head-to-head TRF window comparison — only 16:8 produced significant body composition changes in healthy individuals. Bottom: CALERIE trial summary — the first and only RCT showing that caloric restriction slows biological aging in non-obese humans, with a ~3% DunedinPACE slowing at ~12% actual CR.</div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">II. Cross-Pollination — Supply Chain: Just-In-Time Protein Delivery vs. Continuous Drip</div>
+<div class="grid">
+<div class="gc"><div class="tag bio">Nutritional Science</div><h4>Early vs. Late TRE — the Circadian Modifier</h4><p>Insulin sensitivity follows a circadian gradient: highest in the morning, lowest in the evening (Lecture 17/29). <strong>Early TRE (eating 8 AM–2 PM) produces greater metabolic improvements than late TRE (12 PM–8 PM)</strong> — the same food generates a lower insulin response when consumed in the morning. Early TRE also preserved muscle better during resistance training in young women. The implication: if optimizing for metabolic health, shift the feeding window earlier (e.g., 10 AM–6 PM rather than 12 PM–8 PM). If optimizing for social practicality (dinner with family), the late window (12 PM–8 PM) is acceptable but less metabolically optimal. Your low insulin (optimal) suggests the circadian modifier may matter less for you than for an insulin-resistant individual — but the principle still applies.</p></div>
+<div class="gc"><div class="tag eng">Supply Chain Engineering</div><h4>Just-In-Time vs. Batch: Why Meal Timing Matters More Than Daily Totals</h4><p>In manufacturing, <strong>just-in-time (JIT) delivery</strong> sends materials precisely when the production line needs them — avoiding both shortages (line stoppage) and excess inventory (waste, storage costs). MPS activation follows JIT logic: the muscle needs protein <em>when the mTOR signal is active</em> (post-exercise, during the fed window), not as a continuous drip. Three 20g meals (60g total, all sub-threshold) are like three half-loads delivered when the line is idle. Two 35g meals timed to the mTOR-active window (70g total, both supra-threshold) are JIT — full loads delivered when the line is running. The delivery schedule determines output more than the total material shipped.</p></div>
+<div class="gc"><div class="tag bio">Nutritional Science</div><h4>The Protein Distribution Problem for Older Adults</h4><p>Most Western diets follow a <strong>skewed protein distribution</strong>: low-protein breakfast (~10g), moderate lunch (~20g), high-protein dinner (~40g). Only dinner crosses the leucine threshold in older adults — meaning <em>two-thirds of the day's meals fail to activate MPS</em>. Redistributing to an even pattern (30–35g per meal × 3 meals) transforms three meals into three effective MPS signals without increasing total daily protein. For a person doing 16:8 TRE with two meals and a snack: first meal 35–40g (post-exercise), second meal 35g (midday/afternoon), optional protein-rich snack 20g = 90–95g total, every meal crossing the threshold.</p></div>
+<div class="gc"><div class="tag eng">Supply Chain Engineering</div><h4>Nutritional Periodization — Cycling the Macro Mix</h4><p>Just as Lecture 63 prescribed deload weeks for resistance training, <strong>nutritional periodization cycles the macronutrient emphasis</strong> to match training demands and prevent metabolic adaptation. Training days: higher carbohydrate (glycogen replenishment for exercise performance) + high protein (mTOR activation for MPS). Rest days: higher fat / lower carbohydrate (metabolic flexibility training, enhanced fat oxidation, deeper AMPK activation). Monthly: consider one 24–36h extended fast (deeper autophagy, AMPK hyper-activation) — though evidence in humans for extended fasting beyond 16:8 TRE remains limited. This cycling prevents the metabolic adaptation that chronic caloric restriction triggers (reduced metabolic rate, leptin decline, thyroid suppression — the CALERIE compliance challenge).</p></div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">III. Antifragility & Trade-Offs</div>
+<div class="caut">
+<div class="cl">Where Fasting and Muscle Preservation Conflict — and How Your Profile Resolves It</div>
+<p><em>The central tension of nutritional geroscience: fasting promotes longevity pathways but can accelerate sarcopenia if protein is inadequate.</em> Four caveats: (1) Extended fasting (>24h) in adults over 50 carries real risks of muscle catabolism — the body increasingly catabolizes muscle for gluconeogenesis as hepatic glycogen depletes. TRE (16:8) provides the AMPK activation without the extended protein deprivation. (2) The CALERIE trial participants achieved only ~12% CR despite a 25% target — illustrating that chronic restriction is unsustainable for most people. TRE achieves metabolic benefits through temporal restriction rather than caloric restriction — most TRE studies show no reduction in total caloric intake, yet produce metabolic improvements. (3) Your metabolic profile (insulin in the optimal range (<5 µU/mL), HOMA-IR in the optimal range (<1.0)) already indicates optimal mTOR/AMPK calibration (Lecture 58). The primary nutritional goal for your profile is not aggressive fasting to improve metabolic markers that are already excellent — it is <em>maintaining</em> the favorable MUX state while ensuring adequate protein to prevent sarcopenia (Lecture 59). The prescription is moderate: 14–16h overnight fast + 1.6–2.0 g/kg/day protein distributed across 2–3 meals that each cross the leucine threshold. (4) Protein intake above ~2.2 g/kg/day shows no additional MPS benefit and increases renal nitrogen load — the per-meal sigmoid saturates, and the daily total plateau is reached. More is not better above this ceiling.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">IV. The Protocol — Specific Numbers</div>
+<div class="note">
+<div class="nl">The Nutritional Architecture for a Person in Their Fifties</div>
+<p><strong>The Prescription:</strong><br><br>
+<strong>Fasting window: 14–16 hours overnight</strong> (start with 14h → progress to 16h over 2–4 weeks if tolerated). Example: last meal at 6–7 PM, first meal at 10 AM–12 PM. This provides 14–16 hours of AMPK activation aligned with the overnight SWS/glymphatic clearance window (Lecture 64). No calories during the fast — black coffee, water, plain tea are acceptable (no cream, no sweeteners that trigger insulin).<br><br>
+<strong>Feeding window: 8–10 hours, 2–3 protein-rich meals:</strong><br>
+Meal 1 (post-exercise, ~10 AM–12 PM): 35–40g protein (whey shake + eggs, or meat/fish + legumes). This is the highest-priority meal — it follows the overnight AMPK period and the exercise session, combining the mTOR rebound from fasting-to-feeding with the post-exercise MPS window. Leucine: ≥3g (40g whey protein provides ~4g leucine).<br>
+Meal 2 (midday/afternoon, ~2–4 PM): 30–35g protein + mixed macronutrients. Prioritize carbohydrates on training days (glycogen replenishment), higher fat on rest days (metabolic flexibility).<br>
+Meal 3 (final meal, ~5–7 PM): 30–35g protein + vegetables. Complete eating ≥3 hours before bed to avoid metabolic arousal that disrupts SWS (Lecture 64).<br>
+Daily total: 95–110g protein (1.6–1.8 g/kg for a ~65 kg individual). On heavy resistance training days: add 10–15g via post-workout shake → total 105–125g (up to 2.0 g/kg).<br><br>
+<strong>The leucine rule:</strong> Every protein-containing meal or snack must deliver ≥2.5g leucine. Below this: mTOR activation is incomplete and MPS is sub-threshold. The simplest compliance check: 30g+ of animal protein (meat, fish, eggs, whey, dairy) per meal provides ≥2.5g leucine. Plant protein sources require ~40–50g per meal to reach the same leucine threshold due to lower leucine density.<br><br>
+<strong>Metric:</strong> <em>Fasting insulin</em> (the most direct proxy for chronic mTOR status — in the optimal range (<5 µU/mL) = optimal; stable over time confirms the nutritional architecture is maintaining the favorable MUX state). <em>HbA1c</em> (<5.4% — confirms average glycemia in the low-AGE zone). <em>Body composition</em> (DEXA lean mass trend — confirms protein is adequate for sarcopenia prevention). <em>Grip strength</em> (Lecture 59 — the functional readout of whether protein + resistance training are maintaining the structural safety margin). <em>2-week CGM trial</em> (optional — reveals your personal postprandial glucose response to specific foods, identifying which meals spike glucose and therefore drive mTOR/AGE formation disproportionately).</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">V. Recursive Synthesis</div>
+<h2>How Nutritional Architecture Resolves the Tension Between Every Previous Protocol</h2>
+<p>This lecture resolves the central tension that Lecture 58 (mTOR/AMPK) established and that Lectures 62–64 intensified: how to activate maintenance pathways (AMPK, autophagy, DNA repair) while simultaneously fueling the growth pathways (mTOR, MPS, sarcopenia prevention) that exercise training requires. The answer is temporal oscillation — not choosing one over the other but cycling between them within each 24-hour period. The overnight fast (14–16h) activates AMPK, coordinates with SWS-mediated glymphatic clearance (Lecture 14), and aligns with the cortisol nadir (Lecture 40). The post-exercise feeding window activates mTOR at exactly the moment when resistance training (Lecture 63) has primed the muscle for maximal MPS response. The protein distribution (30–40g per meal, ≥2.5g leucine) ensures that every meal crosses the anabolic resistance threshold that aging has shifted upward. And the CALERIE data confirms that the downstream biomarker — DunedinPACE — responds to this type of metabolic modulation with a measurable slowing of biological aging. Your insulin in the optimal range (<5 µU/mL) and HOMA-IR in the optimal range (<1.0) confirm that your nutritional architecture is already well-calibrated — the prescription here is conservative maintenance of an excellent system, not aggressive correction of a dysfunctional one.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VI. Peer Review — Common Misconception</div>
+<div class="corr">
+<div class="cl">Corrected Misconception</div>
+<p><strong>Misconception:</strong> "Intermittent fasting means you have to skip breakfast — and breakfast is the most important meal of the day."<br><br><strong>Correction:</strong> TRE does not require skipping any specific meal — it requires compressing the feeding window into 8–10 hours, regardless of which hours you choose. A person eating 7 AM–3 PM (early TRE) "skips dinner" rather than breakfast — and the early TRE data shows this timing may actually produce superior metabolic outcomes due to circadian insulin sensitivity peaking in the morning. The "breakfast is the most important meal" claim is not supported by RCT evidence — it originates from observational studies confounded by healthy-user bias (people who eat breakfast tend to have other health-promoting behaviors). What matters is not whether you eat breakfast but whether your feeding window creates a sufficient overnight fasting period (≥14h) to activate AMPK, whether each meal crosses the leucine threshold (≥30g protein), and whether the feeding window aligns with your circadian insulin sensitivity curve. The 16:8 window can be 6 AM–2 PM, 10 AM–6 PM, or 12 PM–8 PM — the optimal timing depends on your chronotype, social schedule, and exercise timing, not on a mythologized meal.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VII. Resources</div>
+<div class="res">
+<div class="rt">Resources & Activities</div>
+<div class="res-grid">
+<div class="ri"><div class="rc read">Read</div><h5>Belsky et al. (2023)</h5><p>"Effect of long-term caloric restriction on DNA methylation measures of biological aging." <em>Nature Aging</em>, 3:248–257. The CALERIE trial analysis: 25% CR prescribed (12% achieved) in non-obese adults → ~3% slowing of DunedinPACE → translates to ~15% lower mortality risk in observational calibration.</p></div>
+<div class="ri"><div class="rc read">Read</div><h5>Correia et al. (2024)</h5><p>"Impact of daily fasting duration on body composition during TRE." <em>J. Transl. Med.</em> The head-to-head RCT: 16:8 vs. 14:10 vs. 12:12 vs. normal diet. Only 16:8 produced significant fat loss without lean mass loss in healthy individuals.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Implement 14→16h Overnight Fast</h5><p>Start with 14h (e.g., 7 PM–9 AM) for 2 weeks. Progress to 16h (e.g., 6 PM–10 AM) if tolerated. No calories during fast. Black coffee/tea/water only. This creates the daily AMPK activation window aligned with sleep. Coordinate with Lecture 64: last meal ≥3h before bed.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Restructure Protein Distribution</h5><p>Audit current meals: how many cross 30g protein? Restructure to 2–3 meals × 30–40g each. Post-exercise meal is highest priority. Every meal: ≥2.5g leucine (30g+ animal protein or 40–50g plant protein). Total: 1.6–2.0 g/kg/day. This is the practical resolution of the mTOR-AMPK tension: sufficient protein within a compressed feeding window.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Leucine Check</h5><p>Leucine content per 30g protein: whey = ~3.6g ✓, chicken = ~2.4g (borderline — use 35g), eggs = ~2.5g ✓, beef = ~2.4g (borderline), salmon = ~2.5g ✓, tofu = ~1.5g ✗ (need 50g+ protein), lentils = ~1.8g ✗ (need 45g+ protein). Plant sources require larger portions or leucine supplementation to reach the 2.5g threshold.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>Optional: 2-Week CGM Trial</h5><p>Continuous glucose monitor worn for 14 days reveals your personal glycemic responses. Identifies: which foods spike your glucose (mTOR/AGE drivers), how exercise timing modulates postprandial glucose, whether your overnight fast achieves stable glucose nadir, and how meal composition affects the insulin curve that determines mTOR activation duration.</p></div>
+<div class="ri"><div class="rc meas">Metric</div><h5>Insulin + HbA1c + Lean Mass + Grip</h5><p>Fasting insulin (in the optimal range, <5 µU/mL — maintain stability). HbA1c (<5.4% — average glycemia). DEXA lean mass trend (annual — confirms protein adequacy). Grip strength (Lec 59 — functional sarcopenia proxy). Body weight trend (stable or slight recomposition toward lean mass). CGM data if available (postprandial variability).</p></div>
+<div class="ri"><div class="rc meas">Cross-Reference</div><h5>Protocol Engineering Integration</h5><p>mTOR/AMPK (Lec 58) → this lecture provides the daily implementation. Resistance training (Lec 63) → post-exercise protein timing drives MPS. Sleep (Lec 64) → last meal ≥3h pre-bed; overnight fast = AMPK window. Sarcopenia (Lec 59) → protein dose prevents frailty cascade. Aerobic (Lec 62) → exercise position at fast-to-fed transition maximizes AMPK then mTOR. Hormetic stress (Lec 66) → sauna post-exercise, pre-dinner; cold on rest days. Integrated protocol (Lec 67) → nutritional architecture locks into the weekly schedule.</p></div>
+</div>
+</div>
+
+<div class="cite">
+<div class="ct">Citation Verification</div>
+<table>
+<tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+<tr><td>TRE 16:8 reduced body mass −2.46% and fat mass −8.65% with no lean mass loss in healthy individuals; 14:10 and 12:12 showed no significant changes</td><td>Correia et al., <em>J. Transl. Med.</em>, 2024;22:1096 (RCT, n=41)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>CALERIE: 25% CR prescribed, ~12% achieved in non-obese adults over 2 years; ~3% DunedinPACE slowing; improved cardiometabolic health, liver, muscle, immune</td><td>Belsky et al., <em>Nature Aging</em>, 2023;3:248–257; Kraus et al., <em>Lancet DE</em>, 2019; Das et al., 2023</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Per-meal protein threshold for MPS shifts from ~20g (young) to ~30–40g (older) due to anabolic resistance; leucine threshold ~2.5–3.0g</td><td>Moore et al., <em>J. Gerontol.</em>, 2015; Burd et al., 2012; Katsanos et al., 2006</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Early TRE produces greater metabolic improvements than late TRE; preserved muscle better during RT</td><td>Sutton et al., <em>Cell Metab.</em>, 2018; Stratton et al., <em>Nutrients</em>, 2025</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>TRF combined with resistance training preserves lean mass when protein intake is adequate</td><td>Meta-analysis of 7 RCTs (n=164), <em>Int. J. Mol. Sci.</em>, 2024</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Circadian insulin sensitivity gradient: highest in morning, lowest in evening</td><td>Poggiogalle et al., <em>Nutrients</em>, 2018; Morris et al., <em>Curr. Biol.</em>, 2015</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Most Western diets follow a skewed protein distribution: low breakfast (~10g), moderate lunch (~20g), high dinner (~40g)</td><td>Paddon-Jones et al., <em>J. Nutr.</em>, 2015; reviewed in multiple distribution studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>3% DunedinPACE slowing is associated with ~15% lower mortality risk in independent observational calibration</td><td>Belsky et al., 2023 (calibration from Dunedin Study cohort)</td><td><span class="cv">⚠ The 15% mortality risk translation is from an observational calibration cohort (Dunedin Study), not from the CALERIE trial itself. It represents the statistical association between a 3% DunedinPACE difference and mortality in an independent cohort — not a directly measured survival outcome from CR intervention.</span></td></tr>
+</table>
+</div>
+
+<div class="fn">
+<strong>Key References:</strong> Belsky, D.W. et al. (2023). "Effect of long-term caloric restriction on DNA methylation measures of biological aging in healthy adults from the CALERIE trial." <em>Nature Aging</em>, 3:248–257. &nbsp;|&nbsp; Correia, J.M. et al. (2024). "Impact of daily fasting duration on body composition during TRE." <em>J. Transl. Med.</em>, 22:1096. &nbsp;|&nbsp; Moore, D.R. et al. (2015). "Protein ingestion to stimulate MPS requires greater relative protein intakes in healthy older vs. younger men." <em>J. Gerontol.</em>, 70:57–62. &nbsp;|&nbsp; Sutton, E.F. et al. (2018). "Early time-restricted feeding improves insulin sensitivity, blood pressure, and oxidative stress." <em>Cell Metab.</em>, 27:1212–1221. &nbsp;|&nbsp; Paddon-Jones, D. et al. (2015). "Protein and healthy aging." <em>Am. J. Clin. Nutr.</em>, 101:1339S–1345S.
+</div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_fasting_protein_architecture",
+  "related": [
+    {
+      "id": "lecture_dose_response_framework",
+      "title": "The Dose-Response Framework — Seven Dosing Models",
+      "filename": "lecture_dose_response_framework.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_nutrient_sensing_mtor_ampk",
+      "title": "The Nutrient-Sensing Network — mTOR, AMPK & the Fasting-Longevity Axis",
+      "filename": "lecture_nutrient_sensing_mtor_ampk.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_sarcopenia_grip_frailty",
+      "title": "Sarcopenia, Grip Strength & the Frailty Cascade",
+      "filename": "lecture_sarcopenia_grip_frailty.html",
+      "tags": [
+        "Structural Integrity",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_metabolic_inflexibility",
+      "title": "Metabolic Inflexibility & the Fuel-Switching Failure",
+      "filename": "lecture_metabolic_inflexibility.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Chronic Inflammation"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

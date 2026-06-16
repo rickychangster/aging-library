@@ -46,113 +46,202 @@
       "label": "VO₂ Max",
       "type": "performance",
       "primary": "lecture_vo2max_capacity_margin",
-      "driver": ["lecture_mitochondrial_dysfunction", "lecture_metabolic_inflexibility"],
-      "predicts": ["lecture_white_matter_fitness", "lecture_autonomic_hrv"]
+      "driver": [
+        "lecture_mitochondrial_dysfunction",
+        "lecture_metabolic_inflexibility"
+      ],
+      "predicts": [
+        "lecture_white_matter_fitness",
+        "lecture_autonomic_hrv"
+      ]
     },
     "grip_strength": {
       "label": "Grip Strength",
       "type": "performance",
       "primary": "lecture_mechanotransduction",
-      "driver": ["lecture_stem_cell_exhaustion", "lecture_bone_brain_osteocalcin"],
-      "predicts": ["lecture_postural_stability_cognition", "lecture_proteostasis_collapse"]
+      "driver": [
+        "lecture_stem_cell_exhaustion",
+        "lecture_bone_brain_osteocalcin"
+      ],
+      "predicts": [
+        "lecture_postural_stability_cognition",
+        "lecture_proteostasis_collapse"
+      ]
     },
     "hrv": {
       "label": "Heart Rate Variability",
       "type": "performance",
       "primary": "lecture_autonomic_hrv",
-      "driver": ["lecture_cortisol_hpa_axis", "lecture_circadian_desynchronization"],
-      "predicts": ["lecture_sleep_architecture_emotion", "lecture_pelvic_floor_autonomic"]
+      "driver": [
+        "lecture_cortisol_hpa_axis",
+        "lecture_circadian_desynchronization"
+      ],
+      "predicts": [
+        "lecture_sleep_architecture_emotion",
+        "lecture_pelvic_floor_autonomic"
+      ]
     },
     "gait_balance": {
       "label": "Gait Speed & Balance",
       "type": "performance",
       "primary": "lecture_postural_stability_cognition",
-      "driver": ["lecture_proprioceptive_decay"],
-      "predicts": ["lecture_compressed_sensing"]
+      "driver": [
+        "lecture_proprioceptive_decay"
+      ],
+      "predicts": [
+        "lecture_compressed_sensing"
+      ]
     },
     "hearing_threshold": {
       "label": "Hearing Threshold",
       "type": "performance",
       "primary": "lecture_hearing_loss_cognition",
-      "driver": ["lecture_proprioceptive_decay"],
-      "predicts": ["lecture_cognitive_reserve"]
+      "driver": [
+        "lecture_proprioceptive_decay"
+      ],
+      "predicts": [
+        "lecture_cognitive_reserve"
+      ]
     },
     "hba1c_glucose": {
       "label": "HbA1c & Fasting Glucose",
       "type": "lab",
       "primary": "lecture_t2d_accelerated_aging",
-      "driver": ["lecture_metabolic_inflexibility", "lecture_peripheral_clock_desynchronization"],
-      "predicts": ["lecture_brain_insulin_resistance", "lecture_age_crosslinking_ecm"]
+      "driver": [
+        "lecture_metabolic_inflexibility",
+        "lecture_peripheral_clock_desynchronization"
+      ],
+      "predicts": [
+        "lecture_brain_insulin_resistance",
+        "lecture_age_crosslinking_ecm"
+      ]
     },
     "inflammatory_markers": {
       "label": "CRP & IL-6",
       "type": "lab",
       "primary": "lecture_inflammaging",
-      "driver": ["lecture_cellular_senescence_senolytics", "lecture_gut_microbiome_diversity", "lecture_oral_systemic_axis"],
-      "predicts": ["lecture_cancer_immunosurveillance", "lecture_immunosenescence"]
+      "driver": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_gut_microbiome_diversity",
+        "lecture_oral_systemic_axis"
+      ],
+      "predicts": [
+        "lecture_cancer_immunosurveillance",
+        "lecture_immunosenescence"
+      ]
     },
     "cortisol": {
       "label": "Cortisol",
       "type": "lab",
       "primary": "lecture_cortisol_hpa_axis",
-      "driver": ["lecture_circadian_desynchronization"],
-      "predicts": ["lecture_telomere_attrition_stress", "lecture_sleep_architecture_emotion", "lecture_purpose_meaning_longevity"]
+      "driver": [
+        "lecture_circadian_desynchronization"
+      ],
+      "predicts": [
+        "lecture_telomere_attrition_stress",
+        "lecture_sleep_architecture_emotion",
+        "lecture_purpose_meaning_longevity"
+      ]
     },
     "testosterone": {
       "label": "Testosterone & SHBG",
       "type": "lab",
       "primary": "lecture_testosterone_hpg_axis",
-      "driver": ["lecture_cortisol_hpa_axis", "lecture_metabolic_inflexibility"],
-      "predicts": ["lecture_mechanotransduction", "lecture_dopamine_reward_desire"]
+      "driver": [
+        "lecture_cortisol_hpa_axis",
+        "lecture_metabolic_inflexibility"
+      ],
+      "predicts": [
+        "lecture_mechanotransduction",
+        "lecture_dopamine_reward_desire"
+      ]
     },
     "nad": {
       "label": "NAD⁺",
       "type": "lab",
       "primary": "lecture_nad_sirtuin_decline",
-      "driver": ["lecture_mitochondrial_dysfunction"],
-      "predicts": ["lecture_epigenetic_clocks", "lecture_metabolic_inflexibility"]
+      "driver": [
+        "lecture_mitochondrial_dysfunction"
+      ],
+      "predicts": [
+        "lecture_epigenetic_clocks",
+        "lecture_metabolic_inflexibility"
+      ]
     },
     "blood_pressure": {
       "label": "Blood Pressure & Arterial Stiffness",
       "type": "lab",
       "primary": "lecture_age_crosslinking_ecm",
-      "driver": ["lecture_lymphatic_decline", "lecture_autonomic_hrv"],
-      "predicts": ["lecture_alzheimers_multi_system", "lecture_white_matter_fitness"]
+      "driver": [
+        "lecture_lymphatic_decline",
+        "lecture_autonomic_hrv"
+      ],
+      "predicts": [
+        "lecture_alzheimers_multi_system",
+        "lecture_white_matter_fitness"
+      ]
     },
     "epigenetic_age": {
       "label": "DNA Methylation / Epigenetic Age",
       "type": "molecular_clock",
       "primary": "lecture_epigenetic_clocks",
-      "driver": ["lecture_nad_sirtuin_decline", "lecture_epigenetic_reprogramming"],
-      "predicts": ["lecture_multi_omic_aging_clocks", "lecture_t2d_accelerated_aging"]
+      "driver": [
+        "lecture_nad_sirtuin_decline",
+        "lecture_epigenetic_reprogramming"
+      ],
+      "predicts": [
+        "lecture_multi_omic_aging_clocks",
+        "lecture_t2d_accelerated_aging"
+      ]
     },
     "telomere_length": {
       "label": "Telomere Length",
       "type": "molecular_clock",
       "primary": "lecture_telomere_attrition_stress",
-      "driver": ["lecture_cortisol_hpa_axis", "lecture_hormesis"],
-      "predicts": ["lecture_cellular_senescence_senolytics", "lecture_immunosenescence"]
+      "driver": [
+        "lecture_cortisol_hpa_axis",
+        "lecture_hormesis"
+      ],
+      "predicts": [
+        "lecture_cellular_senescence_senolytics",
+        "lecture_immunosenescence"
+      ]
     },
     "multiomic_age": {
       "label": "Multi-Omic Biological Age",
       "type": "molecular_clock",
       "primary": "lecture_multi_omic_aging_clocks",
-      "driver": ["lecture_epigenetic_clocks"],
-      "predicts": ["lecture_compressed_sensing"]
+      "driver": [
+        "lecture_epigenetic_clocks"
+      ],
+      "predicts": [
+        "lecture_compressed_sensing"
+      ]
     },
     "microbiome_diversity": {
       "label": "Microbiome Diversity",
       "type": "composite",
       "primary": "lecture_gut_microbiome_diversity",
-      "driver": ["lecture_gut_brain_psychobiotics", "lecture_peripheral_clock_desynchronization"],
-      "predicts": ["lecture_inflammaging", "lecture_oral_systemic_axis"]
+      "driver": [
+        "lecture_gut_brain_psychobiotics",
+        "lecture_peripheral_clock_desynchronization"
+      ],
+      "predicts": [
+        "lecture_inflammaging",
+        "lecture_oral_systemic_axis"
+      ]
     },
     "sleep_architecture": {
       "label": "Sleep Architecture (REM / SWS)",
       "type": "physiological",
       "primary": "lecture_sleep_architecture_emotion",
-      "driver": ["lecture_circadian_desynchronization"],
-      "predicts": ["lecture_glymphatic_system", "lecture_cognitive_reserve"]
+      "driver": [
+        "lecture_circadian_desynchronization"
+      ],
+      "predicts": [
+        "lecture_glymphatic_system",
+        "lecture_cognitive_reserve"
+      ]
     }
   },
   "lectures": [
@@ -1548,6 +1637,228 @@
         "lecture_proteostasis_collapse",
         "lecture_inflammaging",
         "lecture_autonomic_hrv"
+      ]
+    },
+    {
+      "id": "lecture_dose_response_framework",
+      "title": "The Dose-Response Framework — Seven Dosing Models",
+      "description": "Imports pharmacology's dose-response mathematics into lifestyle medicine — every intervention has a shape, a ceiling, and seven distinct dosing models that transform mechanism knowledge into a precise prescription.",
+      "filename": "lectures/lecture_dose_response_framework.html",
+      "added": "2026-06-15",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Musculoskeletal",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast",
+          "Sleep Better"
+        ]
+      },
+      "related": [
+        "lecture_hormesis",
+        "lecture_nutrient_sensing_mtor_ampk",
+        "lecture_heat_shock_sauna",
+        "lecture_vo2max_capacity_margin"
+      ]
+    },
+    {
+      "id": "lecture_aerobic_dose_response",
+      "title": "Aerobic Exercise — Three Dose-Response Curves",
+      "description": "The same 30-minute run produces three dose-response curves — mortality, VO₂ max, hippocampal volume — with different shapes and ceilings; this lecture resolves them into one weekly prescription.",
+      "filename": "lectures/lecture_aerobic_dose_response.html",
+      "added": "2026-06-15",
+      "tags": {
+        "mechanism": [
+          "Mitochondrial & Energy",
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_dose_response_framework",
+        "lecture_vo2max_capacity_margin",
+        "lecture_white_matter_fitness",
+        "lecture_mitochondrial_dysfunction"
+      ]
+    },
+    {
+      "id": "lecture_sleep_dose_response",
+      "title": "Sleep — Duration U-Curve, Architecture Minimums & the Consistency Multiplier",
+      "description": "Sleep's mortality curve is U-shaped, but the UK Biobank finding that regularity predicts risk better than duration rewrites the prescription from 'more hours' to 'same time every night.'",
+      "filename": "lectures/lecture_sleep_dose_response.html",
+      "added": "2026-06-15",
+      "tags": {
+        "mechanism": [
+          "Genetic & Epigenetic",
+          "Cellular Cleanup"
+        ],
+        "system": [
+          "Brain & Cognition",
+          "Cardiovascular",
+          "Immune System"
+        ],
+        "theme": [
+          "Sleep & Recovery",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Sleep Better",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_dose_response_framework",
+        "lecture_glymphatic_system",
+        "lecture_circadian_desynchronization",
+        "lecture_sleep_architecture_emotion"
+      ]
+    },
+    {
+      "id": "lecture_fasting_protein_architecture",
+      "title": "Fasting Windows, Protein Architecture & Nutritional Periodization",
+      "description": "Only 16:8, not 14:10 or 12:12, produced measurable metabolic changes in RCTs; the fasting step function and age-shifted leucine threshold together dictate the nutritional precision protocol.",
+      "filename": "lectures/lecture_fasting_protein_architecture.html",
+      "added": "2026-06-15",
+      "tags": {
+        "mechanism": [
+          "Cellular Cleanup",
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Musculoskeletal",
+          "Gut & Digestion"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Biological Clocks"
+        ],
+        "intervention": [
+          "Eat & Fast",
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_dose_response_framework",
+        "lecture_nutrient_sensing_mtor_ampk",
+        "lecture_sarcopenia_grip_frailty",
+        "lecture_metabolic_inflexibility"
+      ]
+    },
+    {
+      "id": "lecture_hormetic_stress_dosing",
+      "title": "Hormetic Stress Dosing — Heat, Cold & Breathing Protocols",
+      "description": "Specific temperature, duration, frequency, and timing parameters for sauna, cold immersion, and breathwork — plus the interference map showing which combinations amplify adaptation and which cancel each other.",
+      "filename": "lectures/lecture_hormetic_stress_dosing.html",
+      "added": "2026-06-15",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Nervous System",
+          "Immune System"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Sleep & Recovery"
+        ],
+        "intervention": [
+          "Manage Stress",
+          "Sleep Better"
+        ]
+      },
+      "related": [
+        "lecture_dose_response_framework",
+        "lecture_heat_shock_sauna",
+        "lecture_hormesis",
+        "lecture_autonomic_hrv"
+      ]
+    },
+    {
+      "id": "lecture_integrated_weekly_architecture",
+      "title": "The Integrated Weekly Architecture",
+      "description": "Assembles six dose-response prescriptions into a single weekly schedule that satisfies five interference rules simultaneously — the capstone that makes a coherent, achievable protocol from six separate curves.",
+      "filename": "lectures/lecture_integrated_weekly_architecture.html",
+      "added": "2026-06-15",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Musculoskeletal",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Eat & Fast",
+          "Sleep Better"
+        ]
+      },
+      "related": [
+        "lecture_dose_response_framework",
+        "lecture_aerobic_dose_response",
+        "lecture_hormetic_stress_dosing",
+        "lecture_fasting_protein_architecture"
+      ]
+    },
+    {
+      "id": "lecture_resistance_dose_response",
+      "title": "Resistance Training — Volume, Frequency, Intensity & the Sarcopenia Threshold",
+      "description": "Resistance training's volume, frequency, and intensity each follow a different dose-response shape — resolving all three produces the minimum effective weekly prescription to prevent sarcopenia without interfering with aerobic gains.",
+      "filename": "lectures/lecture_resistance_dose_response.html",
+      "added": "2026-06-15",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Structural Integrity"
+        ],
+        "system": [
+          "Musculoskeletal",
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise",
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_dose_response_framework",
+        "lecture_aerobic_dose_response",
+        "lecture_sarcopenia_grip_frailty",
+        "lecture_mechanotransduction"
       ]
     }
   ]
