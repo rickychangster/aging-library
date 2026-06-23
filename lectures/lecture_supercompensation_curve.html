@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 77: The Supercompensation Curve</title>
+
+<style>
+:root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--slate:#334155;--slate-dim:rgba(51,65,85,0.04);--rule:#d4d0c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+.page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+.top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--slate) 0%,var(--blue) 50%,var(--green) 100%);border-radius:2px;}
+.hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--slate);position:relative;}
+.stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--slate);margin-bottom:20px;}
+.ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+h1{font-family:'DM Serif Text',serif;font-size:36px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--slate);}
+.sub{font-family:'DM Serif Text',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+.meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--slate);font-weight:600;}
+.sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+.k{color:var(--slate);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+.sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--slate);border-radius:50%;}
+.fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--slate);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+.note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--slate);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.bio{color:var(--amber);}.tag.eng{color:var(--slate);}.tag.age{color:var(--red);}.tag.case{color:var(--blue-deep);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--slate);font-weight:700;}
+.res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+.cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+.fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+@media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style><!-- LW:META:BEGIN -->
+<meta name="description" content="Adaptation happens during recovery, not training — the four-phase supercompensation cycle determines whether the next session is timed to accumulate fitness or accumulate fatigue.">
+<meta property="og:title" content="The Supercompensation Curve — Why Adaptation Happens After Stress, Not During It — Longevity & Wellness">
+<meta property="og:description" content="Adaptation happens during recovery, not training — the four-phase supercompensation cycle determines whether the next session is timed to accumulate fitness or accumulate fatigue.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_supercompensation_curve.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Supercompensation Curve — Why Adaptation Happens After Stress, Not During It — Longevity & Wellness">
+<meta name="twitter:description" content="Adaptation happens during recovery, not training — the four-phase supercompensation cycle determines whether the next session is timed to accumulate fitness or accumulate fatigue.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+<div class="top-bar"></div>
+<header class="hdr">
+<div class="ln">77</div>
+<div class="stag">Recovery Architecture · No. 77 (Theme E, 1 of 3)</div>
+<h1>The Supercompensation Curve <span class="a">— Why Adaptation Happens After Stress, Not During It</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+<div class="sub">Every Intervention in the Series Applies a Stress. Every Adaptation Occurs During the Recovery That Follows. The Temporal Separation Between Stimulus and Benefit Is the Most Counterintuitive Principle in the Entire Protocol — and the Most Commonly Violated. Train During the Supercompensation Peak and Fitness Accumulates. Train Before Recovery Completes and Fatigue Accumulates. The Difference Is Invisible Until Performance Stagnates, Injury Appears, or — as Your Right Knee Now Demonstrates — a Tissue Signals That Its Remodeling Rate Can No Longer Match Its Loading Rate</div>
+<div class="meta">
+<div><span class="hl">Origin:</span> Exercise Physiology / Adaptation Biology (Selye 1956; Banister 1975; Damas 2015)</div>
+<div><span class="hl">Bridge:</span> Structural Engineering — Fatigue Life Analysis &amp; Load Cycling</div>
+<div><span class="hl">Series:</span> Recovery Architecture 1 of 3 — The Biology of Adaptation</div>
+<div>~1,200 words</div>
+</div>
+</header>
+
+<div class="sn">I. The Core Concept — The Four Phases of Supercompensation and Why Timing Determines Everything</div>
+<h2>The Training Session Does Not Improve Fitness — Recovery From That Session Does, and Only if the Next Session Is Properly Timed</h2>
+
+<p>Hans Selye's General Adaptation Syndrome (1956) described the body's response to stress in three stages: alarm, resistance, and exhaustion. Applied to exercise physiology, this became the <span class="k">supercompensation model</span>: a training stimulus disrupts homeostasis (alarm), the body recovers and rebuilds beyond the previous baseline (resistance/supercompensation), and if stress continues without adequate recovery, the system degrades below baseline (exhaustion/overtraining). The model unfolds in four distinct phases. <em>Phase 1 — Stimulus and depletion:</em> the training session depletes glycogen, damages muscle fibers, elevates cortisol, transiently immunosuppresses (the NK cell drop documented in Lecture 50), and produces the inflammatory signaling cascade (IL-6, TNF-α from Lecture 22) that initiates the repair process. Performance is acutely impaired. This is the alarm — the cost of the stimulus. <em>Phase 2 — Recovery to baseline:</em> the body repairs damaged tissue through muscle protein synthesis (Lectures 63/65), replenishes glycogen stores, restores hormonal baselines, and resolves the acute inflammatory response. Performance returns to pre-session levels. Duration: 24–72 hours depending on the stimulus type and intensity. <em>Phase 3 — Supercompensation:</em> the body overshoots baseline — it rebuilds to a level <em>above</em> where it started, anticipating that the same stress will recur. Muscle is slightly stronger, glycogen stores are slightly larger, neural pathways are slightly more efficient. This is the adaptation — the benefit of the stimulus. <em>Phase 4 — Decay:</em> if no further stimulus arrives during the supercompensation window, the elevated capacity gradually returns to baseline (use it or lose it — the detraining principle). The entire model depends on one variable: <span class="k">when the next stimulus is applied</span>. Apply it during Phase 3 (supercompensation peak) → fitness accumulates progressively. Apply it during Phase 2 (still recovering) → fatigue accumulates instead, each session starting from a lower baseline than the last. Apply it during Phase 4 (too late) → no fatigue accumulation but no progressive adaptation either.</p>
+
+<p>The more sophisticated successor — the <span class="k">fitness-fatigue dual-factor model</span> (Banister, 1975) — resolves the supercompensation model's simplicity by recognizing that every training session produces two simultaneous responses: a <em>fitness effect</em> (slow to develop, slow to decay — half-life of ~45 days) and a <em>fatigue effect</em> (fast to develop, fast to decay — half-life of ~15 days). Observed performance on any given day equals the difference: <span class="k">Performance = Fitness − Fatigue</span>. Immediately post-training, fatigue exceeds the fitness gain — performance drops. Over 48–96 hours, fatigue decays faster than fitness, and the net effect becomes positive. The critical implication: a person can have very high accumulated fitness (from months of consistent training) yet appear to be stagnating or declining because their accumulated fatigue is <em>also</em> very high. The deload week (Lecture 67: volume −40%, intensity −10%, maintain frequency) works by allowing fatigue to decay (fast half-life) while fitness is largely preserved (slow half-life). The performance "jump" after a deload is not new fitness — it is <em>existing fitness revealed by the removal of masking fatigue</em>.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="fig">
+<div class="fig-tag">Figure 1 — The Supercompensation Curve × The Fitness-Fatigue Model × The Aging Modifier</div>
+<svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+<text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#334155" font-weight="600" letter-spacing="1.5">SUPERCOMPENSATION: TIMING DETERMINES WHETHER YOU ACCUMULATE FITNESS OR FATIGUE</text>
+<!-- Axes -->
+<line x1="60" y1="40" x2="60" y2="210" stroke="#d4d0c8" stroke-width="1"/>
+<line x1="60" y1="140" x2="700" y2="140" stroke="#d4d0c8" stroke-width="1"/>
+<text x="55" y="50" text-anchor="end" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Above</text>
+<text x="55" y="140" text-anchor="end" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Baseline</text>
+<text x="55" y="210" text-anchor="end" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Below</text>
+<!-- Training stimulus marker -->
+<line x1="100" y1="40" x2="100" y2="210" stroke="#b91c1c" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="100" y="225" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600">STIMULUS</text>
+<!-- Phase labels -->
+<text x="160" y="225" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">Phase 1</text>
+<text x="160" y="235" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Depletion</text>
+<text x="300" y="225" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">Phase 2</text>
+<text x="300" y="235" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Recovery</text>
+<text x="460" y="225" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#15803d" font-weight="600">Phase 3</text>
+<text x="460" y="235" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#15803d">Supercompensation</text>
+<text x="620" y="225" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a">Phase 4</text>
+<text x="620" y="235" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#71717a">Decay</text>
+<!-- Supercompensation curve (green for age 25) -->
+<path d="M100,140 Q120,180 150,190 Q200,195 250,170 Q300,145 350,138 Q400,120 440,105 Q480,100 500,102 Q550,110 600,125 Q650,135 700,140" fill="none" stroke="#15803d" stroke-width="2.5"/>
+<text x="490" y="94" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">AGE 25 PEAK</text>
+<!-- Supercompensation curve (amber for this age, shifted right) -->
+<path d="M100,140 Q130,185 170,198 Q230,205 300,185 Q370,155 420,142 Q470,128 530,115 Q570,110 590,112 Q630,120 670,132 Q700,140 720,142" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="6,3"/>
+<text x="580" y="104" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">this age PEAK (shifted right)</text>
+<!-- Optimal timing markers -->
+<rect x="430" y="95" width="100" height="16" rx="2" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="0.5"/>
+<text x="480" y="106" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#15803d">Optimal next session (25)</text>
+<rect x="520" y="107" width="110" height="16" rx="2" fill="rgba(180,83,9,0.06)" stroke="#b45309" stroke-width="0.5"/>
+<text x="575" y="118" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b45309">Optimal next session (53)</text>
+<!-- Too-early marker -->
+<line x1="250" y1="40" x2="250" y2="210" stroke="#b91c1c" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="250" y="50" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#b91c1c" font-weight="600">TOO EARLY</text>
+<text x="250" y="60" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b91c1c">→ fatigue accumulates</text>
+
+<!-- TISSUE-SPECIFIC TIMELINES -->
+<text x="370" y="264" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#334155" font-weight="600" letter-spacing="1.5">TISSUE-SPECIFIC SUPERCOMPENSATION TIMELINES</text>
+<rect x="30" y="278" width="160" height="70" rx="3" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="1"/>
+<text x="110" y="296" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#15803d" font-weight="600">ENDURANCE</text>
+<text x="110" y="314" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#334155" font-weight="700">18–24 hours</text>
+<text x="110" y="330" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Glycogen, capillary</text>
+<text x="110" y="342" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Train near-daily</text>
+<rect x="200" y="278" width="130" height="70" rx="3" fill="rgba(29,78,216,0.04)" stroke="#1d4ed8" stroke-width="1"/>
+<text x="265" y="296" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#1d4ed8" font-weight="600">STRENGTH</text>
+<text x="265" y="314" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#334155" font-weight="700">48–72 hours</text>
+<text x="265" y="330" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Neural, motor unit</text>
+<text x="265" y="342" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Train 2–3×/wk/muscle</text>
+<rect x="340" y="278" width="140" height="70" rx="3" fill="rgba(109,40,217,0.04)" stroke="#6d28d9" stroke-width="1"/>
+<text x="410" y="296" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#6d28d9" font-weight="600">HYPERTROPHY</text>
+<text x="410" y="314" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#334155" font-weight="700">72–96 hours</text>
+<text x="410" y="330" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">MPS, satellite cells</text>
+<text x="410" y="342" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Train every 3–5 days</text>
+<rect x="490" y="278" width="120" height="70" rx="3" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1"/>
+<text x="550" y="296" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#b45309" font-weight="600">TENDON</text>
+<text x="550" y="314" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#334155" font-weight="700">72–120 hours</text>
+<text x="550" y="330" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Collagen remodeling</text>
+<text x="550" y="342" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">Slowest soft tissue</text>
+<rect x="620" y="278" width="100" height="70" rx="3" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+<text x="670" y="296" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#b91c1c" font-weight="600">BONE</text>
+<text x="670" y="314" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#334155" font-weight="700">90–120+ days</text>
+<text x="670" y="330" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Full remodeling cycle</text>
+<text x="670" y="342" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c" font-weight="600">Months, not days</text>
+
+<!-- YOUR KNEE: THE CASE STUDY -->
+<text x="370" y="380" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#334155" font-weight="600" letter-spacing="1.5">YOUR RIGHT KNEE: SUPERCOMPENSATION FAILURE IN TWO TISSUES</text>
+<rect x="30" y="394" width="340" height="90" rx="4" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="200" y="414" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c" font-weight="600">PATELLAR TENDON: LOADING > REMODELING</text>
+<text x="45" y="434" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Tendon collagen turnover: 72–120h per cycle.</text>
+<text x="45" y="450" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Your loading frequency: jump squats + box jumps</text>
+<text x="45" y="466" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">+ lunges + squats = patellar tendon stress 4×/wk.</text>
+<text x="45" y="480" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600">Result: calcification instead of remodeling.</text>
+<rect x="390" y="394" width="330" height="90" rx="4" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="555" y="414" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c" font-weight="600">BONE: STIMULUS > RECOVERY INFRASTRUCTURE</text>
+<text x="405" y="434" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Bone remodeling cycle: 90–120+ days at this age.</text>
+<text x="405" y="450" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Osteogenic loading present (impact protocol v4).</text>
+<text x="405" y="466" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">But Vit D 33 (low), T in the suboptimal range (suboptimal),</text>
+<text x="405" y="480" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600">bone density declined.</text>
+</svg>
+<div class="fig-cap">Top: the supercompensation curve showing four phases — stimulus, depletion, recovery, supercompensation, decay. The green solid line shows the age-25 timeline; the amber dashed line shows the age-53 timeline shifted rightward by 12–24 hours due to slower satellite cell activation, reduced GH, and extended tendon/bone remodeling. Training during Phase 3 accumulates fitness; training during Phase 2 (too early) accumulates fatigue. Center: tissue-specific supercompensation timelines — the session spacing must respect the slowest tissue being loaded. Bottom: your right knee as a case study in supercompensation failure — patellar tendon loading frequency (4×/week) exceeding the tendon's 72–120h remodeling cycle, and bone density declining despite osteogenic loading because the recovery infrastructure (vitamin D, hormonal milieu) was insufficient to support the adaptation.</div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">II. Cross-Pollination — Structural Engineering: Fatigue Life and Load Cycling</div>
+<div class="grid">
+<div class="gc"><div class="tag eng">Structural Engineering</div><h4>Fatigue Life — Why Materials Fail Under Repeated Sub-Maximal Loading</h4><p>In structural engineering, <strong>fatigue failure</strong> occurs when a material is subjected to repeated cyclic loading below its ultimate tensile strength — no single load cycle would break it, but the cumulative micro-damage from thousands of cycles eventually produces a crack that propagates to failure. An aircraft wing doesn't fail because of one turbulent flight; it fails because of 30,000 pressurization cycles that each produce invisible micro-cracks at stress concentration points. Biological tissues follow the same physics: no single jump squat would damage a healthy patellar tendon, but <strong>4×/week × months of loading at stress concentration points (the tendon-bone junction)</strong>, without sufficient time for collagen remodeling between cycles, produces the cumulative micro-damage that manifests as calcification — the tendon's equivalent of a fatigue crack stabilized by mineral deposition.</p></div>
+<div class="gc"><div class="tag bio">Exercise Physiology</div><h4>The Dual-Factor Model — Fitness and Fatigue Have Different Half-Lives</h4><p>The dual-factor model resolves a puzzle the simple supercompensation model cannot: why do athletes sometimes perform <em>better</em> after a week of reduced training? Because <strong>fitness decays slowly (~45-day half-life) while fatigue decays rapidly (~15-day half-life)</strong>. A deload week reduces training volume by 30–50%, which drops fatigue substantially (fast decay) while fitness barely changes (slow decay). The net performance = fitness minus fatigue improves dramatically — not from new adaptation but from <em>unmasking existing fitness</em>. This is why the 3:1 periodization from Lecture 67 works: three weeks of progressive loading accumulate both fitness and fatigue; the fourth week's deload drops fatigue while preserving fitness → the athlete enters the next loading block from a higher net performance baseline.</p></div>
+<div class="gc"><div class="tag age">Aging Modifier</div><h4>Why 48 Hours Is No Longer Enough at this age</h4><p>The textbook "48 hours between sessions" assumes 25-year-old recovery biology. At 53, several recovery mechanisms operate on extended timelines: <strong>satellite cell activation latency increases</strong> (the muscle repair cells take longer to mobilize — Lecture 59's anabolic resistance), <strong>growth hormone secretion during SWS is 40–60% lower</strong> than at age 25 (Lecture 64), <strong>testosterone is lower</strong> (your trough T of 414  is below the 500–800 optimization range), and <strong>tendon collagen turnover rate declines</strong> (your patellar calcification is direct evidence). The practical consequence: the supercompensation peak for heavy resistance training may not arrive until <strong>60–72 hours</strong> at this age. Higher volume sessions (15+ sets per muscle group) may require <strong>96+ hours</strong>. And tendon/bone tissues may need <strong>5–7 days</strong> between maximal loading events — far longer than muscle.</p></div>
+<div class="gc"><div class="tag case">Your Protocol: The Timing Mismatch</div><h4>Where Loading Frequency Exceeds Recovery Timelines</h4><p>Your v4 protocol loads the patellar tendon on <strong>Tuesday (jump squats, box jumps, Bulgarian split squats, calf raises), Friday (goblet squats, RDLs, reverse lunges), and Sunday (box jumps, loaded step-ups)</strong> — plus daily heel drops. That's high-impact patellar tendon stress every 2–3 days with no full 5-day recovery window. For a 53-year-old tendon with declining collagen turnover, the loading rate is exceeding the remodeling rate — Phase 2 has not completed before the next Phase 1 begins. The muscle is recovering fine (your significant lean mass gain lean mass confirms this) because muscle has a <strong>48–72h</strong> supercompensation timeline. But the tendon, sharing the same joint but operating on a <strong>72–120h</strong> timeline, is accumulating micro-damage that muscle-recovery timing doesn't account for. The calcification is the structural evidence of this mismatch.</p></div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">III. Antifragility & Trade-Offs</div>
+<div class="caut">
+<div class="cl">The Fundamental Tension: Muscle Recovers Faster Than Tendon, and Tendon Recovers Faster Than Bone</div>
+<p><em>The session spacing that optimizes muscle adaptation may exceed the recovery capacity of the connective tissue and bone at the same joint.</em> This is the tension your right knee exposes. Your muscles are adapting beautifully — 8.9 lbs of lean mass in 6 months, exceptional for this age. But the tendon and bone at the patellofemoral junction are not keeping pace. The muscle supercompensation peak arrives at 48–72 hours (allowing 3×/week resistance training per Lecture 63's prescription). The tendon supercompensation peak arrives at 72–120 hours (requiring 5–7 days between high-impact loading events at the same tendon). The bone remodeling cycle is 90–120+ days (requiring months of consistent stimulus plus adequate vitamin D, calcium, testosterone, and sleep to convert mechanical loading into net mineral gain). The protocol must be timed to the <em>slowest tissue being loaded</em> — which, for movements that load the patellar tendon (squats, lunges, jumps), is the tendon, not the muscle. This doesn't mean training less often — it means distributing the stress across different tissues on different days so that no single tissue receives more loading than its remodeling rate can absorb. Upper body work on Monday/Thursday doesn't load the patellar tendon at all. Hip-dominant lower body work (RDLs, hip thrusts, hip abduction) loads the posterior chain without anterior knee compression. The protocol can maintain total weekly volume while giving the patellar tendon the 5-day recovery window it needs.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">IV. The Protocol — Respecting Tissue-Specific Recovery Timelines</div>
+<div class="note">
+<div class="nl">How to Time Training to the Slowest Tissue</div>
+<p><strong>The hierarchy of recovery timelines determines session spacing:</strong><br><br>
+<strong>Endurance adaptations (18–24h):</strong> Zone 2 aerobic can be performed near-daily without exceeding tissue tolerance — the cardiovascular system recovers rapidly and the mechanical stress on any single joint is low. Your Saturday ruck and any midweek Zone 2 sessions are fine at this frequency.<br><br>
+<strong>Strength/neural adaptations (48–72h):</strong> The Template A alternate-day schedule from Lecture 67 (resistance Mon/Wed/Fri) spaces sessions ~48h apart, which is appropriate for the neural and metabolic recovery of muscle. At this age, the upper end (72h) is safer — particularly for heavy compound movements.<br><br>
+<strong>Hypertrophic adaptations (72–96h):</strong> Muscle protein synthesis remains elevated for 24–48 hours post-session but the full hypertrophic remodeling cycle extends to 72–96 hours. Your 3×/week split (upper/lower/full body) provides adequate spacing for most muscle groups. Higher-volume sessions (15+ sets) may warrant 96h+ spacing for the specific muscles trained.<br><br>
+<strong>Tendon adaptations (72–120h+):</strong> This is where your current protocol may be under-recovering. Any movement that produces high-strain-rate loading at a tendon-bone junction (jumping, rapid deceleration, heavy eccentric loading) needs 5–7 days between maximal exposures at the <em>same tendon</em>. Consider consolidating all high-impact patellar tendon work (jump squats, box jumps) into <strong>one session per week</strong> rather than distributing across Tuesday, Friday, and Sunday. This gives the tendon a full 7-day remodeling window while maintaining the osteogenic stimulus.<br><br>
+<strong>Bone adaptations (90–120+ days):</strong> Bone remodeling is the slowest biological recovery in the human body. The osteogenic loading stimulus needs to be present (impact, axial compression) but the <em>adaptation</em> occurs over months, not days. Your bone density decline despite 6 months of impact loading suggests the recovery infrastructure — vitamin D (below the optimal range, below 40–60 target), testosterone (in the suboptimal range, suboptimal), possibly calcium absorption — is insufficient to support the conversion of mechanical stimulus into net mineral gain. The stimulus is present; the recovery substrate is inadequate. Lecture 78 will address which recovery inputs are evidence-based and which are theater; Lecture 79 will address how to manage the specific tissue tolerance problem your knee is currently demonstrating.<br><br>
+<strong>Metric:</strong> <em>The slowest-tissue rule</em> — for any given joint or anatomical region, the session spacing must respect the recovery timeline of the slowest tissue being loaded. For the right knee: tendon recovery (72–120h) is the rate-limiting factor, not muscle recovery (48–72h). For bone density goals: the recovery infrastructure (vitamin D, calcium, testosterone, sleep) is the rate-limiting factor, not the loading frequency. Track these separately — the HRV readiness algorithm from Lecture 74 reflects systemic recovery but not tissue-specific recovery. Tendon and bone recovery must be managed through programming (spacing, volume, intensity) rather than daily biometrics.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">V. Recursive Synthesis</div>
+<h2>How Supercompensation Biology Reframes the Entire Protocol Engineering Series</h2>
+<p>Themes A through D designed the stimulus side of the equation — how much stress to apply (Theme A), when (Theme B), in what combination (Theme C), and how to track the response (Theme D). This lecture addresses the side those themes assumed but never examined: the recovery biology that converts stress into adaptation. The deload week from Lecture 67 (every 4th week, volume −40%) is now understood not as an arbitrary rest period but as a deliberate fatigue-dissipation intervention that exploits the different half-lives of fitness (~45 days) and fatigue (~15 days) in the dual-factor model. The HRV readiness algorithm from Lecture 74 is now understood as a <em>systemic</em> recovery monitor — it tracks autonomic recovery but cannot detect tissue-specific recovery deficits (a tendon can be under-recovered while the autonomic system shows green). The concurrent training resolution from Lecture 63 (separate aerobic and resistance by ≥3 hours) is now understood as a recovery-timeline management problem — the AMPK activation from aerobic suppresses mTOR for ~3 hours, which consumes part of the muscle's MPS recovery window if not adequately separated. And your right knee — the patellar calcification, fat pad impingement, and bone density decline — is now understood as three simultaneous supercompensation failures in three tissues with three different recovery timelines, each requiring a different intervention: reduced patellar tendon loading frequency (tendon), hip strengthening to correct patellofemoral tracking (fat pad), and recovery infrastructure optimization — vitamin D, testosterone, calcium — to support the osteogenic loading that is already present (bone). The training stimulus was correct. The recovery architecture was incomplete. The next two lectures address how to complete it.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VI. Peer Review — Common Misconception</div>
+<div class="corr">
+<div class="cl">Corrected Misconception</div>
+<p><strong>Misconception:</strong> "More training always produces more results — if you're not improving, you're not training hard enough."<br><br><strong>Correction:</strong> The supercompensation model and the fitness-fatigue dual-factor model demonstrate that training produces two simultaneous effects: a fitness gain and a fatigue cost. When training volume and frequency exceed recovery capacity, the fatigue cost accumulates faster than the fitness gain — and performance stagnates or declines despite increasing effort. This is not insufficient training; it is insufficient recovery. The most common pattern in committed, motivated trainees over 50 is not under-training — it is under-recovering. Your DEXA data proves the point with elegant precision: significant lean mass gain of lean mass in 6 months demonstrates that the training stimulus is more than sufficient. But the patellar tendon calcification, the fat pad impingement, and the bone density decline demonstrate that the same stimulus, applied to tissues with longer recovery timelines and inadequate recovery infrastructure, produced damage rather than adaptation. The solution is not more training — it is better-timed recovery, better-supported recovery inputs (vitamin D, sleep, hormonal optimization), and tissue-specific session spacing that respects the slowest tissue at each joint. You are not under-trained. You are a case study in the consequences of brilliant stimulus design with incomplete recovery architecture — which is exactly what Lectures 78 and 79 will address.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VII. Resources</div>
+<div class="res">
+<div class="rt">Resources & Activities</div>
+<div class="res-grid">
+<div class="ri"><div class="rc read">Read</div><h5>Banister (1975) / Fitness-Fatigue Model</h5><p>The dual-factor model: Performance = Fitness − Fatigue. Fitness has a ~45-day half-life; fatigue has a ~15-day half-life. This explains why deloads produce performance jumps (fatigue drops rapidly while fitness is preserved) and why overtraining produces paradoxical decline (fatigue accumulates faster than fitness).</p></div>
+<div class="ri"><div class="rc read">Read</div><h5>Damas et al. (2015)</h5><p>"Resistance training-induced changes in integrated myofibrillar protein synthesis are related to hypertrophy only after attenuation of muscle damage response." <em>J. Physiol.</em>, 593:3979–3995. MPS peaks 24–48h post-session but full structural remodeling takes 72–96h. The muscle damage response attenuates with training (repeated bout effect), allowing closer session spacing as you become more trained.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Audit Your Tissue-Specific Loading Frequency</h5><p>For each anatomical region, count how many sessions per week load it at high intensity. Patellar tendon: how many sessions include squats, lunges, or jumps? Shoulder: how many sessions include overhead pressing or horizontal pushing? Lumbar spine: how many sessions include deadlifts, rows, or rucks? If any tissue is loaded at high intensity >3×/week, it may be exceeding tendon/connective tissue recovery timelines at this age.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Consolidate Impact Work to 1×/Week</h5><p>Move all high-impact patellar tendon work (jump squats, box jumps) to a single weekly session. This provides a full 7-day remodeling window for the tendon collagen while maintaining the osteogenic stimulus for bone. Redistribute the other lower body sessions toward hip-dominant patterns (RDLs, hip thrusts, hip abduction) that load the posterior chain without anterior knee compression.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Tissue Recovery Timeline Card</h5><p>Endurance: 18–24h (near-daily OK). Strength/neural: 48–72h (2–3×/wk per muscle). Hypertrophy: 72–96h (every 3–5 days). Tendon: 72–120h+ (5–7 days for high-impact). Bone: 90–120+ days (months for remodeling cycle). Always space to the SLOWEST tissue at the joint being loaded.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Recovery Infrastructure Checklist</h5><p>The stimulus is necessary but not sufficient for adaptation. The recovery infrastructure must support the conversion: Sleep 7–8h consistent (Lec 64). Protein ≥30g/meal (Lec 65). Vitamin D 40–60 ng/mL (below the optimal range — gap). Testosterone optimized (in the suboptimal range — suboptimal). Creatine 3–5g daily (yours: ✓). Hydration (pre/post sauna). If any infrastructure input is below threshold, the stimulus produces damage rather than adaptation — regardless of how well-designed the loading protocol is.</p></div>
+<div class="ri"><div class="rc meas">Metric</div><h5>Deload Response + HRV Trend + Pain Scale</h5><p>Deload response: track performance in the week after each deload — a significant jump confirms accumulated fatigue was masking existing fitness. HRV weekly mean trend: rising = adaptation accumulating; declining = fatigue accumulating. Pain scale (0–10) at each joint after training: track trend over weeks. Rising from 0–2 to 3–4 = tissue approaching tolerance threshold. Any reading >4 = modify the specific movement pattern (Lecture 79 will provide the framework).</p></div>
+<div class="ri"><div class="rc meas">Cross-Reference</div><h5>Theme E Integration</h5><p>This lecture (77) → recovery biology and tissue timelines. Lecture 78 → which recovery modalities have evidence. Lecture 79 → managing tissue tolerance failure and return-to-loading. Periodization (Lec 67) → deload week = fatigue dissipation. Readiness algorithm (Lec 74) → systemic recovery monitor (doesn't capture tissue-specific status). Sarcopenia stack (Lec 72) → the stimulus; this lecture addresses the response. Your knee findings → the case study that makes recovery architecture personally urgent.</p></div>
+</div>
+</div>
+
+<div class="cite">
+<div class="ct">Citation Verification</div>
+<table>
+<tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+<tr><td>Supercompensation: four phases (stimulus/depletion, recovery, supercompensation, decay); next session timing determines fitness vs fatigue accumulation</td><td>Selye, 1956 (GAS); standard exercise physiology textbooks; reviewed in multiple 2025–2026 sources</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Fitness-fatigue dual-factor model: Performance = Fitness − Fatigue; fitness half-life ~45 days, fatigue half-life ~15 days</td><td>Banister, 1975; Chiu & Barnes, <em>Strength Cond. J.</em>, 2003; standard periodization theory</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Tissue-specific supercompensation timelines: endurance 18–24h, strength 48–72h, hypertrophy 72–96h, musculoskeletal up to 120h</td><td>Multiple sources; RunDida 2026 synthesis; FitnessRec 2025 (McMaster study); Haute MD 2026</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Corticospinal excitability rebounds at 48–72h post-heavy training; MVIC rises 8.5% at 24h indicating neural supercompensation</td><td>Cited in Grokipedia synthesis of powerlifting neural adaptation studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Deload (30–50% volume reduction for 1 week every 3–4 weeks) allows fatigue to dissipate while fitness is preserved</td><td>Multiple periodization sources; standard coaching practice; supported by dual-factor model mathematics</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Higher volume training (15+ sets/muscle) extends both MPS duration and required recovery to 72–96h between sessions for the same muscle group</td><td>McMaster University study cited in Sports Medicine, 2015; Damas et al., 2015</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Bone remodeling cycle: 90–120+ days in adults; extends with age</td><td>Hadjidakis & Androulakis, <em>Ann. N.Y. Acad. Sci.</em>, 2006; standard bone biology</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Satellite cell activation latency increases with age; GH secretion during SWS reduced 40–60% by age 50+; tendon collagen turnover rate declines with age</td><td>Multiple sources; documented in Lectures 54, 59, 63, 64 of this series</td><td><span class="cv">⚠ These aging modifiers are individually well-documented but the specific magnitude of the supercompensation timeline shift ("+12–24 hours") at this age is a practical synthesis, not from a single study that directly measured supercompensation peak timing across age groups using the same protocol. The direction and general magnitude are consistent with the underlying physiology.</span></td></tr>
+</table>
+</div>
+
+<div class="fn">
+<strong>Key References:</strong> Selye, H. (1956). <em>The Stress of Life.</em> McGraw-Hill. &nbsp;|&nbsp; Banister, E.W. (1975). "Modeling elite athletic performance." In <em>Physiological Testing of Elite Athletes.</em> &nbsp;|&nbsp; Damas, F. et al. (2015). "Resistance training-induced changes in integrated myofibrillar protein synthesis." <em>J. Physiol.</em>, 593:3979–3995. &nbsp;|&nbsp; Chiu, L.Z.F. & Barnes, J.L. (2003). "The fitness-fatigue model revisited." <em>Strength Cond. J.</em>, 25:42–51. &nbsp;|&nbsp; Hadjidakis, D.J. & Androulakis, I.I. (2006). "Bone remodeling." <em>Ann. N.Y. Acad. Sci.</em>, 1092:385–396.
+</div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_supercompensation_curve",
+  "related": [
+    {
+      "id": "lecture_readiness_algorithm",
+      "title": "The Readiness Algorithm — Integrating Daily Biometrics Into a Single Training Decision",
+      "filename": "lecture_readiness_algorithm.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_recovery_modalities_ranked",
+      "title": "Recovery Modalities Ranked by Evidence",
+      "filename": "lecture_recovery_modalities_ranked.html",
+      "tags": [
+        "Adaptive Stress",
+        "Recovery Science"
+      ]
+    },
+    {
+      "id": "lecture_resistance_dose_response",
+      "title": "Resistance Training — Volume, Frequency, Intensity & the Sarcopenia Threshold",
+      "filename": "lecture_resistance_dose_response.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_mechanotransduction",
+      "title": "Mechanotransduction & Sarcopenia",
+      "filename": "lecture_mechanotransduction.html",
+      "tags": [
+        "Structural Integrity",
+        "Mind-Body Axes"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

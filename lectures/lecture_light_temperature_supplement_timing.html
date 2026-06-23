@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 70: Light, Temperature & Supplement Timing</title>
+
+<style>
+:root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--solar:#a16207;--solar-dim:rgba(161,98,7,0.04);--rule:#d4d0c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+.page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+.top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--solar) 0%,var(--amber) 40%,var(--blue-deep) 100%);border-radius:2px;}
+.hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--solar);position:relative;}
+.stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--solar);margin-bottom:20px;}
+.ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+h1{font-family:'DM Serif Text',serif;font-size:36px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--solar);}
+.sub{font-family:'DM Serif Text',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+.meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--solar);font-weight:600;}
+.sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+.k{color:var(--solar);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+.sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--solar);border-radius:50%;}
+.fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--solar);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--solar);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+.note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--solar);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.light{color:var(--solar);}.tag.temp{color:var(--blue-deep);}.tag.supp{color:var(--green);}.tag.eng{color:var(--amber);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--solar);font-weight:700;}
+.res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--solar);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+.cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+.fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+@media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Morning light, evening temperature decline, and supplement chronodosing are upstream signals that set every downstream circadian rhythm — get these wrong and all timing recommendations drift out of phase.">
+<meta property="og:title" content="Light, Temperature & Supplement Timing — The Upstream Calibration Signals — Longevity & Wellness">
+<meta property="og:description" content="Morning light, evening temperature decline, and supplement chronodosing are upstream signals that set every downstream circadian rhythm — get these wrong and all timing recommendations drift out of phase.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_light_temperature_supplement_timing.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Light, Temperature & Supplement Timing — The Upstream Calibration Signals — Longevity & Wellness">
+<meta name="twitter:description" content="Morning light, evening temperature decline, and supplement chronodosing are upstream signals that set every downstream circadian rhythm — get these wrong and all timing recommendations drift out of phase.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+<div class="top-bar"></div>
+<header class="hdr">
+<div class="ln">70</div>
+<div class="stag">Chronobiology of Intervention · No. 70 (Theme B, 3 of 3 — Capstone)</div>
+<h1>Light, Temperature &amp; Supplement Timing <span class="a">— The Upstream Calibration Signals</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+<div class="sub">Exercise Timing (Lecture 69) and Meal Timing (Lecture 65/69) Produce Different Molecular Outputs at Different Circadian Phases — but Those Phases Are Themselves Set by Upstream Signals That Most People Ignore. Morning Light Sets the Master Clock. Evening Temperature Decline Gates Sleep Onset. And Supplements Interact With the Clock Machinery Itself — Vitamin D's Receptor Heterodimerizes With BMAL1, Magnesium Modulates NMDA Receptors in SCN Neurons, and NAD+ Precursors Feed the SIRT1-BMAL1 Feedback Loop. Get These Upstream Signals Wrong, and Every Downstream Timing Recommendation From the Entire Series Drifts Out of Phase</div>
+<div class="meta">
+<div><span class="hl">Origin:</span> Photobiology / Thermoregulation / Chronopharmacology (Brainard 2001; Czeisler 1999; Hu 2025)</div>
+<div><span class="hl">Bridge:</span> Electrical Engineering — Reference Signals &amp; Phase-Locked Oscillators</div>
+<div><span class="hl">Series:</span> Chronobiology of Intervention 3 of 3 — The Calibration Layer</div>
+<div>~1,200 words</div>
+</div>
+</header>
+
+<div class="sn">I. The Core Concept — Three Upstream Calibration Signals That Set Every Downstream Rhythm</div>
+<h2>Light Calibrates the Master Clock. Temperature Calibrates Sleep Onset. Supplements Can Either Support or Disrupt the Clock They're Meant to Serve</h2>
+
+<p><em>Signal 1: Morning light — the primary reference signal for the entire system.</em> Light is the paramount environmental signal for the entrainment of endogenous circadian rhythms. Melanopsin-containing intrinsically photosensitive retinal ganglion cells (ipRGCs) — photoreceptors distinct from rods and cones, with peak spectral sensitivity at approximately 480 nm (blue) — detect ambient light intensity and transmit the signal via the retinohypothalamic tract directly to the SCN. Morning light exposure produces a <span class="k">phase advance</span> <span class="def">(shifting the circadian clock earlier — making melatonin onset, sleep onset, cortisol peak, and all downstream rhythms occur earlier the following day)</span>, while evening light produces a <span class="k">phase delay</span> (shifting everything later). The dose-response for phase-shifting is non-linear: the first few minutes of a light exposure drive the majority of the phase resetting response, with diminishing returns at longer durations. The optimal morning protocol, derived from clinical and biomimetic lighting research: <span class="k">>250 melanopic lux (equivalent to >10,000 photopic lux, or approximately 20 minutes of outdoor daylight even on a cloudy day) within 30 minutes of waking</span>. This establishes the reference signal that calibrates the SCN, which then cascades synchronization to every peripheral clock via cortisol, melatonin, body temperature, and autonomic tone. Without this daily correction, the endogenous ~24.2-hour period drifts forward by ~12 minutes per day — accumulating a full hour of phase drift in 5 days. The morning walk from Lecture 67's floor protocol is simultaneously a circadian calibration session, an exercise dose (steepest mortality curve region), and a cortisol-awakening response amplifier — three interventions in one zero-cost action.</p>
+
+<p>The evening complement is equally critical: <span class="k">circadian darkness</span> — reducing light exposure to <10 melanopic lux for 1–2 hours before bed — protects the dim-light melatonin onset (DLMO) that gates sleep initiation. Melatonin production begins approximately 2 hours before habitual bedtime; evening bright light (particularly blue-enriched light from screens at >100 lux) suppresses this onset, delays the sleep window, and compresses the SWS-dominant first half of the night (Lecture 64). The prescription is not "avoid all light" but "shift the spectral composition": warm, dim light (<2700K, <10 lux at eye level) permits visual function while minimizing melanopsin stimulation. Blue-light filtering (amber glasses, night-mode displays at maximum warmth) is the practical implementation for screen use. The biomimetic light cycle model: high-intensity, high-melanopic light in the morning and midday to maximize alertness and circadian entrainment, followed by a gradual transition to low-intensity, low-melanopic light in the evening, creating a state of circadian darkness that protects the melatonin rhythm and facilitates sleep.</p>
+
+<p><em>Signal 2: Core temperature cycling — the thermoregulatory sleep gate.</em> Core body temperature follows a sinusoidal circadian curve — peaking at approximately 3 PM (~37.4°C) and reaching its nadir at approximately 4 AM (~36.4°C). The <em>decline</em> from peak to nadir is the thermoregulatory trigger for sleep onset: the preoptic area of the hypothalamus detects the falling temperature and activates sleep-promoting GABAergic neurons. Any intervention that prevents this decline (warm bedroom >21°C / 70°F, late heavy meal producing diet-induced thermogenesis, late vigorous exercise elevating core temperature within 1 hour of bed) delays sleep onset and reduces SWS depth. Conversely, interventions that enhance the decline — sauna 1–2 hours before bed producing an overshoot cooling effect (Lecture 60/66), cool bedroom (18–20°C / 65–68°F), warm bath/shower 1–2 hours pre-bed (paradoxically enhances heat loss through vasodilation) — accelerate sleep onset and deepen SWS. Morning cold exposure (Lecture 66) reinforces the wake-phase temperature rise through norepinephrine-mediated thermogenesis, potentially functioning as a secondary morning zeitgeber that complements light.</p>
+
+<p><em>Signal 3: Supplements that interact with clock machinery — when molecular timing meets chronopharmacology.</em> Not all supplements are timing-neutral. Several compounds directly interact with the molecular clock components documented in Lecture 68: <span class="k">Vitamin D</span> — the vitamin D receptor (VDR) is rhythmically expressed in the SCN and peripheral tissues. Upon activation, VDR can heterodimerize with BMAL1 and inhibit CLOCK/BMAL1-mediated transcription of PER1, modulating period length and amplitude. In vitamin D deficiency, this regulatory interaction is impaired, resulting in elevated PER1 expression and lengthened circadian period — meaning the clock runs slightly longer than 24 hours, requiring more correction from morning light. Additionally, some individuals report sleep disruption when taking vitamin D in the evening, possibly through interference with the melatonin pathway. Optimal timing: morning, with a fat-containing meal (fat-soluble absorption enhanced 30–50% with dietary fat). <span class="k">Magnesium</span> — contributes to circadian regulation by modulating NMDA receptor activity in SCN neurons. Magnesium glycinate promotes sleep through GABAergic pathway activation and provides the glycine that independently supports sleep quality. Optimal timing: 30–60 minutes before bed. <span class="k">NMN / NR (NAD+ precursors)</span> — NAD+ biosynthesis follows a circadian rhythm with peak demand during the active/waking phase, when SIRT1 deacetylation activity is highest (Lecture 58: SIRT1 deacetylates BMAL1, directly linking NAD+ metabolism to clock function). Evening NMN supplementation may interfere with the natural NAD+ decline that contributes to the circadian feedback loop. Optimal timing: morning, within 1–2 hours of waking. <span class="k">Caffeine</span> — blocks adenosine A1 receptors, preventing the sleep-pressure signal from accumulating. Half-life: 5–6 hours (highly variable by CYP1A2 genotype: fast metabolizers ~3 hours, slow metabolizers ~9 hours). A 2 PM coffee in a slow metabolizer is still active at 11 PM. Optimal timing: last dose before noon for slow metabolizers, before 2 PM for fast metabolizers.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="fig">
+<div class="fig-tag">Figure 1 — The Three Upstream Calibration Signals × The Supplement Chronodose Map</div>
+<svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+<text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#a16207" font-weight="600" letter-spacing="1.5">UPSTREAM CALIBRATION: LIGHT, TEMPERATURE & MOLECULAR CLOCK INTERACTIONS</text>
+<!-- 24-hour timeline -->
+<rect x="40" y="40" width="660" height="18" rx="9" fill="url(#daynight)"/>
+<defs><linearGradient id="daynight" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.7"/><stop offset="20%" stop-color="#a16207" stop-opacity="0.5"/><stop offset="50%" stop-color="#a16207" stop-opacity="0.3"/><stop offset="80%" stop-color="#1e3a8a" stop-opacity="0.5"/><stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.7"/></linearGradient></defs>
+<text x="60" y="52" font-family="Source Code Pro,monospace" font-size="7" fill="#ffffff" font-weight="600">4AM</text>
+<text x="175" y="52" font-family="Source Code Pro,monospace" font-size="7" fill="#ffffff" font-weight="600">8AM</text>
+<text x="295" y="52" font-family="Source Code Pro,monospace" font-size="7" fill="#ffffff" font-weight="600">12PM</text>
+<text x="420" y="52" font-family="Source Code Pro,monospace" font-size="7" fill="#ffffff" font-weight="600">4PM</text>
+<text x="540" y="52" font-family="Source Code Pro,monospace" font-size="7" fill="#ffffff" font-weight="600">8PM</text>
+<text x="660" y="52" font-family="Source Code Pro,monospace" font-size="7" fill="#ffffff" font-weight="600">12AM</text>
+<!-- Light signal -->
+<rect x="40" y="66" width="300" height="50" rx="3" fill="rgba(161,98,7,0.06)" stroke="#a16207" stroke-width="1.5"/>
+<text x="190" y="84" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#a16207" font-weight="600">LIGHT: >250 MELANOPIC LUX</text>
+<text x="190" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">Morning + midday: max entrainment + alertness</text>
+<text x="190" y="112" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#a16207">Outdoor light within 30 min of waking = primary zeitgeber</text>
+<rect x="500" y="66" width="200" height="50" rx="3" fill="rgba(30,58,138,0.06)" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="600" y="84" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#1e3a8a" font-weight="600">DARKNESS: <10 MEL. LUX</text>
+<text x="600" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#71717a">1-2h pre-bed: protect DLMO</text>
+<text x="600" y="112" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#1e3a8a">Amber glasses / dim warm light</text>
+<!-- Temperature curve -->
+<text x="40" y="138" font-family="Source Code Pro,monospace" font-size="8" fill="#1d4ed8" font-weight="600">CORE TEMPERATURE:</text>
+<path d="M60,170 Q120,172 175,168 Q250,154 350,144 Q400,142 420,142 Q460,144 500,150 Q560,162 620,168 Q660,172 700,174" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="60" y="184" font-family="Source Code Pro,monospace" font-size="6.5" fill="#1d4ed8">Nadir ~4AM</text>
+<text x="420" y="136" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#1d4ed8">Peak ~3PM (37.4°C)</text>
+<text x="580" y="184" font-family="Source Code Pro,monospace" font-size="6.5" fill="#1d4ed8">Decline = sleep gate</text>
+<!-- Sauna annotation -->
+<rect x="498" y="148" width="70" height="16" rx="3" fill="rgba(194,65,12,0.1)" stroke="#c2410c" stroke-width="0.5"/>
+<text x="533" y="160" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#c2410c" font-weight="600">SAUNA</text>
+<line x1="533" y1="164" x2="560" y2="168" stroke="#c2410c" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="600" y="196" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6" fill="#c2410c">Rebound cooling → deeper SWS</text>
+
+<!-- SUPPLEMENT CHRONODOSE MAP -->
+<text x="370" y="218" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#a16207" font-weight="600" letter-spacing="1.5">SUPPLEMENT CHRONODOSE MAP</text>
+<!-- Morning supplements -->
+<rect x="40" y="234" width="320" height="110" rx="4" fill="rgba(161,98,7,0.04)" stroke="#a16207" stroke-width="1.5"/>
+<text x="200" y="254" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#a16207" font-weight="600">MORNING (with first meal)</text>
+<text x="55" y="276" font-family="Source Code Pro,monospace" font-size="8.5" fill="#a16207" font-weight="600">Vitamin D</text><text x="135" y="276" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">With fat. VDR-BMAL1 interaction.</text>
+<text x="135" y="288" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">May disrupt melatonin if taken PM.</text>
+<text x="55" y="308" font-family="Source Code Pro,monospace" font-size="8.5" fill="#a16207" font-weight="600">NMN / NR</text><text x="135" y="308" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">NAD+ demand peaks in active phase.</text>
+<text x="135" y="320" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">SIRT1 activity highest AM. Aligns with clock.</text>
+<text x="55" y="340" font-family="Source Code Pro,monospace" font-size="8.5" fill="#a16207" font-weight="600">Omega-3</text><text x="135" y="340" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">With largest meal (fat-soluble).</text>
+<!-- Evening supplements -->
+<rect x="380" y="234" width="320" height="110" rx="4" fill="rgba(30,58,138,0.04)" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="540" y="254" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#1e3a8a" font-weight="600">EVENING (30-60 min pre-bed)</text>
+<text x="395" y="276" font-family="Source Code Pro,monospace" font-size="8.5" fill="#1e3a8a" font-weight="600">Magnesium glycinate</text><text x="530" y="276" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">GABA activation → sleep.</text>
+<text x="530" y="288" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Modulates NMDA in SCN. Glycine → SWS.</text>
+<text x="395" y="308" font-family="Source Code Pro,monospace" font-size="8.5" fill="#1e3a8a" font-weight="600">Tart cherry / melatonin</text><text x="545" y="308" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">If used. Low dose (0.3-1mg).</text>
+<text x="530" y="320" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Supplement should align with natural DLMO.</text>
+<!-- Timing-critical -->
+<rect x="40" y="356" width="660" height="50" rx="4" fill="rgba(185,28,28,0.03)" stroke="#b91c1c" stroke-width="1"/>
+<text x="370" y="374" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b91c1c" font-weight="600">TIMING-CRITICAL RESTRICTIONS</text>
+<text x="55" y="394" font-family="Source Code Pro,monospace" font-size="8.5" fill="#b91c1c" font-weight="600">Caffeine</text><text x="120" y="394" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Last dose before 12-2 PM. Half-life 5-6h (CYP1A2 dependent). 2 PM dose → still 25% active at 10 PM.</text>
+<text x="55" y="404" font-family="Source Code Pro,monospace" font-size="8.5" fill="#b91c1c" font-weight="600">Creatine</text><text x="120" y="404" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Post-exercise with meal. Insulin-mediated GLUT4 uptake enhanced. Not timing-critical beyond this.</text>
+
+<!-- THE COMPLETE CALIBRATION SEQUENCE -->
+<text x="370" y="432" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#a16207" font-weight="600" letter-spacing="1.5">THE COMPLETE CALIBRATION SEQUENCE (DAILY)</text>
+<rect x="40" y="446" width="660" height="28" rx="4" fill="rgba(161,98,7,0.06)" stroke="#a16207" stroke-width="1.5"/>
+<text x="370" y="464" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#a16207" font-weight="600">Wake → Light (20 min outdoor) → Exercise → Vit D + Omega-3 + NMN (with meal) → [Day] → Last caffeine by 2 PM →</text>
+<rect x="40" y="474" width="660" height="20" rx="4" fill="rgba(30,58,138,0.06)" stroke="#1e3a8a" stroke-width="1"/>
+<text x="370" y="488" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#1e3a8a" font-weight="600">→ Dim light begins (1-2h pre-bed) → Sauna (optional) → Mag glycinate → RF breathing → Cool bedroom → Sleep</text>
+</svg>
+<div class="fig-cap">Top: the 24-hour light-dark cycle — high melanopic illuminance morning/midday for entrainment, transition to circadian darkness (<10 melanopic lux) pre-bed. Core temperature curve with sauna-induced rebound cooling enhancing the sleep-onset decline. Center: supplement chronodose map — morning supplements (vitamin D, NMN, omega-3) align with active-phase clock demands; evening supplements (magnesium) support sleep-phase clock demands. Caffeine and creatine have timing restrictions. Bottom: the complete daily calibration sequence from wake to sleep.</div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">II. Cross-Pollination — Electrical Engineering: Reference Signals and Phase-Locked Oscillators</div>
+<div class="grid">
+<div class="gc"><div class="tag light">Light</div><h4>The Dose-Response for Phase Shifting</h4><p>Phase-shifting follows a <strong>non-linear dose-response with front-loaded sensitivity</strong>: the first few minutes of bright light drive the majority of the resetting response. A PNAS study (2022) demonstrated that both cones and melanopsin contribute to phase resetting, with an initial strong cone contribution followed by a dominant melanopsin contribution over longer exposures. Practical implication: <strong>10 minutes of outdoor light captures most of the phase-shifting benefit</strong>; extending to 20–30 minutes provides incremental but diminishing additional calibration. This front-loaded sensitivity makes the morning walk one of the highest-PER activities in the entire series — 10 minutes of walking outdoors delivers circadian calibration + exercise + cortisol-awakening amplification simultaneously.</p></div>
+<div class="gc"><div class="tag eng">Electrical Engineering</div><h4>The Reference Clock Analogy</h4><p>In a phase-locked loop (PLL), a <strong>voltage-controlled oscillator (VCO)</strong> generates a signal that is continuously compared against a reference clock. Any phase error between the VCO output and the reference produces a correction voltage that adjusts the VCO frequency to match. The SCN is the VCO — it generates a ~24.2h oscillation. Morning light is the reference clock — it provides the daily correction signal that pulls the oscillator back to exactly 24 hours. Without the reference signal, the VCO drifts. Without morning light, the SCN drifts. The morning light protocol is not a wellness practice — it is the <em>reference signal calibration</em> that makes every other timing recommendation functional.</p></div>
+<div class="gc"><div class="tag supp">Supplements</div><h4>Vitamin D–BMAL1: A Direct Clock Interaction</h4><p>A 2025 <em>eFood</em> review established that <strong>VDR can heterodimerize with BMAL1 and inhibit CLOCK/BMAL1-mediated transcription of PER1</strong> — meaning vitamin D directly modulates the core clock machinery's period length and amplitude. In vitamin D deficiency, this interaction is impaired: PER1 expression increases and circadian period lengthens. Furthermore, low vitamin D increases TNF-alpha, which represses BMAL1 through NF-kB signaling, further desynchronizing peripheral clocks. Your vitamin D below the optimal range (below the 40–60 target) may be contributing to a slightly lengthened circadian period that requires more correction from morning light. Optimizing to 40–60 ng/mL — taken in the morning with fat — simultaneously supports the clock machinery, Leydig cell testosterone production (Lecture 54), osteoblast function (Lecture 43), hippocampal signaling (Lecture 31), and skin-brain-immune function (Lecture 44).</p></div>
+<div class="gc"><div class="tag temp">Temperature</div><h4>The Warm Bath Paradox</h4><p>A warm bath or shower 1–2 hours before bed <strong>paradoxically improves sleep onset by enhancing heat loss</strong>. The warm water produces peripheral vasodilation (particularly in the hands and feet), which accelerates heat dissipation from the core. The resulting <em>accelerated</em> core temperature decline overshoots the natural trajectory, triggering the preoptic sleep-gate neurons more effectively than the unassisted decline. A 2019 meta-analysis found that 1–2 hours before bed, a 10-minute warm bath/shower at 40–42°C significantly improved both sleep onset latency and sleep efficiency. This is the same mechanism that sauna pre-bed exploits (Lecture 60/66) — deliberate heating followed by enhanced cooling — at a more accessible dose.</p></div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">III. Antifragility & Trade-Offs</div>
+<div class="caut">
+<div class="cl">Where Supplement Chronodosing Evidence Is Strong vs. Speculative</div>
+<p><em>The evidence hierarchy for chronodosing varies dramatically by compound.</em> Three tiers of confidence: (1) <em>Strong evidence</em>: caffeine timing (the adenosine-blocking mechanism and 5–6 hour half-life are pharmacologically unambiguous — afternoon caffeine demonstrably reduces SWS depth); morning light timing (decades of circadian photobiology research with >10,000 lux as a well-established threshold); bedroom temperature (the thermoregulatory sleep-onset mechanism is physiologically robust). (2) <em>Moderate evidence</em>: vitamin D morning timing (the VDR-BMAL1 interaction is molecularly characterized but clinical timing trials are limited; the melatonin interference report is from a small MS study and may not generalize); magnesium pre-bed (GABAergic mechanism is well-established; glycinate specifically supporting sleep has several supporting trials but limited large RCTs). (3) <em>Emerging/speculative evidence</em>: NMN/NR morning timing (the circadian NAD+ rhythm is real and the SIRT1-BMAL1 link is molecularly characterized, but no RCT has compared morning vs. evening NMN dosing on clinical outcomes); creatine timing (post-exercise uptake is modestly enhanced by insulin but the magnitude of the timing effect is small compared to total daily dose). The practical hierarchy: implement the strong-evidence interventions first (caffeine cutoff, morning light, cool bedroom), then add moderate-evidence (vitamin D morning, magnesium pre-bed), and consider emerging-evidence last (NMN timing). Consistency of supplementation matters more than perfect timing for most compounds.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">IV. The Protocol — The Complete Chronotype-Adjusted Daily Timeline</div>
+<div class="note">
+<div class="nl">The Calibration Sequence Overlaid on Lecture 67's Weekly Architecture</div>
+<p><strong>Morning Calibration (within 60 min of waking):</strong><br>
+1. Wake at fixed time ±30 min (Lecture 64 — the non-negotiable anchor).<br>
+2. Outdoor light exposure within 30 min — 10–20 min walk (>10,000 lux). This is simultaneously the primary zeitgeber (SCN calibration), the floor-protocol exercise dose (Lecture 67), and the cortisol-awakening response amplifier (Lecture 40). If outdoor light is unavailable: 10,000 lux light therapy device at 30–50 cm for 20–30 min during breakfast preparation.<br>
+3. Morning supplements with first meal: vitamin D (2,000–4,000 IU with fat — target 40–60 ng/mL, below the optimal range), omega-3 (1–2g EPA+DHA with fat), NMN/NR if using (250–500 mg — aligns with peak NAD+ demand and SIRT1 activity).<br><br>
+<strong>Midday Discipline (12–2 PM):</strong><br>
+4. Last caffeine dose by 12 PM (slow CYP1A2 metabolizers) or 2 PM (fast metabolizers). If unsure of your genotype, default to noon — the conservative cutoff that protects SWS for virtually all metabolizer types. This is the single cheapest SWS intervention after alcohol avoidance (Lecture 64).<br><br>
+<strong>Evening Calibration (1–2 hours before bed):</strong><br>
+5. Begin circadian darkness: dim all lights to <10 lux at eye level. Switch screens to maximum night-mode warmth. Put on amber-tinted glasses if screen use continues. This protects melatonin onset.<br>
+6. Optional sauna session (20–30 min, ending 1–2 hours before bed — core temperature rebound enhances SWS; Lecture 60/66). OR warm shower/bath (10 min at 40–42°C, 1–2 hours pre-bed — same vasodilation-mediated cooling mechanism at lower intensity).<br>
+7. Magnesium glycinate (200–400 mg, 30–60 min pre-bed — GABA activation + glycine for sleep quality + NMDA modulation in SCN).<br>
+8. Bedroom temperature set to 65–68°F / 18–20°C (enables the core temperature decline that the preoptic sleep-gate requires).<br>
+9. RF breathing 10 min (Lecture 66 — parasympathetic onset for sleep). Physiological sigh (3–5 cycles) if needed for acute transition to rest state.<br><br>
+<strong>Metric:</strong> <em>DLMO proxy</em> — the time you first feel sleepy in dim conditions. This should occur approximately 2 hours before your target bedtime and should be consistent ±30 min nightly. If it shifts later over days-weeks, your evening light exposure is likely too high (phase-delaying). If it shifts earlier, your morning light may be insufficient (no phase-advancing correction). <em>Sleep onset latency</em> (from wearable — target <20 min; longer suggests circadian misalignment or insufficient evening calibration). <em>Vitamin D level</em> (quarterly — 35 → target 40–60; the VDR-BMAL1 interaction makes this simultaneously a circadian and a systemic health metric). <em>SRI</em> (Lecture 64 — the integrated circadian synchronization metric that all three calibration signals support).</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">V. Recursive Synthesis</div>
+<h2>How Theme B Completes the Longevity Protocol — From "How Much" to "How Much, When, and Why"</h2>
+<p>Theme A (Lectures 61–67) established the dose for each intervention. Theme B (Lectures 68–70) established when to deliver each dose and why timing matters. This lecture — the final lecture of Theme B — provides the upstream calibration signals that make every downstream timing recommendation work. Without morning light, the SCN drifts and the peripheral clock phases documented in Lecture 68 desynchronize. Without evening darkness, melatonin onset is suppressed and the SWS architecture documented in Lecture 64 degrades. Without temperature cycling, the sleep-onset gate doesn't open cleanly and sleep latency increases. Without supplement chronodosing, vitamin D's VDR-BMAL1 interaction is misaligned, magnesium's GABAergic sleep support is mistimed, and caffeine's adenosine blockade bleeds into the sleep window. These upstream signals are the reference clocks that every downstream oscillation locks onto. Fix them, and every subsequent timing recommendation from the series operates on a properly calibrated system. Ignore them, and the clock drifts, the peripheral oscillators desynchronize, and the precisely timed interventions from Lectures 62–66 are delivered to a body that's operating on the wrong schedule. The series now spans Lectures 7–70: 54 mechanistic lectures (what happens and why), 7 dose-response lectures (how much), and 3 chronobiology lectures (when). The complete output: a mechanistically grounded, dose-optimized, interference-resolved, chronotype-adjusted, circadianly calibrated longevity protocol — personalized to your biomarker profile, scaled to your available time, and anchored to the upstream reference signals that make the entire system cohere.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VI. Peer Review — Common Misconception</div>
+<div class="corr">
+<div class="cl">Corrected Misconception</div>
+<p><strong>Misconception:</strong> "Blue light from screens is uniquely dangerous — you need to block all blue light in the evening to sleep well."<br><br><strong>Correction:</strong> The issue is not blue light specifically — it is total melanopic illuminance at the retina. Melanopsin-containing ipRGCs have peak sensitivity at ~480 nm (blue), which is why blue-enriched light is disproportionately effective at suppressing melatonin. But a very bright warm-white light at 3000K and 500 lux would suppress more melatonin than a dim blue-enriched light at 10 lux — because total photon flux at melanopsin-sensitive wavelengths depends on both spectral composition AND intensity. The 2026 biomimetic lighting model uses melanopic equivalent daylight illuminance (MEDI) as the metric: the goal is >250 melanopic lux in the morning and <10 melanopic lux in the evening. Achieving <10 melanopic lux in the evening is accomplished by reducing BOTH intensity (dim all lights) AND spectral composition (shift toward warm, red-shifted light). Blue-light filtering glasses help but are not sufficient if the room is brightly lit with warm-white fixtures at high intensity. The correct evening protocol is: reduce total light to <10 lux at eye level AND shift spectral composition toward amber/red. This creates the circadian darkness state that protects DLMO — the gate that every sleep intervention documented in Lecture 64 depends on opening at the right time.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VII. Resources</div>
+<div class="res">
+<div class="rt">Resources & Activities</div>
+<div class="res-grid">
+<div class="ri"><div class="rc read">Read</div><h5>Hu et al. (2025)</h5><p>"The Effects of Food on Circadian Rhythm: A Comprehensive Review." <em>eFood</em>. The review establishing VDR-BMAL1 heterodimerization, magnesium-NMDA modulation in SCN neurons, and the nutrient-specific molecular pathways that link dietary compounds to circadian clock machinery.</p></div>
+<div class="ri"><div class="rc read">Read</div><h5>Biomimetic Light Cycle (2026)</h5><p>"Retinal light perception and biological rhythms." <em>Mol. Med. Rep.</em> The 2026 framework proposing >250 melanopic lux morning/midday and <10 melanopic lux evening as the biomimetic light cycle that maximizes circadian entrainment while protecting melatonin.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Implement the Morning Light Anchor</h5><p>10–20 min outdoor walk within 30 min of waking. This single action provides circadian calibration (reference signal for SCN), exercise (steepest mortality curve), and cortisol-awakening amplification. If outdoor light is unavailable: 10,000 lux light therapy device for 20–30 min. This is the highest-impact, lowest-cost calibration intervention.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Create Circadian Darkness</h5><p>1–2 hours before bed: dim all lights to <10 lux at eye level. Shift screens to maximum night-mode. Consider amber-tinted glasses for unavoidable screen use. Set bedroom to 65–68°F / 18–20°C. These create the dual conditions (low melanopic lux + declining core temperature) that the sleep-onset gate requires.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Supplement Timing Card</h5><p>MORNING (with first meal): Vitamin D (2,000–4,000 IU + fat), omega-3 (1–2g EPA+DHA), NMN/NR if using (250–500mg). LAST CAFFEINE: by 12–2 PM. POST-EXERCISE: creatine (3–5g with meal). PRE-BED (30–60 min): Magnesium glycinate (200–400mg). Print and post on supplement shelf.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The CYP1A2 Caffeine Check</h5><p>If you feel wired after an afternoon coffee or have difficulty sleeping after a 2 PM espresso, you're likely a slow CYP1A2 metabolizer (half-life ~7–9h). Shift your caffeine cutoff to noon. If you can drink coffee at 4 PM and sleep fine at 10 PM, you're a fast metabolizer (half-life ~3h). Cutoff at 2 PM is safe. When in doubt: noon is the conservative default.</p></div>
+<div class="ri"><div class="rc meas">Metric</div><h5>DLMO Proxy + Onset Latency + Vit D + SRI</h5><p>DLMO proxy (time you first feel sleepy in dim conditions — should be ~2h before bed, consistent nightly). Sleep onset latency (wearable — target <20 min). Vitamin D level (quarterly — 35 → target 40–60). SRI (Lecture 64 — bed/wake SD <30 min). These confirm the upstream calibration signals are producing the expected downstream circadian coherence.</p></div>
+<div class="ri"><div class="rc meas">Cross-Reference</div><h5>Complete Series Integration</h5><p>Clock system (Lec 68) → this lecture calibrates the clocks. Exercise timing (Lec 69) → chronodose depends on calibrated clock. Sleep (Lec 64) → SWS depends on DLMO, temperature, and magnesium timing. Sauna (Lec 60/66) → pre-bed sauna enhances temperature decline. Vitamin D (Lecs 43/44/54) → morning timing supports VDR-BMAL1 + Leydig + osteoblast + hippocampus. NAD+ (Lec 21/58) → NMN morning aligns with SIRT1 circadian demand. Inflammaging (Lec 12) → low vitamin D → TNF-alpha → BMAL1 repression. Weekly architecture (Lec 67) → calibration sequence overlaid onto the daily schedule. COMPLETE SERIES: Lectures 7–70.</p></div>
+</div>
+</div>
+
+<div class="cite">
+<div class="ct">Citation Verification</div>
+<table>
+<tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+<tr><td>Light is the paramount environmental signal for circadian entrainment; ipRGCs (peak ~480 nm) → retinohypothalamic tract → SCN</td><td>Berson et al., <em>Science</em>, 2002; Hattar et al., 2002; Brainard et al., 2001; standard circadian photobiology</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>First few minutes of light exposure drive the majority of phase resetting; front-loaded dose-response</td><td>Najjar & Zeitzer, <em>PNAS</em>, 2022;119:e2205301119</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Biomimetic light cycle: >250 melanopic lux morning, <10 melanopic lux evening for circadian darkness</td><td><em>Mol. Med. Rep.</em>, 2026 (retinal light perception review)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>VDR heterodimerizes with BMAL1 and inhibits CLOCK/BMAL1-mediated PER1 transcription; deficiency → lengthened period</td><td>Hu et al., <em>eFood</em>, 2025; Bozkurt et al., 2012; Muscogiuri et al., 2020</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Magnesium modulates NMDA receptor activity in SCN neurons; glycinate promotes sleep via GABAergic activation</td><td>Hu et al., <em>eFood</em>, 2025; Abbasi et al., 2012; multiple magnesium-sleep studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>NAD+ biosynthesis follows circadian rhythm; SIRT1 deacetylates BMAL1 linking NAD+ to clock function</td><td>Nakahata et al., <em>Cell</em>, 2008; Ramsey et al., <em>Science</em>, 2009</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Caffeine half-life 5–6 hours average; varies by CYP1A2 genotype (fast ~3h, slow ~9h)</td><td>Nehlig, 2018; Sachse et al., 1999; standard pharmacokinetics</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Warm bath 1–2h before bed improves sleep onset latency and efficiency via peripheral vasodilation and enhanced core cooling</td><td>Haghayegh et al., <em>Sleep Med. Rev.</em>, 2019;43:36–43 (meta-analysis)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Endogenous circadian period ~24.2h; drifts ~12 min/day without daily light correction</td><td>Czeisler et al., <em>Science</em>, 1999;284:2177–2181</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Vitamin D evening dosing may suppress melatonin; morning dosing recommended to align with circadian patterns</td><td>Muscogiuri et al., <em>Nutrients</em>, 2020;12:3020; limited clinical evidence</td><td><span class="cv">⚠ The melatonin suppression from evening vitamin D is reported in a small MS study and in anecdotal clinical reports. The VDR-BMAL1 interaction provides a plausible molecular mechanism, but large-scale RCTs comparing morning vs. evening vitamin D dosing on sleep outcomes have not been conducted. Morning dosing is the conservative recommendation based on mechanistic plausibility and the precautionary principle, not definitive clinical evidence.</span></td></tr>
+</table>
+</div>
+
+<div class="fn">
+<strong>Key References:</strong> Czeisler, C.A. et al. (1999). "Stability, precision, and near-24-hour period of the human circadian pacemaker." <em>Science</em>, 284:2177–2181. &nbsp;|&nbsp; Hu, X. et al. (2025). "The Effects of Food on Circadian Rhythm: A Comprehensive Review." <em>eFood</em>. &nbsp;|&nbsp; Najjar, R.P. & Zeitzer, J.M. (2022). "Spectral sensitivity of circadian phase resetting changes dynamically with light duration." <em>PNAS</em>, 119:e2205301119. &nbsp;|&nbsp; Nakahata, Y. et al. (2008). "The NAD+-dependent deacetylase SIRT1 modulates CLOCK-mediated chromatin remodeling." <em>Cell</em>, 134:329–340. &nbsp;|&nbsp; Haghayegh, S. et al. (2019). "Before-bedtime passive body heating by warm shower or bath to improve sleep." <em>Sleep Med. Rev.</em>, 43:36–43.
+</div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_light_temperature_supplement_timing",
+  "related": [
+    {
+      "id": "lecture_circadian_operating_system",
+      "title": "The Circadian Operating System — Clock Hierarchy, Zeitgebers & the Cheapest Optimization",
+      "filename": "lecture_circadian_operating_system.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_circadian_exercise_nutrient",
+      "title": "The Circadian Exercise & Nutrient Window — When to Move, When to Eat, and Why They're Coupled",
+      "filename": "lecture_circadian_exercise_nutrient.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Biological Clocks"
+      ]
+    },
+    {
+      "id": "lecture_glymphatic_system",
+      "title": "The Glymphatic System",
+      "filename": "lecture_glymphatic_system.html",
+      "tags": [
+        "Cellular Cleanup",
+        "Sleep & Recovery"
+      ]
+    },
+    {
+      "id": "lecture_nad_sirtuin_decline",
+      "title": "NAD+ Decline & Sirtuin Dysfunction",
+      "filename": "lecture_nad_sirtuin_decline.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Biological Clocks"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

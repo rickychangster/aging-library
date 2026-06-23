@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 71: The Interference Matrix</title>
+
+<style>
+:root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--violet:#6d28d9;--violet-dim:rgba(109,40,217,0.04);--rule:#d4d0c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+.page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+.top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--red) 0%,var(--amber) 33%,var(--green) 66%,var(--violet) 100%);border-radius:2px;}
+.hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--violet);position:relative;}
+.stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--violet);margin-bottom:20px;}
+.ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+h1{font-family:'DM Serif Text',serif;font-size:36px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--violet);}
+.sub{font-family:'DM Serif Text',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+.meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--violet);font-weight:600;}
+.sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+.k{color:var(--violet);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+.sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--violet);border-radius:50%;}
+.fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--violet);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+.note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--violet);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.syn{color:var(--green);}.tag.ant{color:var(--red);}.tag.mod{color:var(--amber);}.tag.eng{color:var(--violet);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--violet);font-weight:700;}
+.res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+.cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+.fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+@media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="The full pairwise interaction map across six interventions, six supplements, and three medications — identifying which 25 of ~120 combinations are antagonistic, additive, or synergistic, and which silently erode results.">
+<meta property="og:title" content="The Interference Matrix — What Cancels, What Competes, What Amplifies — Longevity & Wellness">
+<meta property="og:description" content="The full pairwise interaction map across six interventions, six supplements, and three medications — identifying which 25 of ~120 combinations are antagonistic, additive, or synergistic, and which silently erode results.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_interference_matrix.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Interference Matrix — What Cancels, What Competes, What Amplifies — Longevity & Wellness">
+<meta name="twitter:description" content="The full pairwise interaction map across six interventions, six supplements, and three medications — identifying which 25 of ~120 combinations are antagonistic, additive, or synergistic, and which silently erode results.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+<div class="top-bar"></div>
+<header class="hdr">
+<div class="ln">71</div>
+<div class="stag">Synergy Mapping · No. 71 (Theme C, 1 of 3)</div>
+<h1>The Interference Matrix <span class="a">— What Cancels, What Competes, What Amplifies</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+<div class="sub">Lecture 66 Sketched Five Synergistic and Five Antagonistic Pairings Within the Hormetic Stress Domain. This Lecture Expands to the Full Matrix — Every Pairwise Interaction Across Six Core Interventions, Six Supplements, and Three Common Medications Relevant to a Person in Their Fifties, Classified by Molecular Mechanism: Antagonistic (the Benefit of One Reduces the Benefit of the Other), Additive (Both Work Independently Without Interaction), or Synergistic (the Combined Effect Exceeds the Sum). Of ~120 Possible Pairwise Interactions, Approximately 25 Are Non-Neutral — and Knowing Which Ones Matter Determines Whether Your Protocol Amplifies Itself or Quietly Cancels Its Own Benefits</div>
+<div class="meta">
+<div><span class="hl">Origin:</span> Pharmacodynamics / Interaction Pharmacology (Roberts 2015; Ristow 2009; Chilibeck 2017)</div>
+<div><span class="hl">Bridge:</span> Network Graph Theory — Edge Classification &amp; Signed Networks</div>
+<div><span class="hl">Series:</span> Synergy Mapping 1 of 3 — The Complete Map</div>
+<div>~1,200 words</div>
+</div>
+</header>
+
+<div class="sn">I. The Core Concept — Three Categories of Interaction, Each Requiring a Different Protocol Response</div>
+<h2>Antagonistic Pairings Must Be Separated or Eliminated. Additive Pairings Can Be Freely Combined. Synergistic Pairings Should Be Deliberately Stacked</h2>
+
+<p><em>Category 1 — Antagonistic: one intervention reduces or cancels another's benefit.</em> These are the pairings that silently erode your protocol's effectiveness. The molecular mechanisms are specific and well-characterized. <span class="k">Cold water immersion after resistance training</span> (Lecture 66) suppresses the IL-6 → STAT3 → satellite cell proliferation cascade that muscle requires for hypertrophic adaptation. The same anti-inflammatory property that makes cold beneficial for endurance recovery makes it destructive for strength gains — Roberts et al. (2015, <em>J. Physiol.</em>) demonstrated attenuated long-term strength and hypertrophy with regular post-resistance cold immersion. <span class="k">High-dose antioxidant supplements during exercise training</span> (Ristow et al., 2009, <em>PNAS</em>) quench the reactive oxygen species that serve as the hormetic signal (Lecture 11) triggering PGC-1α-mediated mitochondrial biogenesis — the very adaptation that makes exercise beneficial. Vitamin C (>500 mg) and vitamin E (>400 IU) taken within 4 hours of exercise can blunt the training response. <span class="k">Alcohol and slow-wave sleep</span> — even moderate intake (1–2 drinks) within 3 hours of bed abolishes the first SWS cycle, eliminating the largest GH pulse (~70% of daily secretion), the deepest glymphatic flow period, and the first round of immune NK cell restoration (Lecture 64). <span class="k">NSAIDs and resistance training</span> — chronic ibuprofen use suppresses the COX-2-mediated prostaglandin signaling that activates satellite cells for muscle repair, blunting long-term hypertrophic adaptation. <span class="k">Alcohol and sauna</span> — the dual vasodilation (heat + alcohol) combined with dual dehydration produces dangerous hypotension, arrhythmia risk, and is responsible for a significant proportion of sauna-related fatalities in Finland.</p>
+
+<p><em>Category 2 — Additive: both work independently, no meaningful interaction.</em> The majority of pairwise combinations fall here — they're targeting different systems through different mechanisms and neither helps nor hinders the other. Breathing practice and fasting status: independent pathways. Vitamin D and omega-3: independent absorption, different receptors. Zone 2 aerobic and magnesium supplementation: no known interaction. Creatine and morning light: unrelated mechanisms. These are the "freely combine" pairings — they don't require temporal separation, sequencing rules, or special consideration. They're the neutral edges in the network graph. Knowing which interactions are truly additive is as valuable as knowing which are antagonistic: it prevents unnecessary scheduling complexity around pairings that don't actually interact.</p>
+
+<p><em>Category 3 — Synergistic: the combined effect exceeds the sum of individual effects.</em> These are the high-value pairings where deliberate combination produces supra-additive benefit — and where Lecture 72 will design specific stacking protocols. <span class="k">Exercise followed by sauna</span> (Lecture 60/66) produces a broader HSP chaperone spectrum than either alone — exercise triggers HSPs through oxidative and mechanical stress while sauna adds thermal stress, engaging different members of the HSP70/90 family through complementary denaturation pathways. <span class="k">Resistance training plus creatine supplementation</span> — a 2024 meta-analysis in adults under 50 confirmed that creatine plus resistance training produces greater strength gains than resistance training alone, with the effect driven by phosphagen system enhancement that allows more high-quality reps per set. In older adults, creatine plus resistance training improves lean tissue mass and lower extremity strength through the same phosphocreatine replenishment mechanism — directly addressing the age-related 25% reduction in ATP production capacity that limits resistance training response. <span class="k">Fasted exercise plus morning light</span> — the AMPK activation from exercise converges with the cortisol-awakening response amplified by light, while the light simultaneously calibrates the SCN (Lecture 68) and the exercise calibrates the muscle clock, producing dual zeitgeber entrainment plus enhanced fat oxidation. <span class="k">Protein plus resistance training within 2 hours</span> — the mTOR activation window from mechanical loading is amplified by leucine-mediated mTORC1 signaling, producing greater MPS than either stimulus alone (Lecture 63/65). <span class="k">Sauna plus pre-bed timing</span> — HSP-mediated proteostasis, NF-κB suppression, and FOXO3 activation (the sauna's direct molecular benefits) are additive to the SWS enhancement produced by the core temperature rebound mechanism (the timing benefit) — one session, two independent benefit pathways.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="fig">
+<div class="fig-tag">Figure 1 — The Interference Matrix: Network Graph of Non-Neutral Interactions</div>
+<svg viewBox="0 0 740 520" xmlns="http://www.w3.org/2000/svg">
+<text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#6d28d9" font-weight="600" letter-spacing="1.5">THE INTERFERENCE NETWORK: ALL NON-NEUTRAL PAIRWISE INTERACTIONS</text>
+<!-- Nodes (interventions as circles) -->
+<circle cx="370" cy="100" r="30" fill="rgba(109,40,217,0.06)" stroke="#6d28d9" stroke-width="1.5"/>
+<text x="370" y="96" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#6d28d9" font-weight="600">RESISTANCE</text>
+<text x="370" y="108" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#6d28d9" font-weight="600">TRAINING</text>
+<circle cx="170" cy="140" r="28" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="1.5"/>
+<text x="170" y="137" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#15803d" font-weight="600">AEROBIC</text>
+<text x="170" y="149" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#15803d" font-weight="600">EXERCISE</text>
+<circle cx="570" cy="140" r="28" fill="rgba(194,65,12,0.06)" stroke="#c2410c" stroke-width="1.5"/>
+<text x="570" y="137" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#c2410c" font-weight="600">SAUNA</text>
+<text x="570" y="149" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#c2410c" font-weight="600">(HEAT)</text>
+<circle cx="100" cy="260" r="28" fill="rgba(3,105,161,0.06)" stroke="#0369a1" stroke-width="1.5"/>
+<text x="100" y="257" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#0369a1" font-weight="600">COLD</text>
+<text x="100" y="269" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7.5" fill="#0369a1" font-weight="600">EXPOSURE</text>
+<circle cx="270" cy="280" r="26" fill="rgba(161,98,7,0.06)" stroke="#a16207" stroke-width="1.5"/>
+<text x="270" y="277" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#a16207" font-weight="600">SLEEP</text>
+<text x="270" y="289" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#a16207" font-weight="600">(SWS)</text>
+<circle cx="470" cy="280" r="26" fill="rgba(77,124,15,0.06)" stroke="#4d7c0f" stroke-width="1.5"/>
+<text x="470" y="277" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4d7c0f" font-weight="600">FASTING</text>
+<text x="470" y="289" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4d7c0f" font-weight="600">(TRE)</text>
+<circle cx="640" cy="260" r="26" fill="rgba(109,40,217,0.06)" stroke="#6d28d9" stroke-width="1.5"/>
+<text x="640" y="257" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#6d28d9" font-weight="600">PROTEIN</text>
+<text x="640" y="269" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#6d28d9" font-weight="600">(≥30g)</text>
+<!-- Supplement/medication nodes (smaller) -->
+<circle cx="80" cy="380" r="20" fill="rgba(39,39,42,0.04)" stroke="#71717a" stroke-width="1"/>
+<text x="80" y="383" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a" font-weight="600">CREATINE</text>
+<circle cx="200" cy="400" r="20" fill="rgba(39,39,42,0.04)" stroke="#71717a" stroke-width="1"/>
+<text x="200" y="403" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a" font-weight="600">VIT C/E</text>
+<circle cx="320" cy="400" r="20" fill="rgba(39,39,42,0.04)" stroke="#71717a" stroke-width="1"/>
+<text x="320" y="403" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a" font-weight="600">NSAIDs</text>
+<circle cx="440" cy="400" r="20" fill="rgba(39,39,42,0.04)" stroke="#71717a" stroke-width="1"/>
+<text x="440" y="403" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a" font-weight="600">ALCOHOL</text>
+<circle cx="560" cy="400" r="20" fill="rgba(39,39,42,0.04)" stroke="#71717a" stroke-width="1"/>
+<text x="560" y="403" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a" font-weight="600">CAFFEINE</text>
+<circle cx="680" cy="380" r="20" fill="rgba(39,39,42,0.04)" stroke="#71717a" stroke-width="1"/>
+<text x="680" y="383" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="6.5" fill="#71717a" font-weight="600">STATIN</text>
+<!-- SYNERGISTIC EDGES (green) -->
+<line x1="340" y1="100" x2="190" y2="140" stroke="#15803d" stroke-width="2" opacity="0.7"/>
+<text x="245" y="110" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">concurrent if sequenced</text>
+<line x1="400" y1="100" x2="545" y2="140" stroke="#15803d" stroke-width="2.5" opacity="0.8"/>
+<text x="490" y="108" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">HSP SYNERGY ★</text>
+<line x1="170" y1="168" x2="170" y2="240" stroke="#15803d" stroke-width="1.5" opacity="0.6"/>
+<text x="135" y="210" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">fasted AM</text>
+<line x1="385" y1="128" x2="640" y2="235" stroke="#15803d" stroke-width="2.5" opacity="0.8"/>
+<text x="540" y="174" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">mTOR WINDOW ★</text>
+<line x1="570" y1="168" x2="290" y2="260" stroke="#15803d" stroke-width="2" opacity="0.7"/>
+<text x="410" y="220" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">SWS↑ pre-bed</text>
+<line x1="355" y1="128" x2="100" y2="370" stroke="#15803d" stroke-width="2" opacity="0.7"/>
+<text x="85" y="340" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">PCr ↑ strength</text>
+<line x1="185" y1="160" x2="470" y2="260" stroke="#15803d" stroke-width="1.5" opacity="0.6"/>
+<text x="350" y="230" font-family="Source Code Pro,monospace" font-size="5.5" fill="#15803d" font-weight="600">AMPK convergence</text>
+<!-- ANTAGONISTIC EDGES (red) -->
+<line x1="340" y1="110" x2="125" y2="248" stroke="#b91c1c" stroke-width="2.5" opacity="0.8"/>
+<text x="200" y="195" font-family="Source Code Pro,monospace" font-size="6" fill="#b91c1c" font-weight="600">IL-6 BLUNTS MPS ✗</text>
+<line x1="170" y1="165" x2="200" y2="382" stroke="#b91c1c" stroke-width="2" opacity="0.7"/>
+<text x="220" y="310" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b91c1c" font-weight="600">ROS quench ✗</text>
+<line x1="340" y1="115" x2="320" y2="382" stroke="#b91c1c" stroke-width="1.5" opacity="0.6"/>
+<text x="355" y="300" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b91c1c" font-weight="600">satellite cell ✗</text>
+<line x1="290" y1="290" x2="440" y2="385" stroke="#b91c1c" stroke-width="2.5" opacity="0.8"/>
+<text x="380" y="350" font-family="Source Code Pro,monospace" font-size="6" fill="#b91c1c" font-weight="600">ABOLISHES SWS ✗</text>
+<line x1="570" y1="165" x2="440" y2="385" stroke="#b91c1c" stroke-width="2" opacity="0.7"/>
+<text x="530" y="310" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b91c1c" font-weight="600">hypotension ✗</text>
+<line x1="290" y1="290" x2="560" y2="384" stroke="#b91c1c" stroke-width="1.5" opacity="0.6"/>
+<text x="450" y="360" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b91c1c" font-weight="600">SWS depth↓</text>
+<!-- Statin-exercise (amber = debated) -->
+<line x1="190" y1="160" x2="680" y2="365" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+<text x="500" y="290" font-family="Source Code Pro,monospace" font-size="5.5" fill="#b45309" font-weight="600">CoQ10↓ ? mito</text>
+<!-- Legend -->
+<rect x="20" y="440" width="700" height="70" rx="4" fill="rgba(39,39,42,0.03)" stroke="#d4d0c8" stroke-width="1"/>
+<text x="370" y="460" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#6d28d9" font-weight="600">EDGE LEGEND</text>
+<line x1="60" y1="478" x2="100" y2="478" stroke="#15803d" stroke-width="2.5"/><text x="110" y="482" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">SYNERGISTIC</text><text x="200" y="482" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Combine deliberately (★ = strongest)</text>
+<line x1="370" y1="478" x2="410" y2="478" stroke="#b91c1c" stroke-width="2.5"/><text x="420" y="482" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c" font-weight="600">ANTAGONISTIC</text><text x="520" y="482" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Separate or eliminate (✗ = critical)</text>
+<line x1="60" y1="498" x2="100" y2="498" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4,3"/><text x="110" y="502" font-family="Source Code Pro,monospace" font-size="8" fill="#b45309" font-weight="600">DEBATED</text><text x="170" y="502" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">Evidence mixed or emerging</text>
+<text x="370" y="502" font-family="Source Code Pro,monospace" font-size="7.5" fill="#71717a">No edge = ADDITIVE (freely combine, no interaction). Most pairings are additive.</text>
+</svg>
+<div class="fig-cap">The interference network: interventions as nodes, non-neutral interactions as edges. Green edges (synergistic): combine deliberately — exercise + sauna (dual HSP), resistance + protein (mTOR window), sauna + pre-bed sleep (SWS enhancement), resistance + creatine (phosphocreatine augmentation), fasted exercise + fasting (AMPK convergence). Red edges (antagonistic): separate or eliminate — cold + post-resistance (IL-6 blunting), high-dose antioxidants + exercise (ROS quenching), NSAIDs + resistance (satellite cell suppression), alcohol + SWS (architecture destruction), alcohol + sauna (dangerous hypotension), late caffeine + SWS (adenosine blockade). Amber dashed (debated): statin + exercise (CoQ10 depletion may impair mitochondrial adaptation). No edge = additive (freely combine). Thickness proportional to interaction magnitude.</div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">II. Cross-Pollination — Network Graph Theory: Signed Networks and Edge Classification</div>
+<div class="grid">
+<div class="gc"><div class="tag ant">Antagonistic</div><h4>The Statin-Exercise Interaction — A Debate With Real Stakes</h4><p>Statins reduce circulating CoQ10 (meta-analysis: SMD −2.12, p=0.001), and CoQ10 is essential for mitochondrial electron transport chain function. This has led to the hypothesis that <strong>statins may attenuate exercise-induced improvements in skeletal muscle mitochondrial content and cardiorespiratory fitness</strong>. A 2025 RCT is actively investigating this interaction, using citrate synthase activity as a biomarker of mitochondrial oxidative capacity. The clinical significance remains debated — some studies show statin users gain less VO₂ max from training, others show no difference. For your profile (ApoB above the optimal range — statin candidacy is a conversation with your physician): if a statin is prescribed, <strong>CoQ10 co-supplementation (100–200 mg/day) is a reasonable precaution</strong> to offset the CoQ10 depletion, and exercise should continue regardless — the cardiovascular benefit of statins + exercise exceeds any potential mitochondrial attenuation.</p></div>
+<div class="gc"><div class="tag eng">Network Theory</div><h4>Edge Density and the Complexity Threshold</h4><p>In graph theory, a network's complexity grows with its <strong>edge density</strong> — the ratio of actual edges to possible edges. With 15 nodes (6 interventions + 6 supplements + 3 medications), 105 possible edges exist. Only ~25 are non-neutral (~24% edge density). But the <em>cost of managing a single antagonistic edge</em> (temporal separation, scheduling constraint, cognitive overhead) is much higher than the <em>benefit of exploiting a synergistic edge</em> (stacking, which often occurs naturally). The protocol design principle: <strong>eliminate all antagonistic edges first</strong> (remove the harmful interactions), then optimize synergistic edges second (design stacking protocols). Lecture 72 will address the stacking; this lecture's deliverable is the complete antagonistic edge list — the "never do" card.</p></div>
+<div class="gc"><div class="tag syn">Synergistic</div><h4>Creatine + Resistance Training — the Most Robust Supplement-Exercise Synergy</h4><p>Creatine supplementation potentiates resistance training adaptations through <strong>phosphagen system enhancement</strong>: by replenishing phosphocreatine stores more rapidly between sets, creatine allows more total high-quality reps per session, accumulating greater mechanical loading over weeks-months. In older adults, the age-related 25% reduction in ATP production capacity makes this phosphocreatine bottleneck more limiting — creatine partially offsets anabolic resistance by restoring the energy substrate that intense contractions require. The effect is additive to the protein-mTOR synergy: creatine allows more reps (mechanical stimulus) while protein provides the building material (anabolic substrate). Together with vitamin D (VDR-mediated muscle protein synthesis, Lecture 70), this becomes the three-component sarcopenia prevention stack of Lecture 72.</p></div>
+<div class="gc"><div class="tag mod">Debated</div><h4>Caffeine + Creatine — An Interaction That May Not Matter in Practice</h4><p>Some studies suggest caffeine <strong>partially counteracts creatine's ergogenic effect</strong> through opposing mechanisms on muscle relaxation time — caffeine increases intracellular calcium release while creatine enhances phosphocreatine recovery, and these may produce competing signals during rapid contraction-relaxation cycles. However, other studies show no meaningful interference when both are consumed as part of a normal protocol (caffeine AM, creatine with post-exercise meal). The practical resolution: <strong>separate by ≥2 hours</strong> (morning coffee, post-workout creatine) and the potential interaction becomes negligible. This is an amber-edge pairing — worth noting, not worth reorganizing the protocol around.</p></div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">III. Antifragility & Trade-Offs</div>
+<div class="caut">
+<div class="cl">Where the Matrix Has Gaps — and Where Interaction Evidence Is Weakest</div>
+<p><em>The interaction matrix is only as reliable as the pairwise studies that populate it — and most pairwise interactions have never been directly tested.</em> Four caveats: (1) Most interactions are extrapolated from <em>mechanistic logic</em> rather than head-to-head combination trials. We know that cold suppresses IL-6, and we know that IL-6 is needed for satellite cell activation — so we infer that cold after resistance blunts hypertrophy. This inference is correct, confirmed by Roberts et al. (2015). But many other inferred interactions have never been directly tested — the absence of an edge in the network doesn't mean no interaction exists, only that no interaction has been demonstrated. (2) The magnitude of most interactions is poorly quantified. We know exercise + sauna is synergistic for HSP activation, but by how much? Is it 20% more HSP70 or 200% more? The directional classification (synergistic/antagonistic) is robust; the magnitude estimate is often missing. (3) Three-way and higher-order interactions are essentially unstudied. Exercise + sauna + fasting may produce different effects than pairwise predictions suggest — because the three molecular pathways (mTOR from exercise, HSP from heat, AMPK from fasting) interact non-linearly. The matrix assumes pairwise interactions are sufficient — a simplification that may miss emergent properties of higher-order combinations. (4) Individual variation modulates interaction magnitude. A person with high inflammatory markers (hs-CRP >3) may benefit more from the anti-inflammatory synergy of exercise + sauna than a person with already-low inflammation (in the optimal range (<1.0 mg/L)). The matrix provides the direction; your biomarker profile determines the magnitude of relevance.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">IV. The Protocol — The Non-Negotiable Interaction Rules</div>
+<div class="note">
+<div class="nl">The "Never Do" Card and the "Always Do" Card</div>
+<p><strong>THE ANTAGONISTIC RULES (eliminate or separate):</strong><br><br>
+(1) <em>Cold + post-resistance:</em> NEVER within 6 hours. Cold on aerobic/rest days only. (Lecture 66, confirmed Roberts 2015.)<br>
+(2) <em>High-dose antioxidants + exercise:</em> No vitamin C >500mg or vitamin E >400 IU within 4 hours of exercise. Whole-food antioxidants (berries, vegetables) do not appear to cause the same interference. (Ristow 2009.)<br>
+(3) <em>Alcohol + SWS:</em> No alcohol within 3 hours of bedtime. This is the single most destructive SWS intervention — priority #1 from Lecture 64. Non-negotiable.<br>
+(4) <em>Alcohol + sauna:</em> NEVER combine. Dangerous hemodynamic interaction.<br>
+(5) <em>NSAIDs + chronic resistance training:</em> Avoid regular ibuprofen/naproxen during hypertrophy phases. Acetaminophen is a safer analgesic option if needed (does not suppress COX-2-mediated satellite cell signaling).<br>
+(6) <em>Late caffeine + SWS:</em> Last caffeine by 12–2 PM depending on CYP1A2 genotype (Lecture 70).<br>
+(7) <em>Aerobic before resistance (same session):</em> If combining, resistance FIRST — AMPK from aerobic suppresses mTOR for ~3 hours (Lecture 63).<br><br>
+<strong>THE SYNERGISTIC RULES (combine deliberately):</strong><br><br>
+(1) <em>Resistance → sauna:</em> Post-exercise sauna amplifies HSP response without IL-6 interference (unlike cold). Always combine on resistance days.<br>
+(2) <em>Resistance → protein within 2h:</em> mTOR window from mechanical loading + leucine-mediated mTORC1 activation = supra-additive MPS. Every resistance session must be followed by ≥30g protein.<br>
+(3) <em>Sauna → pre-bed:</em> HSP/FOXO3 benefits are additive to SWS enhancement from core temperature rebound. Stack both benefits in one session when timing allows (1–2h pre-bed).<br>
+(4) <em>Fasted AM exercise + morning light:</em> AMPK amplification (fasted) + dual zeitgeber (light + exercise) + cortisol-awakening enhancement. The triple-anchor stack — highest PER in the series.<br>
+(5) <em>Resistance training + creatine (daily):</em> 3–5g creatine with post-exercise meal. Phosphocreatine augmentation enables higher-quality sets. Robust evidence for additional strength gain in older adults.<br><br>
+<strong>Metric:</strong> <em>The compliance audit</em> — every 4 weeks, review the "never do" card against your actual behavior. Are you taking cold showers after lifting? (Drop them on those days.) Are you having wine within 3 hours of bed? (Shift earlier or eliminate.) Are you taking your afternoon coffee at 3 PM? (Shift to noon.) The antagonistic rules are the protocol's immune system — violations don't produce visible symptoms immediately but erode adaptation cumulatively over months.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">V. Recursive Synthesis</div>
+<h2>How the Interference Matrix Reveals the Hidden Architecture of the Protocol</h2>
+<p>The weekly architecture from Lecture 67 was designed with the major interference rules already embedded — resistance days excluded cold, sauna was placed post-exercise or pre-bed, protein followed resistance training, and alcohol/caffeine rules were documented. This lecture makes the full interaction network explicit and extends it beyond the hormetic stress domain into supplements and medications. The critical new additions: creatine as a synergistic partner to resistance training (adding it to the sarcopenia prevention strategy from Lecture 59), the statin-CoQ10-exercise interaction relevant to ApoB management (Lecture 51 — your ApoB above the optimal range makes this interaction directly relevant if statin therapy is discussed with your physician), and the high-dose antioxidant interference that affects anyone using vitamin C or E supplements around exercise timing. The matrix also reveals a structural property of the protocol: the interventions that have the most synergistic edges — exercise and sauna — are also the ones with the highest PER from Theme A. This is not coincidence — interventions that activate multiple molecular pathways (exercise touches AMPK, mTOR, BDNF, myokines, osteocalcin, HSPs, NK cells, vagal tone) naturally have more opportunities for synergy with other pathway-activating interventions. The protocol's highest-impact interventions are also its most synergy-rich — a positive feedback loop that rewards investment in the core stack. Lecture 72 will exploit this by designing four specific multi-intervention stacks that maximize the synergistic edges while respecting all antagonistic constraints.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VI. Peer Review — Common Misconception</div>
+<div class="corr">
+<div class="cl">Corrected Misconception</div>
+<p><strong>Misconception:</strong> "Ice baths after every workout speed recovery and help you get stronger faster."<br><br><strong>Correction:</strong> This is the most consequential misconception in the entire interaction matrix — because it transforms a beneficial-sounding practice into a protocol that actively undermines its own goals. Cold-water immersion after <em>endurance</em> exercise may assist recovery without impairing adaptation. But after <em>resistance</em> exercise, regular cold-water immersion attenuates long-term anabolic signaling and the accretion of muscle mass and strength. The mechanism is specific: cold suppresses the IL-6 → STAT3 → satellite cell proliferation cascade that muscle requires for hypertrophic adaptation. The same anti-inflammatory property that "feels like recovery" is the signal suppression that prevents muscle growth. For a person in their fifties prioritizing sarcopenia prevention (Lecture 59), this is not a minor optimization detail — it is the difference between maintaining the structural safety margin above the frailty threshold and quietly eroding it while believing you're enhancing it. The rule is absolute: cold on aerobic or rest days. Sauna — not cold — after resistance training. Sauna amplifies adaptation; cold blunts it. They are not interchangeable recovery modalities.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VII. Resources</div>
+<div class="res">
+<div class="rt">Resources & Activities</div>
+<div class="res-grid">
+<div class="ri"><div class="rc read">Read</div><h5>Roberts et al. (2015)</h5><p>"Post-exercise cold water immersion attenuates acute anabolic signalling and long-term adaptations in muscle to strength training." <em>J. Physiol.</em>, 593:4285–4301. The definitive study on cold-resistance antagonism: regular CWI after RT blunted long-term strength and hypertrophy gains via IL-6/STAT3 suppression.</p></div>
+<div class="ri"><div class="rc read">Read</div><h5>Ristow et al. (2009)</h5><p>"Antioxidants prevent health-promoting effects of physical exercise in humans." <em>PNAS</em>, 106:8665–8670. The study demonstrating that vitamin C and E supplementation blunts exercise-induced PGC-1α-mediated mitochondrial biogenesis — the ROS signal is the adaptation trigger.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Print the "Never Do" Card</h5><p>Seven antagonistic rules on one card, posted where you make daily protocol decisions (gym bag, kitchen, bathroom mirror). Cold + post-lifting ✗. Antioxidants + exercise ✗. Alcohol + pre-bed ✗. Alcohol + sauna ✗. NSAIDs + chronic RT ✗. Late caffeine ✗. Aerobic before resistance (same session) ✗. Monthly compliance audit: did you violate any this month?</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Add Creatine to the Protocol</h5><p>If not already taking: 3–5g creatine monohydrate daily with post-exercise meal. No loading phase needed (saturation occurs in ~28 days at 3–5g/day). This is the most robustly supported supplement-exercise synergy for sarcopenia prevention: phosphocreatine augmentation → more high-quality reps → greater mechanical stimulus → greater long-term strength gains.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Interaction Quick Reference</h5><p>SYNERGISTIC (combine): RT→sauna, RT→protein, sauna→pre-bed, fasted exercise→AM light, RT+creatine, exercise+fasting. ANTAGONISTIC (separate): cold→post-RT, antioxidants→exercise, alcohol→SWS, alcohol→sauna, NSAIDs→RT, late caffeine→SWS, aerobic→before RT. ADDITIVE (freely combine): everything else. This card is the protocol's immune system.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Statin-CoQ10 Protocol (if applicable)</h5><p>If your physician prescribes a statin for ApoB above the optimal range: add CoQ10 100–200 mg/day with a fat-containing meal to offset statin-induced CoQ10 depletion (meta-analysis: SMD −2.12). Continue exercise regardless — the cardiovascular benefit of statins + exercise exceeds any potential mitochondrial attenuation. Monitor VO₂ max quarterly to detect any training-response change.</p></div>
+<div class="ri"><div class="rc meas">Metric</div><h5>Monthly Compliance Audit</h5><p>Review the 7 antagonistic rules monthly. Any violations? How many? Which ones recur? The most common violations in practice: late caffeine (habitual afternoon coffee), alcohol within 3h of bed (social drinking), and cold after resistance (gym culture encourages it). Each violation doesn't produce immediate symptoms but erodes adaptation cumulatively. The audit makes invisible erosion visible.</p></div>
+<div class="ri"><div class="rc meas">Cross-Reference</div><h5>Theme C Integration</h5><p>This lecture (71) → Lecture 72 (Amplification Stacks): designs four multi-intervention protocols that maximize synergistic edges. → Lecture 73 (Complexity Budget): identifies which interactions matter most for YOUR profile and simplifies the rest. Lectures 62–66 → all dose-response data. Lecture 67 → weekly architecture already embeds major rules. Lecture 58 → mTOR/AMPK axis is the molecular substrate for most interactions. Lecture 59 → sarcopenia prevention is the highest-stakes application of the creatine-RT synergy.</p></div>
+</div>
+</div>
+
+<div class="cite">
+<div class="ct">Citation Verification</div>
+<table>
+<tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+<tr><td>CWI after resistance training attenuates long-term anabolic signalling and muscle adaptation via IL-6/STAT3 suppression</td><td>Roberts et al., <em>J. Physiol.</em>, 2015;593:4285–4301</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>High-dose vitamin C and E supplementation blunts exercise-induced mitochondrial biogenesis via PGC-1α</td><td>Ristow et al., <em>PNAS</em>, 2009;106:8665–8670</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Statin treatment reduces circulating CoQ10 (SMD −2.12, p=0.001; 12 RCTs, n=1,776)</td><td>Qu et al., <em>Lipids Health Dis.</em>, 2018;17:230 (meta-analysis)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Creatine + resistance training produces greater strength gains than RT alone in adults; potentiates adaptations through phosphagen system enhancement</td><td>Multiple meta-analyses; Candow et al., 2024; Chilibeck et al., 2017; reviewed in PMC 11547435</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Creatine + RT improves lean tissue mass and lower extremity strength in older adults; anabolic resistance involves 25% lower ATP production, 30% decrease in MPS rates</td><td>Systematic review & meta-analysis, <em>Eur. Rev. Aging Phys. Act.</em>, 2025</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>NSAIDs (ibuprofen) suppress COX-2-mediated prostaglandin signaling needed for satellite cell activation</td><td>Mikkelsen et al., 2009; Trappe et al., 2002; reviewed in multiple exercise pharmacology sources</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Exercise + sauna produces broader HSP response than either alone through complementary denaturation pathways</td><td>Mechanistically established; direct head-to-head quantification is limited</td><td><span class="cv">⚠ The direction of the exercise-sauna HSP synergy is well-supported mechanistically (different stress types activating overlapping but non-identical chaperone programs). However, the precise magnitude of the combined vs. individual HSP70 elevation has not been quantified in a controlled head-to-head trial with adequate power. The synergy is inferred from pathway logic rather than measured directly.</span></td></tr>
+</table>
+</div>
+
+<div class="fn">
+<strong>Key References:</strong> Roberts, L.A. et al. (2015). "Post-exercise cold water immersion attenuates acute anabolic signalling." <em>J. Physiol.</em>, 593:4285–4301. &nbsp;|&nbsp; Ristow, M. et al. (2009). "Antioxidants prevent health-promoting effects of physical exercise." <em>PNAS</em>, 106:8665–8670. &nbsp;|&nbsp; Qu, H. et al. (2018). "Effect of statin treatment on circulating CoQ10: an updated meta-analysis." <em>Lipids Health Dis.</em>, 17:230. &nbsp;|&nbsp; Candow, D.G. et al. (2024). "Creatine supplementation and resistance training: muscle strength and lean tissue mass." Systematic review. &nbsp;|&nbsp; Chilibeck, P.D. et al. (2017). "Effect of creatine supplementation during resistance training on lean tissue mass and muscular strength in older adults." <em>Open Access J. Sports Med.</em>, 8:213–226.
+</div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_interference_matrix",
+  "related": [
+    {
+      "id": "lecture_hormetic_stress_dosing",
+      "title": "Hormetic Stress Dosing — Heat, Cold & Breathing Protocols",
+      "filename": "lecture_hormetic_stress_dosing.html",
+      "tags": [
+        "Adaptive Stress",
+        "Dose & Protocol"
+      ]
+    },
+    {
+      "id": "lecture_amplification_stack",
+      "title": "The Amplification Stack — Sub-Optimal Doses That Combine for Supra-Additive Effects",
+      "filename": "lecture_amplification_stack.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_integrated_weekly_architecture",
+      "title": "The Integrated Weekly Architecture",
+      "filename": "lecture_integrated_weekly_architecture.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    },
+    {
+      "id": "lecture_dose_response_framework",
+      "title": "The Dose-Response Framework — Seven Dosing Models",
+      "filename": "lecture_dose_response_framework.html",
+      "tags": [
+        "Adaptive Stress",
+        "Systems Thinking"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>

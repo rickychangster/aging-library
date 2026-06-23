@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 74: The Readiness Algorithm</title>
+
+<style>
+:root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--teal:#0d9488;--teal-dim:rgba(13,148,136,0.04);--rule:#d4d0c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+.page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+.top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--green) 0%,var(--amber) 50%,var(--red) 100%);border-radius:2px;}
+.hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--teal);position:relative;}
+.stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;}
+.ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+h1{font-family:'DM Serif Text',serif;font-size:36px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--teal);}
+.sub{font-family:'DM Serif Text',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+.meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--teal);font-weight:600;}
+.sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+.k{color:var(--teal);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+.sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--teal);border-radius:50%;}
+.fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--teal);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+.note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--teal);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.inp{color:var(--teal);}.tag.eng{color:var(--amber);}.tag.sig{color:var(--green);}.tag.ovr{color:var(--red);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--teal);font-weight:700;}
+.res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+.cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+.fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+@media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+<!-- LW:META:BEGIN -->
+<meta name="description" content="Combines HRV, sleep quality, resting heart rate, wellness, and training load into a daily Green/Amber/Red readiness score that adapts the protocol to the body's actual recovery state.">
+<meta property="og:title" content="The Readiness Algorithm — Integrating Daily Biometrics Into a Single Training Decision — Longevity & Wellness">
+<meta property="og:description" content="Combines HRV, sleep quality, resting heart rate, wellness, and training load into a daily Green/Amber/Red readiness score that adapts the protocol to the body's actual recovery state.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rickychangster.github.io/aging-library/lectures/lecture_readiness_algorithm.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Readiness Algorithm — Integrating Daily Biometrics Into a Single Training Decision — Longevity & Wellness">
+<meta name="twitter:description" content="Combines HRV, sleep quality, resting heart rate, wellness, and training load into a daily Green/Amber/Red readiness score that adapts the protocol to the body's actual recovery state.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../fonts.css">
+<!-- LW:META:END -->
+</head>
+<body>
+<div class="page">
+<div class="top-bar"></div>
+<header class="hdr">
+<div class="ln">74</div>
+<div class="stag">Adaptive Protocols · No. 74 (Theme D, 1 of 3)</div>
+<h1>The Readiness Algorithm <span class="a">— Integrating Daily Biometrics Into a Single Training Decision</span></h1>
+<p class="lw-pub-date" style="font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#737068;margin-top:10px;padding-top:12px;border-top:1px solid #e8e4db;">Published June 2026 &nbsp;·&nbsp; Science in this area continues to evolve — this lecture reflects research available at the time of writing. Consult a qualified clinician before making health decisions.</p>
+
+<div class="sub">Athletes Who Adjusted Training Intensity Based on Daily HRV Improved VO₂ Max More While Training Less at High Intensity Than Athletes Following Fixed Programming — Because the Adaptive Approach Placed High-Intensity Sessions on Days When the Autonomic Nervous System Was Recovered and Ready, and Substituted Low-Intensity or Rest on Days When It Wasn't. This Lecture Builds a Multi-Input Readiness Algorithm That Combines HRV, Sleep, Heart Rate, Subjective Wellness, and Training Load Into a Single Daily Prescription: Green (Full Protocol), Amber (Reduce and Substitute), or Red (Active Recovery Only)</div>
+<div class="meta">
+<div><span class="hl">Origin:</span> Applied Sports Science / Adaptive Training (Kiviniemi 2007; Vesterinen 2016; Altini 2025)</div>
+<div><span class="hl">Bridge:</span> Control Engineering — PID Controller: Proportional-Integral-Derivative Feedback</div>
+<div><span class="hl">Series:</span> Adaptive Protocols 1 of 3 — The Daily Feedback Loop</div>
+<div>~1,200 words</div>
+</div>
+</header>
+
+<div class="sn">I. The Core Concept — Why Fixed Programming Underperforms Adaptive Programming</div>
+<h2>The Body's Recovery Capacity Fluctuates Daily — a Fixed Protocol Ignores This; an Adaptive Protocol Exploits It</h2>
+
+<p>Fixed training programs prescribe the same intensity on the same day of each week regardless of the athlete's actual recovery status. Monday is heavy squats. Wednesday is HIIT. Friday is heavy deadlifts. This approach assumes that recovery is constant and predictable — that 48 hours is always sufficient between sessions, that sleep quality was always adequate, that stress levels are always manageable, and that the cumulative training load from recent weeks has been absorbed. None of these assumptions hold in the real world of a person in their fifties managing a career, family obligations, variable sleep quality, and the slower recovery biology that aging produces (reduced satellite cell activation rate, reduced GH secretion, reduced testosterone — Lectures 54, 59, 63). The result: some scheduled high-intensity days fall on days when the body is genuinely recovered and ready — producing excellent adaptation. Others fall on days when the autonomic nervous system is still recovering from a poor night's sleep, an emotionally stressful day, or accumulated training fatigue — producing suboptimal training quality, excessive cortisol elevation (Lecture 40), and progression toward non-functional overreaching.</p>
+
+<p>The alternative: <span class="k">HRV-guided training</span> <span class="def">(a training methodology in which daily resting heart rate variability measurements — specifically the RMSSD index reflecting parasympathetic activity — are compared against a personal rolling average to determine whether the athlete should train at high intensity, moderate intensity, or rest on that specific day)</span>. The evidence is now robust. Kiviniemi et al. (2007) first demonstrated that HRV-guided training significantly improved maximal running velocity. Vesterinen et al. (2016) refined the method using rolling 7-day baselines with the <span class="k">smallest worthwhile change (SWC)</span> threshold — the minimum deviation from baseline that represents a meaningful physiological signal rather than normal daily noise. A 2025 <em>Frontiers in Sports and Active Living</em> RCT confirmed that HRV-guided training is superior to predefined programs because it personalizes the load to maximize physiological adaptations while minimizing variability in individual responses — in both self-guided (wearable app) and trainer-guided settings. The key finding, replicated across multiple studies: athletes following HRV-guided approaches trained <em>less</em> at high intensity yet improved VO₂ max and performance <em>more</em> — because the high-intensity sessions were concentrated on days when the autonomic system was genuinely ready to absorb the stress.</p>
+
+<p>But HRV alone is insufficient. As Altini (2025) and the 2025 <em>Sensors</em> review emphasize: muscle soreness, joint stiffness, motivation, mood, and sleep quality are key recovery markers not captured by HRV or heart rate — and incorporating subjective wellness assessments alongside physiological data transforms passive measurement into a dynamic decision-making tool. The readiness algorithm in this lecture combines five inputs — each capturing a different dimension of recovery — into a single composite score that produces the daily training prescription.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="fig">
+<div class="fig-tag">Figure 1 — The Five-Input Readiness Algorithm: Inputs → Composite → Prescription</div>
+<svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+<text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#0d9488" font-weight="600" letter-spacing="1.5">THE READINESS ALGORITHM: FIVE INPUTS → ONE DAILY DECISION</text>
+<!-- Five input boxes -->
+<rect x="20" y="38" width="130" height="74" rx="3" fill="rgba(13,148,136,0.04)" stroke="#0d9488" stroke-width="1.5"/>
+<text x="85" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="600">1. HRV (RMSSD)</text>
+<text x="85" y="72" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Nocturnal or waking</text>
+<text x="85" y="84" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">vs. 7-day rolling avg</text>
+<text x="85" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="700">Weight: 0.30</text>
+
+<rect x="160" y="38" width="130" height="74" rx="3" fill="rgba(13,148,136,0.04)" stroke="#0d9488" stroke-width="1.5"/>
+<text x="225" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="600">2. SLEEP QUALITY</text>
+<text x="225" y="72" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Duration + efficiency</text>
+<text x="225" y="84" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">+ timing consistency</text>
+<text x="225" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="700">Weight: 0.25</text>
+
+<rect x="300" y="38" width="130" height="74" rx="3" fill="rgba(13,148,136,0.04)" stroke="#0d9488" stroke-width="1.5"/>
+<text x="365" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="600">3. RESTING HR</text>
+<text x="365" y="72" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">vs. 30-day baseline</text>
+<text x="365" y="84" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Elevated = incomplete</text>
+<text x="365" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="700">Weight: 0.15</text>
+
+<rect x="440" y="38" width="130" height="74" rx="3" fill="rgba(13,148,136,0.04)" stroke="#0d9488" stroke-width="1.5"/>
+<text x="505" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="600">4. SUBJECTIVE</text>
+<text x="505" y="72" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">1-10 self-rated</text>
+<text x="505" y="84" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Soreness, mood, energy</text>
+<text x="505" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="700">Weight: 0.15</text>
+
+<rect x="580" y="38" width="140" height="74" rx="3" fill="rgba(13,148,136,0.04)" stroke="#0d9488" stroke-width="1.5"/>
+<text x="650" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="600">5. TRAINING LOAD</text>
+<text x="650" y="72" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Acute:chronic ratio</text>
+<text x="650" y="84" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">7-day vs 28-day avg</text>
+<text x="650" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488" font-weight="700">Weight: 0.15</text>
+
+<!-- Arrows converging -->
+<line x1="85" y1="114" x2="370" y2="148" stroke="#0d9488" stroke-width="1"/>
+<line x1="225" y1="114" x2="370" y2="148" stroke="#0d9488" stroke-width="1"/>
+<line x1="365" y1="114" x2="370" y2="148" stroke="#0d9488" stroke-width="1"/>
+<line x1="505" y1="114" x2="370" y2="148" stroke="#0d9488" stroke-width="1"/>
+<line x1="650" y1="114" x2="370" y2="148" stroke="#0d9488" stroke-width="1"/>
+
+<!-- Composite score -->
+<rect x="270" y="142" width="200" height="40" rx="4" fill="rgba(13,148,136,0.08)" stroke="#0d9488" stroke-width="2"/>
+<text x="370" y="160" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#0d9488" font-weight="700">COMPOSITE READINESS</text>
+<text x="370" y="176" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#0d9488">0–100 scale (normalized to personal baselines)</text>
+
+<!-- Three output zones -->
+<line x1="370" y1="184" x2="140" y2="214" stroke="#15803d" stroke-width="1.5"/>
+<line x1="370" y1="184" x2="370" y2="214" stroke="#b45309" stroke-width="1.5"/>
+<line x1="370" y1="184" x2="600" y2="214" stroke="#b91c1c" stroke-width="1.5"/>
+
+<rect x="30" y="218" width="220" height="110" rx="4" fill="rgba(21,128,61,0.06)" stroke="#15803d" stroke-width="2"/>
+<text x="140" y="240" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="12" fill="#15803d" font-weight="700">🟢 GREEN (>70)</text>
+<text x="140" y="260" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" fill="#1a1a1a">Full protocol as scheduled</text>
+<text x="45" y="280" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">HIIT if scheduled. Heavy resistance OK.</text>
+<text x="45" y="294" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Progressive overload targets apply.</text>
+<text x="45" y="308" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">All stacks from Lecture 72 operational.</text>
+<text x="45" y="322" font-family="Source Code Pro,monospace" font-size="7.5" fill="#15803d" font-weight="600">→ Train hard, recover hard.</text>
+
+<rect x="260" y="218" width="220" height="110" rx="4" fill="rgba(180,83,9,0.06)" stroke="#b45309" stroke-width="2"/>
+<text x="370" y="240" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="12" fill="#b45309" font-weight="700">🟡 AMBER (50–70)</text>
+<text x="370" y="260" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" fill="#1a1a1a">Reduce and substitute</text>
+<text x="275" y="280" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Substitute HIIT → Zone 2. Reduce RT</text>
+<text x="275" y="294" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">intensity by 15–20%. Add breathing</text>
+<text x="275" y="308" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">and mobility. Sauna OK. Cold OK if</text>
+<text x="275" y="322" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b45309" font-weight="600">→ Move, but don't push.</text>
+
+<rect x="490" y="218" width="230" height="110" rx="4" fill="rgba(185,28,28,0.06)" stroke="#b91c1c" stroke-width="2"/>
+<text x="605" y="240" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="12" fill="#b91c1c" font-weight="700">🔴 RED (<50)</text>
+<text x="605" y="260" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" fill="#1a1a1a">Active recovery only</text>
+<text x="505" y="280" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Walk 20–30 min (Stack 1 still applies).</text>
+<text x="505" y="294" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">Gentle mobility, sauna, breathing.</text>
+<text x="505" y="308" font-family="Source Code Pro,monospace" font-size="7.5" fill="#3d3d3d">No resistance, no HIIT, no cold.</text>
+<text x="505" y="322" font-family="Source Code Pro,monospace" font-size="7.5" fill="#b91c1c" font-weight="600">→ Protect. Recover. Resume tomorrow.</text>
+
+<!-- The weekly pattern insight -->
+<text x="370" y="360" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#0d9488" font-weight="600" letter-spacing="1.5">THE WEEKLY PATTERN: RMSSD MEAN vs. RMSSD CV</text>
+<rect x="30" y="374" width="340" height="90" rx="4" fill="rgba(21,128,61,0.03)" stroke="#15803d" stroke-width="1"/>
+<text x="200" y="394" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#15803d" font-weight="600">RMSSD MEAN (7-day average)</text>
+<text x="200" y="412" text-anchor="middle" font-family="DM Serif Text,serif" font-size="11" fill="#1a1a1a">Reflects chronic adaptation status</text>
+<text x="45" y="432" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Rising over weeks → positive adaptation</text>
+<text x="45" y="446" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Declining over weeks → overreaching or illness</text>
+<text x="45" y="460" font-family="Source Code Pro,monospace" font-size="8" fill="#15803d" font-weight="600">Trend direction = protocol validation</text>
+<rect x="390" y="374" width="330" height="90" rx="4" fill="rgba(180,83,9,0.03)" stroke="#b45309" stroke-width="1"/>
+<text x="555" y="394" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="9" fill="#b45309" font-weight="600">RMSSD CV (7-day coefficient of variation)</text>
+<text x="555" y="412" text-anchor="middle" font-family="DM Serif Text,serif" font-size="11" fill="#1a1a1a">Reflects short-term perturbation</text>
+<text x="405" y="432" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">Low CV → stable autonomic state</text>
+<text x="405" y="446" font-family="Source Code Pro,monospace" font-size="8" fill="#3d3d3d">High CV → system under acute stress</text>
+<text x="405" y="460" font-family="Source Code Pro,monospace" font-size="8" fill="#b45309" font-weight="600">Variability = early warning signal</text>
+</svg>
+<div class="fig-cap">The five-input readiness algorithm: nocturnal HRV/RMSSD (weight 0.30), sleep quality composite (0.25), resting heart rate deviation (0.15), subjective readiness (0.15), and training load acute:chronic ratio (0.15) — each normalized to personal 30-day baselines, combined into a composite score (0–100) that maps to three zones: Green (>70: full protocol), Amber (50–70: reduce and substitute), Red (<50: active recovery only). Bottom: the dual weekly HRV metrics — RMSSD mean (chronic adaptation trend) and RMSSD CV (short-term perturbation indicator) — providing both long-term protocol validation and acute stress detection.</div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">II. Cross-Pollination — Control Engineering: The PID Controller Parallel</div>
+<div class="grid">
+<div class="gc"><div class="tag inp">Input 1: HRV/RMSSD</div><h4>The Gold Standard — With a Noise Filter</h4><p>RMSSD is the most validated real-time autonomic recovery metric — measured automatically by wearable during the last window of sleep (nocturnal measurement eliminates posture and breathing confounds). The <strong>smallest worthwhile change (SWC)</strong> approach prevents over-reaction: calculate the SWC as 0.5 × the standard deviation of your 7-day ln(RMSSD) rolling average. Only deviations exceeding the SWC in either direction are treated as signals. Deviations within the SWC band are noise and should not trigger protocol adjustment. This is the <em>proportional</em> term in the PID controller — the response is proportional to the magnitude of the deviation from baseline.</p></div>
+<div class="gc"><div class="tag eng">Control Engineering</div><h4>PID: Proportional, Integral, Derivative</h4><p>A PID controller adjusts its output using three terms: <strong>Proportional</strong> (today's error — how far RMSSD is from the rolling mean), <strong>Integral</strong> (accumulated error over time — how many consecutive days RMSSD has been depressed, reflecting chronic fatigue), and <strong>Derivative</strong> (rate of change — whether RMSSD is recovering or still declining). The readiness algorithm implements all three: HRV deviation is the P-term, the RMSSD CV trend over the week is the I-term (detecting sustained perturbation), and the direction of change from yesterday to today is the D-term (catching acute deterioration before it accumulates). A single-input, single-day reading is only the P-term — it misses chronic accumulation and directional trajectory.</p></div>
+<div class="gc"><div class="tag inp">Input 4: Subjective Wellness</div><h4>The Signal That Wearables Cannot Capture</h4><p>Muscle soreness, joint stiffness, psychological motivation, and perceived energy are <strong>recovery dimensions not reflected in HRV</strong>. A 1–10 subjective readiness rating — taken each morning before checking wearable data to avoid confirmation bias — captures neuromuscular and psychological recovery states. Research shows <strong>moderate correlations (r = 0.36–0.45) between changes in HRV and changes in fitness variables</strong>, meaning ~60–80% of recovery variance is NOT explained by HRV alone. Subjective input captures a meaningful fraction of that remaining variance. The protocol: rate yourself 1–10 on three dimensions (physical readiness, mental motivation, joint/muscle comfort) and average them. This takes 15 seconds and provides information no sensor can replicate.</p></div>
+<div class="gc"><div class="tag sig">Signal vs. Noise</div><h4>When to Override the Algorithm</h4><p>The algorithm is advisory, not dictatorial. Two legitimate overrides: <strong>(1) Psychological momentum</strong> — if you feel strong, motivated, and physically ready on a technically amber day (composite 55–65), a moderate training session preserves the psychological engagement that sustains the protocol long-term. The compliance benefit of honoring motivation may outweigh the recovery cost of one sub-optimally-timed session. <strong>(2) Planned overload</strong> — during the 3-week progressive loading phase (Lecture 67's periodization calendar), some amber days are expected and acceptable. The deload week (week 4) is the planned recovery. Override only when you understand the physiological cost and have recovery infrastructure in place.</p></div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">III. Antifragility & Trade-Offs</div>
+<div class="caut">
+<div class="cl">The Quantified Self Trap — When Monitoring Becomes Anxiety</div>
+<p><em>The readiness algorithm is a tool, not a master — and the tool can produce pathology if misused.</em> Four caveats: (1) <em>Not every red day is a crisis.</em> A single red day following a poor night's sleep, an emotionally intense day, or a heavy training block is normal and expected. The appropriate response is one day of active recovery, not protocol-wide panic. Concern is warranted only when red days cluster — 3+ consecutive red days or 5+ red days in a two-week period suggest genuine overreaching, illness, or chronic stress requiring more than training adjustment. (2) <em>Data anxiety is real.</em> Some personality types become obsessively attached to daily HRV numbers, experiencing anxiety when the number drops and euphoria when it rises. This attachment converts a health tool into a stress source — the monitoring itself activates the sympathetic nervous system that the monitoring is supposed to track. The antidote: check your wearable data AFTER your morning subjective rating. Make the subjective assessment primary and use the data as confirmation, not the other way around. (3) <em>Wearable accuracy varies.</em> Consumer wearables estimate RMSSD with ±10–15% accuracy compared to clinical ECG. This measurement error is another reason to use the SWC approach — only deviations exceeding the noise floor are actionable. (4) <em>For a person in their fifties, the baseline RMSSD is lower and the variability is higher than for a 25-year-old.</em> Age-related reductions in vagal tone (Lecture 47) mean that your absolute RMSSD values will be lower than younger reference ranges — this is normal, not pathological. Always compare to YOUR rolling average, never to population norms or other individuals. The readiness algorithm is inherently self-referencing.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">IV. The Protocol — Implementing the Readiness Algorithm</div>
+<div class="note">
+<div class="nl">The Daily 2-Minute Morning Protocol</div>
+<p><strong>Setup (one-time, week 1):</strong> Wear a validated wearable (Oura Ring, Whoop, Apple Watch, Garmin with HRV-capable sensor) continuously during sleep for a minimum of 14 days to establish your personal RMSSD baseline and rolling average. During this calibration period, train normally — the algorithm needs representative data across green, amber, and red-equivalent days to establish your personal SWC band.<br><br>
+<strong>Daily protocol (2 minutes each morning):</strong><br>
+(1) Upon waking, BEFORE checking any device: rate yourself 1–10 on physical readiness, mental motivation, and musculoskeletal comfort. Average the three = your subjective score. (15 seconds.)<br>
+(2) Check wearable: nocturnal RMSSD, sleep duration, sleep efficiency, resting heart rate. Note any that deviate significantly from your rolling average. (30 seconds.)<br>
+(3) Apply the composite formula: (RMSSD deviation from baseline, normalized × 0.30) + (sleep quality composite × 0.25) + (RHR deviation, inverse-scored × 0.15) + (subjective score × 0.15) + (training load acute:chronic ratio, inverse-scored × 0.15). Most wearables now provide a pre-computed "readiness score" that approximates this composite — Oura's Readiness Score, Whoop's Recovery Score, and Garmin's Body Battery each implement a version of this multi-input algorithm. Use the wearable's score as your practical composite if computing manually is unsustainable. (15 seconds.)<br>
+(4) Act on the result: GREEN → proceed with scheduled training (Stack 2 on RT days, Zone 2 or HIIT as planned). AMBER → substitute HIIT with Zone 2, reduce resistance intensity by 15–20%, add 10 min extra breathing, keep sauna/walking. RED → active recovery only: morning walk (Stack 1), sauna, breathing, gentle mobility. No resistance, no HIIT, no cold. (Immediate decision, applied all day.)<br><br>
+<strong>Weekly review (5 minutes, Sunday evening):</strong> Plot the week's composite scores. Calculate RMSSD 7-day mean (chronic adaptation trend) and RMSSD CV (perturbation indicator). Is the mean rising over weeks (positive adaptation — protocol working) or declining (overreaching or illness — investigate)? Is the CV increasing (system under acute stress — more amber/red days incoming) or stable (system in equilibrium)? Adjust next week's training intensity emphasis based on the weekly trend: rising mean + low CV → progress to next loading phase. Declining mean + high CV → consider an early deload.<br><br>
+<strong>Metric:</strong> <em>Green-day percentage</em> — the fraction of training days that scored green over a 4-week block. Target: 65–80%. Below 60%: the training load exceeds your recovery capacity; reduce volume or add a deload. Above 85%: you may be under-training; consider progressive overload increase. <em>RMSSD 30-day trend</em> — should be stable or gradually rising over months. A sustained decline (>2 weeks below your rolling mean) warrants: sleep audit (Lecture 64), stress assessment (Lecture 40), nutrition check (Lecture 65), and training load review. <em>Performance validation</em> — the ultimate check: is your grip strength, VO₂ max estimate, and progressive overload log trending upward despite (or because of) the green/amber/red adjustments? If yes, the algorithm is working. If performance stagnates despite a high green-day percentage, the training stimulus may be insufficient and the algorithm's thresholds may need recalibration (lower the green threshold to allow more high-intensity exposure).</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">V. Recursive Synthesis</div>
+<h2>How the Readiness Algorithm Closes the Adaptive Loop</h2>
+<p>Themes A through C built the protocol from population evidence: the dose came from meta-analyses (Lecture 62: n=661,137), the timing from circadian physiology (Lecture 69), the stacking from molecular interaction logic (Lecture 72). This lecture introduces the first *feedback loop* — the mechanism by which your body's actual daily response modifies the protocol's daily prescription. The HRV traffic light from Lecture 67 was a single-input sketch. This lecture's composite algorithm integrates five inputs, weights them by predictive validity, filters noise through the SWC approach, and produces a decision that accounts for autonomic recovery (HRV), restorative completeness (sleep), cardiovascular strain (RHR), neuromuscular and psychological state (subjective), and cumulative training stress (load ratio). The result: the protocol becomes self-adjusting — training hard on days when the body is ready and backing off on days when it isn't, without requiring conscious analysis of five separate metrics. This is the transition from Lecture 61's Dosing Model 7 (Adaptive Dose) to practical daily implementation. Lectures 75 and 76 will add the bi-weekly and quarterly feedback loops that operate at longer timescales — personal glycemic response (Lecture 75) and blood panel trajectory analysis (Lecture 76) — completing the three-timescale adaptive system that personalizes the population-derived protocol to your individual biology.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VI. Peer Review — Common Misconception</div>
+<div class="corr">
+<div class="cl">Corrected Misconception</div>
+<p><strong>Misconception:</strong> "If my HRV is low today, I should skip exercise entirely."<br><br><strong>Correction:</strong> A low HRV day (amber or red in the readiness algorithm) does not mean "no movement" — it means "no high-intensity movement." The distinction is critical. A red day still includes the morning walk (Stack 1 from Lecture 72 — the highest-PER intervention, operating on the steepest part of the mortality curve from Lecture 62), gentle mobility, sauna, and breathing. These low-intensity modalities maintain the circadian anchor (morning light), preserve the autonomic training effect (breathing), continue the anti-inflammatory HSP program (sauna), and prevent the detraining that complete inactivity would produce. What is removed on a red day is the high-intensity stimulus that the autonomic system is not ready to absorb: heavy resistance training, HIIT intervals, cold exposure (sympathetic stressor). An amber day permits moderate training — Zone 2 aerobic, resistance at reduced intensity (−15–20%), and all stacking protocols except HIIT. The algorithm redistributes intensity across the week based on readiness, not eliminates it. The research consistently shows that athletes using this approach trained at high intensity on fewer days yet produced greater VO₂ max and performance improvements — because the high-intensity sessions they DID perform fell on days when the body could maximally absorb the stimulus. The algorithm doesn't reduce training volume over time; it concentrates intensity on the days when it counts.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VII. Resources</div>
+<div class="res">
+<div class="rt">Resources & Activities</div>
+<div class="res-grid">
+<div class="ri"><div class="rc read">Read</div><h5>Kiviniemi et al. (2007)</h5><p>"Endurance training guided individually by daily heart rate variability measurements." <em>Eur. J. Appl. Physiol.</em>, 101:743–751. The foundational study: HRV-guided training significantly improved maximal running velocity compared to fixed programming.</p></div>
+<div class="ri"><div class="rc read">Read</div><h5>2025 Frontiers RCT</h5><p>"Impact of HRV-based exercise prescription: self-guided by technology and trainer-guided exercise in sedentary adults." <em>Front. Sports Active Living</em>. Confirmed HRV-guided training is superior to predefined programs in both self-guided (wearable app) and trainer-guided settings, with moderate correlations (r=0.36–0.45) between HRV changes and fitness improvements.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Start the 14-Day Calibration Period</h5><p>Wear your wearable continuously (including sleep) for 14 days. Train normally. This establishes your personal RMSSD baseline, rolling average, and SWC band. After 14 days, the algorithm has sufficient data to begin producing actionable green/amber/red prescriptions. Don't adjust anything during calibration — just collect data.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Implement the 2-Minute Morning Protocol</h5><p>Each morning: (1) Subjective 1–10 rating BEFORE checking device (15 sec). (2) Check wearable readiness/recovery score (30 sec). (3) Decide green/amber/red (15 sec). (4) Adjust today's training accordingly (immediate). Total: <2 min. This is the fastest feedback loop in the entire series — daily data, daily decision, daily adjustment.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Green-Day Target: 65–80%</h5><p>Track weekly: how many training days scored green? Target 65–80% over a 4-week block. Below 60%: training load exceeds recovery capacity → reduce volume, add a deload, check sleep quality. Above 85%: possibly under-training → consider progressive overload increase. This percentage is the meta-metric for the daily feedback loop — it tells you whether the overall load-recovery balance is calibrated correctly.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Wearable Decision Matrix</h5><p>If your wearable provides a pre-computed readiness/recovery score: use it directly. Oura Readiness Score, Whoop Recovery, Garmin Body Battery, and Apple Watch Vitals each implement multi-input algorithms similar to this lecture's composite. Map their output to green/amber/red: >70% = Green, 50–70% = Amber, <50% = Red (adjust thresholds to your device's scale). The specific device matters less than consistent daily measurement with the same device.</p></div>
+<div class="ri"><div class="rc meas">Metric</div><h5>RMSSD Trend + Green% + Performance</h5><p>RMSSD 7-day mean (chronic adaptation — rising = working, declining = investigate). RMSSD CV (perturbation — high = acute stress). Green-day percentage (load-recovery balance — 65–80% target). Performance validation: grip strength (quarterly), progressive overload log (weekly), VO₂ max estimate (quarterly). The metrics from Lectures 62/63/67 now have a daily feedback mechanism that adjusts the protocol to optimize them.</p></div>
+<div class="ri"><div class="rc meas">Cross-Reference</div><h5>Theme D Integration</h5><p>This lecture (74) → daily feedback loop. Lecture 75 (CGM Experiment) → bi-weekly nutritional feedback. Lecture 76 (Quarterly Diagnostic) → 12-week system assessment. HRV (Lec 47) → vagal tone is the physiological substrate being measured. Sleep (Lec 64) → sleep quality is the second-weighted input. Cortisol (Lec 40) → chronic stress manifests as sustained RMSSD decline. Periodization (Lec 67) → deload week timing adjusted by algorithm data. Complexity Budget (Lec 73) → the algorithm adds one 2-min daily decision without exceeding channel capacity.</p></div>
+</div>
+</div>
+
+<div class="cite">
+<div class="ct">Citation Verification</div>
+<table>
+<tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+<tr><td>HRV-guided training significantly improved maximal running velocity compared to fixed programming</td><td>Kiviniemi et al., <em>Eur. J. Appl. Physiol.</em>, 2007;101:743–751</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Vesterinen et al. refined HRV-guided training using rolling 7-day baselines with SWC thresholds</td><td>Vesterinen et al., <em>Med. Sci. Sports Exerc.</em>, 2016;48:1347–1354</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>HRV-guided training is superior to predefined programs; personalizes load to maximize adaptations and minimize non-responders</td><td>Gonzalez-Devesa et al., <em>Front. Sports Active Living</em>, 2025 (RCT)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Athletes following HRV-guided approach trained less at high intensity yet improved VO₂ max and performance more</td><td>Altini (2025 review); Javaloyes et al., 2019; multiple studies</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>RMSSD_MEAN reflects chronic adaptation; RMSSD_CV reflects short-term perturbations; fixed 7-day blocks for week-to-week comparison</td><td>2025 <em>Sensors</em> narrative review (PMC 12485039)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Muscle soreness and subjective wellness are key recovery markers not captured by HRV; combining subjective + HRV creates dynamic decision-making tool</td><td>Altini (2025); 2025 <em>Sensors</em> review; Saw et al., <em>Sports Med.</em>, 2016</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Moderate correlations (r = 0.36–0.45) between HRV changes and fitness variable changes</td><td>Gonzalez-Devesa et al., <em>Front. Sports Active Living</em>, 2025</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>HRV-guided training superior in CAD patients: weekly averaged RMSSD improved significantly more in HRV-guided vs predefined group</td><td>Rodrigues et al., <em>J. Cardiovasc. Dev. Dis.</em>, 2022;9:335</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Composite readiness formula weights (HRV 0.30, sleep 0.25, RHR 0.15, subjective 0.15, training load 0.15)</td><td>Synthesized from relative predictive validity across the cited literature</td><td><span class="cv">⚠ The specific weights (0.30, 0.25, 0.15, 0.15, 0.15) are a practical synthesis based on the relative predictive validity and measurement reliability of each input as documented across the HRV-guided training literature. They have not been derived from a single optimization study that formally calibrated multi-input readiness weights. Commercial wearable algorithms (Oura, Whoop, Garmin) use proprietary weighting schemes that differ from these but follow similar relative prioritization (HRV > sleep > RHR > subjective).</span></td></tr>
+</table>
+</div>
+
+<div class="fn">
+<strong>Key References:</strong> Kiviniemi, A.M. et al. (2007). "Endurance training guided individually by daily heart rate variability measurements." <em>Eur. J. Appl. Physiol.</em>, 101:743–751. &nbsp;|&nbsp; Vesterinen, V. et al. (2016). "Individual endurance training prescription with heart rate variability." <em>Med. Sci. Sports Exerc.</em>, 48:1347–1354. &nbsp;|&nbsp; Gonzalez-Devesa, D. et al. (2025). "Impact of HRV-based exercise prescription: self-guided and trainer-guided." <em>Front. Sports Active Living</em>. &nbsp;|&nbsp; Altini, M. (2025). "A Brief History of Heart Rate Variability-Guided Training." &nbsp;|&nbsp; Rodrigues, J.A.L. et al. (2022). "HRV-Guided Training for Improving Mortality Predictors in CAD." <em>J. Cardiovasc. Dev. Dis.</em>, 9:335.
+</div>
+
+</div>
+
+<script id="related-data" type="application/json">
+{
+  "id": "lecture_readiness_algorithm",
+  "related": [
+    {
+      "id": "lecture_autonomic_hrv",
+      "title": "Autonomic Nervous System Aging & HRV",
+      "filename": "lecture_autonomic_hrv.html",
+      "tags": [
+        "Adaptive Stress",
+        "Recovery Science"
+      ]
+    },
+    {
+      "id": "lecture_sleep_dose_response",
+      "title": "Sleep — Duration U-Curve, Architecture Minimums & the Consistency Multiplier",
+      "filename": "lecture_sleep_dose_response.html",
+      "tags": [
+        "Genetic & Epigenetic",
+        "Sleep & Recovery"
+      ]
+    },
+    {
+      "id": "lecture_supercompensation_curve",
+      "title": "The Supercompensation Curve — Why Adaptation Happens After Stress, Not During It",
+      "filename": "lecture_supercompensation_curve.html",
+      "tags": [
+        "Adaptive Stress",
+        "Recovery Science"
+      ]
+    },
+    {
+      "id": "lecture_cgm_experiment",
+      "title": "The CGM Experiment — 14 Days to Map Your Personal Glycemic Landscape",
+      "filename": "lecture_cgm_experiment.html",
+      "tags": [
+        "Mitochondrial & Energy",
+        "Biological Clocks"
+      ]
+    }
+  ]
+}
+</script>
+<script src="../related-widget.js"></script>
+</body>
+</html>
