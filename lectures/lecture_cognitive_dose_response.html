@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interdisciplinary Lecture 81: Cognitive Training Dose-Response</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf9f7;--surface:#f0eeea;--card:#ffffff;--card-b:#ddd9d0;--ink:#1a1a1a;--ink-mid:#3d3d3d;--ink-soft:#71717a;--blue:#1d4ed8;--blue-deep:#1e3a8a;--blue-dim:rgba(29,78,216,0.05);--red:#b91c1c;--red-dim:rgba(185,28,28,0.04);--green:#15803d;--green-dim:rgba(21,128,61,0.04);--amber:#b45309;--amber-dim:rgba(180,83,9,0.04);--indigo:#4338ca;--indigo-dim:rgba(67,56,202,0.04);--rule:#d4d0c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink-mid);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.8;font-size:16.5px;}
+.page{max-width:830px;margin:0 auto;padding:56px 42px 120px;}
+.top-bar{height:4px;margin-bottom:40px;background:linear-gradient(90deg,var(--indigo) 0%,var(--amber) 50%,var(--green) 100%);border-radius:2px;}
+.hdr{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--indigo);position:relative;}
+.stag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--indigo);margin-bottom:20px;}
+.ln{font-family:'DM Serif Text',serif;font-size:100px;font-weight:400;color:var(--ink);opacity:.035;position:absolute;right:0;top:-16px;line-height:1;}
+h1{font-family:'DM Serif Text',serif;font-size:36px;font-weight:400;line-height:1.08;color:var(--ink);margin-bottom:8px;}h1 .a{color:var(--indigo);}
+.sub{font-family:'DM Serif Text',serif;font-size:16px;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:720px;margin-bottom:18px;}
+.meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;}.meta .hl{color:var(--indigo);font-weight:600;}
+.sn{font-family:'Source Code Pro',monospace;font-weight:600;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin-top:50px;margin-bottom:6px;}
+h2{font-family:'DM Serif Text',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.25;}
+p{margin-bottom:16px;text-align:justify;hyphens:auto;}
+.k{color:var(--indigo);font-weight:700;}.def{color:var(--ink-soft);font-style:italic;}em{font-style:italic;color:var(--ink);}
+.sep{display:flex;align-items:center;margin:42px 0;gap:10px;}.sep .l{flex:1;height:1px;background:var(--rule);}.sep .d{width:6px;height:6px;background:var(--indigo);border-radius:50%;}
+.fig{background:var(--card);border:1px solid var(--card-b);border-top:3px solid var(--indigo);padding:24px 18px 18px;margin:36px 0;border-radius:0 0 4px 4px;}.fig-tag{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--indigo);margin-bottom:14px;}.fig svg{display:block;margin:0 auto;width:100%;max-width:740px;}.fig-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.6;font-style:italic;}
+.note{border-left:3px solid var(--blue);background:var(--blue-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.note .nl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--blue-deep);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.note p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.caut{border-left:3px solid var(--amber);background:var(--amber-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.caut .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--amber);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.caut p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.corr{border-left:3px solid var(--green);background:var(--green-dim);padding:18px 22px;margin:28px 0;border-radius:0 4px 4px 0;}.corr .cl{font-family:'Source Code Pro',monospace;font-weight:600;color:var(--green);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.corr p{margin-bottom:0;font-size:15px;text-align:left;line-height:1.72;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}.gc{background:var(--card);border:1px solid var(--card-b);border-radius:4px;padding:20px;transition:border-color .3s;}.gc:hover{border-color:var(--indigo);}.gc .tag{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}.tag.t1{color:var(--green);}.tag.t2{color:var(--amber);}.tag.t3{color:var(--red);}.tag.mech{color:var(--indigo);}.gc h4{font-family:'DM Serif Text',serif;font-size:15.5px;font-weight:400;color:var(--ink);margin-bottom:8px;}.gc p{font-size:13.5px;line-height:1.6;margin-bottom:0;text-align:left;}.gc strong{color:var(--indigo);font-weight:700;}
+.res{background:var(--surface);border:1px solid var(--card-b);border-radius:4px;padding:28px 24px;margin:36px 0;}.res .rt{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--indigo);margin-bottom:18px;}.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ri{background:var(--card);border:1px solid var(--card-b);border-radius:3px;padding:14px 16px;}.ri .rc{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-weight:600;}.rc.read{color:var(--amber);}.rc.act{color:var(--blue-deep);}.rc.tool{color:var(--green);}.rc.meas{color:var(--red);}.ri h5{font-family:'DM Serif Text',serif;font-size:14px;font-weight:400;color:var(--ink);margin-bottom:4px;}.ri p{font-size:12.5px;line-height:1.55;margin-bottom:0;text-align:left;color:var(--ink-soft);}
+.cite{background:var(--amber-dim);border:1px solid rgba(180,83,9,.12);border-radius:4px;padding:20px 22px;margin:36px 0;}.cite .ct{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.cite table{width:100%;border-collapse:collapse;font-size:12.5px;}.cite th{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--ink-soft);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);}.cite td{padding:6px 8px;border-bottom:1px solid rgba(212,208,200,.5);color:var(--ink-mid);line-height:1.5;vertical-align:top;}.cite .ok{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--green);}.cite .cv{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;color:var(--amber);}
+.fn{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:22px;margin-top:54px;line-height:1.7;}.fn strong{color:var(--ink-mid);font-weight:700;}
+@media(max-width:640px){h1{font-size:28px;}.grid,.res-grid{grid-template-columns:1fr;}.page{padding:32px 18px 80px;}.ln{display:none;}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="top-bar"></div>
+<header class="hdr">
+<div class="ln">81</div>
+<div class="stag">Cognitive Training · No. 81 (2 of 3)</div>
+<h1>Cognitive Training Dose-Response <span class="a">— Modalities Ranked by Transfer Evidence</span></h1>
+<div class="sub">Interpreters Who Learned a Foreign Language Intensively for 3 Months Showed Increases in Hippocampal Volume and Cortical Thickness Across the Language Network. Older Adults Who Completed 90-Minute Daily Language Sessions for 4 Months Showed Structural Brain Alterations in Regions Governing Working Memory, Attention, and Executive Function. The Hippocampus — the Structure Whose Atrophy Is the Earliest Biomarker of Alzheimer's Disease — Responds to the Cognitive Demand of Language Learning the Way Muscle Responds to Resistance Training: With Measurable Hypertrophy That Tracks the Dose of Novel Processing Demand Applied</div>
+<div class="meta">
+<div><span class="hl">Origin:</span> Cognitive Neuroscience / Experience-Dependent Neuroplasticity (Mårtensson 2012; Bellander 2016; 2025 FLL study)</div>
+<div><span class="hl">Bridge:</span> Protocol Engineering — Dose-Response Curves for Each Cognitive Modality</div>
+<div><span class="hl">Series:</span> Cognitive Training 2 of 3 — The Modality Ranking</div>
+<div>~1,200 words</div>
+</div>
+</header>
+
+<div class="sn">I. The Core Concept — Three Tiers of Cognitive Training, Ranked by Transfer Evidence and Structural Brain Changes</div>
+<h2>Each Modality Engages Different Cognitive Domains at Different Intensities — and the Ranking Follows the Neuroplastic Principle: Novelty × Error × Multi-Domain Demand</h2>
+
+<p>Lecture 80 established the neuroplastic principle — cognitive adaptation requires novelty, error generation, and adaptive difficulty — and identified speed-of-processing training as the only modality with RCT evidence for far transfer to dementia incidence. This lecture extends the analysis to every candidate cognitive training modality, ranking each by three criteria: (1) the breadth of cognitive domains simultaneously engaged (single-domain vs. multi-domain processing), (2) the quality and level of transfer evidence (far transfer RCT > intermediate transfer > near transfer only), and (3) the magnitude and consistency of measurable structural brain changes (MRI-documented hippocampal volume, cortical thickness, white matter integrity). The ranking produces three tiers that parallel the recovery modality ranking from Lecture 78: Tier 1 modalities have strong evidence for both transfer and structural change; Tier 2 have moderate evidence with specific limitations; Tier 3 maintain existing capacity without building new neural architecture.</p>
+
+<p>The critical insight from the neuroimaging literature: <span class="k">the hippocampus — the structure whose atrophy is the earliest imaging biomarker of Alzheimer's disease — responds to cognitive demand with measurable volumetric changes that track the dose of novel processing applied</span>. Interpreters who learned a foreign language intensively for 3 months showed increases in bilateral hippocampal volume and cortical thickness across the left-lateralized language network (Mårtensson et al., 2012). Older bilinguals show greater hippocampal grey matter volume than age-matched monolinguals, calibrated to degree of dual-language use (DeLuca et al., 2022). And a 2025 intervention study in healthy older adults (aged 60–80) found that 90-minute daily language sessions for 4 months produced structural alterations in regions governing working memory, attention, and executive function. The hippocampus is not merely a passive victim of aging — it is an experience-dependent structure that expands with cognitive demand and contracts with cognitive disengagement, just as muscle expands with resistance training and atrophies with disuse.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="fig">
+<div class="fig-tag">Figure 1 — Cognitive Training Modalities Ranked: Evidence × Domains × Dose-Response Parameters</div>
+<svg viewBox="0 0 740 510" xmlns="http://www.w3.org/2000/svg">
+<text x="370" y="18" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4338ca" font-weight="600" letter-spacing="1.5">COGNITIVE TRAINING MODALITIES: THREE TIERS BY EVIDENCE & STRUCTURAL BRAIN CHANGE</text>
+<!-- TIER 1 -->
+<rect x="20" y="36" width="700" height="170" rx="4" fill="rgba(21,128,61,0.04)" stroke="#15803d" stroke-width="2"/>
+<text x="370" y="56" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#15803d" font-weight="700">TIER 1 — STRONG TRANSFER + STRUCTURAL BRAIN CHANGE EVIDENCE</text>
+<rect x="35" y="68" width="215" height="126" rx="3" fill="#ffffff" stroke="#15803d" stroke-width="1"/>
+<text x="142" y="86" text-anchor="middle" font-family="DM Serif Text,serif" font-size="13" fill="#15803d">Language Acquisition</text>
+<text x="142" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4338ca" font-weight="600">DOMAINS: 5+ simultaneous</text>
+<text x="50" y="116" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">WM + exec function + auditory</text>
+<text x="50" y="128" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">+ episodic memory + attention</text>
+<text x="50" y="144" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">↑ hippocampal volume (bilateral)</text>
+<text x="50" y="156" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">↑ cortical thickness (MFG, IFG, STG)</text>
+<text x="50" y="172" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">Dose: 15–90 min/day, daily</text>
+<text x="50" y="184" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">Onset: structural Δ at 3–4 months</text>
+<rect x="260" y="68" width="215" height="126" rx="3" fill="#ffffff" stroke="#15803d" stroke-width="1"/>
+<text x="367" y="86" text-anchor="middle" font-family="DM Serif Text,serif" font-size="13" fill="#15803d">Musical Instrument</text>
+<text x="367" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4338ca" font-weight="600">DOMAINS: 5+ simultaneous</text>
+<text x="275" y="116" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Motor planning + auditory</text>
+<text x="275" y="128" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">+ WM + attention + timing</text>
+<text x="275" y="144" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">↑ motor-auditory-PFC connectivity</text>
+<text x="275" y="156" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">↑ corpus callosum integrity</text>
+<text x="275" y="172" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">Dose: 30–45 min, 3–5×/wk</text>
+<text x="275" y="184" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">Must generate frequent errors</text>
+<rect x="485" y="68" width="220" height="126" rx="3" fill="#ffffff" stroke="#15803d" stroke-width="1"/>
+<text x="595" y="86" text-anchor="middle" font-family="DM Serif Text,serif" font-size="13" fill="#15803d">Speed-of-Processing (UFOV)</text>
+<text x="595" y="100" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#4338ca" font-weight="600">DOMAINS: 1 (domain-general)</text>
+<text x="500" y="116" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Processing speed — upstream</text>
+<text x="500" y="128" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">bottleneck for all cognition</text>
+<text x="500" y="144" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">29% dementia ↓ at 10 yr (ACTIVE)</text>
+<text x="500" y="156" font-family="Source Code Pro,monospace" font-size="7" fill="#15803d" font-weight="600">25% dementia ↓ at 20 yr (w/boosters)</text>
+<text x="500" y="172" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">Dose: 15–20 min, 3×/wk</text>
+<text x="500" y="184" font-family="Source Code Pro,monospace" font-size="7" fill="#3d3d3d">Each session = 10% lower hazard</text>
+<!-- TIER 2 -->
+<rect x="20" y="218" width="700" height="110" rx="4" fill="rgba(180,83,9,0.04)" stroke="#b45309" stroke-width="1.5"/>
+<text x="370" y="238" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#b45309" font-weight="700">TIER 2 — MODERATE TRANSFER, INTERMEDIATE EVIDENCE</text>
+<rect x="35" y="250" width="215" height="66" rx="3" fill="#ffffff" stroke="#b45309" stroke-width="1"/>
+<text x="142" y="268" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" fill="#b45309">Dual N-Back Training</text>
+<text x="50" y="284" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">WM capacity + exec function</text>
+<text x="50" y="296" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">Dose: 20–25 min, 4–5×/wk, ≥4 wks</text>
+<text x="50" y="308" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Far transfer to IQ: contested</text>
+<rect x="260" y="250" width="215" height="66" rx="3" fill="#ffffff" stroke="#b45309" stroke-width="1"/>
+<text x="367" y="268" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" fill="#b45309">Dance (Social / Complex)</text>
+<text x="275" y="284" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Motor + spatial + rhythmic + social</text>
+<text x="275" y="296" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">Dose: 60–90 min, 1–2×/wk</text>
+<text x="275" y="308" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Triple stack: physical + cognitive + social</text>
+<rect x="485" y="250" width="220" height="66" rx="3" fill="#ffffff" stroke="#b45309" stroke-width="1"/>
+<text x="595" y="268" text-anchor="middle" font-family="DM Serif Text,serif" font-size="12" fill="#b45309">Strategy Games (Competitive)</text>
+<text x="500" y="284" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Planning + WM + pattern recog.</text>
+<text x="500" y="296" font-family="Source Code Pro,monospace" font-size="7" fill="#b45309" font-weight="600">Novel games only; mastery = ↓ stimulus</text>
+<text x="500" y="308" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Social component adds PFC load</text>
+<!-- TIER 3 -->
+<rect x="20" y="340" width="700" height="76" rx="4" fill="rgba(185,28,28,0.04)" stroke="#b91c1c" stroke-width="1"/>
+<text x="370" y="360" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#b91c1c" font-weight="700">TIER 3 — NEAR TRANSFER / MAINTENANCE ONLY (PREVENTS ATROPHY, DOESN'T BUILD)</text>
+<text x="105" y="386" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c">Crosswords</text>
+<text x="105" y="400" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Existing vocabulary</text>
+<text x="260" y="386" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c">Sudoku</text>
+<text x="260" y="400" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Familiar patterns</text>
+<text x="415" y="386" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c">Trivia / Quiz</text>
+<text x="415" y="400" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">Retrieval, not construction</text>
+<text x="570" y="386" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8" fill="#b91c1c">Passive Reading</text>
+<text x="570" y="400" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#71717a">No effortful processing</text>
+<text x="370" y="414" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="7" fill="#b91c1c">Valuable for maintenance. Insufficient for neuroplastic growth. No structural brain changes documented.</text>
+
+<!-- THE INVERTED-U NEUROPLASTIC TRAJECTORY -->
+<text x="370" y="446" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="10" fill="#4338ca" font-weight="600" letter-spacing="1.5">THE INVERTED-U: WHY NOVELTY MATTERS MORE THAN MASTERY</text>
+<rect x="20" y="460" width="700" height="42" rx="4" fill="rgba(67,56,202,0.04)" stroke="#4338ca" stroke-width="1.5"/>
+<text x="370" y="478" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#3d3d3d">Hippocampal volume follows an inverted U with skill acquisition: EXPANSION during learning → RENORMALIZATION at mastery.</text>
+<text x="370" y="494" text-anchor="middle" font-family="Source Code Pro,monospace" font-size="8.5" fill="#4338ca" font-weight="600">Implication: a perpetual intermediate who starts a new challenge every 12–18 months derives MORE neuroplastic benefit than a master.</text>
+</svg>
+<div class="fig-cap">Tier 1: language acquisition (5+ simultaneous domains, documented hippocampal and cortical structural changes), musical instrument learning (5+ domains, enhanced motor-auditory-PFC connectivity), and speed-of-processing training (domain-general bottleneck, 29% dementia reduction at 10 years). Tier 2: dual N-back (working memory + executive function, contested far transfer), social dance (physical-cognitive-social triple stack), and competitive strategy games (planning + pattern recognition, novel games only). Tier 3: crosswords, Sudoku, trivia, passive reading (maintenance value, no structural brain changes). Bottom: the inverted-U neuroplastic trajectory — hippocampal expansion during learning gives way to volumetric renormalization at mastery, making perpetual intermediate-level challenge more neuroplastically productive than mastery.</div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">II. Tier 1 — Detailed Dose-Response for the Three Highest-Evidence Modalities</div>
+
+<div class="grid">
+<div class="gc"><div class="tag t1">Tier 1: Language Acquisition</div><h4>The Most Neuroplastically Demanding Cognitive Challenge Available</h4><p>Language learning simultaneously engages <strong>5+ cognitive domains</strong>: working memory (holding unfamiliar words while constructing grammar), executive function (switching between linguistic rule systems), auditory processing (discriminating novel phonemes), episodic memory (encoding word-meaning associations), and attentional control (suppressing native language interference). MRI evidence: interpreters who learned intensively for 3 months showed <strong>bilateral hippocampal volume increases and cortical thickening</strong> in the left middle frontal, inferior frontal, and superior temporal gyri (Mårtensson 2012). Older adults (60–80) who completed 90-minute daily sessions for 4 months showed structural alterations in working memory and attention regions (2025 study). Bilingualism preserves cortical thickness in aging (2024, n=79). <strong>Dose-response:</strong> the neuroplastic curve is logarithmic — greatest per-minute benefit during the initial learning phase (0–6 months) when everything is novel and errors are frequent. Effective dose: <strong>15–30 min/day of effortful practice</strong> (not passive review — active recall, sentence construction, listening comprehension of unfamiliar material). Structural changes measurable at 3–4 months of consistent practice.</p></div>
+<div class="gc"><div class="tag t1">Tier 1: Musical Instrument (Novel)</div><h4>Simultaneous Motor-Auditory-Cognitive Demand</h4><p>Learning a musical instrument engages motor planning (finger coordination, breath control), auditory processing (pitch discrimination, rhythmic tracking), working memory (reading notation while playing), sustained attention, and timing — <strong>5+ domains simultaneously</strong>, with the unique addition of fine motor control that language learning doesn't require. Adults who begin learning an instrument after 50 show enhanced functional connectivity between motor, auditory, and prefrontal cortices. Corpus callosum integrity improves with bimanual instrument practice (piano, drums). <strong>Dose-response:</strong> the threshold for sufficient working memory load appears to be <strong>~30 minutes per session</strong> — shorter sessions may not sustain the multi-domain processing demand long enough to drive adaptation. Effective dose: <strong>30–45 min, 3–5×/week</strong>, at a difficulty level that produces frequent errors. As with language, <strong>novelty matters more than mastery</strong>: learning a second instrument provides more neuroplastic challenge than perfecting the first, because the motor-auditory mapping must be rebuilt from novel foundations.</p></div>
+<div class="gc"><div class="tag t1">Tier 1: Speed-of-Processing (UFOV)</div><h4>The Domain-General Bottleneck — the Only Modality With Dementia RCT Evidence</h4><p>Covered comprehensively in Lecture 80. The ACTIVE trial: <strong>29% dementia reduction at 10 years, 25% at 20 years with boosters. Each session = 10% lower hazard.</strong> Speed-of-processing ranks in Tier 1 not for multi-domain engagement (it trains a single resource — processing speed) but because that resource is <strong>domain-general</strong>: every downstream cognitive function depends on it, making the transfer breadth unmatched. BrainHQ Double Decision is the validated commercial implementation. <strong>Dose:</strong> 10 initial sessions of ~60 min (ACTIVE protocol), then maintenance at <strong>15–20 min, 3×/week</strong>. Adaptive difficulty is built into the software — no manual progression needed. This is the <strong>cognitive creatine</strong>: a single, well-evidenced supplement to the cognitive protocol that produces disproportionate benefit relative to time investment.</p></div>
+<div class="gc"><div class="tag mech">The Inverted-U Trajectory</div><h4>Why the Perpetual Intermediate Derives More Neuroplastic Benefit Than the Master</h4><p>A 2025 <em>eNeuro</em> study (n=69 bilingual young adults) confirmed the <strong>dynamic restructuring model</strong>: hippocampal volume follows an inverted U-shaped trajectory with second language engagement — <strong>initial expansion during the learning phase</strong> (when processing demand is highest and errors most frequent) followed by <strong>volumetric renormalization as proficiency increases</strong> (when the skill becomes automated and processing demand decreases). This has a direct practical implication: for cognitive training purposes, <strong>the neuroplastic stimulus is maximal during the learning phase and diminishes toward mastery</strong>. A person who studies Spanish for 3 years to fluency derives maximal hippocampal benefit in months 1–12 and progressively less thereafter. A person who studies Spanish for 12 months, then switches to Mandarin for 12 months, then starts guitar, experiences three consecutive expansion phases — maintaining the hippocampus in the growth portion of the inverted U rather than allowing it to renormalize. The implication for protocol design: <strong>rotate cognitive challenges every 12–18 months</strong>. Begin a new language, a new instrument, or a new complex skill before the current one becomes comfortable.</p></div>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">III. Antifragility & Trade-Offs</div>
+<div class="caut">
+<div class="cl">Where the Evidence Is Strong, Where It's Extrapolated, and the Enjoyment Constraint</div>
+<p><em>The evidence hierarchy for cognitive training modalities is less mature than for exercise or sleep — and the "rotation" recommendation is a logical extrapolation, not a proven protocol.</em> Four caveats: (1) <em>Language acquisition has the strongest neuroimaging evidence</em> (hippocampal volume, cortical thickness, multiple MRI studies across age groups) but lacks a direct dementia-incidence RCT. Speed-of-processing has the strongest clinical outcome evidence (ACTIVE trial) but less neuroimaging data on structural brain changes. The two modalities are complementary — one has structural evidence, the other has clinical outcome evidence — and both satisfy the neuroplastic principle. (2) <em>The 12–18 month rotation recommendation</em> is derived from the inverted-U neuroplastic trajectory (expansion → renormalization with skill acquisition) — a sound mechanistic principle confirmed by the 2025 eNeuro data. But no RCT has directly compared "rotating cognitive challenges every 12 months" against "sustained practice of one skill for 5 years" on dementia outcomes. The rotation is the neuroplastically optimal strategy based on mechanism; the sustained-practice strategy may produce other benefits (cultural enrichment, deeper mastery) that the rotation sacrifices. (3) <em>The enjoyment constraint from Lecture 73 applies doubly to cognitive training.</em> If you hate language learning, forcing yourself to study vocabulary for "neuroplastic benefit" is unlikely to be sustained for decades. The best cognitive training modality is the Tier 1 or Tier 2 activity you will actually perform consistently — not the theoretically optimal one you abandon after 6 weeks. Speed-of-processing training (15 min, app-based) has the lowest enjoyment threshold; language and music learning have the highest ceiling for intrinsic engagement. Match the modality to the person. (4) <em>Tier 3 activities are not worthless</em> — they prevent disuse atrophy, provide pleasure, and maintain existing pathways. A person who does crosswords daily and walks for 30 minutes is better off cognitively than a person who does neither. But Tier 3 alone is insufficient to build new cognitive capacity or produce the structural brain changes that Tier 1 modalities demonstrate.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">IV. The Protocol — The Combined Cognitive Dose-Response Prescription</div>
+<div class="note">
+<div class="nl">Three-Modality Cognitive Training Prescription With Specific Parameters</div>
+<p><strong>Modality 1 — Speed-of-processing (BrainHQ Double Decision):</strong><br>
+Dose: 15–20 min, 3×/week. Immediately post-exercise for BDNF priming (Lecture 82). Adaptive difficulty is automatic — the software increases speed and distractor complexity as performance improves. No manual progression needed. This is the non-negotiable cognitive training minimum — the only modality with a 20-year dementia RCT. If you do only one cognitive training activity, do this one.<br><br>
+<strong>Modality 2 — Language acquisition:</strong><br>
+Dose: 15–30 min daily. Integrated into Stack 1 morning walk as audio (Lecture 82). Choose a language you have never studied — maximum novelty. Use an app with active recall and production demands (Pimsleur, Duolingo's "hearts" mode, language learning podcasts that require mental translation). Passive listening without effortful processing doesn't count — the neuroplastic stimulus requires error generation and working memory engagement. Rotate to a new language or advance to complex content (novels, native-speed podcasts, conversation partners) every 12–18 months, when comprehension of basic material exceeds ~60% and errors become infrequent.<br><br>
+<strong>Modality 3 — Social-cognitive activity:</strong><br>
+Dose: 60–90 min, 1×/week. Choose an activity that combines cognitive novelty with social interaction: social dance class (novel choreography + partner coordination + cardiovascular exercise = the triple stack), group music class (novel instrument + ensemble coordination), conversation exchange in your target language (language + social + cultural), competitive game night (chess, Go, bridge — novel strategy games, not familiar ones). The social component is not optional decoration — it adds theory-of-mind processing, conversational tracking, and emotional regulation demand that solitary training cannot provide (Lecture 15/27: social engagement is an independent longevity factor).<br><br>
+<strong>Total weekly cognitive dose:</strong><br>
+Speed-of-processing: 45–60 min/week (3 × 15–20 min). Language: 105–210 min/week (7 × 15–30 min). Social-cognitive: 60–90 min/week (1 × 60–90 min). Combined: <strong>210–360 min/week across three modalities</strong> targeting different cognitive domains through different mechanisms. Lecture 82 demonstrates how this entire dose integrates into existing time slots with approximately zero additional time.<br><br>
+<strong>Metric:</strong> <em>BrainHQ processing speed threshold (ms)</em> — the primary quantitative tracking metric. Declining ms over months = processing speed improving. <em>Language proficiency progression</em> — app-tracked level, or self-assessed comprehension of native-speed audio (baseline <10%, target 40–60% at 6–12 months). <em>Subjective cognitive quality</em> — sustained attention during complex tasks, multitasking ease, word/name retrieval speed, working memory in daily life. <em>Annual MoCA</em> (10-min Montreal Cognitive Assessment) — the functional validation metric.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">V. Recursive Synthesis</div>
+<h2>How the Cognitive Dose-Response Parallels the Physical Dose-Response From Theme A</h2>
+<p>Theme A (Lectures 61–67) established the dose-response framework for physical interventions: the logarithmic curve for aerobic exercise (Lecture 62: steepest benefit at the bottom, plateau above 300 min/week), the volume-response curve for resistance training (Lecture 63: 0.24% hypertrophy per additional set, optimal at 10–12 sets/muscle/week), the U-curve for sleep duration (Lecture 64: optimal 6.5–8.0 hours). This lecture reveals that cognitive training follows strikingly similar patterns. Language learning has a logarithmic dose-response — greatest per-minute benefit during the initial learning phase, with diminishing returns as proficiency increases (paralleling the aerobic exercise curve). Speed-of-processing training has a linear dose-response — each additional session produces a constant 10% hazard reduction (paralleling the linear portion of the resistance training volume curve). And the inverted-U neuroplastic trajectory — expansion during learning, renormalization at mastery — is the cognitive equivalent of the supercompensation curve from Lecture 77: the stimulus drives adaptation, but adaptation eventually normalizes unless the stimulus is renewed or increased. The brain, like every other tissue in the series, responds to progressive overload, adapts specifically to the demands placed upon it, and requires novelty to sustain the neuroplastic stimulus that prevents age-related decline. The dose-response framework is universal. The specific parameters vary by organ. This lecture provides the parameters for the last major organ the series hadn't prescribed for.</p>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VI. Peer Review — Common Misconception</div>
+<div class="corr">
+<div class="cl">Corrected Misconception</div>
+<p><strong>Misconception:</strong> "All brain training is equally effective — doing crosswords is just as good as learning a new language."<br><br><strong>Correction:</strong> The neuroimaging and clinical evidence reveals a steep hierarchy. Language acquisition produces measurable hippocampal volume increases and cortical thickening across multiple regions in both younger and older adults — structural brain changes that track the dose of novel processing demand. Speed-of-processing training produces a 29% reduction in dementia incidence at 10 years in the largest cognitive training RCT ever conducted. Crossword puzzles produce neither documented structural brain changes nor clinical outcome evidence for dementia prevention — because they operate within established vocabulary and pattern libraries using familiar neural pathways. The distinction maps directly onto the neuroplastic principle: adaptation requires processing at the edge of current capacity, generating errors, in unfamiliar domains. A crossword puzzle for an experienced solver is well below the capacity edge — it is maintenance, not training. Language learning for a beginner is at the capacity edge by definition — every sentence is an error-generating, working-memory-loading, novel-pathway-constructing challenge. The two activities are not equivalent. One maintains existing neural architecture. The other builds new architecture. Both have value. Only one remodels the hippocampus.</p>
+</div>
+
+<div class="sep"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+
+<div class="sn">VII. Resources</div>
+<div class="res">
+<div class="rt">Resources & Activities</div>
+<div class="res-grid">
+<div class="ri"><div class="rc read">Read</div><h5>Mårtensson et al. (2012)</h5><p>"Growth of language-related brain areas after foreign language learning." <em>NeuroImage</em>, 63:240–244. Interpreters who learned intensively for 3 months: bilateral hippocampal volume increases and cortical thickness increases in the left MFG, IFG, and STG. The structural evidence that language learning produces measurable brain growth.</p></div>
+<div class="ri"><div class="rc read">Read</div><h5>eNeuro (2025)</h5><p>"Experience-Dependent Neuroplasticity in the Hippocampus of Bilingual Young Adults." Confirmed the inverted U-shaped relationship between second language engagement and left hippocampal volume: initial expansion during learning, followed by renormalization at mastery. The mechanistic basis for the rotation principle.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Choose Your Tier 1 Language</h5><p>Select a language you have never studied. Criteria: (1) maximally different from English (for maximum novelty — Mandarin, Arabic, Korean, or Japanese produce more novel phonemic demand than Spanish or French), (2) available on a quality learning platform (Pimsleur, Duolingo, italki), (3) ideally with a local community or conversation exchange partner available. Begin with 15 min/day during the morning walk. This is the highest-neuroplastic-demand activity in the entire cognitive training series.</p></div>
+<div class="ri"><div class="rc act">Activity</div><h5>Set the 12-Month Rotation Reminder</h5><p>When you begin your chosen language or instrument: set a 12-month calendar reminder to assess neuroplastic stimulus. Questions at 12 months: Am I still making frequent errors? Is the material still genuinely novel? Or has it become comfortable and automatic? If comfortable: advance to complex content (native-speed media, conversation partners, advanced composition). Or rotate to a new challenge (second language, different instrument, new complex skill).</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Cognitive Training Menu Card</h5><p>TIER 1: Speed-of-processing (BrainHQ, 15 min 3×/wk) + Language learning (15–30 min daily) + Novel instrument (30–45 min 3–5×/wk, if chosen). TIER 2: Dual N-back (20–25 min 4–5×/wk), Social dance (60–90 min 1–2×/wk), Strategy games (novel games, competitive, social). TIER 3: Crosswords, Sudoku, trivia (maintenance — continue for enjoyment, don't count as training). Choose at least one from Tier 1. Add from Tier 2 for variety and social benefit.</p></div>
+<div class="ri"><div class="rc tool">Tool</div><h5>The Three-Criteria Filter (from Lecture 80)</h5><p>For any cognitive activity: (1) NOVELTY — am I processing unfamiliar demands? (2) ERRORS — am I frequently wrong or uncertain? (3) ADAPTIVE DIFFICULTY — does it get harder as I improve? All three = Tier 1/2 training stimulus. 1–2 = moderate value. None = Tier 3 maintenance. Apply this filter whenever someone recommends a "brain training" activity or product.</p></div>
+<div class="ri"><div class="rc meas">Metric</div><h5>Processing Speed + Language Level + MoCA</h5><p>BrainHQ threshold in ms (monthly tracking — declining = improvement). Language comprehension level (app-tracked or self-assessed). Error rate during practice (should remain above ~20% to confirm capacity-edge processing — if errors drop below 10%, increase difficulty or rotate). Annual MoCA screening (the real-world validation metric). These four metrics span the full hierarchy from trained-task performance to real-world cognitive function.</p></div>
+<div class="ri"><div class="rc meas">Cross-Reference</div><h5>Cognitive Training Series</h5><p>Evidence framework (Lec 80) → ACTIVE trial, transfer taxonomy, neuroplastic principle. This lecture (81) → modalities ranked with dose-response. Integration (Lec 82) → BDNF priming, dual-task stacking, social multiplier, zero added time. Cognitive reserve (Lec 31) → the mechanistic substrate. AD prevention (Lec 52) → hippocampal protection. BDNF (Lec 62) → exercise → BDNF → neuroplastic priming. Complexity budget (Lec 73) → cognitive training enriches existing stacks without adding new decision slots.</p></div>
+</div>
+</div>
+
+<div class="cite">
+<div class="ct">Citation Verification</div>
+<table>
+<tr><th>Claim</th><th>Source</th><th>Status</th></tr>
+<tr><td>Interpreters who learned a foreign language intensively for 3 months showed bilateral hippocampal volume increases and cortical thickness increases in the left MFG, IFG, and STG</td><td>Mårtensson et al., <em>NeuroImage</em>, 2012;63:240–244</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Older adults (60–80) completing 90-min daily language sessions for 4 months showed structural brain alterations in working memory, attention, and executive function regions</td><td>2025 FLL intervention study, <em>PMC</em> 12760761</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Hippocampal volume follows inverted U with second language engagement: expansion during learning → renormalization at mastery (n=69 bilingual young adults)</td><td>eNeuro, 2025; ENEURO.0128-25.2025</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Older bilinguals show greater hippocampal GMV than monolinguals, calibrated to degree of dual-language use</td><td>DeLuca et al., <em>Brain Struct. Funct.</em>, 2022 (PMC 8930894)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Bilingualism preserves cortical thickness in aging (n=79, ages 30–79)</td><td>2024 bilingualism cortical thickness study, PMC 12738251</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Language learning linked to higher cognitive reserve, better executive control, and delay in dementia onset (systematic review)</td><td><em>Frontiers in Aging Neuroscience</em>, 2021 systematic review (PMC 8633567)</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>Musical instrument learning in adults >50 enhances motor-auditory-PFC functional connectivity</td><td>Multiple neuroimaging studies; reviewed in Wan & Schlaug, 2010; Herholz & Zatorre, 2012</td><td><span class="ok">✓ Confirmed</span></td></tr>
+<tr><td>12–18 month rotation recommendation for maximum neuroplastic stimulus</td><td>Derived from inverted-U trajectory (eNeuro 2025) and dynamic restructuring model (Pliatsikas 2020)</td><td><span class="cv">⚠ The rotation recommendation is a logical extrapolation from the inverted-U neuroplastic trajectory (confirmed) and the principle that novelty drives adaptation more than mastery (confirmed). However, no RCT has directly compared cognitive challenge rotation intervals on clinical outcomes. The direction is mechanistically sound; the specific 12–18 month interval is a practical synthesis, not an empirically determined optimum.</span></td></tr>
+</table>
+</div>
+
+<div class="fn">
+<strong>Key References:</strong> Mårtensson, J. et al. (2012). "Growth of language-related brain areas after foreign language learning." <em>NeuroImage</em>, 63:240–244. &nbsp;|&nbsp; eNeuro (2025). "Experience-Dependent Neuroplasticity in the Hippocampus of Bilingual Young Adults." ENEURO.0128-25.2025. &nbsp;|&nbsp; DeLuca, V. et al. (2022). "The effects of bilingualism on hippocampal volume in ageing bilinguals." <em>Brain Struct. Funct.</em>, 227:979–994. &nbsp;|&nbsp; 2025 FLL Study. "Stimulating Neuroplasticity Through Language Learning: Innovative Pathways to Healthy Aging." PMC 12760761. &nbsp;|&nbsp; Edwards, J.D. et al. (2017). "Speed of processing training results in lower risk of dementia." <em>Alzheimer's & Dementia: TRCI</em>, 3:603–611.
+</div>
+
+</div>
+</body>
+</html>
