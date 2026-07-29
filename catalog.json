@@ -2586,6 +2586,35 @@
         "lecture_hormesis",
         "lecture_hormetic_stress_dosing"
       ]
+    },
+    {
+      "id": "lecture_trt_erythrocytosis",
+      "title": "Testosterone Therapy & Erythrocytosis",
+      "description": "TRT reliably raises hematocrit via three parallel mechanisms — and the right response is to lower the setpoint (dose), not just fight it from below with phlebotomy.",
+      "filename": "lectures/lecture_trt_erythrocytosis.html",
+      "added": "2026-07-28",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Structural Integrity"
+        ],
+        "system": [
+          "Cardiovascular"
+        ],
+        "theme": [
+          "Dose & Protocol",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_testosterone_hpg_axis",
+        "lecture_quarterly_diagnostic",
+        "lecture_hormetic_stress_dosing",
+        "lecture_readiness_algorithm"
+      ]
     }
   ]
 }
