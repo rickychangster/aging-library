@@ -2615,6 +2615,126 @@
         "lecture_hormetic_stress_dosing",
         "lecture_readiness_algorithm"
       ]
+    },
+    {
+      "id": "lecture_convex_wide_window_tissues",
+      "title": "Convex Response — The Wide-Window Tissues",
+      "description": "For cardiac output, mitochondrial density, muscle mass, and brain function, the dose-response curve is convex: more stress genuinely yields more gain, and caution simply leaves capacity on the table.",
+      "filename": "lectures/lecture_convex_wide_window_tissues.html",
+      "added": "2026-08-13",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Musculoskeletal",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Dose & Protocol",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_antifragile_engine",
+        "lecture_reserve_universal_principle",
+        "lecture_aerobic_dose_response",
+        "lecture_resistance_dose_response"
+      ]
+    },
+    {
+      "id": "lecture_threshold_narrow_window_tissues",
+      "title": "Threshold Response — The Narrow-Window Tissues",
+      "description": "Cartilage, tendons, and bone operate on threshold curves — they don't strengthen gradually but fail silently below apparent limits, making them the most important constraint in any progressive overload program.",
+      "filename": "lectures/lecture_threshold_narrow_window_tissues.html",
+      "added": "2026-08-13",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Structural Integrity"
+        ],
+        "system": [
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Dose & Protocol",
+          "Stress & Resilience"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_convex_wide_window_tissues",
+        "lecture_antifragile_engine",
+        "lecture_tissue_tolerance_return_to_loading",
+        "lecture_supercompensation_curve"
+      ]
+    },
+    {
+      "id": "lecture_timescale_mismatch",
+      "title": "Timescale Mismatch — Programming to the Slowest Link",
+      "description": "Overuse injury is a rate error — tendons and cartilage adapt 10× slower than muscle, so the programming bottleneck is always the connective tissue, not the muscle burning under load.",
+      "filename": "lectures/lecture_timescale_mismatch.html",
+      "added": "2026-08-13",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Structural Integrity"
+        ],
+        "system": [
+          "Musculoskeletal"
+        ],
+        "theme": [
+          "Dose & Protocol",
+          "Recovery Science"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_threshold_narrow_window_tissues",
+        "lecture_convex_wide_window_tissues",
+        "lecture_tissue_tolerance_return_to_loading",
+        "lecture_supercompensation_curve"
+      ]
+    },
+    {
+      "id": "lecture_measuring_reserve",
+      "title": "Measuring Reserve — Which Numbers Actually Tell You Where You Stand",
+      "description": "The reserve framework only works if reserve can be measured before it fails — a system-by-system guide to the validated field proxies that tell you where each buffer actually stands.",
+      "filename": "lectures/lecture_measuring_reserve.html",
+      "added": "2026-08-13",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Mitochondrial & Energy"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Musculoskeletal",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Systems Thinking",
+          "Dose & Protocol"
+        ],
+        "intervention": [
+          "Measure Yourself"
+        ]
+      },
+      "related": [
+        "lecture_reserve_universal_principle",
+        "lecture_readiness_algorithm",
+        "lecture_quarterly_diagnostic",
+        "lecture_vo2max_capacity_margin"
+      ]
     }
   ]
 }
