@@ -2735,6 +2735,65 @@
         "lecture_quarterly_diagnostic",
         "lecture_vo2max_capacity_margin"
       ]
+    },
+    {
+      "id": "lecture_the_asymmetries",
+      "title": "The Asymmetries — Reserve Built Slowly, Lost Quickly",
+      "description": "Reserve follows a hysteresis loop, built across years and lost in weeks. This build-slow-lose-fast asymmetry, and its barbell and via-negativa implications, closes the seven-lecture Reserve series.",
+      "filename": "lectures/lecture_the_asymmetries.html",
+      "added": "2026-09-05",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress",
+          "Structural Integrity"
+        ],
+        "system": [
+          "Cardiovascular",
+          "Musculoskeletal",
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Stress & Resilience",
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_measuring_reserve",
+        "lecture_antifragile_engine",
+        "lecture_supercompensation_curve",
+        "lecture_reserve_universal_principle"
+      ]
+    },
+    {
+      "id": "lecture_101_irreducible_core_and_letter",
+      "title": "The Irreducible Core, and a Letter Forward",
+      "description": "A ten-sentence distillation of a hundred lectures, followed by a letter from the author at seventy on what years of unglamorous consistency ultimately turned out to be worth.",
+      "filename": "lectures/lecture_101_irreducible_core_and_letter.html",
+      "added": "2026-09-05",
+      "tags": {
+        "mechanism": [
+          "Adaptive Stress"
+        ],
+        "system": [
+          "Brain & Cognition"
+        ],
+        "theme": [
+          "Social & Meaning",
+          "Systems Thinking"
+        ],
+        "intervention": [
+          "Move & Exercise"
+        ]
+      },
+      "related": [
+        "lecture_the_asymmetries",
+        "lecture_reserve_universal_principle",
+        "lecture_complexity_budget",
+        "lecture_readiness_algorithm"
+      ]
     }
   ]
 }
